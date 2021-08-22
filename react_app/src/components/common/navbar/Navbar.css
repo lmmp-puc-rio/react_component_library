@@ -1,0 +1,29 @@
+.navbar {
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+}
+  .navlinks {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    letter-spacing: 3px;
+    font-weight: bold;
+    width: 50%;
+  }
+    .navbar-item {
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+      color: inherit;
+      text-decoration: inherit;
+      text-transform: uppercase;
+      outline: none;
+    }
+  
+  .navmenu {
+    overflow: hidden;
+    flex: 1;
+    flex-direction: column;
+  }
