@@ -1,7 +1,7 @@
 // # Main Import 
 import React from 'react';
 // # Main SubComponents
-import { Navbar,Logo,Menu } from '../../common';
+import { Navbar,Logo } from '../../common';
 
 // # Import Component Style
 import './Header.css'
@@ -20,10 +20,8 @@ function Header () {
                 <section className="header-top_navbar">
                     <Navbar />
                 </section>
-                <section className="header-top_menu">
-                    <Menu />
-                </section>
             </section>
+            <hr className = "header-top_separator"/>
             {/*  Inferior Section for free text and link */}
             <section  className="header-bottom">
                 <section  className="header-bottom_info">

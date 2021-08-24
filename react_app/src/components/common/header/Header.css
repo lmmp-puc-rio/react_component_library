@@ -27,28 +27,27 @@
     .header-top_logo {
       display: flex;
       text-decoration: none;
-      justify-items: left;
-      margin-left: 10px;
+      margin-left: 20px;
     }
     
     .header-top_seperator {
       width: 100%;
-      border: none;
-      height: 2px;
+      height: 3px;
       margin-top: 2px;
-      background-color: black;
+      color: inherit;
     }
     
     .header-top_navbar {
       display: flex;
       flex: 1;
       flex-direction: column;
+      color: inherit;
+      margin-left: 100px;
     }
   
   .navigation {
     display: flex;
     flex: 1;
     flex-direction: row;
-    justify-content: flex-end;
     margin-right: 55px;
   }
