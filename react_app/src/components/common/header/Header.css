@@ -19,7 +19,7 @@
 
   .header-top {
     display: flex;
-    height: 80px;
+    height: 8vh;
     font-size: 24px;
     align-items: center;
   }
@@ -33,8 +33,6 @@
     .header-top_seperator {
       width: 100%;
       height: 3px;
-      margin-top: 2px;
-      color: inherit;
     }
     
     .header-top_navbar {
