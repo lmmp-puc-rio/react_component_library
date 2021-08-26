@@ -9,8 +9,8 @@ function Menu () {
     
     return (
 
-        <div className="header-top_menu">
-            Menu Component
+        <div className="menu-toggle">
+            <i className="fas fa-bars fa-lg"></i>
         </div>
     )
 

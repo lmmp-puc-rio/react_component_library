@@ -7,9 +7,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
+    justify-items: center;
     color: inherit;
-    text-decoration: inherit;
-    text-transform: uppercase;
-    outline: none;
+  }
+
+  .menu-toggle {
+    cursor: pointer;
+    margin-right: 20px;
+    /* display: none; */
   }
