@@ -1,20 +1,20 @@
 # react_component_library
 Library of developed components of React JS 
 
-Index
+Index:
 
 1-Logo
     Dependencies: none
-    Description: icon+text logo
+    Description: icon + text logo
 
 2-Navbar
     Dependencies: none
-    Description: static navbar with single-level items
+    Description: responsive navbar with single-level static items and toggle hamburger menu.
 
-3-Menu
+3-Header
+    Dependencies: Logo and Navbar
+    Description: 2 row Header with logo and navbar component on first row and contact mail on second row.
+
+4-Menu
     Dependencies: none
-    Description: static menu with icon+items
-
-4-Header
-    Dependencies: Logo, Navbar and Menu
-    Description: icon+text logo
+    Description: menu of static items
