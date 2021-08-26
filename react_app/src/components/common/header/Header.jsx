@@ -24,11 +24,11 @@ function Header () {
             <hr className = "header-top_separator"/>
             {/*  Inferior Section for free text and link */}
             <section  className="header-bottom">
-                <section  className="header-bottom_info">
-                    text;
-                </section>
-                <section  className="header-top_ink">
-                    link;
+                <div>
+                    contact:&nbsp;
+                </div>
+                <section  className="header-bottom_mail">
+                    <a href = "mailto: info@difsolutions.com"> info@difsolutions.com</a>
                 </section>
             </section>
         </section>
