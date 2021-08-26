@@ -10,10 +10,18 @@ import { Header } from './components/common';
 
 
 function App() {
+
+  // Set navlinks Object
+  const navlinks = [
+    {url: "https://google.com" , title: "Home", className: "navbar-item"},
+    {url: "/" , title: "About", className: "navbar-item"},
+    {url: "/" , title: "Control", className: "navbar-item"},
+    {url: "/" , title: "Help", className: "navbar-item"}]
+
   return (
     // < ThemeProvider theme={theme}>
       <div className="App">
-        <Header />
+        <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div className="main">
 
         </div>

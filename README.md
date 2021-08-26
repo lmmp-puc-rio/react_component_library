@@ -5,15 +5,20 @@ Index:
 
 1-Logo
     Dependencies: none
+    Input props: url, text and iconClassName
     Description: icon + text logo
 
 2-Navbar
     Dependencies: none
-    Description: responsive navbar with single-level static items and toggle hamburger menu.
+    Input props: 
+        navlinks object array = 
+            [ ... , {url: ... , title: ... , className: ...} , ... ]
+    Description: responsive navbar with single-level dynamic navlinks and toggle hamburger menu.
 
 3-Header
     Dependencies: Logo and Navbar
-    Description: 2 row Header with logo and navbar component on first row and contact mail on second row.
+    Input props: mail and navlinks(check Navbar)
+    Description: 2 rows Header, with Logo and Navbar Components on the 1st row and Contact mail on the 2nd row.
 
 4-Menu
     Dependencies: none
