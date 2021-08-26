@@ -1,9 +1,6 @@
 // # Main Import
 import React, { useState } from 'react';
 
-// # Main SubComponents
-import { Menu } from '../../common';
-
 // # Import Component Style
 import './Navbar.css'
 
@@ -47,8 +44,11 @@ function Navbar () {
                 <li className="navbar-item"> <a href="\" >Control</a> </li>
                 <li className="navbar-item"> <a href="\" >Control</a> </li>
             </ul>
+            {/* Hamburguer Menu */}
             <div onClick={hangleNavLinksToggle} className="navmenu">
-                <Menu />
+                <div className="navmenu-menu-toggle">
+                    <i className="fas fa-bars fa-lg"></i>
+                </div>
             </div>
         </nav>
         
