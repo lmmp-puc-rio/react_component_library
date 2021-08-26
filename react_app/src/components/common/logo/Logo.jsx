@@ -5,15 +5,15 @@ import React from 'react';
 import './Logo.css'
 
 // # Logo React Component Construction
-function Logo () {
+function Logo (props) {
     
     return (
         // Logo assembled by Icon and Name
-        <a className="logo" href='/'>
+        <a className="logo" href={props.url}>
             {/* Logo Icon */}
-            <i className="fas fa-react"> </i>
+            <i className={props.iconClassName}> </i>
             {/* Logo Name */}
-            <h4>iferencial</h4>
+            <h4>{props.text}</h4>
         </a>
     )
 
