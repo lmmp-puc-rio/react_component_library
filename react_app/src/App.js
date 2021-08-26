@@ -6,7 +6,7 @@ import React from 'react';
 import './App.css';
 
 // All Components import
-import { Header } from './components/common';
+import { Header, GridForm } from './components/common';
 
 
 function App() {
@@ -23,7 +23,9 @@ function App() {
       <div className="App">
         <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div className="main">
-
+          <div className="scope">
+            <GridForm />
+          </div>
         </div>
       </div>
     // </ThemeProvider>

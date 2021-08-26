@@ -21,3 +21,12 @@ body {
   background-position: center;
   background-size: 100%
 }
+
+.scope {
+  background-color: transparent;
+  align-self: center;
+  justify-self: center;
+  height: 80vh;
+  width: 50%
+
+}
