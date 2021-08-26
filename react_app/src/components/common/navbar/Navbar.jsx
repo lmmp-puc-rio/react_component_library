@@ -4,8 +4,26 @@ import React, { useState } from 'react';
 // # Import Component Style
 import './Navbar.css'
 
+
+
 // Navbar React Component Construction
-function Navbar () {
+function Navbar (props) {
+
+    // Get navlinks Object from props
+    const navlinks = props.navlinks
+    // navlinks Object Example:
+    // const navlinks = [
+    //     {url: "/" , title: "Home", className: "navbar-item"},
+    //     {url: "/" , title: "About", className: "navbar-item"},
+    //     {url: "/" , title: "Control", className: "navbar-item"},
+    //     {url: "/" , title: "Help", className: "navbar-item"}]
+    
+    // Construction of Dinamic Navlinks
+    const listNavlinks = navlinks.map(
+        (link, index) => {
+            return <li key={index} className={link.className}><a href={link.url} >{link.title}</a> </li>;
+            }
+        );
 
     // Saves current state
     // state is an array composed of:
@@ -38,11 +56,8 @@ function Navbar () {
         <nav className="navbar" >
             {/* Navbar Link tree */}
             <ul className={renderClasses()}>
-                {/* Items: Replace for mapping */}
-                <li className="navbar-item"> <a href="\" >Home</a> </li>
-                <li className="navbar-item"> <a href="\" >About</a> </li>
-                <li className="navbar-item"> <a href="\" >Control</a> </li>
-                <li className="navbar-item"> <a href="\" >Control</a> </li>
+                {/* Item mapping */}
+                {listNavlinks}
             </ul>
             {/* Hamburguer Menu */}
             <div onClick={hangleNavLinksToggle} className="navmenu">
