@@ -18,15 +18,18 @@ function App() {
     {url: "/" , title: "Control", className: "navbar-item"},
     {url: "/" , title: "Help", className: "navbar-item"}]
 
+  const defaultValues = [
+    {name: "text", value: ""},
+  ]
   return (
     // < ThemeProvider theme={theme}>
       <div className="App">
         <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div className="main">
           <div className="scope">
-            <GridForm />
+              <GridForm defaultValues={defaultValues}/>
           </div>
-        </div>
+        </div> 
       </div>
     // </ThemeProvider>
   );

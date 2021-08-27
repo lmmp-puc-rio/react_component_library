@@ -19,14 +19,20 @@ body {
               url("./images/background-image.jpeg");
   height: 100vh;
   background-position: center;
-  background-size: 100%
+  background-size: 100%;
 }
 
 .scope {
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   align-self: center;
   justify-self: center;
-  height: 80vh;
-  width: 50%
+  width: 50%;
+  margin: 0 auto;
 
 }
