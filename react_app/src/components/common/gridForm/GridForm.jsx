@@ -14,9 +14,9 @@ function GridFormInput (props) {
     return (
         // Logo assembled by Icon and Name
             <form >
-                <div className="gridFormInput">
+                <div className="gridFormInputRow">
                     <label className="rowLabel">
-                        {props.name}
+                        {props.label}
                     </label>
                     {/* Important to set input tag name property */}
                     <input className="rowInput"
@@ -36,12 +36,13 @@ function GridFormInput (props) {
 function GridForm () {
     // const defaultValues = [
         // {name: "test2", value: "2"}];
-
-    const [state, setState] = useState({text1: "teste1" , text2: "teste2"})
-    
+    const [state, setState] = useState({rho: "0", mu: "0" })
+    const data = {  rho: {label: "Density [m3/kg]"},
+                    mu: {label: "Viscosity [Pa.s]"}};
+                    
     function onChangeCallback(event) {
         const { name , value } = event.target;
-
+        console.log({name});
         setState(prevState => ({ ...prevState, [name]: value}));
     }
 
@@ -49,8 +50,8 @@ function GridForm () {
         // Logo assembled by Icon and Name
         <div className="gridFormSection" >
             <h4> Section Title</h4>
-            <GridFormInput name={"text1"} value={state.text1} onChange={onChangeCallback} />
-            <GridFormInput name={"text2"} value={state.text2} onChange={onChangeCallback} />
+            <GridFormInput name={"rho"} label={data.rho.label} value={state.rho} onChange={onChangeCallback} />
+            <GridFormInput name={"mu"} label={data.mu.label} value={state.mu} onChange={onChangeCallback} />
         </div>
     )
 
