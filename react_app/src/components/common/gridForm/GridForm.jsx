@@ -1,6 +1,6 @@
 // # Main Import 
 import React, { useState } from 'react';
-import Logo from '../logo';
+
 
 // # Import Component Style
 import './GridForm.css'
@@ -10,13 +10,14 @@ function GridFormInput (props) {
     
     // Initialize variable states:
     // const [input, setInput] = props.input
+    
 
     return (
         // Logo assembled by Icon and Name
             <form >
                 <div className="gridFormInputRow">
                     <label className="rowLabel">
-                        {props.label}
+                        {props.data.label}
                     </label>
                     {/* Important to set input tag name property */}
                     <input className="rowInput"
@@ -26,6 +27,11 @@ function GridFormInput (props) {
                         value= {props.value}
                         onChange={(e) => props.onChange(e)}
                     />
+                    <select className="rowUnit">
+                        <option>
+                            teste
+                        </option>
+                    </select>
                 </div>
             </form>
     )
@@ -33,16 +39,26 @@ function GridFormInput (props) {
 }
 
 // # GrifForm Row React Component Construction
-function GridForm () {
+function GridForm (props) {
     // const defaultValues = [
         // {name: "test2", value: "2"}];
-    const [state, setState] = useState({rho: "0", mu: "0" })
-    const data = {  rho: {label: "Density [m3/kg]"},
-                    mu: {label: "Viscosity [Pa.s]"}};
+    // const [state, setState] = useState({rho: "0", mu: "0" })
+    
+    const data = props.data;
+    console.log(data)
+    const statesData = {};
+    
+    for (var key in data) {
+        statesData[key] = data[key].defaultValue;
+        statesData[key+"_unit"] = data[key].unitType;
+    }
+    console.log({statesData})
+    // console.log(statesData);
+    const [state, setState] = useState(statesData)
                     
+    //TODO: Store state variables always in SI units.
     function onChangeCallback(event) {
         const { name , value } = event.target;
-        console.log({name});
         setState(prevState => ({ ...prevState, [name]: value}));
     }
 
@@ -50,8 +66,14 @@ function GridForm () {
         // Logo assembled by Icon and Name
         <div className="gridFormSection" >
             <h4> Section Title</h4>
-            <GridFormInput name={"rho"} label={data.rho.label} value={state.rho} onChange={onChangeCallback} />
-            <GridFormInput name={"mu"} label={data.mu.label} value={state.mu} onChange={onChangeCallback} />
+            <GridFormInput name={"gap"} 
+                            data = {data.gap}
+                            value={state.gap} 
+                            onChange={onChangeCallback} />
+            <GridFormInput name={"size"} 
+                            data = {data.size} 
+                            value={state.size} 
+                            onChange={onChangeCallback} />
         </div>
     )
 
