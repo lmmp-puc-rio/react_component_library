@@ -10,7 +10,7 @@ function GridFormInput (props) {
     
     // Initialize variable states:
     // const [input, setInput] = props.input
-    
+    const data = props.data
 
     return (
         // Logo assembled by Icon and Name
