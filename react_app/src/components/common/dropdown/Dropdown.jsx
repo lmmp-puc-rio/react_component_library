@@ -5,9 +5,9 @@ import React from 'react';
 import './Dropdown.css'
 
 // Populates Options from array options
-function populateOptions(options) {
+function populateOptions(name,options) {
     return options.map((option, index) => (
-        <option key={index} value={option}>{option}</option>
+        <option key={name+[index]} value={option}>{option}</option>
     ));
 }
 
@@ -15,11 +15,12 @@ function populateOptions(options) {
 function Dropdown (props) {
     
     const options = props.options;
+    const name = props.name;
 
     return (
         // dropdown
         <select className="dropdown">
-            {populateOptions(options)}
+            {populateOptions(name,options)}
         </select>
     )
 
