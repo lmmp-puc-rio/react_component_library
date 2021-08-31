@@ -1,37 +1,44 @@
 // # Main Import 
 import React, { useState } from 'react';
 
+// All Components import
+import { Dropdown } from '../../common';
 
 // # Import Component Style
-import './GridForm.css'
+import './GridForm.css';
+
+
+function unitOptions(object) {
+    return Object.keys(object);
+}
+
 
 // # GrifForm Row React Component Construction
 function GridFormInput (props) {
     
-    // Initialize variable states:
-    // const [input, setInput] = props.input
-    const data = props.data
+    // Initialize local variable:
+    const name = props.name;
+    const data = props.data;
+    const value =props.value;
+    const conversionFactors = props.conversionFactors;
 
     return (
         // Logo assembled by Icon and Name
             <form >
                 <div className="gridFormInputRow">
                     <label className="rowLabel">
-                        {props.data.label}
+                        {data.label}
                     </label>
                     {/* Important to set input tag name property */}
                     <input className="rowInput"
-                        name={props.name}
+                        name={name}
                         type="text"
                         required
-                        value= {props.value}
+                        value= {value}
                         onChange={(e) => props.onChange(e)}
                     />
-                    <select className="rowUnit">
-                        <option>
-                            teste
-                        </option>
-                    </select>
+                    {/* Dropdown receives array of options */}
+                    <Dropdown name={[name]+"_unit"} options={unitOptions(conversionFactors)}/>
                 </div>
             </form>
     )
@@ -45,7 +52,7 @@ function GridForm (props) {
     // const [state, setState] = useState({rho: "0", mu: "0" })
     
     const data = props.data;
-    console.log(data)
+    const convertionFactor = props.conversionFactors;
     const statesData = {};
     
     for (var key in data) {
@@ -63,17 +70,16 @@ function GridForm (props) {
     }
 
     return (
-        // Logo assembled by Icon and Name
+        // GridForm Section with some fields
         <div className="gridFormSection" >
             <h4> Section Title</h4>
-            <GridFormInput name={"gap"} 
-                            data = {data.gap}
-                            value={state.gap} 
-                            onChange={onChangeCallback} />
-            <GridFormInput name={"size"} 
-                            data = {data.size} 
-                            value={state.size} 
-                            onChange={onChangeCallback} />
+            {Object.keys(data).map((key, objectData) => (
+                <GridFormInput name={key}
+                                key={key} 
+                                data = {data[key]}
+                                value={state[key]} 
+                                conversionFactors = {convertionFactor[data[key].unitType]}
+                                onChange={onChangeCallback} /> ))};
         </div>
     )
 
