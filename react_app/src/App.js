@@ -19,12 +19,12 @@ function App() {
     {url: "/" , title: "Help", className: "navbar-item"}]
     
     //TODO: Bring from the Flask API
-    const conversionFactors = { lenght: {"km": 0.001, "mm": 1000, "um": 1000000, "m": 1},
+    const conversionFactors = { lenght: {"km": 1000, "cm": 1/100, "mm": 1/1000, "um": 1/1000000, "m": 1},
                                 pressure: {"psi": 0.000145038, "mmHg": 0.00750062, "Pa": 1,}};
     
-    const  data = {gap: {label: "Gap:", defaultValue:"0", unitType:"lenght"},
-                  size: {label: "Size:", defaultValue:"0", unitType:"lenght"},
-                  p0: {label: "Inlet Pressure:", defaultValue:"0", unitType:"pressure"}};
+    const  data = {gap: {label: "Gap:", defaultValue:"0", unitType:"lenght", selectecUnit:"mm"},
+                  size: {label: "Size:", defaultValue:"0", unitType:"lenght", selectecUnit:"cm"},
+                  p0: {label: "Inlet Pressure:", defaultValue:"0", unitType:"pressure", selectecUnit:"psi"}};
   return (
     // < ThemeProvider theme={theme}>
       <div name="app" className="App">
@@ -36,7 +36,7 @@ function App() {
         </div> 
       </div>
     // </ThemeProvider>
-  );
+  )
 }
 
 export default App;
