@@ -16,10 +16,13 @@ function Dropdown (props) {
     
     const options = props.options;
     const name = props.name;
+    const value = props.value;
 
     return (
         // dropdown
-        <select className="dropdown">
+        <select name={name} 
+                value={value} 
+                className="dropdown">
             {populateOptions(name,options)}
         </select>
     )
