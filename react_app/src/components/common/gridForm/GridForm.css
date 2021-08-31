@@ -1,24 +1,26 @@
 .gridFormSection {
-    justify-items: left;
+    justify-items: right;
     border-color: black;
+    width: 100%;
 }
 
 .gridFormSection h4{
     width: 100%;
+    color: white;
 }
 
 .gridFormInputRow {  
     width: 100%;
-    display: inline-block;
 }
 
 .rowLabel {
     padding-left: 10px;
     padding-right: 10px;
     text-align: right;
-    color: black;
-    /* display: inline-block; */
+    color: rgb(255, 255, 255);
+    display: inline-block;
     height: 100%;
+    min-width: 150px;
 }
 
 .rowInput {
@@ -28,8 +30,8 @@
     background-color: white;
     border-color: black;
     color: black;
-    /* display: inline-block; */
     height: 100%;
+    max-width: 40%;
 }
 
 
@@ -40,6 +42,5 @@
     background-color: white;
     border-color: black;
     color: black;
-    /* display: inline-block; */
     height: 100%;
 }

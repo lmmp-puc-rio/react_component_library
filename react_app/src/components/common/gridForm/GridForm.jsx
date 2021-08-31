@@ -57,7 +57,7 @@ function GridForm (props) {
     
     for (var key in data) {
         statesData[key] = data[key].defaultValue;
-        statesData[key+"_unit"] = data[key].unitType;
+        statesData[key+"_unit"] = data[key].selectecUnit;
     }
     console.log({statesData})
     // console.log(statesData);
@@ -77,9 +77,9 @@ function GridForm (props) {
                 <GridFormInput name={key}
                                 key={key} 
                                 data = {data[key]}
-                                value={state[key]} 
+                                value={state[key]}
                                 conversionFactors = {convertionFactor[data[key].unitType]}
-                                onChange={onChangeCallback} /> ))};
+                                onChange={onChangeCallback} /> ))}
         </div>
     )
 
