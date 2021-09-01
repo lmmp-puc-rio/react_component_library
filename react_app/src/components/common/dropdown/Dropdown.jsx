@@ -16,12 +16,12 @@ function Dropdown (props) {
     
     const options = props.options;
     const name = props.name;
-    const value = props.value;
 
     return (
         // dropdown
         <select name={name} 
-                value={value} 
+                value={props.state[name]}
+                onChange = {(e) => props.onChange(e)} 
                 className="dropdown">
             {populateOptions(name,options)}
         </select>

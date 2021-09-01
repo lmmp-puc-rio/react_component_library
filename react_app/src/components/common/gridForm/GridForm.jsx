@@ -19,7 +19,7 @@ function GridFormInput (props) {
     // Initialize local variable:
     const name = props.name;
     const data = props.data;
-    const value =props.value;
+    const value = props.value;
     const conversionFactors = props.conversionFactors;
 
     return (
@@ -38,7 +38,10 @@ function GridFormInput (props) {
                         onChange={(e) => props.onChange(e)}
                     />
                     {/* Dropdown receives array of options */}
-                    <Dropdown name={[name]+"_unit"} options={unitOptions(conversionFactors)}/>
+                    <Dropdown   name={[name]+"_unit"} 
+                                options = {unitOptions(conversionFactors)}
+                                state = {props.state}
+                                onChange = {props.onChange}/>
                 </div>
             </form>
     )
@@ -78,6 +81,7 @@ function GridForm (props) {
                                 key={key} 
                                 data = {data[key]}
                                 value={state[key]}
+                                state = {state}
                                 conversionFactors = {convertionFactor[data[key].unitType]}
                                 onChange={onChangeCallback} /> ))}
         </div>
