@@ -6,7 +6,10 @@ import React from 'react';
 import './App.css';
 
 // All Components import
-import { Header, GridForm } from './components/common';
+import { Header, GridForm, 
+        Button, Container, Link, 
+        darkColors, lightColors } from './components/common';
+
 
 
 function App() {
@@ -33,7 +36,29 @@ function App() {
           <div name="scope" className="scope">
               <GridForm data={data} conversionFactors={conversionFactors} />
           </div>
-        </div> 
+        </div>
+        <Container>
+          <Link 
+            tooltip={"Ação 0"}
+            icon="fas fa-minus" 
+            href="/baaah" 
+            styles={{backgroundColor: darkColors.blue, 
+                    color: lightColors.white}}/>
+          <Link
+            tooltip={"Ação 0"}
+            icon="fas fa-react" 
+            href="/baaah" 
+            styles={{backgroundColor: darkColors.blue, 
+                color: lightColors.white}}/>
+          <Button
+            tooltip={"Ação 0"}
+            icon="fas fa-plus"
+            rotate={true}
+            styles={{backgroundColor: darkColors.blue, 
+              color: lightColors.white}}>
+              
+          </Button>
+        </Container> 
       </div>
     // </ThemeProvider>
   )
