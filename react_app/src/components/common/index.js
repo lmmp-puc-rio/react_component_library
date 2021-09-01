@@ -2,6 +2,8 @@ import Header from "./header";
 import Navbar from "./navbar";
 import Logo from "./logo";
 import Menu from "./menu";
+import Dropdown from "./dropdown";
+import GridForm from "./gridForm";
 
 
 export {
@@ -9,4 +11,6 @@ export {
     Navbar,
     Logo,
     Menu,
+    Dropdown,
+    GridForm,
 }

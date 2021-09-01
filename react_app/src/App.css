@@ -11,7 +11,6 @@ body {
 
 
 .App {
-  text-align: center;
 }
 
 .main {
@@ -19,5 +18,19 @@ body {
               url("./images/background-image.jpeg");
   height: 100vh;
   background-position: center;
-  background-size: 100%
+  background-size: 100%;
+}
+
+.scope {
+  min-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  align-self: center;
+  justify-self: center;
+  margin: 0 auto;
+  max-width: 30%;
+
 }
