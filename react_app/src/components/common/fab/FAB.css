@@ -5,7 +5,7 @@
   --tooltip-forecolor: #FAFAFA;
 }
 
-.fab-container {
+.fab-main {
   bottom: 10vh;
   position: fixed;
   margin: 1em;
@@ -46,7 +46,7 @@
   transform: translateY(50px);
 }
 
-.fab-container:hover 
+.fab-main:hover 
 .fab-item:not(:last-child) {
   height: 40px;
   opacity: 1;
@@ -60,7 +60,7 @@
   opacity: 0;
 }
 
-.fab-container:hover 
+.fab-main:hover 
 .fab-item:not(:last-child) i {
   opacity: 1;
 }

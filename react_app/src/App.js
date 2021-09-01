@@ -7,7 +7,7 @@ import './App.css';
 
 // All Components import
 import { Header, GridForm, 
-        Button, Container, Link, 
+        Button, FAB, Link,
         darkColors, lightColors } from './components/common';
 
 
@@ -37,7 +37,7 @@ function App() {
               <GridForm data={data} conversionFactors={conversionFactors} />
           </div>
         </div>
-        <Container>
+        <FAB>
           <Link 
             tooltip={"Ação 0"}
             icon="fas fa-minus" 
@@ -58,7 +58,7 @@ function App() {
               color: lightColors.white}}>
               
           </Button>
-        </Container> 
+        </FAB> 
       </div>
     // </ThemeProvider>
   )

@@ -1,3 +1,3 @@
-import { Container, Link, Button, darkColors, lightColors } from "./FAB";
+import { FAB, Link, Button} from "./FAB";
 
-export { Container, Link, Button, darkColors, lightColors };
+export { FAB, Link, Button};

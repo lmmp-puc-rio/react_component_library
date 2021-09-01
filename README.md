@@ -38,9 +38,9 @@ Library of developed components of React JS
     
     Description: Form in the shape of a grid component divided in sections. Grid is composed of the variable label, input textbox for the variable value and a dropdown selection box for variable unit selection. Variables values and units are set as states, and the fields are passed automatically through two Objects( data ans conversionFactors )
 
-## 7-FloatActionButtom: Composed by a Container, Link and Buttom components  
+## 7-FloatActionButtom: Composed by a FAB (Main Container), Link and Buttom components  
 #TODO: Automate links and buttom creation from data
-### 7a-Container  
+### 7a-FAB(Main Container)  
     Dependencies: none
     
     Input props: position

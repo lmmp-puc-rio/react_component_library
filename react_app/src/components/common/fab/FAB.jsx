@@ -3,27 +3,13 @@ import React from 'react';
 
 // # Import Component Style
 import './FAB.css'
-import {darkColors, lightColors} from './MaterialColors'
+import {darkColors, lightColors} from '../../common/MaterialColors'
 
-// # Logo React Component Construction
-function FAB (props) {
-    
-    return (
-        // Logo assembled by Icon and Name
-        <a className="logo" href={props.url}>
-            {/* Logo Icon */}
-            <i className={props.iconClassName}> </i>
-            {/* Logo Name */}
-            <h4>{props.text}</h4>
-        </a>
-    )
-
-}
-
-function Container(props) {
+// # FAB React Component Construction
+function FAB(props) {
 
     return (
-        <nav className={`fab-container ${props.className}`} style={props.styles}>
+        <nav className={`fab-main ${props.className}`} style={props.styles}>
             {props.children}
         </nav>
     )
@@ -60,4 +46,4 @@ const defaultItemStyles = {
     border: "none"
 }
 
-export { Container, Link, Button, darkColors, lightColors }
+export { FAB, Link, Button, darkColors, lightColors }
