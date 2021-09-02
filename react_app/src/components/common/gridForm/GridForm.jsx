@@ -54,6 +54,12 @@ function GridForm (props) {
         // {name: "test2", value: "2"}];
     // const [state, setState] = useState({rho: "0", mu: "0" })
     
+    // data Object Structure:
+    // data = {var1: {label: , defaultValue: ,unitType: ,selectecUnit: },
+    //         var2: {label: , defaultValue: ,unitType: ,selectecUnit: },
+    //         var3: {label: , defaultValue: ,unitType: ,selectecUnit: }
+    //          ...
+    //         }
     const data = props.data;
     const convertionFactor = props.conversionFactors;
     const statesData = {};
