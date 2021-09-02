@@ -125,7 +125,7 @@
 .fab-item.fab-rotate:focus, 
 .fab-item.fab-rotate:hover 
 {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
   box-shadow: 5px 5px 20px rgba(0,0,0,0.19), 3px 3px 6px rgba(0,0,0,0.23);
   transition: box-shadow .2s ease, transform .1s ease;
   outline: none;
@@ -134,7 +134,7 @@
 .fab-item.fab-rotate:nth-last-child(1)[tooltip]:hover:before,
 .fab-item.fab-rotate:nth-last-child(1)[tooltip]:hover:after 
 {
-  transform: rotate(-45deg);
+  transform: rotate(-135deg);
   bottom: -60%;
   right: 60%;
 }

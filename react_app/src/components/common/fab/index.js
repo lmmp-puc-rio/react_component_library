@@ -1,3 +1,3 @@
-import { FAB, Link, Button} from "./FAB";
+import { FAB, Action, ActionButton} from "./FAB";
 
-export { FAB, Link, Button};
+export { FAB, Action, ActionButton};
