@@ -1,5 +1,7 @@
 // Main import of React
 import React from 'react';
+import { BrouserRouter as Router, Route, Switch } from "react-router-dom";
+
 // Theme importv #TODO
 // import { ThemeProvider } from 'styled-components';
 // import { theme } from './theme'
