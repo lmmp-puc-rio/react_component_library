@@ -34,3 +34,17 @@ body {
   max-width: 30%;
 
 }
+
+.case-inputs {
+  min-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+  align-self: center;
+  justify-self: center;
+  margin: 0 auto;
+  max-width: 30%;
+
+}
