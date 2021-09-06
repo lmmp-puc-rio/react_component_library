@@ -1,6 +1,6 @@
 // Main import of React
 import React from 'react';
-import { BrouserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Theme importv #TODO
 // import { ThemeProvider } from 'styled-components';
@@ -18,10 +18,10 @@ function App() {
 
   // Set navlinks Object
   const navlinks = [
-    {url: "https://google.com" , title: "Home", className: "navbar-item"},
-    {url: "/" , title: "About", className: "navbar-item"},
-    {url: "/" , title: "Control", className: "navbar-item"},
-    {url: "/" , title: "Help", className: "navbar-item"}]
+    {url: "/" , title: "Home", className: "navbar-item"},
+    {url: "/cases" , title: "Cases", className: "navbar-item"},
+    {url: "/control" , title: "Control", className: "navbar-item"},
+    {url: "/help" , title: "Help", className: "navbar-item"}]
     
   //TODO: Bring all dynamic data from the Flask API
   const conversionFactors = { lenght: {"km": 1000, "cm": 1/100, "mm": 1/1000, "um": 1/1000000, "m": 1},
@@ -37,42 +37,39 @@ function App() {
                                 {tooltip:"Ação 1" ,icon:"fas fa-minus" ,key:"action2" ,url:"/" ,backgroundColor: darkColors.blue ,color: lightColors.white}
                                 ]};
   return (
-    // < ThemeProvider theme={theme}>
+    // React Browser Router
+    <Router>
       <div name="app" className="App">
         <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div name="main" className="main">
-          <div name="scope" className="scope">
-              {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
-              <GridForm data={formData} conversionFactors={conversionFactors} />
-          </div>
+        <Switch>
+            {/* Main page Route */}
+            <Route exact path="/">
+                <div className="scope" style={{color:"white"}}>Main Page</div>
+            </Route>
+
+            {/* User Cases Route */}
+            <Route exact path={navlinks[1].url}>
+              <div name="inputs" className="case-inputs">
+                {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
+                <GridForm data={formData} conversionFactors={conversionFactors} />
+              </div>
+            </Route>
+
+            {/* Case i Route */}
+            <Route exact path={[navlinks[1].url+"_1"]}>
+              <div name="inputs" className="case-inputs">
+                {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
+                <GridForm data={formData} conversionFactors={conversionFactors} />
+              </div>
+            </Route>
+          </Switch>
         </div>
-        
         {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
         <FAB data={actionData} />
-        
-        {/* MANUAL CREATION: insert n Actions and 1 ActionButtom Components */}
-        {/* <FAB>
-          <Action 
-            tooltip={"Ação 0"}
-            icon="fas fa-minus" 
-            href="/baaah" 
-            styles={{backgroundColor: darkColors.blue, 
-                    color: lightColors.white}}/>
-          <Action
-            tooltip={"Ação 1"}
-            icon="fas fa-react" 
-            href="/baaah" 
-            styles={{backgroundColor: darkColors.blue, 
-                color: lightColors.white}}/>
-          <ActionButton
-            tooltip={"Grupo de Ações"}
-            icon="fas fa-plus"
-            rotate={true}
-            styles={{backgroundColor: darkColors.blue, 
-              color: lightColors.white}}/>
-        </FAB>  */}
       </div>
-    // </ThemeProvider>
+    </Router>
+          
   )
 }
 
