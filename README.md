@@ -75,3 +75,8 @@ Library of developed components of React JS
     Dependencies: none
     
     Description: Video Card that has a video based on a youtube link, the title of the video and the description of the video.
+
+## 11-AccordionPanel
+    Dependencies: none
+    
+    Description: Accordion Panel.

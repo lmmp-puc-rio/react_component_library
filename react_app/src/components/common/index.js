@@ -7,6 +7,7 @@ import GridForm from "./gridForm";
 import Card from "./card";
 import NewsBox from "./newsBox";
 import VideoCard from "./videoCard"
+import Accordion from "./accordionPanel";
 import { FAB, Action, ActionButton} from "./fab";
 import { darkColors, lightColors } from "./MaterialColors"
 
@@ -24,6 +25,7 @@ export {
     Card,
     NewsBox, 
     VideoCard,
+    Accordion,
     darkColors, 
     lightColors,
 }
