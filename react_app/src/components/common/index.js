@@ -8,6 +8,7 @@ import Card from "./card";
 import NewsBox from "./newsBox";
 import VideoCard from "./videoCard"
 import Accordion from "./accordionPanel";
+import LiteratureReferences from "./literatureReference";
 import { FAB, Action, ActionButton} from "./fab";
 import { darkColors, lightColors } from "./MaterialColors"
 
@@ -26,6 +27,7 @@ export {
     NewsBox, 
     VideoCard,
     Accordion,
+    LiteratureReferences,
     darkColors, 
     lightColors,
 }
