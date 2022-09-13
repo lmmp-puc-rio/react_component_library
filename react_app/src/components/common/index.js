@@ -4,6 +4,8 @@ import Logo from "./logo";
 import Menu from "./menu";
 import Dropdown from "./dropdown";
 import GridForm from "./gridForm";
+import Card from "./card";
+import NewsBox from "./newsBox";
 import { FAB, Action, ActionButton} from "./fab";
 import { darkColors, lightColors } from "./MaterialColors"
 
@@ -17,7 +19,9 @@ export {
     GridForm,
     FAB, 
     Action, 
-    ActionButton, 
+    ActionButton,
+    Card,
+    NewsBox, 
     darkColors, 
     lightColors,
 }

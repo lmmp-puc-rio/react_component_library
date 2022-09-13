@@ -65,3 +65,8 @@ Library of developed components of React JS
     Dependencies: none
     
     Description: card with a image in the top, a card title, a card description and a button into the bottom
+
+## 9-NewsBox
+    Dependencies: none
+    
+    Description: News box that has a text and a image, with the option to change the side of the image and the text.
