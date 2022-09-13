@@ -80,3 +80,7 @@ Library of developed components of React JS
     Dependencies: none
     
     Description: Accordion Panel.
+## 12-LiteratureReference
+    Dependencies: none
+    
+    Description: A line element that has the title, year and the link for the reference.
