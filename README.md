@@ -60,3 +60,8 @@ Library of developed components of React JS
     Input props: tooltip, icon, href and styles(optional)
 
     Description: link that are shown when buttom is clicked or hobered by.
+
+## 8-Card
+    Dependencies: none
+    
+    Description: card with a image in the top, a card title, a card description and a button into the bottom
