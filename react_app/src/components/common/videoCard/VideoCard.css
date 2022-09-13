@@ -1,0 +1,63 @@
+.wrapper_video_card {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem)); */
+    /* grid-template-columns: repeat(auto-fit, minmax(672px, 378px)); */
+    /* gap: 2rem; */
+    grid-template-columns: repeat(1, minmax(672px, 378px));
+    gap: 10rem;
+    justify-content: center;
+}
+
+.videocard {
+    overflow: hidden;
+    box-shadow: 0 2px 10px #767b91;
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* cursor: pointer; */
+    transition: transform 200ms ease-in;
+}
+
+.videocard-image {
+    /* height: 315;
+    width: 560; */
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+
+    /* object-fit: cover; */
+    justify-content: center;
+}
+
+.videocard-title {
+    padding: 1rem;
+    text-align: center;
+}
+
+.videocard-description {
+    padding: 0 1rem;
+}
+
+.videocard-btn {
+    padding: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid #0b07e4;
+    background: transparent;
+    color: #0b07e4;
+    border-radius: 0.2rem;
+    transition: background 200ms ease-in, color 200ms ease-in;
+}
+
+/* .videocard:hover {
+    transform: scale(1.05);
+} */
+
+/* .videocard-btn:hover {
+    background: #0b07e4;
+    color: white;
+} */
