@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+
+
+.row-component {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.row-image-left {
+    justify-content: left;
+    object-fit: cover;
+}
+
+.row-image-right {
+    object-fit: cover;
+}
+
+.row-title-left {
+    padding: 1rem;
+    text-align: center;
+    background: transparent;
+
+}
+
+.row-title-right {
+    padding: 1rem;
+    text-align: center;
+    background: transparent;
+}
+
+.row-text-left {
+    padding: 0 1rem;
+    text-align: left;
+    background: transparent;
+
+}
+
+.row-text-right {
+    padding: 0 1rem;
+    text-align: right;
+    background: transparent;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 1200px) {
+    .row-component {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .row-image-right,
+    .row-image-left {
+        width: 100%;
+
+
+    }
+}
