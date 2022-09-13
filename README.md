@@ -70,3 +70,8 @@ Library of developed components of React JS
     Dependencies: none
     
     Description: News box that has a text and a image, with the option to change the side of the image and the text.
+
+## 10-VideoCard
+    Dependencies: none
+    
+    Description: Video Card that has a video based on a youtube link, the title of the video and the description of the video.
