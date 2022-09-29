@@ -1,78 +1,79 @@
 .navbar {
-    display: flex;
-    flex: 1;
-    justify-content: space-around;
-    min-height: 8vh;
-    width: 100%;
-    align-items: center;
-    color: inherit;
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  min-height: 8vh;
+  width: 100%;
+  align-items: center;
+  color: inherit;
 }
-  .navlinks {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    width: 80%;    
-    /* font-weight: bold; */
-    
-  }
-    
-    .navbar-item {
-      display: flex;
-      text-transform: uppercase;
-      outline: none;
-    }
-
-    /* Behavior of Navbar link */
-    .navbar-item a {
-      color: inherit;
-    }
-    
-    .navbar-item a:hover {
-      color: rgba(255, 255, 255, 1);
-    }
+.navlinks {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  width: 80%;    
+  font-weight: bold;
   
-  /* Menu */
-  .navmenu {
-    overflow: hidden;
+}
+  
+  .navbar-item {
+    display: flex;
+    text-transform: uppercase;
+    outline: none;
+  }
+
+  /* Behavior of Navbar link */
+  .navbar-item a {
+    color: inherit;
+  }
+  
+  .navbar-item a:hover {
+    color: rgb(0, 0, 0);
+  }
+
+/* Menu */
+.navmenu {
+  overflow: hidden;
+  flex-direction: column;
+  display: none;
+}
+  
+  .navmenu-menu-toggle {
+    cursor: pointer;
+    margin-right: 20px;
+    /* display: none; */
+  }
+
+/* Run this when screen max-width < 850px*/
+@media screen and (max-width: 850px){
+  body {
+    overflow-x:hidden;
+  }
+  .navmenu{ 
+    display: block;
+  }
+    .navbar{
+    justify-content: right;
+  }
+  .navlinks{
+    z-index: 1;
+    position: absolute;
+    right: 0px;
+    display: flex;
     flex-direction: column;
-    display: none;
+    height: 92vh;
+    align-items: center;
+    width: 100%;
+    top: 10vh;
+    background-color: rgba(25, 70, 167, 0.5);
+    /* Hide menu to the right side (sliding) */
+    transform: translatex(100%);
+    transition: transform 0.5s ease-in;
   }
-    
-    .navmenu-menu-toggle {
-      cursor: pointer;
-      margin-right: 20px;
-      /* display: none; */
-    }
 
-  /* Run this when screen max-width < 850px*/
-  @media screen and (max-width: 850px){
-    body {
-      overflow-x:hidden;
-    }
-    .navmenu{ 
-      display: block;
-    }
-      .navbar{
-      justify-content: right;
-    }
-    .navlinks{
-      position: absolute;
-      right: 0px;
-      display: flex;
-      flex-direction: column;
-      height: 92vh;
-      align-items: center;
-      width: 100%;
-      top: 10vh;
-      background-color: rgba(255,255,255,0.2);
-      /* Hide menu to the right side (sliding) */
-      transform: translatex(100%);
-      transition: transform 0.5s ease-in;
-    }
-
-    .active {
-      /* Bring back menu back to sight */
-      transform: translateX(0%);
-    }
-
+  .active {
+    /* Bring back menu back to sight */
+    transform: translateX(0%);
   }
+
+}

@@ -14,8 +14,8 @@ body {
 }
 
 .main {
-  background: linear-gradient(rgba(32, 29, 82, 0.5), rgba(100,100,100,0.5),rgba(255,255,255,0.5) ), 
-              url("./images/background-image.jpeg");
+  /* background: linear-gradient(rgba(32, 29, 82, 0.5), rgba(100,100,100,0.5),rgba(255,255,255,0.5) ), 
+              url("./images/background-image.jpeg"); */
   height: 100vh;
   background-position: center;
   background-size: 100%;
