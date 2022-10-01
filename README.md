@@ -80,7 +80,72 @@ Library of developed components of React JS
     Dependencies: none
     
     Description: Accordion Panel.
+
 ## 12-LiteratureReference
     Dependencies: none
     
     Description: A line element that has the title, year and the link for the reference.
+
+## 13-ExpandableGrid
+    Dependencies: gridActionIcon
+    
+    Description: A grid that changes size with the screen and has action buttons for each row.
+
+## 14-GridActionIcon
+    Dependencies: Link from "react-router-dom"
+    
+    Description: A grid that changes size with the screen and has action buttons for each row.
+
+## 15-RadioGroup: Composed by a group of RadioButtons 
+### 15a-RadioGroup
+    Dependencies: none
+    
+    Description: A group of radio buttons working as a single selection entry.
+
+### 15b-RadioButton
+    Dependencies: none
+    
+    Description: A single radio button.
+
+## 16-Toast: Composed by Toast and ToastComtexts
+### 16a-Toast
+    Dependencies: Toast Context
+    
+    Description: A message card that enters floating the screen and disappears after some times.
+
+### 16b-ToastContexts
+    Dependencies: createContext from React
+                  showToast from possibleAlerts(usually in the Toast folder).
+    
+    Description: Creates a context, so the actions performed by the components in different app sections can be seen by the Toast.
+
+## 16-ProtectedRoute: Composed by ProtectedRoute, AuthContexts and useAuth
+### 16a-ProtectedRoute
+    Dependencies: AuthContext
+                  Route, Redirect from "react-router-dom"
+    
+    Description: Routes to be used with Router-DOM, but with authentication protection.
+
+### 16b-AuthContexts
+    Dependencies: createContext from React
+                  useAuth
+    
+    Description: Creates a context, so the actions performed by the components in different app sections can be seen by the Toast.
+
+### 16c-useAuth
+    Dependencies: none
+    
+    Description: Hook to easy authentification by JWT in localstorage.
+
+## 17-Modal: Composed by Modal and ModalContexts
+### 17a-Modal
+    Dependencies: ModauContext
+                  ReactDOM from "react-dom"
+                  Link from "react-router-dom"
+    
+    Description: Modal window(blocking the app behind) that opens to give a warning or to ask confirmation.
+
+### 17b-ModalContexts
+    Dependencies: createContext from React
+    
+    Description: Creates a context, so the components in different app sections can access the Modal call.
