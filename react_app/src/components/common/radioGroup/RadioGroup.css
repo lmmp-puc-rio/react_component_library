@@ -1,0 +1,18 @@
+.radioButton{
+    
+    display: inline-flex;
+    border-radius: 50%;
+    background-image: none;
+    
+}
+
+.radioButton input[type="radio"]{
+    width: 20px;
+}
+
+.radioButton label{
+    padding-left: 2px;
+    padding-right: 6px;
+    align-self: center;
+    font-size: 10px;
+}
