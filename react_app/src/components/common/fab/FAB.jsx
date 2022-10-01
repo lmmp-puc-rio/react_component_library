@@ -1,3 +1,4 @@
+// FAB = Floating Action Buttons
 // # Main Import 
 import React from 'react';
 
@@ -52,6 +53,7 @@ function FAB(props) {
         {/* CREATE AUTOMATICALY FROM DATA*/}
             {/* //Loop through Actions Array */}
             {data.actions.map((action) => (
+                // Minor Action Buttons
                 <Action tooltip={action.tooltip}
                         icon={action.icon}
                         key={action.key}
@@ -60,8 +62,7 @@ function FAB(props) {
                                             color: action.color}} />
                 ))}
             
-                {/* //Action Buttom */}
-                {console.log(data.actionButtom)}
+                {/* //Main Action Buttom */}
                 <ActionButton   tooltip={data.actionButtom.tooltip}
                                 icon={data.actionButtom.icon}
                                 key={data.actionButtom.key}

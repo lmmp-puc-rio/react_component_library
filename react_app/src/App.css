@@ -35,7 +35,7 @@ body {
 
 }
 
-.case-inputs {
+.grid-container {
   min-width: 400px;
   height: 100vh;
   display: flex;
