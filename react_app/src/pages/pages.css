@@ -1,0 +1,10 @@
+.page {
+    align-self: center;
+}
+.pages-title{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
