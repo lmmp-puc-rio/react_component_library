@@ -7,7 +7,9 @@ import './Dropdown.css'
 // Populates Options from array options
 function populateOptions(name,options) {
     return options.map((option, index) => (
-        <option key={name+[index]} value={option}>{option}</option>
+        <option key={name+[index]} 
+                value={option}>{option}
+        </option>
     ));
 }
 
@@ -19,10 +21,13 @@ function Dropdown (props) {
 
     return (
         // dropdown
-        <select name={name} 
+        <select className={props.className}
+                // className="dropdown"        
+                name={name} 
                 value={props.state[name]}
-                onChange = {(e) => props.onChange(e)} 
-                className="dropdown">
+                onChange = {(e) => props.onChange(e)}
+                disabled={props.disabled}
+                >
             {populateOptions(name,options)}
         </select>
     )
