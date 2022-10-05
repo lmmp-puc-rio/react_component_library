@@ -12,7 +12,8 @@ import ExpandableGrid from "./expandableGrid";
 import RecursiveAccordion from "./recursiveAccordion";
 import RadioGroup from "./radioGroup";
 import { darkColors, lightColors } from "./MaterialColors";
-import Card from "./card";
+import CardCases from "./cardCases";
+import CardProjects from "./cardProjects";
 
 
 export {
@@ -31,7 +32,8 @@ export {
     ExpandableGrid,
     RecursiveAccordion,
     RadioGroup,
-    Card,
+    CardCases,
+    CardProjects,
     darkColors, 
     lightColors,
 }

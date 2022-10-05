@@ -1,21 +1,21 @@
-// Card = Card with a image into the top, a text into the bottom and a action button to go to a page
-// # Main Import 
-import React from 'react';
+// Generic Card = Card with a Title receiving Children Components (CardCases and CardProjects)
+// # Main Import
+import React from "react";
 
 // # Import Component Style
-import './Card.css'
+import "./Card.css";
 
-export default function Card(props) {
-    const card_data = props.data
-    return (
-        <div className="card">
-            <div className="card-body">
-                <img src={card_data.img} class="card-image" />
-                <h2 className="card-title">{card_data.title}</h2>
-                <p className="card-description">{card_data.description}</p>
-            </div>
-            <button className="card-btn">Go to {card_data.card_name} </button>
-        </div>
-    );
 
+
+function Card(props) {
+  const data = props.data;
+  
+  return (
+    <div className="card">
+          <h2 className="card-title">{data.title}</h2>
+          {props.children}
+    </div>
+  );
 }
+
+export default Card;
