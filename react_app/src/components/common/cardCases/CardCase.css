@@ -1,0 +1,41 @@
+.card-body-cases{
+    display: flex;
+    padding: 0 1rem;
+    flex-direction: column
+}
+
+.card-image-cases {
+    height: 10rem;
+    padding: 0 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-informations-cases{
+    padding: 0 1rem;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-description-cases {
+    padding: 0 1rem;
+    resize: none;
+}
+
+.card-description-fluids{
+    padding: 0 1rem;
+    margin: 0.1rem;
+}
+
+.card-buttons {
+    display: flex;
+  }
+  
