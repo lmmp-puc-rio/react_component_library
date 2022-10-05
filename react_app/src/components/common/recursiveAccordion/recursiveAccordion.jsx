@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 
 // # Local Subcomponents & Utils
 
-
 // # Import Component Style
-import './AccordionPanel.css';
+import './recursiveAccordion.css';
 
 // Accordion External Section
 function AccordionSection(props) {
@@ -90,8 +89,45 @@ function AccordionWrap(props) {
     )
 }
 
+
+// Accordion Structure
+// const accordionStructure = [
+//     {
+//         main: 'Inputs',
+//         id: '1',
+//         hidden: '',
+//         actions: [wrap_actions.edit, wrap_actions.run],
+//         subitems: [{
+//                     main: 'Free Variable',
+//                     id: '2',
+//                     hidden: 'Name ...',
+//                     actions: [],
+//                     subitems:[]
+//                 },{
+//                     main: 'Geometry Data',
+//                     id: '3',
+//                     hidden: 'Name ...',
+//                     actions: [],
+//                     subitems:[]
+//                 },
+//                 {
+//                     main: 'Liquid Properties',
+//                     id: '4',
+//                     hidden: 'Name ...',
+//                     actions: [],
+//                     subitems:[]
+//                 }],
+//     },
+//     {
+//         main: 'Results',
+//         id: '5',
+//         hidden: '',
+//         actions: [],
+//         subitems:[]
+//     }];
+
 // # Accordion React Component Construction
-function Accordion (props) {
+function RecursiveAccordion (props) {
     
     const accordionData = props.accordionData;
     const conversionFactors = props.conversionFactors;
@@ -144,13 +180,13 @@ function Accordion (props) {
                                             // Only One can be opened at a time (comment below to change behavior)
                                             handleToggle={handleToggle}
                                             isOpen={openKey === "accordionWrap_"+item.id}>
-                                <Accordion key={"accordion_"+item.id} 
+                                <RecursiveAccordion key={"accordion_"+item.id} 
                                             state={state}
                                             changeState={changeState}
                                             accordionData={item.subitems}
                                             conversionFactors={conversionFactors}>
                                     {props.children}
-                                </Accordion>
+                                </RecursiveAccordion>
                             </AccordionWrap>
                             )
                 }
@@ -162,4 +198,4 @@ function Accordion (props) {
     )
 }
 
-export default Accordion;
+export default RecursiveAccordion;
