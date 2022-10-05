@@ -13,7 +13,7 @@ import { Header,
         darkColors, lightColors } from './components/common';
 
 // All Pages Import
-import { Grids } from './pages';
+import { Grids, Accordions } from './pages';
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
@@ -26,7 +26,7 @@ function App() {
   const navlinks = [
     {url: "/" , title: "Home", className: "navbar-item"},
     {url: "/grids" , title: "Grids", className: "navbar-item"},
-    {url: "/control" , title: "Control", className: "navbar-item"},
+    {url: "/accordion" , title: "Accordion", className: "navbar-item"},
     {url: "/help" , title: "Help", className: "navbar-item"}]
     
   const actionData = {actionButtom: {tootip:"Grupo de Ações" ,icon:"fas fa-plus" ,rotate:true, 
@@ -50,6 +50,13 @@ function App() {
             <Route exact path={navlinks[1].url}>
               <div name="inputs" className="grid-container">
                 <Grids/>
+              </div>
+            </Route>
+
+            {/* Grids Route */}
+            <Route exact path={navlinks[2].url}>
+              <div name="inputs" className="grid-container">
+                <Accordions/>
               </div>
             </Route>
           </Switch>
