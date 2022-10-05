@@ -9,7 +9,7 @@ import GridForm from "./gridForm";
 import GridActionIcon from "./gridActionIcon";
 import { FAB, Action, ActionButton} from "./fab";
 import ExpandableGrid from "./expandableGrid";
-import Accordion from "./accordionPanel";
+import RecursiveAccordion from "./recursiveAccordion";
 import RadioGroup from "./radioGroup";
 import { darkColors, lightColors } from "./MaterialColors";
 import CardCases from "./cardCases";
@@ -30,7 +30,7 @@ export {
     GridForm,
     GridActionIcon,
     ExpandableGrid,
-    Accordion,
+    RecursiveAccordion,
     RadioGroup,
     CardCases,
     CardProjects,

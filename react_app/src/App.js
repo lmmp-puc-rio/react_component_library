@@ -13,7 +13,8 @@ import { Header,
         darkColors, lightColors } from './components/common';
 
 // All Pages Import
-import { Grids, Projects, Cases } from './pages';
+import { Grids, Projects, Cases, Accordions  } from './pages';
+
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
@@ -28,6 +29,7 @@ function App() {
     {url: "/grids" , title: "Grids", className: "navbar-item"},
     {url: "/projects" , title: "Projects", className: "navbar-item"},
     {url: "/cases" , title: "Cases", className: "navbar-item"},
+    {url: "/accordion" , title: "Accordion", className: "navbar-item"},
     {url: "/help" , title: "Help", className: "navbar-item"}]
     
   const actionData = {actionButtom: {tootip:"Grupo de Ações" ,icon:"fas fa-plus" ,rotate:true, 
@@ -66,7 +68,13 @@ function App() {
                   <Cases/>
               </div>
             </Route>
-            
+            {/* Grids Route */}
+            <Route exact path={navlinks[2].url}>
+              <div name="inputs" className="grid-container">
+                <Accordions/>
+              </div>
+            </Route>
+
           </Switch>
         </div>
         {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
