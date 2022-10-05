@@ -71,7 +71,7 @@
     .accordion_dropdown_item {
         border-style: groove;
         border-color: #48CAE4;
-        {animation-timing-function: ease-out;}
+        animation-timing-function: ease-out;
     }
     
     .accordion_dropdown {
