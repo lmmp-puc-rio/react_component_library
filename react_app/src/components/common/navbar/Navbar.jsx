@@ -1,5 +1,6 @@
 // # Main Import
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // # Import Component Style
 import './Navbar.css'
@@ -21,7 +22,11 @@ function Navbar (props) {
     // Construction of Dinamic Navlinks
     const listNavlinks = navlinks.map(
         (link, index) => {
-            return <li key={index} className={link.className}><a href={link.url} >{link.title}</a> </li>;
+            return  <li key={index} className={link.className}>
+                        <Link onClick={hangleNavLinksToggle} to={link.url}>
+                            {link.title}
+                        </Link> 
+                    </li>;
             }
         );
 
