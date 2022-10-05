@@ -1,0 +1,25 @@
+.card-body-projects{
+    display: flex;
+    padding: 0 1rem;
+    flex-direction: column
+}
+
+.card-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-informations-projects{
+    padding: 0 1rem;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-description-projects{
+    padding: 0 1rem;
+    resize: none;
+}
+
