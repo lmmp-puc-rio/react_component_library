@@ -2,27 +2,35 @@
 
 // # Main Import
 import React from "react";
+import { Link } from "react-router-dom";
 
 // # Import Component Style
 import "./CardCase.css";
 
 // # Import Component Card and ActionIcon
 import Card from "../card";
-import CardActionIcon from "../cardActionIcon"
 
 export default function CardCases(props) {
-  const card_data= props.data;
-  const buttons = props.actionButtom
+  const card_data = props.data;
+  const buttons = props.actionButtom;
 
   return (
-    <Card data={card_data}> 
+    <Card data={card_data}>
       <div className="card-body-cases">
         <img src={card_data.img} class="card-image-cases" alt="well" />
         <div class="card-buttons">
-{/* Component that renders the Edit/Copy/Delete buttons on a Case */}
-          <CardActionIcon props={buttons.actions[3]} />
-          <CardActionIcon props={buttons.actions[0]} />
-          <CardActionIcon props={buttons.actions[2]} />
+          {buttons.actions.map((item) => (
+            <Link to="/cases">
+              <button
+                key={"action-icon_" + item.key}
+                className={"action-icon"}
+                style={{backgroundColor: item.backgroundColor, color: item.color,}}
+                title={item.tooltip}
+              >
+                <i className={item.icon}></i>
+              </button>
+            </Link>
+          ))}
         </div>
         <div className="card-informations-cases">
           <textarea className="card-description-cases" disabled rows={5}>
@@ -44,6 +52,6 @@ export default function CardCases(props) {
           </p>
         </div>
       </div>
-      </Card>
+    </Card>
   );
 }

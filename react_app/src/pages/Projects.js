@@ -19,18 +19,12 @@ const data = {
   };
 
 // Set Actions Buttons Card
-const actionButtomCard = {actions:[{tooltip: "Edit Case",icon: "fas fa-edit", callback: null,
-                                    key: "edit_case_button_",route: "/",
+const actionButtomCard = {actions:[{tooltip: "Edit Project",icon: "fas fa-edit",
+                                    key: "edit_case_button_",
                                     backgroundColor: darkColors.yellow ,color: darkColors.white },
-                                    {tooltip: "Edit Project",icon: "fas fa-edit", callback: null,
-                                    key: "edit_case_button_",route: "/",
-                                    backgroundColor: darkColors.yellow ,color: darkColors.white },
-                                    {tooltip: "Delete Case",icon: "fas fa-trash", callback: null,
-                                    key: "delete_case_button_",route: "/",
-                                    backgroundColor: darkColors.red ,color: darkColors.white },
-                                    {tooltip: "Dupicate Case",icon: "fas fa-copy", callback: null,
-                                    key: "duplicate_case_button_",route: "/",
-                                    backgroundColor: darkColors.blue ,color: darkColors.white }
+                                    {tooltip: "Delete Project",icon: "fas fa-trash",
+                                    key: "delete_case_button_",
+                                    backgroundColor: darkColors.red ,color: darkColors.white }
                                     ]}
 
     return (
