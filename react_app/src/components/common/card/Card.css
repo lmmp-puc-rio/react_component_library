@@ -7,11 +7,9 @@
     justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
-    transition: transform 200ms ease-in;
+    transition: transform 250ms ease-in;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
-
-
