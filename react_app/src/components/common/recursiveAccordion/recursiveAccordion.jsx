@@ -138,8 +138,10 @@ function RecursiveAccordion (props) {
     const [openKey, setOpenKey] = useState()
     const handleToggle = key => {
         console.log(key)
-        setOpenKey(openKey !== key ? key : null)
-    }
+        setOpenKey(key)
+        }
+        
+        
 
     
     return (

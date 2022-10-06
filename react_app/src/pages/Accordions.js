@@ -35,17 +35,21 @@ const Accordions = (props) => {
     }];
 
     return (
+        
         <div className="page" style={{color:"black"}}>
+            
             <RecursiveAccordion  key={"accordion_0"}
-                        state={isEditable}
-                        changeState={setIsEditable}
                         accordionData={dataStructure}>
+
                 {/* Multiple Children is needed! */}
-                <div key={1}>
+                <div key={1} className="accordion_dropdown_item">
                     Teste1
                 </div>
-                <div key={2}>
+                <div key={2} className="accordion_dropdown_item">
                     Teste2
+                </div>
+                <div key={2} className="accordion_dropdown_item">
+                    Teste3
                 </div>
             </RecursiveAccordion>
         </div>
@@ -54,3 +58,4 @@ const Accordions = (props) => {
 };
 
 export default Accordions;
+
