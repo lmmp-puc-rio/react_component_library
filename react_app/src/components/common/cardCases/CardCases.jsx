@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // # Import Component Style
 import "./CardCase.css";
 
-// # Import Component Card and ActionIcon
+// # Import Component Card
 import Card from "../card";
 
 export default function CardCases(props) {
