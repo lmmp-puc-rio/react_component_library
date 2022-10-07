@@ -3,8 +3,12 @@
   text-align: center;
 }
 
-*{
+
+.init{
+  width: 300px;
   align-items: center;
+  position: flex;
+
 }
 
 a {
