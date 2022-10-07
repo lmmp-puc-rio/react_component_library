@@ -1,0 +1,36 @@
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /*   margin-top: 50%; */
+  padding: 2rem 0 2rem 0;
+  align-items: center;
+  width: 100%;
+  background-color: #efefef;
+}
+
+.carousel-wrapper {
+  width: 100%;
+}
+
+/* square buttons */
+.rec.rec-arrow {
+  border-radius: 0;
+}
+/* round buttons on hover */
+.rec.rec-arrow:hover {
+  border-radius: 40%;
+}
+
+/* disable default outline on focused items */
+/* add custom outline on focused items */
+.rec-carousel-item:focus {
+  outline: none;
+  box-shadow: inset 0 0 1px 1px lightgrey;
+}
+
+.rec.rec-arrow-left:hover:enabled,
+.rec.rec-arrow-right:hover:enabled {
+  background-color: var(--clr-primary-400);
+  box-shadow: 0 0 1px 3px var(--clr-primary-400);
+}

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // # Import Component Style
 import "./CardProjects.css";
 
-// # Import Component Action
+// # Import Component Card
 import Card from "../card";
 
 export default function CardProjects(props) {
@@ -19,9 +19,6 @@ export default function CardProjects(props) {
     <Card data={card_data}>
       <div className="card-body-projects">
         <div class="card-buttons">
-          {/* Component that renders the Edit/Delete buttons on a Project */}
-          {/* <CardActionIcon props={buttons.actions[1]} />
-              <CardActionIcon props={buttons.actions[2]} /> */}
           {buttons.actions.map((item) => (
             <Link to="/cases">
               <button
