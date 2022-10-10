@@ -14,6 +14,8 @@ import RadioGroup from "./radioGroup";
 import { darkColors, lightColors } from "./MaterialColors";
 import CardCases from "./cardCases";
 import CardProjects from "./cardProjects";
+import TabsComponent from "./tabsComponent";
+import SlidingPanel from "./slidingPanel";
 
 
 export {
@@ -34,6 +36,8 @@ export {
     RadioGroup,
     CardCases,
     CardProjects,
+    TabsComponent,
+    SlidingPanel,
     darkColors, 
     lightColors,
 }

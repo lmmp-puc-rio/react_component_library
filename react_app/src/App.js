@@ -8,12 +8,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
 // All Components import
-import { Header,
+import { Header, SlidingPanel,
         FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
-        darkColors, lightColors } from './components/common';
+        darkColors, lightColors, TabsComponent } from './components/common';
 
 // All Pages Import
-import { Grids, Projects, Cases, Accordions  } from './pages';
+import { Grids, Projects, Cases, Accordions, TabsComponents} from './pages';
 
 
 // All Contexts Import
@@ -30,6 +30,7 @@ function App() {
     {url: "/projects" , title: "Projects", className: "navbar-item"},
     {url: "/cases" , title: "Cases", className: "navbar-item"},
     {url: "/accordion" , title: "Accordion", className: "navbar-item"},
+    {url: "/tabs" , title: "Tabs", className: "navbar-item"},
     {url: "/help" , title: "Help", className: "navbar-item"}]
     
   const actionData = {actionButtom: {tootip:"Grupo de Ações" ,icon:"fas fa-plus" ,rotate:true, 
@@ -42,6 +43,7 @@ function App() {
     // React Browser Router
     <Router>
       <div name="app" className="App">
+        <SlidingPanel />
         <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div name="main" className="main">
         <Switch>
@@ -68,10 +70,17 @@ function App() {
                   <Cases/>
               </div>
             </Route>
-            {/* Grids Route */}
-            <Route exact path={navlinks[2].url}>
+            {/* Accordion Route */}
+            <Route exact path={navlinks[4].url}>
               <div name="inputs" className="grid-container">
                 <Accordions/>
+              </div>
+            </Route>
+
+            {/* Tabs Route */}
+            <Route exact path={navlinks[5].url}>
+              <div name="inputs" className="card-container">
+               <TabsComponents name="page" />
               </div>
             </Route>
 

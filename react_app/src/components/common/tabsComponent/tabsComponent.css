@@ -1,0 +1,45 @@
+.tabsComponent {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+.init{
+  width: 300px;
+  align-items: center;
+  position: flex;
+
+}
+
+a {
+  margin: 0 5px;
+}
+
+.Link-Div{
+  border: 2px solid black;
+  background: #ef476f;
+}
+
+.component-Div{
+  border: 2px solid black;
+}
+.Link:hover{
+  background-color: #bc4b51;
+  color:black
+}
+
+.Link{
+  overflow: hidden;
+  box-shadow: 0 2px 10px #91767f;
+  border-radius: 0.2rem;
+  border : 1px solid black;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 250ms ease-in;
+}
+
+
+
+
