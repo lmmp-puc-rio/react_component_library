@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
 // All Components import
-import { Header,
+import { Header, SlidingPanel,
         FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
         darkColors, lightColors } from './components/common';
 
@@ -42,6 +42,7 @@ function App() {
     // React Browser Router
     <Router>
       <div name="app" className="App">
+        <SlidingPanel />
         <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div name="main" className="main">
         <Switch>
