@@ -1,5 +1,5 @@
 // Main import of React
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Theme importv #TODO
@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
 // All Components import
-import { Header, SlidingPanel,
+import { Header, SlidingPanel, SideMenu,
         FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
         darkColors, lightColors, TabsComponent } from './components/common';
 
@@ -22,6 +22,8 @@ import { Grids, Projects, Cases, Accordions, TabsComponents} from './pages';
 // import { ModalProvider } from './components/contexts/ModalContext';
 
 function App() {
+  /* State responsible for controlling the opening/closing of the sidebar */
+  const [inactive, setInactive] = useState(false);
 
   // Set navlinks Object
   const navlinks = [
@@ -43,6 +45,7 @@ function App() {
     // React Browser Router
     <Router>
       <div name="app" className="App">
+        <SideMenu  onCollapse={(inactive) => {setInactive(inactive)}} />
         <SlidingPanel />
         <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div name="main" className="main">
