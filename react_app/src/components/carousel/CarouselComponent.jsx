@@ -14,7 +14,7 @@ export default function CarouselComponent(props) {
   return (
     <div className="carousel-container">
       <div className="carousel-wrapper">
-        <Carousel breakPoints={breakPoints}>{props.children}</Carousel>
+        <Carousel breakPoints={breakPoints} itemPadding={[30, 30]} >{props.children}</Carousel>
       </div>
     </div>
   );
