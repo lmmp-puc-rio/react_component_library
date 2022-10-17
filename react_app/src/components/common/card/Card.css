@@ -1,15 +1,20 @@
 .card {
-    overflow: hidden;
-    box-shadow: 0 2px 10px #767b91;
-    border-radius: 0.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 250ms ease-in;
+  overflow: hidden;
+  box-shadow: 0 2px 10px #767b91;
+  border-radius: 0.2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 250ms ease-in;
 }
 
 .card:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.card-title {
+  line-height: 2;
 }

@@ -1,3 +1,8 @@
+h3 {
+  line-height: 2;
+  font-size: 0.9rem;
+}
+
 .card-body-projects {
   display: flex;
   padding: 0 1rem;
@@ -16,10 +21,6 @@
   font-size: 0.8rem;
   display: flex;
   flex-direction: column;
-}
-
-h3 {
-  line-height: 2;
 }
 
 .card-description-projects {
