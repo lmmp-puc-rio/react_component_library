@@ -1,45 +1,45 @@
 .card-body-cases {
   display: flex;
-  padding: 0 1rem;
+  justify-content: space-evenly;
+}
+
+.card-container-cases {
+  display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  padding: 0 0.5rem;
 }
 
 .card-image-cases {
   height: 10rem;
-  padding: 0 1rem;
+  padding: 0 1rem 0.4rem 0;
   width: 100%;
   object-fit: cover;
 }
 
+.card-container-bttn-text {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 0 0.5rem;
+}
+
+
 .card-buttons {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 0.8rem;
-}
-
-.card-informations-cases {
-  padding: 0 1rem;
-  font-size: 0.8rem;
-  display: flex;
-  flex-direction: column;
-}
-
-h3 {
-  line-height: 2;
 }
 
 .card-description-cases {
-  padding: 0 1rem;
-  bottom: 1rem;
-  resize: none;
-}
-
-.card-description-fluids {
-  padding: 0 1rem;
-  margin: 0.1rem;
-}
-
-.card-buttons {
   display: flex;
+  resize: none;
+  text-align: center;
+  padding: 1rem;
+}
+
+.card-fluids {
+  list-style: circle;
+  margin-left: 1rem;
 }

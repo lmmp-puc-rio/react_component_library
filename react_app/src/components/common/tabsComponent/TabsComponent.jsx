@@ -1,36 +1,30 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link, BrowserRouter as Router, Route,Switch } from "react-router-dom";
-import { Component } from "react/cjs/react.production.min";
-import { Accordions } from "../../../pages";
-import CardProjects from "../cardProjects";
-
 import "./tabsComponent.css"
-
-
-
 
 
   const TabsComponent =(props)  => {
     const data = props.data
-    console.log(data)
+    const [select,setSelect] = useState();
+
+      
     return (
       
-      <section className="App">
+      <div className="tab">
       
-      <div className="init">
+      <div className="tabs__list">
         
         <Router>
-        <div className="Link-Div">
+        <div className="tabs__item">
           {data.map((item) => (
-          <Link className="Link" to={`/${item.name}`}> {item.name}</Link>
-
-          
+          <Link to={`/${item.name}` } >  {item.name}  </Link>
           ))}
+
           </div>
-            <div className="component-Div">
+            <div className="tabs__container">
           {data.map((item) =>
          <Switch>
-          <Route className="option" exact path={`/${item.name}`}> 
+          <Route className="tabs__container" exact path={`/${item.name}`}> 
               {props.children.map((child)=>{
                   if(child.key == item.id){
                     return(
@@ -45,7 +39,7 @@ import "./tabsComponent.css"
  
         </Router>
         </div>
-      </section>
+      </div>
     );
   };
   
@@ -55,3 +49,4 @@ import "./tabsComponent.css"
 
 
 export default TabsComponent;
+

@@ -17,31 +17,8 @@ export default function CardCases(props) {
   return (
     <Card data={card_data}>
       <div className="card-body-cases">
-        <img src={card_data.img} class="card-image-cases" alt="well" />
-        <div class="card-buttons">
-          {buttons.actions.map((item) => (
-            <Link to="/cases">
-              <button
-                key={"action-icon_" + item.key}
-                className={"action-icon"}
-                style={{backgroundColor: item.backgroundColor, color: item.color,}}
-                title={item.tooltip}
-              >
-                <i className={item.icon}></i>
-              </button>
-            </Link>
-          ))}
-        </div>
-        <div className="card-informations-cases">
-          <textarea className="card-description-cases" disabled rows={5}>
-            {card_data.description}
-          </textarea>
-          <h3>Fluidos:</h3>
-          <ul className="card-description-fluids" disabled>
-            {card_data.fluids.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
+        <div className="card-container-cases">
+          <img src={card_data.img} class="card-image-cases" alt="well" />
           <h3>Criado por:</h3>
           <p className="card-informations-user">
             {card_data.created_name} em {card_data.created_data}
@@ -50,6 +27,36 @@ export default function CardCases(props) {
           <p className="card-informations-user">
             {card_data.modified_name} em {card_data.modified_data}
           </p>
+        </div>
+        <div className="card-container-cases">
+          <div className="card-container-bttn-text">
+            <div class="card-buttons">
+              {buttons.actions.map((item) => (
+                <Link to="/cases">
+                  <button
+                    key={"action-icon_" + item.key}
+                    className={"action-icon"}
+                    style={{
+                      backgroundColor: item.backgroundColor,
+                      color: item.color,
+                    }}
+                    title={item.tooltip}
+                  >
+                    <i className={item.icon}></i>
+                  </button>
+                </Link>
+              ))}
+            </div>
+            <textarea className="card-description-cases" disabled rows={4}>
+              {card_data.description}
+            </textarea>
+          </div>
+          <h3>Fluidos:</h3>
+          <ul className="card-description-fluids" disabled>
+            {card_data.fluids.map((item) => (
+              <li className="card-fluids">{item}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </Card>
