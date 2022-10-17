@@ -63,7 +63,7 @@ li {
 
 .side-menu .top-section .toggle-menu-btn {
   color: black;
-  font-size: 20px;
+  font-size: 25px;
   position: absolute;
   top: 50%;
   right: 0;
@@ -72,7 +72,7 @@ li {
 }
 
 .side-menu.inactive .top-section .toggle-menu-btn {
-  right: -50px;
+  right: -10px;
 }
 
 .side-menu .search-controller {
