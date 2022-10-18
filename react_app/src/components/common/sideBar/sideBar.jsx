@@ -2,13 +2,17 @@
 
 // # Main Import
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 // # Import Component Style
 import "./sideBar.css";
 
 // # Import MenuItem
 import MenuItem from "./menuItems";
+
+
+//import Accordion Recursive
+import RecursiveAccordion from '../recursiveAccordion/'
 
 // added menuItems for testing
 export const menuItems = [
@@ -51,6 +55,23 @@ export const fotterIcons = [
 const SideMenu = (props) => {
   /* State responsible for controlling the opening/closing of the sidebar */
   const [inactive, setInactive] = useState(false);
+
+  const dataStructure = [
+    {
+        main: 'Entrada de dados',
+        id: '1',
+        hidden: '',
+        actions: [],
+        subitems: [],
+    },
+    {
+        main: 'Resultados',
+        id: '2',
+        hidden: '',
+        actions: [],
+        subitems:[]
+    },  
+   ];
 
   useEffect(() => {
     if (inactive) {
@@ -106,27 +127,40 @@ const SideMenu = (props) => {
       </div>
       <div className="divider"></div>
       <div className="main-menu">
-        <ul>
-          {menuItems.map((menuItem, index) => (
-            <MenuItem
-              key={index}
-              name={menuItem.name}
-              to={menuItem.to}
-              subMenus={menuItem.subMenus || []}
-              iconClassName={menuItem.iconClassName}
-              onClick={(e) => {
-                if (inactive) {
-                  setInactive(false);
-                }
-              }}
-            />
-          ))}
-        </ul>
+        {!inactive ? (
+       <ul>
+        
+        <RecursiveAccordion key={"accordion_0"}
+                        accordionData={dataStructure} >
+
+      
+                {/* Multiple Children is needed! */}
+                
+                <div key={1} className="accordion_dropdown_item">
+                    <a> Informações Gerais</a>
+                </div>
+
+                <div key={1} className="accordion_dropdown_item">
+                    <a> Cenário</a>
+                </div>
+                <div key={1} className="accordion_dropdown_item">
+                    <a>Geometria</a>
+                </div>
+                <div key={1} className="accordion_dropdown_item">
+                    <a>Sequencia de Bombeio </a>
+                </div>
+                <div key={1} className="accordion_dropdown_item">
+                    <a>Simulação</a>
+                </div>
+                
+            </RecursiveAccordion>
+            </ul>
+            ):(<ul></ul>)}
       </div>
 
       <div className="side-menu-footer">
         <div className="side-menu-footer-logo">
-          <img src="" alt="logo_1" className="side-footer-img" />
+          <img src="..\..\images\lmmp_logo.jpg" alt="logo_1" className="side-footer-img" />
           <img src="" alt="logo_2" className="side-footer-img" />
         </div>
         <div className="side-footer-bttn">
