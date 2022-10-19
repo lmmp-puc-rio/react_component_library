@@ -41,6 +41,8 @@ function AccordionWrap(props) {
     // Only One can be opened at a time (comment below to change behavior)
     const isOpen = props.isOpen
     const handleToggle = props.handleToggle
+    console.log(handleToggle)
+
 
     // All Accordion Tabs can be opened simultaneously (comment below to change behavior)
     // const [isOpen, setIsOpen] = useState(props.accKey === props.id)

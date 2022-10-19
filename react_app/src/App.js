@@ -13,7 +13,7 @@ import { Header, SlidingPanel, SideMenu,
         darkColors, lightColors, TabsComponent } from './components/common';
 
 // All Pages Import
-import { Grids, Projects, Cases, Accordions, TabsComponents} from './pages';
+import { Grids, Projects, Cases, Accordions, TabsComponents,Tree} from './pages';
 
 
 // All Contexts Import
@@ -33,7 +33,8 @@ function App() {
     {url: "/cases" , title: "Cases", className: "navbar-item"},
     {url: "/accordion" , title: "Accordion", className: "navbar-item"},
     {url: "/tabs" , title: "Tabs", className: "navbar-item"},
-    {url: "/help" , title: "Help", className: "navbar-item"}]
+    {url: "/Tree" , title: "Tree", className: "navbar-item"},
+    {url: "/help" , title: "Help", className: "navbar-item"},]
     
   const actionData = {actionButtom: {tootip:"Grupo de Ações" ,icon:"fas fa-plus" ,rotate:true, 
                                       backgroundColor: darkColors.blue ,color: lightColors.white},
@@ -84,6 +85,12 @@ function App() {
             <Route exact path={navlinks[5].url}>
               <div name="inputs" className="card-container">
                <TabsComponents name="page" />
+              </div>
+            </Route>
+              {/* Tree Route */}
+              <Route exact path={navlinks[6].url}>
+              <div name="inputs" className="card-container">
+               <Tree />
               </div>
             </Route>
 
