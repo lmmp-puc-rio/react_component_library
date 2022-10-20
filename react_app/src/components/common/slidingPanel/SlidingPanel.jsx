@@ -9,9 +9,16 @@ import "react-sliding-pane/dist/react-sliding-pane.css";
 // # Import Component Style
 import "./SlidingPanel.css";
 
+//import all components here
+import RecursiveAccordion from "../recursiveAccordion";
+import TabsComponent from "../tabsComponent";
+import expandableGrid from '../expandableGrid'
+
+
 export default function SlidingPanel(props) {
   const [state, setState] = useState({ isPanelOpen: false });
-
+  
+  
   return (
     <div className="sliding-container">
       <button
@@ -28,7 +35,7 @@ export default function SlidingPanel(props) {
           {">"}
         </button>
         {props.children}
-        <h3>Accordion</h3>
+      
       {/* In the future the Sliding Panel will receive the Accordion Component */}
       </SlidingPane>
     </div>
