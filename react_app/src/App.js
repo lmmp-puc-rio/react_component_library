@@ -257,55 +257,19 @@ return (
                   <TabsComponents name="page" />
                 </div>
               </Route>
+
+              {/* Tree Route */}
+              <Route exact path={navlinks[6].url}>
+                  <div name="inputs" className="card-container">
+                    <Tree />
+                  </div>
+                </Route>
+
             </Switch>
           </div>
           {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
           <FAB data={actionData} />
-          <div name="app" className="App">
-            <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
-            <div name="main" className="main">
-              <Switch>
-                {/* Main page Route */}
-                <Route exact path="/">
-                  <div className="scope" style={{ color: "white" }}>
-                    Main Page
-                  </div>
-                </Route>
-
-                {/* Grids Route */}
-                <Route exact path={navlinks[1].url}>
-                  <div name="inputs" className="grid-container">
-                    <Grids />
-                  </div>
-                </Route>
-                {/* Projects Route */}
-                <Route exact path={navlinks[2].url}>
-                  <div name="cards" className="card-container">
-                    <Projects />
-                  </div>
-                </Route>
-                {/* Cases Route */}
-                <Route exact path={navlinks[3].url}>
-                  <div name="cards" className="card-container">
-                    <Cases />
-                  </div>
-                </Route>
-                {/* Accordion Route */}
-                <Route exact path={navlinks[4].url}>
-                  <div name="inputs" className="grid-container">
-                    <Accordions />
-                  </div>
-                </Route>
-
-                {/* Tabs Route */}
-                <Route exact path={navlinks[5].url}>
-                  <div name="inputs" className="card-container">
-                    <TabsComponents name="page" />
-                  </div>
-                </Route>
-              </Switch>
-            </div>
-          </div>
+          
         </div>
       </SearchProvider>
     </Router>
