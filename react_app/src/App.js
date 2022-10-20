@@ -10,7 +10,7 @@ import './App.css';
 // All Components import
 import { Header, SlidingPanel, SideMenu,
         FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
-        darkColors, lightColors, TabsComponent } from './components/common';
+        darkColors, lightColors, TabsComponent,RecursiveAccordion } from './components/common';
 
 // All Pages Import
 import { Grids, Projects, Cases, Accordions, TabsComponents} from './pages';
@@ -41,12 +41,158 @@ function App() {
                                 {tooltip:"Ação 1" ,icon:"fas fa-minus" ,key:"action2" ,url:"/" ,backgroundColor: darkColors.red ,color: lightColors.white}
   ]};
 
+  {/*Accordion Data*/}
+  const dataStructure = [
+    {
+        main: 'Entrada de dados',
+        id: '1',
+        hidden: '',
+        actions: [],
+        subitems: [],
+    },
+    {
+        main: 'Resultados',
+        id: '2',
+        hidden: '',
+        actions: [],
+        subitems:[]
+    },  
+   ];
+
+  const slidinPanelAccordionData = [
+    {
+        main: 'Geometria Externa',
+        id: '1',
+        hidden: '',
+        actions: [],
+        subitems: [],
+    },
+    {
+        main: 'Geometria Interna',
+        id: '2',
+        hidden: '',
+        actions: [],
+        subitems:[]
+    },
+    {
+      main: 'Centralização',
+      id: '3',
+      hidden: '',
+      actions: [],
+      subitems:[]
+  },  
+  {
+    main: 'Trajetória',
+    id: '4',
+    hidden: '',
+    actions: [],
+    subitems:[]
+},
+   ];
+
+
+   {/*Tabs Data */}
+  const dataTab1=[
+    {
+      id : "Revestimento Anterior",
+      description:"Revestimento Anterior",
+      name:"Revestimento Anterior",
+    },
+    {
+      id : "Poço Aberto",
+      description:"Poço Aberto",
+      name:"Poço Aberto",
+    },  
+  ]
+
+  const dataTab2 =[
+  {
+    id : "Coluna de Trabalho",
+    description:"Coluna de Trabalho",
+    name:"Coluna de Trabalho",
+  },
+  {
+    id : "Revestimento",
+    description:"Revestimento",
+    name:"Revestimento",
+  },
+  ]
+
+const dataTab3 =[
+  {
+    id : "Centralizadores",
+    description:"Centralizadores",
+    name:"Centralizadores",
+  },
+  {
+    id : "Intervalos de Centralizadores",
+    description:"Intervalos de Centralizadores",
+    name:"Intervalos de Centralizadores",
+  },
+]
+
+
   return (
     // React Browser Router
     <Router>
       <div name="app" className="App">
-        <SideMenu  onCollapse={(inactive) => {setInactive(inactive)}} />
-        <SlidingPanel />
+        <SideMenu  onCollapse={(inactive) => {setInactive(inactive)}} >
+
+          <RecursiveAccordion  key={"accordion_0"}
+                        accordionData={dataStructure}>
+
+                {/* Multiple Children is needed! */}
+                <div key={1} className="accordion_dropdown_item">
+                    Teste1
+                </div>
+                <div key={2} className="accordion_dropdown_item">
+                    Teste2
+                </div>
+                <div key={2} className="accordion_dropdown_item">
+                    Teste3
+                </div>
+            </RecursiveAccordion>
+
+        </SideMenu>
+   
+
+        <SlidingPanel >
+        <ul>
+          {/*Component Accordion*/ }
+          <RecursiveAccordion key={"accordion_0"}
+                        accordionData={slidinPanelAccordionData}>
+
+      
+                {/* Multiple Children is needed! */}
+                
+                <div key={1} className="accordion_dropdown_item">
+                <TabsComponent data={dataTab1}>
+                  <div key={"Revestimento Anterior"}> Revestimento Anterior </div>
+                  <div key={"Poço Aberto"}> Teste Poço Aberto</div>
+                </TabsComponent>
+                </div>
+
+                <div key={2} className="accordion_dropdown_item">
+
+                <TabsComponent data={dataTab2}>
+                  <div key={"Coluna de Trabalho"}> Teste Coluna</div>
+                  <div key={"Revestimento"}> Teste Revestimento</div>
+                </TabsComponent>
+                </div>
+                <div key={3} className="accordion_dropdown_item">
+                <TabsComponent data={dataTab3}>
+                  <div key={"Centralizadores"}> Teste Centralizadores </div>
+                  <div key={"Intervalos de Centralizadores"}> Teste Intervalo Centralizador</div>
+                </TabsComponent>
+                </div>
+                <div key={4} className="accordion_dropdown_item">
+                  <p>in dev </p>
+                </div>
+                
+              </RecursiveAccordion>
+            </ul>
+        </SlidingPanel>
+
         <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
         <div name="main" className="main">
         <Switch>

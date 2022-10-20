@@ -56,23 +56,6 @@ const SideMenu = (props) => {
   /* State responsible for controlling the opening/closing of the sidebar */
   const [inactive, setInactive] = useState(false);
 
-  const dataStructure = [
-    {
-        main: 'Entrada de dados',
-        id: '1',
-        hidden: '',
-        actions: [],
-        subitems: [],
-    },
-    {
-        main: 'Resultados',
-        id: '2',
-        hidden: '',
-        actions: [],
-        subitems:[]
-    },  
-   ];
-
   useEffect(() => {
     if (inactive) {
       removeActiveClassFromSubMenu();
@@ -128,32 +111,8 @@ const SideMenu = (props) => {
       <div className="divider"></div>
       <div className="main-menu">
         {!inactive ? (
-       <ul>
-        
-        <RecursiveAccordion key={"accordion_0"}
-                        accordionData={dataStructure} >
-
-      
-                {/* Multiple Children is needed! */}
-                
-                <div key={1} className="accordion_dropdown_item">
-                    <a> Informações Gerais</a>
-                </div>
-
-                <div key={1} className="accordion_dropdown_item">
-                    <a> Cenário</a>
-                </div>
-                <div key={1} className="accordion_dropdown_item">
-                    <a>Geometria</a>
-                </div>
-                <div key={1} className="accordion_dropdown_item">
-                    <a>Sequencia de Bombeio </a>
-                </div>
-                <div key={1} className="accordion_dropdown_item">
-                    <a>Simulação</a>
-                </div>
-                
-            </RecursiveAccordion>
+             <ul>
+                {props.children}
             </ul>
             ):(<ul></ul>)}
       </div>
