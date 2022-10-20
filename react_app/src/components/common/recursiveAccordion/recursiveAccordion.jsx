@@ -135,7 +135,7 @@ function RecursiveAccordion (props) {
     const changeState=props.changeState;
 
     // Only One can be opened at a time (comment below to change behavior)
-    const [openKey, setOpenKey] = useState()
+    const [openKey, setOpenKey] = useState("accordionWrap_"+1)
     const handleToggle = key => {
         console.log(key)
         setOpenKey(key)
