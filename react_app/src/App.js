@@ -25,6 +25,7 @@ import { Grids, Projects, Cases, Accordions, TabsComponents } from "./pages";
 // import { AuthProvider } from './components/contexts/AuthContext';
 // import { ToastProvider } from './components/contexts/ToastContext';
 // import { ModalProvider } from './components/contexts/ModalContext';
+import { SearchProvider } from "./contexts/SearchContext";
 
 function App() {
   /* State responsible for controlling the opening/closing of the sidebar */
@@ -47,9 +48,9 @@ function App() {
       icon: "fas fa-plus",
       rotate: true,
       backgroundColor: darkColors.blue,
-      color: lightColors,
+      color: lightColors.white
       /* Direction: Array responsible for determining the opening position of the button */
-      direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"],
+      direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"]
     },
     actions: [
       {
@@ -71,10 +72,62 @@ function App() {
     ],
   };
 
-
   return (
     // React Browser Router
     <Router>
+      <SearchProvider>
+        <div name="app" className="App">
+          <SideMenu
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+          />
+          <SlidingPanel />
+          <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
+          <div name="main" className="main">
+            <Switch>
+              {/* Main page Route */}
+              <Route exact path="/">
+                <div className="scope" style={{ color: "white" }}>
+                  Main Page
+                </div>
+              </Route>
+
+              {/* Grids Route */}
+              <Route exact path={navlinks[1].url}>
+                <div name="inputs" className="grid-container">
+                  <Grids />
+                </div>
+              </Route>
+              {/* Projects Route */}
+              <Route exact path={navlinks[2].url}>
+                <div name="cards" className="card-container">
+                  <Projects />
+                </div>
+              </Route>
+              {/* Cases Route */}
+              <Route exact path={navlinks[3].url}>
+                <div name="cards" className="card-container">
+                  <Cases />
+                </div>
+              </Route>
+              {/* Accordion Route */}
+              <Route exact path={navlinks[4].url}>
+                <div name="inputs" className="grid-container">
+                  <Accordions />
+                </div>
+              </Route>
+
+              {/* Tabs Route */}
+              <Route exact path={navlinks[5].url}>
+                <div name="inputs" className="card-container">
+                  <TabsComponents name="page" />
+                </div>
+              </Route>
+            </Switch>
+          </div>
+          {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
+          <FAB data={actionData} />
       <div name="app" className="App">
         <SideMenu
           onCollapse={(inactive) => {
@@ -125,11 +178,10 @@ function App() {
             </Route>
           </Switch>
         </div>
-        {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
-        <FAB data={actionData} />
-      </div>
+      </SearchProvider>
     </Router>
   );
 }
 
 export default App;
+

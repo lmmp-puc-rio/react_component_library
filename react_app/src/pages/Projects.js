@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 // #  Local SubComponents & utils
 import { CardProjects } from "../components/common";
 
@@ -8,9 +9,14 @@ import { darkColors } from "../components/common";
 // # Import Carousel Component
 import CarouselComponent from "../components/carousel";
 
+// # Context
+import { SearchContext } from "../contexts/SearchContext"
+
 const Projects = (props) => {
+
+  const { projectsData } = useContext(SearchContext)
   // Set Card Object
-  const data = [
+/*   const data = [
     {
       title: "Trecho 1",
       description: "Projeto de cimentação do Trecho 1",
@@ -38,7 +44,7 @@ const Projects = (props) => {
       created_data: "25/12/2022",
       modified_data: "30/12/2022",
     },
-  ];
+  ]; */
 
   // Set Actions Buttons Card
   const actionButtomCard = {
@@ -63,7 +69,7 @@ const Projects = (props) => {
   return (
     <div>
       <CarouselComponent>
-        {data.map((item) => (
+        {projectsData.map((item) => (
           <div className="page">
             <CardProjects data={item} actionButtom={actionButtomCard} />
           </div>
@@ -74,3 +80,4 @@ const Projects = (props) => {
 };
 
 export default Projects;
+

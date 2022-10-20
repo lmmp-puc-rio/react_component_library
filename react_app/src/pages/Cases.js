@@ -1,3 +1,5 @@
+import React, { useContext } from 'react';
+
 // #  Local SubComponents & utils
 import { CardCases } from "../components/common";
 
@@ -8,8 +10,12 @@ import { darkColors } from "../components/common";
 // # Import Carousel Component
 import CarouselComponent from "../components/carousel";
 
-const Cases = (props) => {
-  // Set Card Object
+// # Context
+import { SearchContext } from "../contexts/SearchContext"
+
+function Cases (props){
+const { casesData } = useContext(SearchContext)
+/* 
   const data = [
     {
       img: "https://cenariosgas.editorabrasilenergia.com.br/wp-content/uploads/sites/6/2018/09/po%C3%A7o-transparente.png",
@@ -56,7 +62,7 @@ const Cases = (props) => {
         "Pasta Conv. 15ppg",
       ],
     }
-  ];
+  ]; */
 
   // Set Actions Buttons Card
   const actionButtomCard = {
@@ -89,7 +95,7 @@ const Cases = (props) => {
   return (
     <div>
       <CarouselComponent>
-        {data.map((item) => (
+        {casesData.map((item) => (
           <div className="page">
             <CardCases data={item} actionButtom={actionButtomCard} />
           </div>
