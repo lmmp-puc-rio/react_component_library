@@ -17,6 +17,7 @@ import CardProjects from "./cardProjects";
 import TabsComponent from "./tabsComponent";
 import SlidingPanel from "./slidingPanel";
 import SideMenu from "./sideBar";
+import TreeComponent from "./treeComponent";
 
 
 export {
@@ -40,6 +41,7 @@ export {
     TabsComponent,
     SlidingPanel,
     SideMenu,
+    TreeComponent,
     darkColors, 
     lightColors,
 }

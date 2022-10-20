@@ -14,7 +14,8 @@ import { Header, SlidingPanel, SideMenu,
         darkColors, lightColors, TabsComponent,RecursiveAccordion } from './components/common';
 
 // All Pages Import
-import { Grids, Projects, Cases, Accordions, TabsComponents } from "./pages";
+import { Grids, Projects, Cases, Accordions, TabsComponents,Tree} from './pages';
+
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
@@ -34,6 +35,7 @@ function App() {
     { url: "/cases", title: "Cases", className: "navbar-item" },
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
+    {url: "/Tree" , title: "Tree", className: "navbar-item"},
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -45,7 +47,7 @@ function App() {
       backgroundColor: darkColors.blue,
       color: lightColors.white,
       /* Direction: Array responsible for determining the opening position of the button */
-      direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"]
+      direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"],
     },
     actions: [
       {
@@ -156,7 +158,6 @@ const dataTab3 =[
     name:"Intervalos de Centralizadores",
   },
 ]
-
 
 return (
   // React Browser Router
