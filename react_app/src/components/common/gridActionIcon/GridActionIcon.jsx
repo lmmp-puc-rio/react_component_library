@@ -1,38 +1,30 @@
 // # Main Import
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
 
 // # Import Component Style
-import './GridActionIcon.css'
+import "./GridActionIcon.css";
+
+import { SelectAllContext } from "../../../contexts/SelectAllContext";
 
 // Navbar React Component Construction
-function GridActionIcon (props) {
-    
-    if (props.title === 'Delete Case') {
-        return (
-            <Link onClick={props.callback}>
-                <button key={'action-icon_'+props.key}
-                        className={"action-icon"}
-                        style={{backgroundColor: props.backgroundColor, color: props.color}}
-                        title={props.tooltip}>
-                        <i className={props.icon}></i>
-                </button>
-            </Link>
-        )    
-    } else {
-        return (
-        <Link to={props.routeURL + props.rowID}>
-                <button key={'action-icon_'+props.key}
-                        className={"action-icon"}
-                        style={{backgroundColor: props.backgroundColor, color: props.color}}
-                        title={props.tooltip}>
-                        <i className={props.icon}></i>
-                </button>
-            </Link>
-        )
-    }
-    
+function GridActionIcon(props) {
+    /*    State that controls button selection */
+    const [isCheked, setIsChecked] = useState(false);
+    /* Checkbox Context */
+    const { isSelectChecked } = useContext(SelectAllContext);
 
+    /*  Function that controls the radio button (Selected/ Unselected) */
+    const handleClickChecked = () => {
+        setIsChecked(!isCheked);
+    };
+
+    return (
+        <input
+            type="radio"
+            checked={isSelectChecked ? true : isCheked}
+            onClick={handleClickChecked}
+        />
+    );
 }
 
 export default GridActionIcon;

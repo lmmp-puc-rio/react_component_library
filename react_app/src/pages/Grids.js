@@ -23,22 +23,14 @@ const Grids = (props) => {
     // Route
     const route = '/grids'
 
-    const metaData = { header: [{key: "action", label: "Actions", expandable: false},
-                                {key: "id",label: "ID", expandable: false},
+    const metaData = { header: [{key: "id",label: "ID", expandable: false},
                                 {key: "name",label: "Name", expandable: false},
                                 {key: "desc",label: "Description", expandable: true},
                                 {key: "created",label: "Created", expandable: true},
                                 {key: "modified", label: "Modified", expandable: true},
                                 {key: "lastrun", label: "Last Run", expandable: true}],
-                                actions:[{tooltip: "Edit Case",icon: "fas fa-edit", callback: null,
-                                            key: "edit_case_button_",route: "/",
+                                actions:[{tooltip: "Radio Button",
                                             backgroundColor: darkColors.yellow ,color: darkColors.white },
-                                        {tooltip: "Delete Case",icon: "fas fa-trash", callback: null,
-                                            key: "delete_case_button_",route: "/",
-                                            backgroundColor: darkColors.red ,color: darkColors.white },
-                                        {tooltip: "Dupicate Case",icon: "fas fa-copy", callback: null,
-                                            key: "duplicate_case_button_",route: "/",
-                                            backgroundColor: darkColors.blue ,color: darkColors.white }
                                         ]
     };
 
@@ -61,3 +53,4 @@ const Grids = (props) => {
 };
 
 export default Grids;
+
