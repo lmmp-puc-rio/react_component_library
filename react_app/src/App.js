@@ -22,6 +22,7 @@ import { Grids, Projects, Cases, Accordions, TabsComponents,Tree} from './pages'
 // import { ToastProvider } from './components/contexts/ToastContext';
 // import { ModalProvider } from './components/contexts/ModalContext';
 import { SearchProvider } from "./contexts/SearchContext";
+import { SelectAllProvider } from './contexts/SelectAllContext';
 
 function App() {
   /* State responsible for controlling the opening/closing of the sidebar */
@@ -225,12 +226,13 @@ return (
                   Main Page
                 </div>
               </Route>
-
               {/* Grids Route */}
               <Route exact path={navlinks[1].url}>
-                <div name="inputs" className="grid-container">
-                  <Grids />
-                </div>
+              <SelectAllProvider>
+              <div name="inputs" className="grid-container">
+                <Grids/>
+              </div>
+              </SelectAllProvider>
               </Route>
               {/* Projects Route */}
               <Route exact path={navlinks[2].url}>
