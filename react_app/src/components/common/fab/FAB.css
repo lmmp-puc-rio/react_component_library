@@ -1,140 +1,110 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500);
-
 /*TODO: Commment each style className */
 
-:root {
-  --tooltip-backcolor: #424242;
-  --tooltip-forecolor: #FAFAFA;
-}
-
-.fab-main {
-  bottom: 10vh;
-  position: fixed;
-  margin: 1em;
-  right: 8vw;
-}
-
-.fab-item {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  border-radius: 50%;
-  border-style: none;
+/* Container Button Style - Generic */
+.fab-container-up,
+.fab-container-down,
+.fab-container-left,
+.fab-container-right {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 56px;
-  height: 56px;
-  margin: 20px auto 0;
-  position: relative;
-  -webkit-transition: transform .1s ease-out, height 100ms ease, opacity 100ms ease;
-          transition: transform .1s ease-out, height 100ms ease, opacity 100ms ease;  
-  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: 4em;
+  bottom: 2em;
 }
 
-.fab-item:active, 
-.fab-item:focus, 
-.fab-item:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  transition: box-shadow .2s ease;
+/* Container Button Style - Up */
+.fab-container-up {
+  flex-direction: column-reverse;
+}
+
+/* Container Button Style - Down */
+.fab-container-down {
+  flex-direction: column;
+}
+
+/* Container Button Style - Left */
+.fab-container-left {
+  flex-direction: row-reverse;
+}
+
+/* Container Button Style - Right */
+.fab-container-right {
+  flex-direction: row;
+}
+
+/* Main Button Style */
+
+.fab-main-button {
+  border-radius: 50%;
+  border-color: transparent;
+  padding: 20px;
+  margin: 10px;
+  place-items: center;
+}
+
+.fab-main-button:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: box-shadow 0.2s ease;
+  outline: none;
+  cursor: pointer;
+  transform: scale(1.1) rotate(15deg);
+}
+
+.fab-main-button:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: box-shadow 0.2s ease;
   outline: none;
 }
 
-.fab-item:not(:last-child) {
-  width: 40px;
-  height: 0px;
-  margin: 0px auto 0;
-  opacity: 0;
-  -webkit-transform: translateY(50px);
-  -ms-transform: translateY(50px);
-  transform: translateY(50px);
-}
-
-.fab-main:hover 
-.fab-item:not(:last-child) {
-  height: 40px;
-  opacity: 1;
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-  margin: 15px auto 0;
-}
-
-.fab-item:not(:last-child) i{
-  opacity: 0;
-}
-
-.fab-main:hover 
-.fab-item:not(:last-child) i {
-  opacity: 1;
-}
-
-.fab-item:nth-last-child(1) {
-  -webkit-transition-delay: 25ms;
-          transition-delay: 25ms;
-  background-size: contain;
-}
-
-.fab-item:not(:last-child):nth-last-child(2) {
-  -webkit-transition-delay: 50ms;
-          transition-delay: 20ms;
-  background-size: contain;
-}
-
-.fab-item:not(:last-child):nth-last-child(3) {
-  -webkit-transition-delay: 75ms;
-          transition-delay: 40ms;
-  background-size: contain;
-}
-
-.fab-item:not(:last-child):nth-last-child(4) {
-  -webkit-transition-delay: 100ms;
-          transition-delay: 60ms;
-  background-size: contain;
-}
-
-[tooltip]:before {
-  bottom: 25%;
-  font-family: arial;
-  font-weight: 600;
-  border-radius: 2px;
-  background: var(--tooltip-backcolor);
-  color: var(--tooltip-forecolor);
-  content: attr(tooltip);
-  font-size: 12px;
+.fab-main-button .tooltip {
   visibility: hidden;
-  opacity: 0;
-  padding: 5px 7px;
-  margin-right: 12px;
+  background-color: #424242;
+  color: #fafafa;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+
+  /* Position the tooltip */
   position: absolute;
-  right: 100%;
-  white-space: nowrap;
+  left: -100;
+  z-index: 1;
 }
 
-[tooltip]:hover:before,
-[tooltip]:hover:after {
+.fab-main-button:hover .tooltip {
   visibility: visible;
-  opacity: 1;
-  transition: opacity .1s ease-in-out;
+  pointer-events: auto;
 }
 
-.fab-item:nth-last-child(1)[tooltip]:hover:before,
-.fab-item:nth-last-child(1)[tooltip]:hover:after {
-  transition: opacity .1s step-end;
+/* Action Button Style */
+
+.fab-action-button {
+  border-radius: 100%;
+  padding: 20px;
+  margin: 10px;
+  place-items: center;
 }
 
-.fab-item.fab-rotate:active, 
-.fab-item.fab-rotate:focus, 
-.fab-item.fab-rotate:hover 
-{
-  transform: rotate(135deg);
-  box-shadow: 5px 5px 20px rgba(0,0,0,0.19), 3px 3px 6px rgba(0,0,0,0.23);
-  transition: box-shadow .2s ease, transform .1s ease;
+.fab-action-button:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: box-shadow 0.2s ease;
   outline: none;
 }
 
-.fab-item.fab-rotate:nth-last-child(1)[tooltip]:hover:before,
-.fab-item.fab-rotate:nth-last-child(1)[tooltip]:hover:after 
-{
-  transform: rotate(-135deg);
-  bottom: -60%;
-  right: 60%;
+.fab-action-button .tooltip {
+  visibility: hidden;
+  background-color: #424242;
+  color: #fafafa;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.fab-action-button:hover .tooltip {
+  visibility: visible;
+  pointer-events: auto;
 }
