@@ -14,7 +14,8 @@ import { Header, SlidingPanel, SideMenu,
         darkColors, lightColors, TabsComponent,RecursiveAccordion } from './components/common';
 
 // All Pages Import
-import { Grids, Projects, Cases, Accordions, TabsComponents } from "./pages";
+import { Grids, Projects, Cases, Accordions, TabsComponents,Tree} from './pages';
+
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
@@ -34,6 +35,7 @@ function App() {
     { url: "/cases", title: "Cases", className: "navbar-item" },
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
+    {url: "/Tree" , title: "Tree", className: "navbar-item"},
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -45,7 +47,7 @@ function App() {
       backgroundColor: darkColors.blue,
       color: lightColors.white,
       /* Direction: Array responsible for determining the opening position of the button */
-      direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"]
+      direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"],
     },
     actions: [
       {
@@ -157,7 +159,6 @@ const dataTab3 =[
   },
 ]
 
-
 return (
   // React Browser Router
   <Router>
@@ -256,55 +257,19 @@ return (
                   <TabsComponents name="page" />
                 </div>
               </Route>
+
+              {/* Tree Route */}
+              <Route exact path={navlinks[6].url}>
+                  <div name="inputs" className="card-container">
+                    <Tree />
+                  </div>
+                </Route>
+
             </Switch>
           </div>
           {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
           <FAB data={actionData} />
-          <div name="app" className="App">
-            <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
-            <div name="main" className="main">
-              <Switch>
-                {/* Main page Route */}
-                <Route exact path="/">
-                  <div className="scope" style={{ color: "white" }}>
-                    Main Page
-                  </div>
-                </Route>
-
-                {/* Grids Route */}
-                <Route exact path={navlinks[1].url}>
-                  <div name="inputs" className="grid-container">
-                    <Grids />
-                  </div>
-                </Route>
-                {/* Projects Route */}
-                <Route exact path={navlinks[2].url}>
-                  <div name="cards" className="card-container">
-                    <Projects />
-                  </div>
-                </Route>
-                {/* Cases Route */}
-                <Route exact path={navlinks[3].url}>
-                  <div name="cards" className="card-container">
-                    <Cases />
-                  </div>
-                </Route>
-                {/* Accordion Route */}
-                <Route exact path={navlinks[4].url}>
-                  <div name="inputs" className="grid-container">
-                    <Accordions />
-                  </div>
-                </Route>
-
-                {/* Tabs Route */}
-                <Route exact path={navlinks[5].url}>
-                  <div name="inputs" className="card-container">
-                    <TabsComponents name="page" />
-                  </div>
-                </Route>
-              </Switch>
-            </div>
-          </div>
+          
         </div>
       </SearchProvider>
     </Router>

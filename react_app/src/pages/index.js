@@ -3,6 +3,7 @@ import Projects from "./Projects";
 import Cases from "./Cases";
 import Accordions from "./Accordions";
 import TabsComponents from "./TabsComponents";
+import Tree from "./Tree";
 
 export {
     Grids,
@@ -10,4 +11,5 @@ export {
     Accordions,
     Cases,
     TabsComponents,
+    Tree,
 }
