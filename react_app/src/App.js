@@ -43,7 +43,7 @@ function App() {
       icon: "fas fa-plus",
       rotate: true,
       backgroundColor: darkColors.blue,
-      color: lightColors.white
+      color: lightColors.white,
       /* Direction: Array responsible for determining the opening position of the button */
       direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"]
     },
@@ -158,17 +158,63 @@ const dataTab3 =[
 ]
 
 
-  return (
-    // React Browser Router
-    <Router>
-      <SearchProvider>
-        <div name="app" className="App">
-          <SideMenu
-            onCollapse={(inactive) => {
-              setInactive(inactive);
-            }}
-          />
-          <SlidingPanel />
+return (
+  // React Browser Router
+  <Router>
+    <SearchProvider>
+      <div name="app" className="App">
+      <SideMenu  onCollapse={(inactive) => {setInactive(inactive)}} >
+        <RecursiveAccordion  key={"accordion_0"}
+                      accordionData={dataStructure}>
+
+              {/* Multiple Children is needed! */}
+              <div key={1} className="accordion_dropdown_item">
+                  Teste1
+              </div>
+              <div key={2} className="accordion_dropdown_item">
+                  Teste2
+              </div>
+              <div key={2} className="accordion_dropdown_item">
+                  Teste3
+              </div>
+          </RecursiveAccordion>
+        </SideMenu>
+        <SlidingPanel >
+            <ul>
+              {/*Component Accordion*/ }
+              <RecursiveAccordion key={"accordion_0"}
+                            accordionData={slidinPanelAccordionData}>
+
+          
+                    {/* Multiple Children is needed! */}
+                    
+                    <div key={1} className="accordion_dropdown_item">
+                    <TabsComponent data={dataTab1}>
+                      <div key={"Revestimento Anterior"}> Revestimento Anterior </div>
+                      <div key={"Poço Aberto"}> Teste Poço Aberto</div>
+                    </TabsComponent>
+                    </div>
+
+                    <div key={2} className="accordion_dropdown_item">
+
+                    <TabsComponent data={dataTab2}>
+                      <div key={"Coluna de Trabalho"}> Teste Coluna</div>
+                      <div key={"Revestimento"}> Teste Revestimento</div>
+                    </TabsComponent>
+                    </div>
+                    <div key={3} className="accordion_dropdown_item">
+                    <TabsComponent data={dataTab3}>
+                      <div key={"Centralizadores"}> Teste Centralizadores </div>
+                      <div key={"Intervalos de Centralizadores"}> Teste Intervalo Centralizador</div>
+                    </TabsComponent>
+                    </div>
+                    <div key={4} className="accordion_dropdown_item">
+                      <p>in dev </p>
+                    </div>
+                    
+                  </RecursiveAccordion>
+                </ul>
+            </SlidingPanel>
           <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
           <div name="main" className="main">
             <Switch>
@@ -214,107 +260,51 @@ const dataTab3 =[
           </div>
           {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
           <FAB data={actionData} />
-      <div name="app" className="App">
+          <div name="app" className="App">
+            <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
+            <div name="main" className="main">
+              <Switch>
+                {/* Main page Route */}
+                <Route exact path="/">
+                  <div className="scope" style={{ color: "white" }}>
+                    Main Page
+                  </div>
+                </Route>
 
-        <SideMenu  onCollapse={(inactive) => {setInactive(inactive)}} >
+                {/* Grids Route */}
+                <Route exact path={navlinks[1].url}>
+                  <div name="inputs" className="grid-container">
+                    <Grids />
+                  </div>
+                </Route>
+                {/* Projects Route */}
+                <Route exact path={navlinks[2].url}>
+                  <div name="cards" className="card-container">
+                    <Projects />
+                  </div>
+                </Route>
+                {/* Cases Route */}
+                <Route exact path={navlinks[3].url}>
+                  <div name="cards" className="card-container">
+                    <Cases />
+                  </div>
+                </Route>
+                {/* Accordion Route */}
+                <Route exact path={navlinks[4].url}>
+                  <div name="inputs" className="grid-container">
+                    <Accordions />
+                  </div>
+                </Route>
 
-          <RecursiveAccordion  key={"accordion_0"}
-                        accordionData={dataStructure}>
-
-                {/* Multiple Children is needed! */}
-                <div key={1} className="accordion_dropdown_item">
-                    Teste1
-                </div>
-                <div key={2} className="accordion_dropdown_item">
-                    Teste2
-                </div>
-                <div key={2} className="accordion_dropdown_item">
-                    Teste3
-                </div>
-            </RecursiveAccordion>
-
-        </SideMenu>
-   
-
-        <SlidingPanel >
-        <ul>
-          {/*Component Accordion*/ }
-          <RecursiveAccordion key={"accordion_0"}
-                        accordionData={slidinPanelAccordionData}>
-
-      
-                {/* Multiple Children is needed! */}
-                
-                <div key={1} className="accordion_dropdown_item">
-                <TabsComponent data={dataTab1}>
-                  <div key={"Revestimento Anterior"}> Revestimento Anterior </div>
-                  <div key={"Poço Aberto"}> Teste Poço Aberto</div>
-                </TabsComponent>
-                </div>
-
-                <div key={2} className="accordion_dropdown_item">
-
-                <TabsComponent data={dataTab2}>
-                  <div key={"Coluna de Trabalho"}> Teste Coluna</div>
-                  <div key={"Revestimento"}> Teste Revestimento</div>
-                </TabsComponent>
-                </div>
-                <div key={3} className="accordion_dropdown_item">
-                <TabsComponent data={dataTab3}>
-                  <div key={"Centralizadores"}> Teste Centralizadores </div>
-                  <div key={"Intervalos de Centralizadores"}> Teste Intervalo Centralizador</div>
-                </TabsComponent>
-                </div>
-                <div key={4} className="accordion_dropdown_item">
-                  <p>in dev </p>
-                </div>
-                
-              </RecursiveAccordion>
-            </ul>
-        </SlidingPanel>
-
-        <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
-        <div name="main" className="main">
-          <Switch>
-            {/* Main page Route */}
-            <Route exact path="/">
-              <div className="scope" style={{ color: "white" }}>
-                Main Page
-              </div>
-            </Route>
-
-            {/* Grids Route */}
-            <Route exact path={navlinks[1].url}>
-              <div name="inputs" className="grid-container">
-                <Grids />
-              </div>
-            </Route>
-            {/* Projects Route */}
-            <Route exact path={navlinks[2].url}>
-              <div name="cards" className="card-container">
-                <Projects />
-              </div>
-            </Route>
-            {/* Cases Route */}
-            <Route exact path={navlinks[3].url}>
-              <div name="cards" className="card-container">
-                <Cases />
-              </div>
-            </Route>
-            {/* Accordion Route */}
-            <Route exact path={navlinks[4].url}>
-              <div name="inputs" className="grid-container">
-                <Accordions />
-              </div>
-            </Route>
-
-            {/* Tabs Route */}
-            <Route exact path={navlinks[5].url}>
-              <div name="inputs" className="card-container">
-                <TabsComponents name="page" />
-              </div>
-            </Route>
-          </Switch>
+                {/* Tabs Route */}
+                <Route exact path={navlinks[5].url}>
+                  <div name="inputs" className="card-container">
+                    <TabsComponents name="page" />
+                  </div>
+                </Route>
+              </Switch>
+            </div>
+          </div>
         </div>
       </SearchProvider>
     </Router>
