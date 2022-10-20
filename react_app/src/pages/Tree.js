@@ -1,32 +1,70 @@
 import react from "react";
 import TreeComponent from "../components/common/treeComponent";
-import './pages.css'
+import "./pages.css";
 const Tree = () => {
-  const dados = [
-  {
-     name: "UO-Buzios",
-      info: [
-        {
-          name: "Campo - Buzios",
-          info: [
-            { name: "poço 1", info: null, icon: "" ,},
-            { name: "poço 2", info: null, icon: "" ,},
-            { name: "poço 3", info: null, icon: "" ,},
-            { name: "poço 4", info: null, icon: "" ,},
-          ],
-          
-        },
-  
-      ],
-      icon: "",
-    },
-    {name:"UO-Angra",
-      info : [],
+  const dados = {
+    name: "Árvore",
+    icon: "",
+    info: [
+      {
+        name: "UO-Buzios",
+        icon: "",
+        info: [
+          {
+            name: "Campo - Buzios",
+            icon: "",
+            info: [
+              { name: "poço 1", icon: "", info: null },
+              { name: "poço 2", icon: "", info: null },
+              { name: "poço 3", icon: "", info: null },
+              { name: "poço 4", icon: "", info: null },
+            ],
+          },
+          {
+            name: "Campo - Buzios",
+            icon: "",
+            info: [
+              { name: "poço 1", icon: "", info: null },
+              { name: "poço 2", icon: "", info: null },
+              { name: "poço 3", icon: "", info: null },
+              { name: "poço 4", icon: "", info: null },
+            ],
+          },
+        ],
+      },
+      { name: "UO-Angra", icon: "", info: null },
+    ],
+  };
 
-    },
-    
-  ];
-  return <TreeComponent data={dados} />;
+  return <TreeComponent name={dados.name} data={dados.info} />;
 };
 
 export default Tree;
+
+// { name: "UO-Buzios",
+// icon: "",
+// info: [
+//   { name: "Campo - Buzios",
+//     icon: "",
+//     info: [
+//       { name: "poço 1", icon: "", info: null},
+//       { name: "poço 2", icon: "", info: null},
+//       { name: "poço 3", icon: "", info: null},
+//       { name: "poço 4", icon: "", info: null},
+//     ],
+//   },
+//   { name: "Campo - Buzios",
+//     icon: "",
+//     info: [
+//       { name: "poço 1", icon: "", info: null},
+//       { name: "poço 2", icon: "", info: null},
+//       { name: "poço 3", icon: "", info: null},
+//       { name: "poço 4", icon: "", info: null},
+//     ],
+//   },
+// ],
+// },
+// { name: "UO-Angra",
+// icon: "",
+// info: null
+// },
