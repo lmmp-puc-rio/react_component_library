@@ -31,7 +31,7 @@ const TabsComponents = (props) => {
     return (
         
         <> 
-            <TabsComponent key={"Accordions"} data = {data}>
+            <TabsComponent  data = {data}>
                 <div key={"Accordions"}> Teste 1</div>
                 <div key={"ProjectCards"}> Teste 2</div>
             </TabsComponent> 

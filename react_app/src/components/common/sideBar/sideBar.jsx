@@ -2,14 +2,20 @@
 
 // # Main Import
 import React, { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
+
 
 // # Import Component Style
 import "./sideBar.css";
 
 // # Import MenuItem
 import MenuItem from "./menuItems";
+
+
+//import Accordion Recursive
+import RecursiveAccordion from '../recursiveAccordion/'
 
 // added menuItems for testing
 export const menuItems = [
@@ -104,27 +110,16 @@ const SideMenu = (props) => {
       </div>
       <div className="divider"></div>
       <div className="main-menu">
-        <ul>
-          {menuItems.map((menuItem, index) => (
-            <MenuItem
-              key={index}
-              name={menuItem.name}
-              to={menuItem.to}
-              subMenus={menuItem.subMenus || []}
-              iconClassName={menuItem.iconClassName}
-              onClick={(e) => {
-                if (inactive) {
-                  setInactive(false);
-                }
-              }}
-            />
-          ))}
-        </ul>
+        {!inactive ? (
+             <ul>
+                {props.children}
+            </ul>
+            ):(<ul></ul>)}
       </div>
 
       <div className="side-menu-footer">
         <div className="side-menu-footer-logo">
-          <img src="" alt="logo_1" className="side-footer-img" />
+          <img src="..\..\images\lmmp_logo.jpg" alt="logo_1" className="side-footer-img" />
           <img src="" alt="logo_2" className="side-footer-img" />
         </div>
         <div className="side-footer-bttn">
