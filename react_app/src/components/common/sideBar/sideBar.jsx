@@ -2,7 +2,10 @@
 
 // # Main Import
 import React, { useEffect, useState } from "react";
-import { Link, Route } from "react-router-dom";
+
+import { Link } from "react-router-dom";
+import SearchBar from "../searchBar/SearchBar";
+
 
 // # Import Component Style
 import "./sideBar.css";
@@ -103,10 +106,7 @@ const SideMenu = (props) => {
       </div>
 
       <div className="search-controller">
-        <button className="search-btn">
-          <i class="fas fa-search"></i>
-        </button>
-        <input type="text" placeholder="search" />
+        <SearchBar />
       </div>
       <div className="divider"></div>
       <div className="main-menu">
@@ -137,3 +137,4 @@ const SideMenu = (props) => {
 };
 
 export default SideMenu;
+

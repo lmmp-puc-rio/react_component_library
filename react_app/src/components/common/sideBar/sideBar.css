@@ -27,6 +27,7 @@
   right: 0;
   transform: translateY(-50%);
   cursor: pointer;
+
  }
 
 .side-menu .search-controller .search-btn {
@@ -51,6 +52,7 @@
   box-sizing: border-box;
   padding-left: 40px;
   color: white;
+
 }
 
 .side-menu .main-menu {
