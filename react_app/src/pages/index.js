@@ -4,6 +4,7 @@ import Cases from "./Cases";
 import Accordions from "./Accordions";
 import TabsComponents from "./TabsComponents";
 import Tree from "./Tree";
+import Plotly from "./Plotly" 
 
 export {
     Grids,
@@ -12,4 +13,5 @@ export {
     Cases,
     TabsComponents,
     Tree,
+    Plotly,
 }
