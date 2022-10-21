@@ -9,13 +9,27 @@ import "./App.css";
 
 // All Components import
 
-import { Header, SlidingPanel, SideMenu,
-        FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
-        darkColors, lightColors, TabsComponent,RecursiveAccordion } from './components/common';
+import {
+  Header,
+  SlidingPanel,
+  SideMenu,
+  FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
+  darkColors,
+  lightColors,
+  TabsComponent,
+  RecursiveAccordion,
+} from "./components/common";
 
 // All Pages Import
-import { Grids, Projects, Cases, Accordions, TabsComponents,Tree} from './pages';
-
+import {
+  Grids,
+  Projects,
+  Cases,
+  Accordions,
+  TabsComponents,
+  Tree,
+  DynamicFormP,
+} from "./pages";
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
@@ -35,7 +49,8 @@ function App() {
     { url: "/cases", title: "Cases", className: "navbar-item" },
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
-    {url: "/Tree" , title: "Tree", className: "navbar-item"},
+    { url: "/Tree", title: "Tree", className: "navbar-item" },
+    { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -47,7 +62,12 @@ function App() {
       backgroundColor: darkColors.blue,
       color: lightColors.white,
       /* Direction: Array responsible for determining the opening position of the button */
-      direction: ["fab-container-up", "fab-container-down", "fab-container-left", "fab-container-right"],
+      direction: [
+        "fab-container-up",
+        "fab-container-down",
+        "fab-container-left",
+        "fab-container-right",
+      ],
     },
     actions: [
       {
@@ -69,153 +89,165 @@ function App() {
     ],
   };
 
-  {/*Accordion Data*/}
+  {
+    /*Accordion Data*/
+  }
   const dataStructure = [
     {
-        main: 'Entrada de dados',
-        id: '1',
-        hidden: '',
-        actions: [],
-        subitems: [],
+      main: "Entrada de dados",
+      id: "1",
+      hidden: "",
+      actions: [],
+      subitems: [],
     },
     {
-        main: 'Resultados',
-        id: '2',
-        hidden: '',
-        actions: [],
-        subitems:[]
-    },  
-   ];
+      main: "Resultados",
+      id: "2",
+      hidden: "",
+      actions: [],
+      subitems: [],
+    },
+  ];
 
   const slidinPanelAccordionData = [
     {
-        main: 'Geometria Externa',
-        id: '1',
-        hidden: '',
-        actions: [],
-        subitems: [],
-    },
-    {
-        main: 'Geometria Interna',
-        id: '2',
-        hidden: '',
-        actions: [],
-        subitems:[]
-    },
-    {
-      main: 'Centralização',
-      id: '3',
-      hidden: '',
+      main: "Geometria Externa",
+      id: "1",
+      hidden: "",
       actions: [],
-      subitems:[]
-  },  
-  {
-    main: 'Trajetória',
-    id: '4',
-    hidden: '',
-    actions: [],
-    subitems:[]
-},
-   ];
-
-
-   {/*Tabs Data */}
-  const dataTab1=[
-    {
-      id : "Revestimento Anterior",
-      description:"Revestimento Anterior",
-      name:"Revestimento Anterior",
+      subitems: [],
     },
     {
-      id : "Poço Aberto",
-      description:"Poço Aberto",
-      name:"Poço Aberto",
-    },  
-  ]
+      main: "Geometria Interna",
+      id: "2",
+      hidden: "",
+      actions: [],
+      subitems: [],
+    },
+    {
+      main: "Centralização",
+      id: "3",
+      hidden: "",
+      actions: [],
+      subitems: [],
+    },
+    {
+      main: "Trajetória",
+      id: "4",
+      hidden: "",
+      actions: [],
+      subitems: [],
+    },
+  ];
 
-  const dataTab2 =[
   {
-    id : "Coluna de Trabalho",
-    description:"Coluna de Trabalho",
-    name:"Coluna de Trabalho",
-  },
-  {
-    id : "Revestimento",
-    description:"Revestimento",
-    name:"Revestimento",
-  },
-  ]
+    /*Tabs Data */
+  }
+  const dataTab1 = [
+    {
+      id: "Revestimento Anterior",
+      description: "Revestimento Anterior",
+      name: "Revestimento Anterior",
+    },
+    {
+      id: "Poço Aberto",
+      description: "Poço Aberto",
+      name: "Poço Aberto",
+    },
+  ];
 
-const dataTab3 =[
-  {
-    id : "Centralizadores",
-    description:"Centralizadores",
-    name:"Centralizadores",
-  },
-  {
-    id : "Intervalos de Centralizadores",
-    description:"Intervalos de Centralizadores",
-    name:"Intervalos de Centralizadores",
-  },
-]
+  const dataTab2 = [
+    {
+      id: "Coluna de Trabalho",
+      description: "Coluna de Trabalho",
+      name: "Coluna de Trabalho",
+    },
+    {
+      id: "Revestimento",
+      description: "Revestimento",
+      name: "Revestimento",
+    },
+  ];
 
-return (
-  // React Browser Router
-  <Router>
-    <SearchProvider>
-      <div name="app" className="App">
-      <SideMenu  onCollapse={(inactive) => {setInactive(inactive)}} >
-        <RecursiveAccordion  key={"accordion_0"}
-                      accordionData={dataStructure}>
+  const dataTab3 = [
+    {
+      id: "Centralizadores",
+      description: "Centralizadores",
+      name: "Centralizadores",
+    },
+    {
+      id: "Intervalos de Centralizadores",
+      description: "Intervalos de Centralizadores",
+      name: "Intervalos de Centralizadores",
+    },
+  ];
 
+  return (
+    // React Browser Router
+    <Router>
+      <SearchProvider>
+        <div name="app" className="App">
+          <SideMenu
+            onCollapse={(inactive) => {
+              setInactive(inactive);
+            }}
+          >
+            <RecursiveAccordion
+              key={"accordion_0"}
+              accordionData={dataStructure}
+            >
               {/* Multiple Children is needed! */}
               <div key={1} className="accordion_dropdown_item">
-                  Teste1
+                Teste1
               </div>
               <div key={2} className="accordion_dropdown_item">
-                  Teste2
+                Teste2
               </div>
               <div key={2} className="accordion_dropdown_item">
-                  Teste3
+                Teste3
               </div>
-          </RecursiveAccordion>
-        </SideMenu>
-        <SlidingPanel >
+            </RecursiveAccordion>
+          </SideMenu>
+          <SlidingPanel>
             <ul>
-              {/*Component Accordion*/ }
-              <RecursiveAccordion key={"accordion_0"}
-                            accordionData={slidinPanelAccordionData}>
+              {/*Component Accordion*/}
+              <RecursiveAccordion
+                key={"accordion_0"}
+                accordionData={slidinPanelAccordionData}
+              >
+                {/* Multiple Children is needed! */}
 
-          
-                    {/* Multiple Children is needed! */}
-                    
-                    <div key={1} className="accordion_dropdown_item">
-                    <TabsComponent data={dataTab1}>
-                      <div key={"Revestimento Anterior"}> Revestimento Anterior </div>
-                      <div key={"Poço Aberto"}> Teste Poço Aberto</div>
-                    </TabsComponent>
+                <div key={1} className="accordion_dropdown_item">
+                  <TabsComponent data={dataTab1}>
+                    <div key={"Revestimento Anterior"}>
+                      {" "}
+                      Revestimento Anterior{" "}
                     </div>
+                    <div key={"Poço Aberto"}> Teste Poço Aberto</div>
+                  </TabsComponent>
+                </div>
 
-                    <div key={2} className="accordion_dropdown_item">
-
-                    <TabsComponent data={dataTab2}>
-                      <div key={"Coluna de Trabalho"}> Teste Coluna</div>
-                      <div key={"Revestimento"}> Teste Revestimento</div>
-                    </TabsComponent>
+                <div key={2} className="accordion_dropdown_item">
+                  <TabsComponent data={dataTab2}>
+                    <div key={"Coluna de Trabalho"}> Teste Coluna</div>
+                    <div key={"Revestimento"}> Teste Revestimento</div>
+                  </TabsComponent>
+                </div>
+                <div key={3} className="accordion_dropdown_item">
+                  <TabsComponent data={dataTab3}>
+                    <div key={"Centralizadores"}> Teste Centralizadores </div>
+                    <div key={"Intervalos de Centralizadores"}>
+                      {" "}
+                      Teste Intervalo Centralizador
                     </div>
-                    <div key={3} className="accordion_dropdown_item">
-                    <TabsComponent data={dataTab3}>
-                      <div key={"Centralizadores"}> Teste Centralizadores </div>
-                      <div key={"Intervalos de Centralizadores"}> Teste Intervalo Centralizador</div>
-                    </TabsComponent>
-                    </div>
-                    <div key={4} className="accordion_dropdown_item">
-                      <p>in dev </p>
-                    </div>
-                    
-                  </RecursiveAccordion>
-                </ul>
-            </SlidingPanel>
+                  </TabsComponent>
+                </div>
+                <div key={4} className="accordion_dropdown_item">
+                  <p>in dev </p>
+                </div>
+              </RecursiveAccordion>
+            </ul>
+          </SlidingPanel>
           <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
           <div name="main" className="main">
             <Switch>
@@ -260,16 +292,21 @@ return (
 
               {/* Tree Route */}
               <Route exact path={navlinks[6].url}>
-                  <div name="inputs" className="card-container">
-                    <Tree />
-                  </div>
-                </Route>
+                <div name="inputs" className="card-container">
+                  <Tree />
+                </div>
+              </Route>
 
+              {/* Form Route */}
+              <Route exact path={navlinks[7].url}>
+                <div name="inputs" className="card-container">
+                  <DynamicFormP />
+                </div>
+              </Route>
             </Switch>
           </div>
           {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
           <FAB data={actionData} />
-          
         </div>
       </SearchProvider>
     </Router>
@@ -277,4 +314,3 @@ return (
 }
 
 export default App;
-
