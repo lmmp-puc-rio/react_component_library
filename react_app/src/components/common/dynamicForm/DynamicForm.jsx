@@ -10,16 +10,10 @@ function DynamicField(props) {
   const fieldType = props.type;
   const fieldName = props.name;
   const fieldLabel = props.name;
-  const fieldPlaceholder = props.placerereholder;
-  const [valueState,setValueState] = useState("")
-  const onchangeState=(info)=>{
-    setValueState(info)
-  }
+  const fieldPlaceholder = props.placeholder;
+  const [name, setName] = React.useState(""); // State Hook
 
-  const onchangeInput = e =>{
-    console.log(e.target.value)
-    onchangeState(e.target.value)
-  }
+ 
   return (
     <form>
       <label className="form-field-label">
@@ -28,7 +22,8 @@ function DynamicField(props) {
           type={fieldType}
           name={fieldName}
           placeholder={fieldPlaceholder}
-          onChange={onchangeInput}
+          onChange={e => setName(e.target.value)}
+          value = {name}
         />
         {props.children}
       </label>
@@ -55,8 +50,7 @@ function DynamicForm(props) {
               key={field.name}
               name={field.name}
               placeholder={field.placeholder}
-              type={field.type}
-           />
+              type={field.type} />
             
           );
         })}
