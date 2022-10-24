@@ -1,108 +1,66 @@
 import React, { useState } from "react";
 import "./DynamicForm.css";
 
-//do diretório forms:
-import useForm from "../../../forms/useForm";
-import { validate, validate_single } from "./validateInfo";
 
-/* function DynamicFormInput(props) {
-  const text = props.text;
-  const data = props.data;
-  const value = props.value;
+ 
 
-  return (
-    <form className="formInputRow">
-      <div>
-        <label className="rowLabel">{data.label}</label>
-        <input
-          className="rowInput"
-          type="text"
-          text={text}
-          value={value}
-          required
-          onChange={(event) => props.onChange(event)}
-        />
-      </div>
-    </form>
-  );
-} */
 
 //FUNCTION TO RENDER FIELDS:
 function DynamicField(props) {
-  const fieldType = props.data.type;
-  const fieldName = props.data.name;
-  const fieldLabel = props.data.label;
-  const fieldPlaceholder = props.data.placeholder;
-  const values = props.values;
-  const handleBlur = props.handleBlur;
-  const handleChange = props.handleChange;
+  const fieldType = props.type;
+  const fieldName = props.name;
+  const fieldLabel = props.name;
+  const fieldPlaceholder = props.placerereholder;
+  const [valueState,setValueState] = useState("")
+  const onchangeState=(info)=>{
+    setValueState(info)
+  }
 
+  const onchangeInput = e =>{
+    console.log(e.target.value)
+    onchangeState(e.target.value)
+  }
   return (
     <form>
       <label className="form-field-label">
-        {fieldLabel}
+        <label>{fieldLabel}</label>
         <input
           type={fieldType}
           name={fieldName}
           placeholder={fieldPlaceholder}
-          value={values}
-          onBlur={handleBlur}
-          onChange={handleChange}
+          onChange={onchangeInput}
         />
         {props.children}
       </label>
     </form>
   );
-}
+} 
 
 function DynamicForm(props) {
-  const defaults = {};
-  /* fields.map((field) => {
-    return (defaults[field.name] = field.defaultValue);
-  }); */
-  const data = props.data;
-  console.log(data);
-  const statesData = {};
+  const data = props.fields;
+  console.log(data)
 
-  for (var key in data) {
-    statesData[key] = data[key].defaultValue;
-  }
-  console.log({ statesData });
-  const [state, setState] = useState(statesData);
-
-  //TO VALIDATE INPUTS WITH HOOK useForm:
-  const { handleBlur, handleChange, handleSubmit, values, errors } = useForm(
-    defaults,
-    validate,
-    validate_single
-  );
-
-  /* function onChangeCallback(event) {
-    const { name, value } = event.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
-  } */
+  const handleClick = e =>{
+    e.preventDefault();
+    console.log(e.target)
+}
 
   return (
-    <fieldset className="dynamic-form-group">
+    <fieldset className="dynamic-form-group" >
       <h4>DYNAMIC FORM</h4>
-      <form className="dynamic-form" onSubmit={handleSubmit}>
+      <form className="dynamic-form" onSubmit={handleClick}>
         {data.map((field) => {
           return (
             <DynamicField
               key={field.name}
               name={field.name}
               placeholder={field.placeholder}
-              value={field.values}
-              onBlur={handleBlur}
-              onChange={handleChange}
-            >
-              {errors[field.name] && (
-                <span className="invalid-feedback"> {errors[field.name]} </span>
-              )}
-            </DynamicField>
+              type={field.type}
+           />
+            
           );
         })}
-        <button name="submit" type="submit" onClick={handleSubmit}>
+        <button name="submit">
           SAVE
         </button>
       </form>
