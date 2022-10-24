@@ -22,7 +22,7 @@ import { Grids, Projects, Cases, Accordions, TabsComponents,Tree} from './pages'
 // import { ToastProvider } from './components/contexts/ToastContext';
 // import { ModalProvider } from './components/contexts/ModalContext';
 import { SearchProvider } from "./contexts/SearchContext";
-import { SelectAllProvider } from './contexts/SelectAllContext';
+import { ActionFabGridProvider } from './contexts/ActionFabGridContext';
 
 function App() {
   /* State responsible for controlling the opening/closing of the sidebar */
@@ -228,11 +228,11 @@ return (
               </Route>
               {/* Grids Route */}
               <Route exact path={navlinks[1].url}>
-              <SelectAllProvider>
+              <ActionFabGridProvider>
               <div name="inputs" className="grid-container">
                 <Grids/>
               </div>
-              </SelectAllProvider>
+              </ActionFabGridProvider>
               </Route>
               {/* Projects Route */}
               <Route exact path={navlinks[2].url}>
@@ -270,7 +270,7 @@ return (
             </Switch>
           </div>
           {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
-          <FAB data={actionData} />
+        {/*   <FAB data={actionData} /> */}
           
         </div>
       </SearchProvider>
