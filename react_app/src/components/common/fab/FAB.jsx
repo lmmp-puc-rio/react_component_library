@@ -30,8 +30,7 @@ function ActionButton(props) {
         className="fab-main-button"
         tooltip={props.tooltip}
         style={props.styles || defaultItemStyles}
-        onClick={props.onClick}
-        /* onMouseOver={props.onClick} */
+        onMouseOver={props.onClick}
       >
         <i className={props.icon} style={props.iconStyles}></i>
         {props.children}
@@ -45,6 +44,8 @@ function FAB(props) {
   /* State responsible for expanding the main button after an action (onClik or onMouseOver) */
   const [open, setOpen] = useState(false);
   const data = props.data;
+  console.log(data)
+
 
   function handleClick() {
     setOpen(!open);
@@ -53,7 +54,7 @@ function FAB(props) {
   // Tag Rendering
   return (
     /* Changing the class of the container, it changes the opening direction of the button */
-    <div className={data.actionButtom.direction[0]} style={props.styles}>
+    <div className={data.actionButtom.direction} style={props.styles}>
       {/* CREATE MANUALY */}
       {/* {props.children}   */}
       {/* //Loop over Actions */}

@@ -6,7 +6,7 @@ import Menu from "./menu";
 // import ProtectedRoute from "./protectedRoute";
 import Dropdown from "./dropdown";
 import GridForm from "./gridForm";
-import GridActionIcon from "./gridActionIcon";
+import CheckboxActionIcon from "./checkboxActionIcon";
 import { FAB, Action, ActionButton} from "./fab";
 import ExpandableGrid from "./expandableGrid";
 import RecursiveAccordion from "./recursiveAccordion";
@@ -18,6 +18,7 @@ import TabsComponent from "./tabsComponent";
 import SlidingPanel from "./slidingPanel";
 import SideMenu from "./sideBar";
 import TreeComponent from "./treeComponent";
+import ActionFabGrid from "./actionFabGrid";
 
 
 export {
@@ -27,12 +28,13 @@ export {
     Menu,
     // Toast,
     // ProtectedRoute,
+    ActionFabGrid,
     FAB,
     Action, 
     ActionButton, 
     Dropdown,
     GridForm,
-    GridActionIcon,
+    CheckboxActionIcon,
     ExpandableGrid,
     RecursiveAccordion,
     RadioGroup,

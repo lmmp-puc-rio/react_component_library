@@ -1,24 +1,34 @@
+// ExpandableGrid = Component to render header and body of tables
+
 // # Main Import
 import React, { useContext } from "react";
-import { GridActionIcon } from "../index";
+
+// #  Local SubComponents & utils
+import { CheckboxActionIcon } from "../index";
 
 // # Import Component Style
 import "./ExpandableGrid.css";
 
 // # Contexts
-import { SelectAllContext } from "../../../contexts/SelectAllContext";
+import { ActionFabGridContext } from "../../../contexts/ActionFabGridContext";
 
 // # Expandable Action Column React Component Construction
 function ActionColumn(props) {
   const actions = props.actions;
   const id = props.id;
+  const rowSelected = props.rowSelected;
+  const selectCallback = props.selectCallback;
+  const data = props.data;
 
   return (
     <td className="expandable_grid_actions_column">
       {actions.map((action) => (
-        <GridActionIcon
+        <CheckboxActionIcon
+          data = {data}
           callback={action.callback}
           rowID={id}
+          selectCallback= {selectCallback}
+          rowSelected = {rowSelected}
           routeURL={action.route}
           tooltip={action.tooltip}
           className={"action_icon_button"}
@@ -34,7 +44,9 @@ function ActionColumn(props) {
 function ExpandableRow(props) {
   const rowdata = props.rowData;
   const actions = props.actions;
+  const selectCallback = props.selectCallback;
   const rowOrder = ["id", "name", "desc", "created", "modified", "lastrun"];
+  const data = props.data;
 
   return (
     // Case Row assembled by Action Icons and Other Fields
@@ -44,7 +56,7 @@ function ExpandableRow(props) {
       id={["case_" + rowdata.id]}
     >
       {/* Action Column */}
-      <ActionColumn actions={actions} id={rowdata.id} />
+      <ActionColumn actions={actions} id={rowdata.id} rowSelected={rowdata.selected} selectCallback={selectCallback} data={data} />
       {/* Regular Column $TODO: Separate Columns and Expandable Columns */}
       {rowOrder.map((key) => (
         <td key={"casegrid_row" + rowdata.id + "_column" + key}>
@@ -59,16 +71,26 @@ function ExpandableRow(props) {
 // # Expandable Grid React Component Construction
 function ExpandableGrid(props) {
   const metaData = props.metaData;
-
+  const selectCallback = props.selectCallback
   const data = props.data;
 
-  /* State that controls the checkbox of the table header and selects all radio buttons */
-  const { isSelectChecked, setSelectChecked } = useContext(SelectAllContext);
+  /* State that controls the checkbox of the table header and selects all checkboxes */
+  const { isSelectAllChecked,setSelectAllChecked  } = useContext(ActionFabGridContext);
 
-  /*  Function that controls the checkbox (Selected/ Unselected) */
-  const handleSelectCheked = () => {
-    setSelectChecked(!isSelectChecked);
-  };
+
+  /*  Function that controls all checkboxes(Selected/ Unselected) and change the state*/
+  function selectAllRows() {
+    let updatedList = data.map(item => 
+      {
+        if(isSelectAllChecked === true) {
+          return {...item, selected: false};
+        } return {...item, selected: true};
+      });
+    selectCallback(updatedList)
+    setSelectAllChecked (!isSelectAllChecked)
+  }
+  
+
 
   return (
     // Logo assembled by Icon and Name
@@ -80,8 +102,9 @@ function ExpandableGrid(props) {
             <th>
               <input
                 type="checkbox"
-                checked={isSelectChecked}
-                onClick={handleSelectCheked}
+                className="checkbox-header"
+                checked={isSelectAllChecked}
+                onClick={selectAllRows}
               />
             </th>
             {metaData.header.map((columnLabel) => (
@@ -91,7 +114,7 @@ function ExpandableGrid(props) {
         </thead>
         <tbody>
           {data.map((row) => (
-            <ExpandableRow actions={metaData.actions} rowData={row} />
+            <ExpandableRow actions={metaData.actions} rowData={row} data={data} selectCallback={selectCallback}/>
           ))}
         </tbody>
       </table>
