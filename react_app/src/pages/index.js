@@ -5,6 +5,7 @@ import Accordions from "./Accordions";
 import TabsComponents from "./TabsComponents";
 import Tree from "./Tree";
 import Plotly from "./Plotly" 
+import DynamicFormP from "./DynamicForm";
 
 export {
     Grids,
@@ -14,4 +15,6 @@ export {
     TabsComponents,
     Tree,
     Plotly,
+   DynamicFormP,
 }
+
