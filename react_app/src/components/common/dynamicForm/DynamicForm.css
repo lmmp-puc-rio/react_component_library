@@ -6,6 +6,8 @@
   border: 1px solid #ccc;
   padding: 15px;
   align-items: center;
+  width:50%;
+  margin-left: 25%;
 }
 
 .form-field-label {

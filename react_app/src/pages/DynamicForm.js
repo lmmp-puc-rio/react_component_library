@@ -12,7 +12,7 @@ const DynamicFormP = (props) => {
     name:"Nome",
     placeholder:"Nome",
     type:"text",
-    value:"renan freixo", 
+    value:"", 
   },
   {  label:"Email",
     name:"Email",
