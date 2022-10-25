@@ -14,7 +14,7 @@ import { Header, SlidingPanel, SideMenu,
         darkColors, lightColors, TabsComponent,RecursiveAccordion } from './components/common';
 
 // All Pages Import
-import { Grids, Projects, Cases, Accordions, TabsComponents,Tree} from './pages';
+import { Grids, Projects, Cases, Accordions, TabsComponents,Tree,Plotly} from './pages';
 
 
 // All Contexts Import
@@ -37,6 +37,7 @@ function App() {
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
     {url: "/Tree" , title: "Tree", className: "navbar-item"},
+    {url: "/Plotly" , title: "Plotly", className: "navbar-item"},
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -264,6 +265,13 @@ return (
               <Route exact path={navlinks[6].url}>
                   <div name="inputs" className="card-container">
                     <Tree />
+                  </div>
+                </Route>
+
+                {/* Plotly Route */}
+              <Route exact path={navlinks[7].url}>
+                  <div name="inputs" className="card-container">
+                    <Plotly />
                   </div>
                 </Route>
 
