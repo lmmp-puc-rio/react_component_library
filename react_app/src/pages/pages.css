@@ -8,3 +8,10 @@
     font-weight: bold;
     margin-bottom: 20px;
 }
+
+.Plotly{
+    margin-top: 2%;
+    margin-left: 25%;
+    width: 800px;
+    height: 600px;
+}

@@ -21,6 +21,9 @@ import {
 } from "./components/common";
 
 // All Pages Import
+
+
+
 import {
   Grids,
   Projects,
@@ -29,13 +32,16 @@ import {
   TabsComponents,
   Tree,
   DynamicFormP,
+  Plotly,
 } from "./pages";
+
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
 // import { ToastProvider } from './components/contexts/ToastContext';
 // import { ModalProvider } from './components/contexts/ModalContext';
 import { SearchProvider } from "./contexts/SearchContext";
+import { ActionFabGridProvider } from './contexts/ActionFabGridContext';
 
 function App() {
   /* State responsible for controlling the opening/closing of the sidebar */
@@ -49,7 +55,8 @@ function App() {
     { url: "/cases", title: "Cases", className: "navbar-item" },
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
-    { url: "/Tree", title: "Tree", className: "navbar-item" },
+    {url: "/Tree" , title: "Tree", className: "navbar-item"},
+    {url: "/Plotly" , title: "Plotly", className: "navbar-item"},
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
@@ -257,12 +264,13 @@ function App() {
                   Main Page
                 </div>
               </Route>
-
               {/* Grids Route */}
               <Route exact path={navlinks[1].url}>
-                <div name="inputs" className="grid-container">
-                  <Grids />
-                </div>
+              <ActionFabGridProvider>
+              <div name="inputs" className="grid-container">
+                <Grids/>
+              </div>
+              </ActionFabGridProvider>
               </Route>
               {/* Projects Route */}
               <Route exact path={navlinks[2].url}>
@@ -297,16 +305,24 @@ function App() {
                 </div>
               </Route>
 
+                {/* Plotly Route */}
+              <Route exact path={navlinks[7].url}>
+                  <div name="inputs" className="card-container">
+                    <Plotly />
+                  </div>
+                </Route>
+                
               {/* Form Route */}
               <Route exact path={navlinks[7].url}>
                 <div name="inputs" className="card-container">
                   <DynamicFormP />
                 </div>
               </Route>
+
             </Switch>
           </div>
           {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
-          <FAB data={actionData} />
+        {/*   <FAB data={actionData} /> */}
         </div>
       </SearchProvider>
     </Router>
