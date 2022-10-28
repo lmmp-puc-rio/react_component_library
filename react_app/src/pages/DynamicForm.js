@@ -3,42 +3,49 @@ import React, { useState } from "react";
 import DynamicForm from "../components/common/dynamicForm/DynamicForm";
 import "./pages.css";
 
-
-
 const DynamicFormP = (props) => {
   const data = [
-   {
-    label:"Nome",
-    name:"Nome",
-    placeholder:"Nome",
-    type:"text",
-    value:"", 
-  },
-  {  label:"Email",
-    name:"Email",
-    placeholder:"Email",
-    type:"email",
-    value:"",
-  },
-  {
-    label:"Senha",
-    name:"password",
-    placeholder:"Senha",
-    type:"password",
-    value:"",
-  },
-  {
-    label:"telefone",
-    name:"telefone",
-    placeholder:"telefone",
-    type:"text",
-    value:"",
-  },
- ]
-return (
-  <>
-    <DynamicForm fields={data} />
-  </>);
-}
+    {
+      label: "nome",
+      name: "nome",
+      placeholder: "Nome",
+      type: "text",
+      defaultValue: "",
+    },
+    {
+      label: "email",
+      name: "email",
+      placeholder: "Email",
+      type: "email",
+      defaultValue: "",
+    },
+    {
+      label: "senha",
+      name: "senha",
+      placeholder: "Senha",
+      type: "password",
+      defaultValue: "",
+    },
+    {
+      label: "telefone",
+      name: "telefone",
+      placeholder: "Telefone",
+      type: "tel",
+      defaultValue: "",
+    },
+    {
+      label: "",
+      name: "Qualquer",
+      placeholder: "para testar",
+      type: "radio",
+      defaultValue: "",
+    },
+  ];
+  return (
+    <>
+      <DynamicForm fields={data} />
+    </>
+  );
+};
 
-export default DynamicFormP
+export default DynamicFormP;
