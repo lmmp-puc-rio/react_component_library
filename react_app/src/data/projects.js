@@ -1,5 +1,5 @@
 export const dataProjects = [
-  {
+  { id: 1,
     title: "Projeto 1",
     description: "Projeto de cimentação do Trecho 1",
     card_name: "card1",
@@ -8,7 +8,7 @@ export const dataProjects = [
     created_data: "01/10/2022",
     modified_data: "18/10/2022",
   },
-  {
+  { id: 2,
     title: "Projeto 2",
     description: "Projeto de cimentação do Trecho 2",
     card_name: "card2",
@@ -17,7 +17,7 @@ export const dataProjects = [
     created_data: "10/12/2022",
     modified_data: "20/12/2022",
   },
-  {
+  { id:3,
     title: "Projeto 3",
     description: "Projeto de cimentação do Trecho 3",
     card_name: "card3",

@@ -9,10 +9,12 @@ import "./CardCase.css";
 
 // # Import Component Card
 import Card from "../card";
+import GridActionIcon from "../gridActionIcon";
 
 export default function CardCases(props) {
   const card_data = props.data;
   const buttons = props.actionButtom;
+
 
   return (
     <Card data={card_data}>
@@ -31,7 +33,7 @@ export default function CardCases(props) {
         <div className="card-container-cases">
           <div className="card-container-bttn-text">
             <div class="card-buttons">
-              {buttons.actions.map((item) => (
+{/*               {buttons.actions.map((item) => (
                 <Link to="/cases">
                   <button
                     key={"action-icon_" + item.key}
@@ -45,7 +47,17 @@ export default function CardCases(props) {
                     <i className={item.icon}></i>
                   </button>
                 </Link>
-              ))}
+              ))} */}
+            {buttons.actions.map((action) => (
+                <GridActionIcon callback={action.callback}
+                                rowID={card_data.id}
+                                routeURL={action.route}
+                                tooltip={action.tooltip}
+                                className={"action_icon_button"}
+                                icon={action.icon}
+                                backgroundColor={action.backgroundColor}
+                                color={action.color}/>
+            ))}
             </div>
             <textarea className="card-description-cases" disabled rows={4}>
               {card_data.description}

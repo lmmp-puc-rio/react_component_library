@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { ThemeProvider } from 'styled-components';
 // import { theme } from './theme'
 import "./App.css";
+import { CaseDeletionConfirmation } from "./pages/popups";
 
 // All Components import
 
@@ -14,6 +15,7 @@ import {
   SlidingPanel,
   SideMenu,
   FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
+  Modal,
   darkColors,
   lightColors,
   TabsComponent,
@@ -21,8 +23,6 @@ import {
 } from "./components/common";
 
 // All Pages Import
-
-
 
 import {
   Grids,
@@ -35,13 +35,12 @@ import {
   Plotly,
 } from "./pages";
 
-
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
 // import { ToastProvider } from './components/contexts/ToastContext';
-// import { ModalProvider } from './components/contexts/ModalContext';
+import { ModalProvider } from "./contexts/ModalContext";
 import { SearchProvider } from "./contexts/SearchContext";
-import { ActionFabGridProvider } from './contexts/ActionFabGridContext';
+import { ActionFabGridProvider } from "./contexts/ActionFabGridContext";
 
 function App() {
   /* State responsible for controlling the opening/closing of the sidebar */
@@ -55,8 +54,8 @@ function App() {
     { url: "/cases", title: "Cases", className: "navbar-item" },
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
-    {url: "/Tree" , title: "Tree", className: "navbar-item"},
-    {url: "/Plotly" , title: "Plotly", className: "navbar-item"},
+    { url: "/Tree", title: "Tree", className: "navbar-item" },
+    { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
@@ -192,139 +191,150 @@ function App() {
   return (
     // React Browser Router
     <Router>
-      <SearchProvider>
-        <div name="app" className="App">
-          <SideMenu
-            onCollapse={(inactive) => {
-              setInactive(inactive);
-            }}
-          >
-            <RecursiveAccordion
-              key={"accordion_0"}
-              accordionData={dataStructure}
+      <ModalProvider>
+        <SearchProvider>
+          <div name="app" className="App">
+            <SideMenu
+              onCollapse={(inactive) => {
+                setInactive(inactive);
+              }}
             >
-              {/* Multiple Children is needed! */}
-              <div key={1} className="accordion_dropdown_item">
-                Teste1
-              </div>
-              <div key={2} className="accordion_dropdown_item">
-                Teste2
-              </div>
-              <div key={2} className="accordion_dropdown_item">
-                Teste3
-              </div>
-            </RecursiveAccordion>
-          </SideMenu>
-          <SlidingPanel>
-            <ul>
-              {/*Component Accordion*/}
               <RecursiveAccordion
                 key={"accordion_0"}
-                accordionData={slidinPanelAccordionData}
+                accordionData={dataStructure}
               >
                 {/* Multiple Children is needed! */}
-
                 <div key={1} className="accordion_dropdown_item">
-                  <TabsComponent data={dataTab1}>
-                    <div key={"Revestimento Anterior"}>
-                      {" "}
-                      Revestimento Anterior{" "}
-                    </div>
-                    <div key={"Poço Aberto"}> Teste Poço Aberto</div>
-                  </TabsComponent>
+                  Teste1
                 </div>
-
                 <div key={2} className="accordion_dropdown_item">
-                  <TabsComponent data={dataTab2}>
-                    <div key={"Coluna de Trabalho"}> Teste Coluna</div>
-                    <div key={"Revestimento"}> Teste Revestimento</div>
-                  </TabsComponent>
+                  Teste2
                 </div>
-                <div key={3} className="accordion_dropdown_item">
-                  <TabsComponent data={dataTab3}>
-                    <div key={"Centralizadores"}> Teste Centralizadores </div>
-                    <div key={"Intervalos de Centralizadores"}>
-                      {" "}
-                      Teste Intervalo Centralizador
-                    </div>
-                  </TabsComponent>
-                </div>
-                <div key={4} className="accordion_dropdown_item">
-                  <p>in dev </p>
+                <div key={2} className="accordion_dropdown_item">
+                  Teste3
                 </div>
               </RecursiveAccordion>
-            </ul>
-          </SlidingPanel>
-          <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
-          <div name="main" className="main">
-            <Switch>
-              {/* Main page Route */}
-              <Route exact path="/">
-                <div className="scope" style={{ color: "white" }}>
-                  Main Page
-                </div>
-              </Route>
-              {/* Grids Route */}
-              <Route exact path={navlinks[1].url}>
-              <ActionFabGridProvider>
-              <div name="inputs" className="grid-container">
-                <Grids/>
-              </div>
-              </ActionFabGridProvider>
-              </Route>
-              {/* Projects Route */}
-              <Route exact path={navlinks[2].url}>
-                <div name="cards" className="card-container">
-                  <Projects />
-                </div>
-              </Route>
-              {/* Cases Route */}
-              <Route exact path={navlinks[3].url}>
-                <div name="cards" className="card-container">
-                  <Cases />
-                </div>
-              </Route>
-              {/* Accordion Route */}
-              <Route exact path={navlinks[4].url}>
-                <div name="inputs" className="grid-container">
-                  <Accordions />
-                </div>
-              </Route>
+            </SideMenu>
+            <SlidingPanel>
+              <ul>
+                {/*Component Accordion*/}
+                <RecursiveAccordion
+                  key={"accordion_0"}
+                  accordionData={slidinPanelAccordionData}
+                >
+                  {/* Multiple Children is needed! */}
 
-              {/* Tabs Route */}
-              <Route exact path={navlinks[5].url}>
-                <div name="inputs" className="card-container">
-                  <TabsComponents name="page" />
-                </div>
-              </Route>
+                  <div key={1} className="accordion_dropdown_item">
+                    <TabsComponent data={dataTab1}>
+                      <div key={"Revestimento Anterior"}>
+                        {" "}
+                        Revestimento Anterior{" "}
+                      </div>
+                      <div key={"Poço Aberto"}> Teste Poço Aberto</div>
+                    </TabsComponent>
+                  </div>
 
-              {/* Tree Route */}
-              <Route exact path={navlinks[6].url}>
-                <div name="inputs" className="card-container">
-                  <Tree />
-                </div>
-              </Route>
+                  <div key={2} className="accordion_dropdown_item">
+                    <TabsComponent data={dataTab2}>
+                      <div key={"Coluna de Trabalho"}> Teste Coluna</div>
+                      <div key={"Revestimento"}> Teste Revestimento</div>
+                    </TabsComponent>
+                  </div>
+                  <div key={3} className="accordion_dropdown_item">
+                    <TabsComponent data={dataTab3}>
+                      <div key={"Centralizadores"}> Teste Centralizadores </div>
+                      <div key={"Intervalos de Centralizadores"}>
+                        {" "}
+                        Teste Intervalo Centralizador
+                      </div>
+                    </TabsComponent>
+                  </div>
+                  <div key={4} className="accordion_dropdown_item">
+                    <p>in dev </p>
+                  </div>
+                </RecursiveAccordion>
+              </ul>
+            </SlidingPanel>
+            <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
+            <div name="main" className="main">
+              <Switch>
+                {/* Main page Route */}
+                <Route exact path="/">
+                  <div className="scope" style={{ color: "white" }}>
+                    Main Page
+                  </div>
+                </Route>
+                {/* Grids Route */}
+                <Route exact path={navlinks[1].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="grid-container">
+                      <Grids />
+                    </div>
+                  </ActionFabGridProvider>
+                </Route>
+                {/* Projects Route */}
+                <Route exact path={navlinks[2].url}>
+                  <div name="cards" className="card-container">
+                    <Projects />
+                  </div>
+                </Route>
+                {/* Cases Route */}
+                <Route exact path={navlinks[3].url}>
+                  <div name="cards" className="card-container">
+                    <Cases />
+                  </div>
+                </Route>
+                {/* Accordion Route */}
+                <Route exact path={navlinks[4].url}>
+                  <div name="inputs" className="grid-container">
+                    <Accordions />
+                  </div>
+                </Route>
+
+                {/* Tabs Route */}
+                <Route exact path={navlinks[5].url}>
+                  <div name="inputs" className="card-container">
+                    <TabsComponents name="page" />
+                  </div>
+                </Route>
+
+                {/* Tree Route */}
+                <Route exact path={navlinks[6].url}>
+                  <div name="inputs" className="card-container">
+                    <Tree />
+                  </div>
+                </Route>
 
                 {/* Plotly Route */}
-              <Route exact path={navlinks[7].url}>
+                <Route exact path={navlinks[7].url}>
                   <div name="inputs" className="card-container">
                     <Plotly />
                   </div>
                 </Route>
-                
-              {/* Form Route */}
-              <Route exact path={navlinks[7].url}>
-                <div name="inputs" className="card-container">
-                  <DynamicFormP />
-                </div>
-              </Route>
 
-            </Switch>
+                {/* Form Route */}
+                <Route exact path={navlinks[7].url}>
+                  <div name="inputs" className="card-container">
+                    <DynamicFormP />
+                  </div>
+                </Route>
+              </Switch>
+              <Route exact path={"/cases/delete/:id"}>
+                <Modal cancelURL={"/cases"}>
+                  <CaseDeletionConfirmation />
+                </Modal>
+              </Route>
+              <Route exact path={"/projects/delete/:id"}>
+                <Modal cancelURL={"/projects"}>
+                  <CaseDeletionConfirmation />
+                </Modal>
+              </Route>
+            </div>
+            {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
+            {/*   <FAB data={actionData} /> */}
           </div>
-          {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
-        {/*   <FAB data={actionData} /> */}
-        </div>
-      </SearchProvider>
+        </SearchProvider>
+      </ModalProvider>
     </Router>
   );
 }
