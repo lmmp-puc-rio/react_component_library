@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-const useForm = (callBack, defaults, validate, validate_single) => {
+/* const useForm = (callBack, defaults, validate, validate_single) => {
   const [values, setValues] = useState(defaults);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
 
   const handleBlur = (e) => {
     const field = e.target.name;
-    //console.log("FIELD EM handleBlur DE useForm", field);
+    console.log("FIELD EM handleBlur DE useForm", field);
     setErrors(validate_single(values, field));
     setSubmitting(false);
   };
@@ -22,14 +22,14 @@ const useForm = (callBack, defaults, validate, validate_single) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log("DEU CERTO handleSubmit EM useForm");
+    console.log("DEU CERTO handleSubmit EM useForm");
     setSubmitting(true);
 
     const valueErrors = validate(errors);
     setErrors(valueErrors);
 
     if (Object.keys(valueErrors).length > 0) {
-      //console.log(valueErrors);
+      console.log(valueErrors);
     } else {
       callBack(values);
     }
@@ -46,9 +46,10 @@ const useForm = (callBack, defaults, validate, validate_single) => {
 
   return { handleBlur, handleChange, handleSubmit, values, errors };
 };
-export default useForm;
 
-/* const useForm = (submitCallBack) => {
+export default useForm; 
+*/
+const useForm = (submitCallBack) => {
   const [state, setState] = useState({}); //objeto vazio para incrementar inputs dinamicamente
 
   const handleSubmit = (e) => {
@@ -64,4 +65,3 @@ export default useForm;
   return [state, handleChange, handleSubmit]; //retorna estado atualizado e função handleChange
 };
 export default useForm;
-*/

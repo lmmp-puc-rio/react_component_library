@@ -1,4 +1,5 @@
 function validate_name(values, localErrors) {
+  console.log(values);
   if (!values.nome.trim()) {
     localErrors.nome = "Field is required";
   } else if (!/^[A-Za-z]+/.test(values.nome.trim())) {
@@ -8,6 +9,7 @@ function validate_name(values, localErrors) {
 }
 
 function validate_email(values, localErrors) {
+  console.log(values);
   if (!values.email.trim()) {
     localErrors.email = "Field is required";
   } else if (
@@ -21,15 +23,17 @@ function validate_email(values, localErrors) {
 }
 
 function validate_password(values, localErrors) {
+  console.log(values);
   if (!values.senha.trim()) {
     localErrors.senha = "Field is required";
   } else if (values.senha.length > 6) {
-    localErrors.senha = "Password needs more than 6 characters";
+    localErrors.senha = "Password must be longer than 6 characters";
   }
   return localErrors;
 }
 
 function validate_phoneNumber(values, localErrors) {
+  console.log(values);
   if (!values.telefone.trim()) {
     localErrors.telefone = "Field is required";
   } else if (
@@ -46,7 +50,8 @@ function validate_phoneNumber(values, localErrors) {
 
 function validate_single(values, field) {
   console.log(field);
-  let errors = "";
+  console.log(values);
+  let errors = {};
 
   if (field === "nome") {
     errors = validate_name(values, errors);
@@ -64,6 +69,7 @@ function validate_single(values, field) {
 }
 
 function validate(values) {
+  console.log(values);
   let errors = {};
 
   errors = validate_name(values, errors);
