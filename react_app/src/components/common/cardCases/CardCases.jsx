@@ -7,15 +7,13 @@ import { Link } from "react-router-dom";
 // # Import Component Style
 import "./CardCase.css";
 
-// # Import Component Card
+// # Import Card Component and Card Buttons Action
 import Card from "../card";
-import GridActionIcon from "../gridActionIcon";
+import CardButtonsAction from "../cardButtonsAction";
 
 export default function CardCases(props) {
   const card_data = props.data;
   const buttons = props.actionButtom;
-
-
   return (
     <Card data={card_data}>
       <div className="card-body-cases">
@@ -33,23 +31,8 @@ export default function CardCases(props) {
         <div className="card-container-cases">
           <div className="card-container-bttn-text">
             <div class="card-buttons">
-{/*               {buttons.actions.map((item) => (
-                <Link to="/cases">
-                  <button
-                    key={"action-icon_" + item.key}
-                    className={"action-icon"}
-                    style={{
-                      backgroundColor: item.backgroundColor,
-                      color: item.color,
-                    }}
-                    title={item.tooltip}
-                  >
-                    <i className={item.icon}></i>
-                  </button>
-                </Link>
-              ))} */}
             {buttons.actions.map((action) => (
-                <GridActionIcon callback={action.callback}
+                <CardButtonsAction callback={action.callback}
                                 rowID={card_data.id}
                                 routeURL={action.route}
                                 tooltip={action.tooltip}

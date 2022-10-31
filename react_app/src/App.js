@@ -324,11 +324,6 @@ function App() {
                   <CaseDeletionConfirmation />
                 </Modal>
               </Route>
-              <Route exact path={"/projects/delete/:id"}>
-                <Modal cancelURL={"/projects"}>
-                  <CaseDeletionConfirmation />
-                </Modal>
-              </Route>
             </div>
             {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
             {/*   <FAB data={actionData} /> */}

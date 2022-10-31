@@ -8,32 +8,24 @@ import "../../pages/pages.css";
 //Import Specific Styling
 import { darkColors } from "../../components/common/MaterialColors";
 
-// #  Local SubComponents & utils
-/* import { expiredToken } from '../../components/utils' */
-
 // # Contexts
-/* import { AuthContext } from '../../components/contexts/AuthContext';
-import { ToastContext } from '../../components/contexts/ToastContext'; */
 import { ModalContext } from "../../contexts/ModalContext";
 import { SearchContext } from "../../contexts/SearchContext";
 
 function CaseDeletionConfirmation(props) {
- 
   const history = useHistory();
-  /*     const { toastList, setToastList, showToast } = useContext(ToastContext);
-    const { handleLogout, token }  = useContext(AuthContext); */
+
+  const { id } = useParams();
   const { setIsModalOpen } = useContext(ModalContext);
-  const { casesData, setCasesData } =
-    useContext(SearchContext);
-    const { id } = useParams();
+  const { casesData, setCasesData } = useContext(SearchContext);
 
   // Case Deletion function
   function deleteCase() {
-      const successURL = "/cases";
-      const filterCase = casesData.filter((item) => item.id !== Number(id));
-      setCasesData(filterCase);
-      history.push(successURL);
+    const successURL = "/cases";
+    const filterCase = casesData.filter((item) => item.id !== Number(id));
+    setCasesData(filterCase);
     setIsModalOpen(false);
+    history.push(successURL);
   }
 
   return (

@@ -3,10 +3,10 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 // # Import Component Style
-import './GridActionIcon.css'
+import './CardButtonsAction.css'
 
 // Navbar React Component Construction
-function GridActionIcon (props) {
+function CardButtonsAction (props) {
     if (props.tooltip === 'Delete Case') {
         return (
             <Link to={props.routeURL + props.rowID} onClick={props.callback}>
@@ -34,4 +34,4 @@ function GridActionIcon (props) {
 
 }
 
-export default GridActionIcon;
+export default  CardButtonsAction;
