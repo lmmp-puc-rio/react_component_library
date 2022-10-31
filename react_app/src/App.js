@@ -14,6 +14,7 @@ import {
   SlidingPanel,
   SideMenu,
   FAB, //ActionButton,  Action, // Last two only needed for manual creation of items
+  ImportData,
   darkColors,
   lightColors,
   TabsComponent,
@@ -260,8 +261,9 @@ function App() {
             <Switch>
               {/* Main page Route */}
               <Route exact path="/">
-                <div className="scope" style={{ color: "white" }}>
+                <div className="scope">
                   Main Page
+                  <ImportData />
                 </div>
               </Route>
               {/* Grids Route */}

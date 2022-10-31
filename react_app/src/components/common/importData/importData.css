@@ -1,0 +1,26 @@
+.input-container {
+  text-align: center;
+  display: flex;
+  align-items: baseline;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.input-text {
+    margin: 0 10px;
+}
+
+
+.file-preview {
+  margin: 0 20px;
+}
