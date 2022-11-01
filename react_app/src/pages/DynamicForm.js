@@ -13,6 +13,7 @@ const DynamicForm = (props) => {
     email: "",
     birthday: "",
     password: "",
+    city:""
   });
 
   const inputs = [
@@ -52,6 +53,29 @@ const DynamicForm = (props) => {
         "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
       label: "Password",
       pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
+    },
+    {
+      id: 5,
+      name: "city",
+      type: "select",
+      placeholder: "City",
+      options: [
+        {
+          label: "RJ",
+          value: "rj",
+        },
+
+        {
+          label: "VR",
+          value: "vr",
+        },
+
+        {
+          label: "SP",
+          value: "sp",
+        },
+      ],
       required: true,
     },
   ];
