@@ -19,6 +19,7 @@ import SlidingPanel from "./slidingPanel";
 import SideMenu from "./sideBar";
 import TreeComponent from "./treeComponent";
 import ActionFabGrid from "./actionFabGrid";
+import ImportData from "./importData";
 
 
 export {
@@ -28,6 +29,7 @@ export {
     Menu,
     // Toast,
     // ProtectedRoute,
+    ImportData,
     ActionFabGrid,
     FAB,
     Action, 
