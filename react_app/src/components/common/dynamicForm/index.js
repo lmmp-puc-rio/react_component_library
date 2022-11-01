@@ -1,3 +1,3 @@
-import DynamicForm from "./DynamicForm";
+import FormInput from "./formInput";
 
-export default DynamicForm;
+export default FormInput;
