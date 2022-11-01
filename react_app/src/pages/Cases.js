@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
 // #  Local SubComponents & utils
 import { CardCases } from "../components/common";
@@ -11,11 +11,13 @@ import { darkColors } from "../components/common";
 import CarouselComponent from "../components/carousel";
 
 // # Context
-import { SearchContext } from "../contexts/SearchContext"
+import { SearchContext } from "../contexts/SearchContext";
+import { ModalContext } from "../contexts/ModalContext";
 
-function Cases (props){
-const { casesData } = useContext(SearchContext)
-/* 
+function Cases(props) {
+  const { casesData } = useContext(SearchContext);
+  const { setIsModalOpen } = useContext(ModalContext);
+  /* 
   const data = [
     {
       img: "https://cenariosgas.editorabrasilenergia.com.br/wp-content/uploads/sites/6/2018/09/po%C3%A7o-transparente.png",
@@ -70,22 +72,27 @@ const { casesData } = useContext(SearchContext)
       {
         tooltip: "Edit Case",
         icon: "fas fa-edit",
+        callback: null,
         key: "edit_case_button_",
+        route: "/case/",
         backgroundColor: darkColors.yellow,
         color: darkColors.white,
       },
       {
         tooltip: "Delete Case",
         icon: "fas fa-trash",
+        callback: setIsModalOpen,
         key: "delete_case_button_",
-        route: "/",
+        route: "/cases/delete/",
         backgroundColor: darkColors.red,
         color: darkColors.white,
       },
       {
-        tooltip: "Dupicate Case",
+        tooltip: "Duplicate Case",
         icon: "fas fa-copy",
+        callback: setIsModalOpen,
         key: "duplicate_case_button_",
+        route: "/case/",
         backgroundColor: darkColors.blue,
         color: darkColors.white,
       },
@@ -103,6 +110,6 @@ const { casesData } = useContext(SearchContext)
       </CarouselComponent>
     </div>
   );
-};
+}
 
 export default Cases;

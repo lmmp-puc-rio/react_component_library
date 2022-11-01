@@ -1,5 +1,5 @@
 export const dataCases =  [
-  {
+  { id: 1,
     img: "https://cenariosgas.editorabrasilenergia.com.br/wp-content/uploads/sites/6/2018/09/po%C3%A7o-transparente.png",
     title: "Caso 1",
     description: "Projeto de cimentação do Trecho 1",
@@ -14,7 +14,7 @@ export const dataCases =  [
       "Pasta Conv. 15ppg",
     ],
   },
-  {
+  { id: 2,
     img: "https://cenariosgas.editorabrasilenergia.com.br/wp-content/uploads/sites/6/2018/09/po%C3%A7o-transparente.png",
     title: "Caso 2",
     description: "Projeto de cimentação do Trecho 2",
@@ -29,7 +29,7 @@ export const dataCases =  [
       "Pasta Conv. 15ppg",
     ],
   },
-  {
+  { id: 3,
     img: "https://cenariosgas.editorabrasilenergia.com.br/wp-content/uploads/sites/6/2018/09/po%C3%A7o-transparente.png",
     title: "Caso 3",
     description: "Projeto de cimentação do Trecho 3",

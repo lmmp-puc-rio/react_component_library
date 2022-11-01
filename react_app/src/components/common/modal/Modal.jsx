@@ -10,7 +10,7 @@ import './Modal.css'
 import {darkColors} from '../MaterialColors'
 
 // # Contexts
-import { ModalContext } from '../../contexts/ModalContext';
+import { ModalContext } from '../../../contexts/ModalContext';
 
 // add this states to the main component where modal appears
 // const [isModalOpen,setIsModalOpen] = useState(true);

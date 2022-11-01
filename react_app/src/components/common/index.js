@@ -20,6 +20,7 @@ import SideMenu from "./sideBar";
 import TreeComponent from "./treeComponent";
 import ActionFabGrid from "./actionFabGrid";
 import ImportData from "./importData";
+import Modal from "./modal";
 
 
 export {
@@ -30,6 +31,7 @@ export {
     // Toast,
     // ProtectedRoute,
     ImportData,
+    Modal,
     ActionFabGrid,
     FAB,
     Action, 
