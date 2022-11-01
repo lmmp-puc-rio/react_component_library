@@ -1,44 +1,109 @@
 // #  Main Imports
 import React, { useState } from "react";
-import DynamicForm from "../components/common/dynamicForm/DynamicForm";
+
+// #  Local SubComponents & utils
+import FormInput from "../components/common/dynamicForm";
+
+// # Import Component Style
 import "./pages.css";
 
+const DynamicForm = (props) => {
+  const [values, setValues] = useState({
+    username: "",
+    email: "",
+    birthday: "",
+    password: "",
+    city:""
+  });
 
+  const inputs = [
+    {
+      id: 1,
+      name: "username",
+      type: "text",
+      placeholder: "Username",
+      errorMessage:
+        "Username should be 3-16 characters and shouldn't include any special character!",
+      label: "Username",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+      errorMessage: "It should be a valid email address!",
+      label: "Email",
+      required: true,
+    },
+    {
+      id: 3,
+      name: "birthday",
+      type: "date",
+      placeholder: "Birthday",
+      label: "Birthday",
+    },
+    {
+      id: 4,
+      name: "password",
+      type: "password",
+      placeholder: "Password",
+      errorMessage:
+        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+      label: "Password",
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
+    },
+    {
+      id: 5,
+      name: "city",
+      type: "select",
+      placeholder: "City",
+      options: [
+        {
+          label: "RJ",
+          value: "rj",
+        },
 
-const DynamicFormP = (props) => {
-  const data = [
-   {
-    label:"Nome",
-    name:"Nome",
-    placeholder:"Nome",
-    type:"text",
-    value:"", 
-  },
-  {  label:"Email",
-    name:"Email",
-    placeholder:"Email",
-    type:"email",
-    value:"",
-  },
-  {
-    label:"Senha",
-    name:"password",
-    placeholder:"Senha",
-    type:"password",
-    value:"",
-  },
-  {
-    label:"telefone",
-    name:"telefone",
-    placeholder:"telefone",
-    type:"text",
-    value:"",
-  },
- ]
-return (
-  <>
-    <DynamicForm fields={data} />
-  </>);
-}
+        {
+          label: "VR",
+          value: "vr",
+        },
 
-export default DynamicFormP
+        {
+          label: "SP",
+          value: "sp",
+        },
+      ],
+      required: true,
+    },
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("ON SUBMIT", values);
+  };
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div className="container-form">
+      <form onSubmit={handleSubmit} className="generic-form">
+        {inputs.map((input) => (
+          <FormInput
+            key={input.id}
+            {...input}
+            value={values[input.name]}
+            onChange={onChange}
+          />
+        ))}
+        <button className="bttn-submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default DynamicForm;

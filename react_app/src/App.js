@@ -32,7 +32,7 @@ import {
   Accordions,
   TabsComponents,
   Tree,
-  DynamicFormP,
+  DynamicForm,
   Plotly,
 } from "./pages";
 
@@ -315,9 +315,9 @@ function App() {
                 </Route>
 
                 {/* Form Route */}
-                <Route exact path={navlinks[7].url}>
+                <Route exact path={navlinks[8].url}>
                   <div name="inputs" className="card-container">
-                    <DynamicFormP />
+                    <DynamicForm/>
                   </div>
                 </Route>
               </Switch>

@@ -21,6 +21,7 @@ import TreeComponent from "./treeComponent";
 import ActionFabGrid from "./actionFabGrid";
 import ImportData from "./importData";
 import Modal from "./modal";
+import FormInput from "./dynamicForm";
 
 
 export {
@@ -32,6 +33,7 @@ export {
     // ProtectedRoute,
     ImportData,
     Modal,
+    FormInput,
     ActionFabGrid,
     FAB,
     Action, 
