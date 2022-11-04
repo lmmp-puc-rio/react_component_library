@@ -91,43 +91,6 @@ function AccordionWrap(props) {
     )
 }
 
-
-// Accordion Structure
-// const accordionStructure = [
-//     {
-//         main: 'Inputs',
-//         id: '1',
-//         hidden: '',
-//         actions: [wrap_actions.edit, wrap_actions.run],
-//         subitems: [{
-//                     main: 'Free Variable',
-//                     id: '2',
-//                     hidden: 'Name ...',
-//                     actions: [],
-//                     subitems:[]
-//                 },{
-//                     main: 'Geometry Data',
-//                     id: '3',
-//                     hidden: 'Name ...',
-//                     actions: [],
-//                     subitems:[]
-//                 },
-//                 {
-//                     main: 'Liquid Properties',
-//                     id: '4',
-//                     hidden: 'Name ...',
-//                     actions: [],
-//                     subitems:[]
-//                 }],
-//     },
-//     {
-//         main: 'Results',
-//         id: '5',
-//         hidden: '',
-//         actions: [],
-//         subitems:[]
-//     }];
-
 // # Accordion React Component Construction
 function RecursiveAccordion (props) {
     
