@@ -38,7 +38,7 @@
         order: 0;
         align-self: stretch;
         flex-grow: 0;
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
         
     }
     
@@ -50,7 +50,7 @@
         color : black;
         animation-timing-function: ease-out;
         padding: 5px 18px 5px;
-        font-size: 25px;
+        font-size: 15px;
         
     }
     
