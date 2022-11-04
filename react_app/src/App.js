@@ -34,6 +34,7 @@ import {
   Tree,
   DynamicForm,
   Plotly,
+  GeometriaExterna,
 } from "./pages";
 
 // All Contexts Import
@@ -58,6 +59,7 @@ function App() {
     { url: "/Tree", title: "Tree", className: "navbar-item" },
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
+    { url: "/GeometriaExterna", title: "GeometriaExterna", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -318,6 +320,12 @@ function App() {
                 <Route exact path={navlinks[8].url}>
                   <div name="inputs" className="card-container">
                     <DynamicForm/>
+                  </div>
+                </Route>
+                 {/* Geometria Externa Route */}
+                 <Route exact path={navlinks[9].url}>
+                  <div name="inputs" className="card-container">
+                    <GeometriaExterna/>
                   </div>
                 </Route>
               </Switch>
