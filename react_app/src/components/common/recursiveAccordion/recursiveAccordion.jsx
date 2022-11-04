@@ -76,7 +76,7 @@ function AccordionWrap(props) {
                 }
                 
                 {/* // All Accordion Tabs can be opened simultaneously */}
-                <div onClick={() => handleToggle(name)}> {isOpen ? "-" : "+"}</div>
+                <div onClick={() => handleToggle(name)}> {isOpen ? <i class="fas fa-times"></i>: <i class="fas fa-plus"></i>}</div>
 
                 {/* // Only One can be opened at a time */}
                 {/* <div onClick={() => setIsOpen(!isOpen)}> {isOpen ? "-" : "+"}</div> */}
