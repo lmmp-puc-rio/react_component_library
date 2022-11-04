@@ -3,6 +3,13 @@
   display: flex;
 }
 
+.tab-header{
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  text-align: center;
+  align-items:baseline;
+}
 
 .tabs__list {
   flex-wrap: wrap;
@@ -14,20 +21,16 @@
 }
 
 .tabs__item{
-  width: 50%;
-  height: 50%;
-  justify-content: center;
-  margin-left: 1px;
-  border: 1px solid black;
+  
   background: #FFFF; 
-  font-family: 'Times New Roman';
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 20px;  
   padding: 2px 5px 6px 5px;
   text-decoration : none;
-  color:black
+  color:black;
+  display: inline-block;
 }
 
 .tabs__list :focus {

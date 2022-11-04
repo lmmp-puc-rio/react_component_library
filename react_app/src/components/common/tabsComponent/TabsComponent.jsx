@@ -10,7 +10,7 @@ const TabsComponent = (props) => {
     <div className="tab">
       <div className="tabs__list">
         <Router>
-          <div>
+          <div className="tab-header">
             {data.map((item) => (
               <Link className="tabs__item" to={`/${item.name}`}>
                 {" "}
