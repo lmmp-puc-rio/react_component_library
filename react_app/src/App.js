@@ -188,12 +188,13 @@ function App() {
       name: "Intervalos de Centralizadores",
     },
   ];
-
+  
   return (
     // React Browser Router
     <Router>
       <ModalProvider>
         <SearchProvider>
+      <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
           <div name="app" className="App">
             <SideMenu
               onCollapse={(inactive) => {
@@ -256,7 +257,6 @@ function App() {
                 </RecursiveAccordion>
               </ul>
             </SlidingPanel>
-            <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
             <div name="main" className="main">
               <Switch>
                 {/* Main page Route */}

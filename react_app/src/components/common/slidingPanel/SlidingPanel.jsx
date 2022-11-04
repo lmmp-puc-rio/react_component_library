@@ -2,42 +2,26 @@
 // # Main Import
 import React, { useState } from "react";
 
-// # Import React Sliding Pane library
-import SlidingPane from "react-sliding-pane";
-import "react-sliding-pane/dist/react-sliding-pane.css";
-
 // # Import Component Style
 import "./SlidingPanel.css";
 
-//import all components here
-import RecursiveAccordion from "../recursiveAccordion";
-import TabsComponent from "../tabsComponent";
-import expandableGrid from '../expandableGrid'
-
-
 export default function SlidingPanel(props) {
-  const [state, setState] = useState({ isPanelOpen: false });
-  
-  
+  const [open, setOPen] = useState(false);
+  const toggle = () => {
+    setOPen(!open);
+  };
+
   return (
-    <div className="sliding-container">
-      <button
-        onClick={() => setState({ isPaneOpen: true })}
-        className="open-bttn"
-      >
-        {"<"}
+    <div className="sliding-pane-container">
+      <h1>Olá</h1>
+      <button onClick={toggle} className="sliding-pane-bttn">
+        {open ? (
+          <i class="fas fa-angle-double-right fa-lg"></i>
+        ) : (
+          <i class="fas fa-angle-double-left fa-lg"></i>
+        )}
       </button>
-      <SlidingPane isOpen={state.isPaneOpen} width="30%" hideHeader>
-        <button
-          className="close-bttn"
-          onClick={() => setState({ isPaneOpen: false })}
-        >
-          {">"}
-        </button>
-        {props.children}
-      
-      {/* In the future the Sliding Panel will receive the Accordion Component */}
-      </SlidingPane>
+      {open && <div className="sliding-pane-children">{props.children}</div>}
     </div>
   );
 }

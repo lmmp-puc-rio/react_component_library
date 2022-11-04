@@ -2,6 +2,7 @@
 
     .accordion {
         min-width: 350px;
+        background-color: #fff;
     }
     
     .accordion_section {
