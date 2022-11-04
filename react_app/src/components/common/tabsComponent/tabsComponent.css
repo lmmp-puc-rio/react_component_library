@@ -41,5 +41,6 @@
 .tabs__container {
   justify-content: center;
   display: flex;
-  margin-top: 2px;
+  top: 20px;
+  padding: 10px 5px 6px 5px;
 }
