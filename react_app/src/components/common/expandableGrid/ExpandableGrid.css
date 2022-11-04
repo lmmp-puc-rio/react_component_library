@@ -1,70 +1,81 @@
-
-.expandable_row{
-    display: flex;
+.expandable_row {
+  display: flex;
 }
 
-.expand_button{
-    display: flex;   
+.expand_button {
+  display: flex;
 }
 
-.expandable_grid_container{
-    display: flex;
-    padding-top: 10px;
-    text-align: center;
-    color:black;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
+.expandable_grid_container {
+  display: flex;
+  /* padding-top: 10px; */
+  text-align: center;
+  color: black;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
 }
 
 .expandable_grid {
-    margin-left: 10px;
-    justify-content: top;
-    margin-right: 10px;
+  background-color: #fff;
+  justify-content: top;
+  box-shadow: inset 0px -2px 0px #e3e5e8;
+  /* margin-left: 10px;
+  margin-right: 10px; */
 }
 
-.expandable_grid_container_empty{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    font-size: 14pt;
-    font-weight: bold;
-    color: #969696;
-    height:60px;
-} 
-
-.expandable_grid th{
-    /* border: 1px solid #ccc; */
-    height: fit-content;
-    margin: 2px auto;
-    table-layout: fixed;
-    padding-left: 5px;
-    padding-right: 5px;
+.expandable_grid_container_empty {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #969696;
+  height: 60px;
 }
 
-.expandable_grid table,td{
-    border: 3px solid  #f2f2f2;
-    height: fit-content;
-    table-layout: fixed;
-    padding-left: 5px;
-    padding-right: 5px;
+.expandable_grid_header {
+  width: 115px;
+  color: #fff;
+  background-color: #17365c;
 }
 
-.expandable_grid_actions_column{
-    background-color: #f2f2f2;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.expandable_grid th {
+  padding: 0px 10px;
+  /* border: 1px solid #ccc;
+  background-color: #17365c; 
+  height: fit-content;
+  margin: 2px auto;
+  table-layout: fixed;
+  padding-left: 5px;
+  padding-right: 5px;*/
+}
+
+.expandable_grid table,
+td {
+  border: 10px solid #fff;
+  /* border: 3px solid  #f2f2f2; 
+  height: fit-content;
+  table-layout: fixed;
+  padding-left: 5px;
+  padding-right: 5px;*/
+}
+
+.expandable_grid_actions_column {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .hide-mobile {
-    @media (max-width: 480px) {
+  @media (max-width: 480px) {
     display: none;
-    }
+  }
 }
 
 .hide-desktop {
-    @media not all and (max-width: 480px) {
+  @media not all and (max-width: 480px) {
     display: none;
-    }
+  }
 }
