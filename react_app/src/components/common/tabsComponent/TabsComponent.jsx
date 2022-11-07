@@ -1,52 +1,40 @@
-import React,{useState} from "react";
-import { Link, BrowserRouter as Router, Route,Switch } from "react-router-dom";
-import "./tabsComponent.css"
+import React, { useState } from "react";
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./tabsComponent.css";
 
+const TabsComponent = (props) => {
+  const data = props.data;
+  const [select, setSelect] = useState();
 
-  const TabsComponent =(props)  => {
-    const data = props.data
-    const [select,setSelect] = useState();
-
-      
-    return (
-      
-      <div className="tab">
-      
+  return (
+    <div className="tab">
       <div className="tabs__list">
-        
         <Router>
-        <div className="tabs__item">
-          {data.map((item) => (
-          <Link to={`/${item.name}` } >  {item.name}  </Link>
-          ))}
-
+          <div className="tab-header">
+            {data.map((item) => (
+              <Link className="tabs__item" to={`/${item.name}`}>
+                {" "}
+                {item.name}{" "}
+              </Link>
+            ))}
           </div>
-            <div className="tabs__container">
-          {data.map((item) =>
-         <Switch>
-          <Route className="tabs__container" exact path={`/${item.name}`}> 
-              {props.children.map((child)=>{
-                  if(child.key == item.id){
-                    return(
-                      child
-                    )
-                  }
-              })}
-          </Route>
-         </Switch>
-          )}
+          <div className="tabs__container">
+            {data.map((item) => (
+              <Switch>
+                <Route className="tabs__container" exact path={`/${item.name}`}>
+                  {props.children.map((child) => {
+                    if (child.key == item.id) {
+                      return child;
+                    }
+                  })}
+                </Route>
+              </Switch>
+            ))}
           </div>
- 
         </Router>
-        </div>
       </div>
-    );
-  };
-  
-  
-  
-  
-
+    </div>
+  );
+};
 
 export default TabsComponent;
-

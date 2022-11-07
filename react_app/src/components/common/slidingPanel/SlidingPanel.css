@@ -1,28 +1,27 @@
-.slide-pane__content {
-  padding: 0 2rem;
+.sliding-pane-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.open-bttn,
-.close-bttn {
-  border: 1px solid black;
-  color: black;
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  position: absolute;
-  border-radius: 4px;
+
+.sliding-pane-bttn{
   height: 100vh;
-  transition-duration: 0.4s;
+  width: 2.5rem ;
+  background-color: #17365C ;
+  border-style: hidden;
+  border-radius: 0.5rem;
+  color: #fff;
 }
 
-.open-bttn {
-  right: 0;
+.fa {
+  font-size: large;
 }
 
-.close-bttn {
-  left: 0;
-}
+.sliding-pane-children {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  padding: 0.75rem;
+  background-color: #E2E7ED;
 
-.close-bttn:hover,
-.open-bttn:hover {
-  background-color: gray;
 }
