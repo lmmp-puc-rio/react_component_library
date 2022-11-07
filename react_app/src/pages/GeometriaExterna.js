@@ -1,6 +1,7 @@
 import React from "react"
-import { SlidingPanel,TabsComponent,RecursiveAccordion, GridForm } from "../components/common"
+import { SlidingPanel,TabsComponent,RecursiveAccordion, ActionFabGrid } from "../components/common"
 import Plot from "react-plotly.js";
+import { darkColors } from "../components/common/MaterialColors";
 
 
 function GeometriaExterna(props){
@@ -101,32 +102,36 @@ function GeometriaExterna(props){
       
       {/*Grid Data*/}
       
-      const conversionFactors = {
-        lenght: { km: 1000, cm: 1 / 100, mm: 1 / 1000, um: 1 / 1000000, m: 1 },
-        pressure: { psi: 0.000145038, mmHg: 0.00750062, Pa: 1 },
-      };
-    
-      const formData = {
-        gap: {
-          label: "Gap:",
-          defaultValue: "0",
-          unitType: "lenght",
-          selectecUnit: "mm",
-        },
-        size: {
-          label: "Size:",
-          defaultValue: "0",
-          unitType: "lenght",
-          selectecUnit: "cm",
-        },
-        p0: {
-          label: "Inlet Pressure:",
-          defaultValue: "0",
-          unitType: "pressure",
-          selectecUnit: "psi",
-        },
+      const metaData = {
+        header: [
+          { key: "MD(m)", label: "MD(m)", expandable: false },
+          { key: "Comp. do Segmento", label: "Comp. do Segmento", expandable: false },
+          { key: "OD(pol)", label: "OD(pol)", expandable: true },
+          { key: "ID(pol)", label: "ID(pol)", expandable: true },
+        ],
+        actions: [
+          {
+            tooltip: "Select Button",
+            backgroundColor: darkColors.yellow,
+            color: darkColors.white,
+          },
+        ],
       };
 
+      const PocoAbertoData = {
+        header: [
+          { key: "MD(m)", label: "MD(m)", expandable: false },
+          { key: "Comp. do Segmento", label: "Comp. do Segmento", expandable: false },
+          { key: "ID(pol)", label: "ID(pol)", expandable: true },
+        ],
+        actions: [
+          {
+            tooltip: "Select Button",
+            backgroundColor: darkColors.yellow,
+            color: darkColors.white,
+          },
+        ],
+      };
     return(
         <>
             <h3>Geometria Externa</h3>
@@ -143,9 +148,13 @@ function GeometriaExterna(props){
                   <div key={1} className="accordion_dropdown_item">
                     <TabsComponent data={dataTab1}>
                       <div key={"Revestimento Anterior"}>
-                      <GridForm data={formData} conversionFactors={conversionFactors} />
+                      <ActionFabGrid metaData={metaData} />
                       </div>
-                      <div key={"Poço Aberto"}> Teste Poço Aberto</div>
+                      <div key={"Poço Aberto"}> 
+                        <div key={"Revestimento Anterior"}>
+                          <ActionFabGrid metaData={PocoAbertoData} />
+                        </div>
+                      </div>
                     </TabsComponent>
                   </div>
 

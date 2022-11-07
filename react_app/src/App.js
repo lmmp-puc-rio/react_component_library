@@ -324,9 +324,11 @@ function App() {
                 </Route>
                  {/* Geometria Externa Route */}
                  <Route exact path={navlinks[9].url}>
+                 <ActionFabGridProvider>
                   <div name="inputs" className="card-container">
                     <GeometriaExterna/>
                   </div>
+                  </ActionFabGridProvider>
                 </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
