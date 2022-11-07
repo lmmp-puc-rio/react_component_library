@@ -17,22 +17,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9375rem 0.9375rem 0rem 0.9375rem;
+  margin: 0.625rem 0.9375rem 0.9375rem 0.625rem;
 }
 .logo {
   font-size: 1rem;
   color: #17365c;
 }
 .bars {
-  display: flex;
-  font-size: 1.25rem;
-  background-color: #17365c;
-  padding: 0.3125rem;
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
 }
 
 .search-bar-container {
-  padding: 0.9375rem 0.9375rem 0.625rem 0.625rem;
+  margin: 0.625rem 0.9375rem 0.9375rem 0.625rem;
 }
 
 .main-menu {
@@ -46,7 +44,6 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 0rem 0.9375rem 2.5rem 0.9375rem;
   flex-wrap: wrap;
   overflow: hidden;
 }

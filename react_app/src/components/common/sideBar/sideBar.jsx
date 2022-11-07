@@ -6,28 +6,26 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 
-import lmmp from "./lmmp.png"
-import greo from "./greo.png"
-
-
+import lmmp from "./lmmp.png";
+import greo from "./greo.png";
 
 // # Import Component Style
 import "./sideBar.css";
 
-  // added fotterIcons for testing
-  const fotterIcons = [
-    { name: "Sobre", iconClassName: "fas fa-info-circle", path: "/sobre" },
-    {
-      name: "Tutorial",
-      iconClassName: "fas fa-graduation-cap",
-      path: "/tutorial",
-    },
-    {
-      name: "Notificações",
-      iconClassName: "far fa-bell",
-      path: "/notificacoes",
-    },
-  ];
+// added fotterIcons for testing
+const fotterIcons = [
+  { name: "Sobre", iconClassName: "fas fa-info-circle", path: "/sobre" },
+  {
+    name: "Tutorial",
+    iconClassName: "fas fa-graduation-cap",
+    path: "/tutorial",
+  },
+  {
+    name: "Notificações",
+    iconClassName: "far fa-bell",
+    path: "/notificacoes",
+  },
+];
 
 const SideMenu = (props) => {
   /* State responsible for controlling the opening/closing of the sidebar */
@@ -36,13 +34,23 @@ const SideMenu = (props) => {
 
   return (
     <div className="container">
-      <div style={{ width: isOpen ? "18.75rem" : "4.0625rem", height: "100vh"}} className="sidebar">
-       
+      <div
+        style={{ width: isOpen ? "18.75rem" : "4.0625rem", height: "100vh" }}
+        className="sidebar"
+      >
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
             INTERFACES 3D
           </h1>
-          <div style={{ marginLeft: isOpen ? "4.0625rem" : "0rem" }} className="bars">
+          <div
+            style={{
+              marginLeft: isOpen ? "4.0625rem" : "0rem",
+              backgroundColor: isOpen ? "transparent" : "#17365c",
+              color: isOpen ? "#17365c" : "#fff",
+              padding: isOpen ? "0.5rem 0rem" : "0.5rem 0.8rem",
+            }}
+            className="bars"
+          >
             {isOpen ? (
               <i class="far fa-times-circle" onClick={toggle}></i>
             ) : (
@@ -56,27 +64,35 @@ const SideMenu = (props) => {
         <div className="main-menu">
           {isOpen ? <ul>{props.children}</ul> : <ul>""</ul>}
         </div>
-          <div  style={{ padding: isOpen ? "0rem 0.9375rem 2.5rem 0.9375rem" : "0rem 0.9375rem 1.2rem 0.9375rem" }}  className="side-menu-footer-logo">
-            <img
-              src={lmmp}
-              alt="logo_1"
-              className="side-footer-img"
-            />
-            <img src={greo} alt="logo_2" className="side-footer-img" />
-          </div>
-          <div style={{ flexDirection: isOpen ? "row" : "column", alignItems: isOpen? "baseline" : "center"}} className="side-footer-bttn">
-            {fotterIcons.map((item) => (
-              <Link to={item.path}>
-                <button key={item.name} className={"avatar"} title={item.name}>
-                  <i className={item.iconClassName}></i>
-                </button>
-              </Link>
-            ))}
-          </div>
+        <div
+          style={{
+            padding: isOpen
+              ? "0rem 0.9375rem 2rem 0.9375rem"
+              : "0rem 0.9375rem 0.8rem 0.9375rem",
+          }}
+          className="side-menu-footer-logo"
+        >
+          <img src={lmmp} alt="logo_1" className="side-footer-img" />
+          <img src={greo} alt="logo_2" className="side-footer-img" />
+        </div>
+        <div
+          style={{
+            flexDirection: isOpen ? "row" : "column",
+            alignItems: isOpen ? "baseline" : "center",
+          }}
+          className="side-footer-bttn"
+        >
+          {fotterIcons.map((item) => (
+            <Link to={item.path}>
+              <button key={item.name} className={"avatar"} title={item.name}>
+                <i className={item.iconClassName}></i>
+              </button>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export default SideMenu;
-
