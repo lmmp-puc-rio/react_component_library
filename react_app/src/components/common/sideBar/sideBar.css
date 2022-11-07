@@ -9,7 +9,7 @@
   color: #fff;
   height: 100vh;
   width: 18.75rem;
-  transition: all 0.5s;
+  transition: all 0.3s;
   border-radius: 0.625rem;
 }
 
@@ -43,13 +43,14 @@
 .side-menu-footer-logo {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
   overflow: hidden;
 }
 
 .side-footer-img {
   width: 2.5rem;
+  margin: 0rem 0rem 0.9375rem 0rem;
 }
 
 .side-footer-bttn {

@@ -35,7 +35,7 @@ const SideMenu = (props) => {
   return (
     <div className="container">
       <div
-        style={{ width: isOpen ? "18.75rem" : "4.0625rem", height: "100vh" }}
+        style={{ width: isOpen ? "18.75rem" : "65px", height: "100vh" }}
         className="sidebar"
       >
         <div className="top_section">
@@ -68,7 +68,7 @@ const SideMenu = (props) => {
           style={{
             padding: isOpen
               ? "0rem 0.9375rem 2rem 0.9375rem"
-              : "0rem 0.9375rem 0.8rem 0.9375rem",
+              : "0rem 0.9375rem 0.2rem 0.9375rem",
           }}
           className="side-menu-footer-logo"
         >
