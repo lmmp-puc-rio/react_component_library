@@ -26,7 +26,7 @@
     }
     
     .accordion_wrap {
-        border-style: groove;
+        border: 3px groove transparent;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -34,21 +34,24 @@
         cursor: pointer;
         background-color: transparent;
         width: 100%;
-        color: black
-
+        color: black;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+        
     }
     
     .accordion_wrap div {
-        background-color:transparent;
-        border:1px solid ;    
+        background-color:transparent;  
         height:auto;
-        border-radius:30%;
-        -moz-border-radius:30%;
-        -webkit-border-radius:30%;
         width: auto;
         font-family: fantasy;
         color : black;
         animation-timing-function: ease-out;
+        padding: 5px 18px 5px;
+        font-size: 15px;
         
     }
     
@@ -62,8 +65,9 @@
         }
     
     .accordion_dropdown_item {
-        border: 2px groove black;
+        
         animation-timing-function: ease-out;
+        border-radius: 7.89262px;
         
     }
     
@@ -75,9 +79,8 @@
         justify-content: center;
         opacity:0;
         transform: translateY(0);  
-        animation: slide .5s forwards;
-        
-
+        animation: slide .5s forwards; 
+        padding: 5px 5px 5px;      
     }
     
     .accordion_wrap button{
