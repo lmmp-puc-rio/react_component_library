@@ -11,16 +11,20 @@
   /* padding-top: 10px; */
   text-align: center;
   color: black;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 0.0625rem solid #ccc;
 }
 
 .expandable_grid {
+  border-radius: 0.3125rem;
+  border-spacing: 0rem;
   background-color: #fff;
-  justify-content: top;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  /* justify-content: top;
+  border-collapse: collapse;
   box-shadow: inset 0px -2px 0px #e3e5e8;
-  /* margin-left: 10px;
+  margin-left: 10px;
   margin-right: 10px; */
 }
 
@@ -31,17 +35,19 @@
   font-size: 14pt;
   font-weight: bold;
   color: #969696;
-  height: 60px;
+  height: 3.75rem;
 }
 
 .expandable_grid_header {
-  width: 115px;
+  width: 48.6875rem;
+  height: 3.25rem;
+  padding: 1rem;
   color: #fff;
   background-color: #17365c;
 }
 
 .expandable_grid th {
-  padding: 0px 10px;
+  padding: 0rem 0.625rem;
   /* border: 1px solid #ccc;
   background-color: #17365c; 
   height: fit-content;
@@ -53,29 +59,44 @@
 
 .expandable_grid table,
 td {
-  border: 10px solid #fff;
-  /* border: 3px solid  #f2f2f2; 
+  border: 0.625rem solid #fff;
   height: fit-content;
+  padding: 0.75rem 1rem;
+  /* padding-left: 5px;
   table-layout: fixed;
-  padding-left: 5px;
-  padding-right: 5px;*/
+  padding-right: 5px; */
+}
+
+td {
+  border: none;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-align: center;
+  color: #000;
 }
 
 .expandable_grid_actions_column {
-  background-color: #f2f2f2;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
+.checkbox-header {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
 .hide-mobile {
-  @media (max-width: 480px) {
+  @media (max-width: 30rem) {
     display: none;
   }
 }
 
 .hide-desktop {
-  @media not all and (max-width: 480px) {
+  @media not all and (max-width: 30rem) {
     display: none;
   }
 }
