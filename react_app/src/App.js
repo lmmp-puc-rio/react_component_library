@@ -34,6 +34,7 @@ import {
   Tree,
   DynamicForm,
   Plotly,
+  GridCentralization,
 } from "./pages";
 
 // All Contexts Import
@@ -58,6 +59,7 @@ function App() {
     { url: "/Tree", title: "Tree", className: "navbar-item" },
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
+    { url: "/centralization", title: "Central", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -188,13 +190,13 @@ function App() {
       name: "Intervalos de Centralizadores",
     },
   ];
-  
+
   return (
     // React Browser Router
     <Router>
       <ModalProvider>
         <SearchProvider>
-      <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
+          <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
           <div name="app" className="App">
             <SideMenu
               onCollapse={(inactive) => {
@@ -317,8 +319,16 @@ function App() {
                 {/* Form Route */}
                 <Route exact path={navlinks[8].url}>
                   <div name="inputs" className="card-container">
-                    <DynamicForm/>
+                    <DynamicForm />
                   </div>
+                </Route>
+                {/* Centralization Grid Route */}
+                <Route exact path={navlinks[9].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="grid-container">
+                      <GridCentralization />
+                    </div>
+                  </ActionFabGridProvider>
                 </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>

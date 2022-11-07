@@ -6,6 +6,7 @@ import TabsComponents from "./TabsComponents";
 import Tree from "./Tree";
 import Plotly from "./Plotly";
 import DynamicForm from "./DynamicForm";
+import GridCentralization from "./GridCentralization";
 
 export {
   Grids,
@@ -16,4 +17,5 @@ export {
   Tree,
   Plotly,
   DynamicForm,
+  GridCentralization,
 };
