@@ -34,6 +34,7 @@ import {
   Tree,
   DynamicForm,
   Plotly,
+  Rheometry,
   PumpSequence,
 } from "./pages";
 
@@ -59,6 +60,7 @@ function App() {
     { url: "/Tree", title: "Tree", className: "navbar-item" },
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
+    { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
     { url: "/pumpsequence", title: "Pump", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
@@ -327,6 +329,11 @@ function App() {
                 <Route exact path={navlinks[9].url}>
                   <div name="inputs" className="card-container">
                     <PumpSequence />
+                  </div>
+                </Route>
+                <Route exact path={navlinks[9].url}>
+                  <div name="inputs" className="card-container">
+                    <Rheometry />
                   </div>
                 </Route>
               </Switch>

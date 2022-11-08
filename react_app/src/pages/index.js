@@ -6,6 +6,7 @@ import TabsComponents from "./TabsComponents";
 import Tree from "./Tree";
 import Plotly from "./Plotly";
 import DynamicForm from "./DynamicForm";
+import Rheometry from "./Rheometry";
 import PumpSequence from "./PumpSequence";
 
 export {
@@ -17,5 +18,6 @@ export {
   Tree,
   Plotly,
   DynamicForm,
+  Rheometry,
   PumpSequence,
 };
