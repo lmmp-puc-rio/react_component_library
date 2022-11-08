@@ -34,6 +34,7 @@ import {
   Tree,
   DynamicForm,
   Plotly,
+  PumpSequence,
 } from "./pages";
 
 // All Contexts Import
@@ -58,6 +59,7 @@ function App() {
     { url: "/Tree", title: "Tree", className: "navbar-item" },
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
+    { url: "/pumpsequence", title: "Pump", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -188,13 +190,13 @@ function App() {
       name: "Intervalos de Centralizadores",
     },
   ];
-  
+
   return (
     // React Browser Router
     <Router>
       <ModalProvider>
         <SearchProvider>
-      <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
+          <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
           <div name="app" className="App">
             <SideMenu
               onCollapse={(inactive) => {
@@ -207,7 +209,7 @@ function App() {
               >
                 {/* Multiple Children is needed! */}
                 <div key={1} className="accordion_dropdown_item">
-                  Teste1
+                  Sequência de Bombeio
                 </div>
                 <div key={2} className="accordion_dropdown_item">
                   Teste2
@@ -317,7 +319,14 @@ function App() {
                 {/* Form Route */}
                 <Route exact path={navlinks[8].url}>
                   <div name="inputs" className="card-container">
-                    <DynamicForm/>
+                    <DynamicForm />
+                  </div>
+                </Route>
+
+                {/* Pump Sequence Route */}
+                <Route exact path={navlinks[9].url}>
+                  <div name="inputs" className="card-container">
+                    <PumpSequence />
                   </div>
                 </Route>
               </Switch>
