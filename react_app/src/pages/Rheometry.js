@@ -15,7 +15,8 @@ const Rheometry = (props) => {
       y: [0, 5, 5, 6, 8, 9, 130, 150],
       name: "Curva 1",
       type: "scatter",
-      mode: "lines",
+      mode: "spline",
+      line: {shape: 'spline'},
       marker: { color: "#0000AA" },
     },
 
@@ -24,7 +25,8 @@ const Rheometry = (props) => {
       y: [0, 2, 5, 6, 8, 9, 130, 150],
       name: "Curva 2",
       type: "scatter",
-      mode: "lines",
+      mode: "spline",
+      line: {shape: 'spline'},
       marker: { color: "#FF0000" },
     },
 
