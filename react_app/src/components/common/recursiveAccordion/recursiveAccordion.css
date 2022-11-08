@@ -3,6 +3,12 @@
     .accordion {
         min-width: 350px;
         background-color: #fff;
+        height: 100%;
+    }
+    .accordionClose {
+        min-width: 350px;
+        background-color: #fff;
+        
     }
     
     .accordion_section {
@@ -13,6 +19,7 @@
         position: relative;
         padding-bottom: 10px;
         width: 100%;
+        height: 100%;
         
     }
     
