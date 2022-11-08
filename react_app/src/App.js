@@ -34,6 +34,7 @@ import {
   Tree,
   DynamicForm,
   Plotly,
+  Rheometry,
   GridCentralization,
 } from "./pages";
 
@@ -59,6 +60,7 @@ function App() {
     { url: "/Tree", title: "Tree", className: "navbar-item" },
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
+    { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
     { url: "/centralization", title: "Central", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
@@ -322,8 +324,14 @@ function App() {
                     <DynamicForm />
                   </div>
                 </Route>
-                {/* Centralization Grid Route */}
+                {/* Rheometry Route */}
                 <Route exact path={navlinks[9].url}>
+                  <div name="inputs" className="card-container">
+                    <Rheometry />
+                  </div>
+                </Route>
+                {/* Centralization Grid Route */}
+                <Route exact path={navlinks[10].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <GridCentralization />

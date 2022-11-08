@@ -13,7 +13,6 @@ export default function SlidingPanel(props) {
 
   return (
     <div className="sliding-pane-container">
-      <h1>Olá</h1>
       <button onClick={toggle} className="sliding-pane-bttn">
         {open ? (
           <i class="fas fa-angle-double-right fa-lg"></i>
