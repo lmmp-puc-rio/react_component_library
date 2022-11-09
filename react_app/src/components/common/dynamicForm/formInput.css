@@ -1,33 +1,53 @@
-.formInput{
-    display: flex;
-    flex-direction: column;
-    width: 280px;
+.formInput {
+  display: flex;
+  flex-direction: column;
+  width: 40.75rem;
+  height: 1.875rem;
+  margin-top: 0.25rem;
 }
 
-input{
-    padding: 15px;
-    margin: 10px 0px;
-    border-radius: 5px;
-    border: 1px solid gray;
+input {
+  padding: 0.9375rem;
+  margin: 0.625rem 0rem;
+  border-radius: 0.3125rem;
+  font-size: 0.75rem;
+  padding: 0 0.625rem;
+  font-family: "Inter";
+  font-weight: 400;
 }
 
-
-label{
-    font-size: 12px;
-    color: gray;
+label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9532rem;
+  line-height: 1.4375rem;
+  color: #fff;
 }
 
-span{
-    font-size: 12px;
-    padding: 3px;
-    color: red;
-    display: none;
+span {
+  font-size: 0.75rem;
+  padding: 0.1875rem;
+  color: red;
+  display: none;
 }
 
-input:invalid[focused="true"]{
-    border: 1px solid red;
+select {
+  width: 40.75rem;
+  height: 1.875rem;
+  font-size: 0.75rem;
+  padding: 0 0.625rem;
+  font-family: "Inter";
+  font-weight: 400;
+  border: 0.953216px solid #e3e8ee;
+  box-shadow: 0px 0.953216px 1.90643px rgba(55, 65, 81, 0.08);
+  border-radius: 3.81287px;
 }
 
-input:invalid[focused="true"] ~ span{
-    display: block;
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span {
+  display: block;
 }

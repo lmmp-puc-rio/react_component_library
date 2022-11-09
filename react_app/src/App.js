@@ -37,6 +37,7 @@ import {
   Rheometry,
   GridCentralization,
   GeometriaExterna,
+  FluidSelect,
 } from "./pages";
 
 // All Contexts Import
@@ -63,7 +64,12 @@ function App() {
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
     { url: "/centralization", title: "Central", className: "navbar-item" },
-    { url: "/GeometriaExterna", title: "GeometriaExterna", className: "navbar-item" },
+    {
+      url: "/GeometriaExterna",
+      title: "GeometriaExterna",
+      className: "navbar-item",
+    },
+    { url: "/fluid", title: "Fluid", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -338,13 +344,22 @@ function App() {
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
                     </div>
-                 {/* Geometria Externa Route */}
-                 <Route exact path={navlinks[11].url}>
-                 <ActionFabGridProvider>
-                  <div name="inputs" className="card-container">
-                    <GeometriaExterna/>
-                  </div>
                   </ActionFabGridProvider>
+                </Route>
+                {/* Geometria Externa Route */}
+                <Route exact path={navlinks[11].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <GeometriaExterna />
+                    </div>
+                  </ActionFabGridProvider>
+                </Route>
+
+                {/* Fluid Select for "Sequência de Bombeio" Route */}
+                <Route exact path={navlinks[12].url}>
+                  <div name="inputs" className="card-container">
+                    <FluidSelect />
+                  </div>
                 </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
