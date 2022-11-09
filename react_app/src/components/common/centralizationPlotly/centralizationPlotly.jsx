@@ -8,8 +8,9 @@ import Plot from "react-plotly.js";
 
 function CentralizationPlotly(props) {
   const layout = props.layout;
+  const data = props.data;
 
-  return <Plot layout={layout} />;
+  return <Plot layout={layout} data={data}/>;
 }
 
 export default CentralizationPlotly;
