@@ -36,6 +36,7 @@ import {
   Plotly,
   Rheometry,
   GridCentralization,
+  GeometriaExterna,
 } from "./pages";
 
 // All Contexts Import
@@ -62,6 +63,7 @@ function App() {
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
     { url: "/centralization", title: "Central", className: "navbar-item" },
+    { url: "/GeometriaExterna", title: "GeometriaExterna", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -336,6 +338,12 @@ function App() {
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
                     </div>
+                 {/* Geometria Externa Route */}
+                 <Route exact path={navlinks[11].url}>
+                 <ActionFabGridProvider>
+                  <div name="inputs" className="card-container">
+                    <GeometriaExterna/>
+                  </div>
                   </ActionFabGridProvider>
                 </Route>
               </Switch>

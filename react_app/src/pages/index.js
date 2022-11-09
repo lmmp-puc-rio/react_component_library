@@ -8,7 +8,7 @@ import Plotly from "./Plotly";
 import DynamicForm from "./DynamicForm";
 import Rheometry from "./Rheometry";
 import GridCentralization from "./GridCentralization";
-
+import GeometriaExterna from "./GeometriaExterna"
 export {
   Grids,
   Projects,
@@ -20,4 +20,5 @@ export {
   DynamicForm,
   Rheometry,
   GridCentralization,
+  GeometriaExterna
 };
