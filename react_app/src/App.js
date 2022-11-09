@@ -359,11 +359,13 @@ function App() {
                 </Route>
 
                 {/* Pump Sequence Route */}
-                <Route exact path={navlinks[12].url}>
-                  <div name="inputs" className="card-container">
-                    <PumpSequence />
-                  </div>
-                </Route>
+                {/* <Route exact path={navlinks[12].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <PumpSequence />
+                    </div>
+                  </ActionFabGridProvider>
+                </Route> */}
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
                 <Modal cancelURL={"/cases"}>

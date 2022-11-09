@@ -9,43 +9,11 @@ import {
   RecursiveAccordion,
 } from "../components/common";
 
-import Plot from "react-plotly.js";
-
 // # Import Component Style
 import "./pages.css";
 import { darkColors } from "../components/common";
 
 const PumpSequence = (props) => {
-  {
-    /*plot Data*/
-  }
-  const graph = [
-    {
-      x: [0, 10],
-      y: [8, 8],
-      //type change the mode graph
-      type: "scratter",
-      mode: "lines",
-      fill: "tozeroy",
-    },
-    {
-      x: [6, 8, 7],
-      y: [5, 5, 7],
-      //type change the mode graph
-      type: "bar",
-      mode: "lines",
-      fill: "tozeroy",
-    },
-    {
-      x: [0, 10],
-      y: [3, 3],
-      //type change the mode graph
-      type: "scatter",
-      mode: "line",
-      fill: "tozeroy",
-    },
-  ];
-
   {
     /*Accordion Data*/
   }
@@ -136,14 +104,6 @@ const PumpSequence = (props) => {
   return (
     <div className="page" style={{ color: "black" }}>
       <h2>Sequência de Bombeio</h2>
-      <div>
-        <h3>Sequência de Fluidos</h3>
-      </div>
-      <div>
-        <h3>Vazão de Bombeio</h3>
-        <Plot data={graph} />
-      </div>
-
       <SlidingPanel>
         <ul>
           {/*Component Accordion*/}
@@ -158,13 +118,6 @@ const PumpSequence = (props) => {
                 <div key={"Teste Fluidos 2"}>Teste Fluidos 2</div>
               </TabsComponent>
             </div>
-            {/* 
-            <div key={2} className="accordion_dropdown_item">
-              <TabsComponent data={dataTabFluidos}>
-                <div key={"Coluna de Trabalho"}>Teste Coluna</div>
-                <div key={"Revestimento"}>Teste Revestimento</div>
-              </TabsComponent>
-            </div> */}
 
             <div key={2} className="accordion_dropdown_item">
               <TabsComponent data={dataTabSequencia}>
@@ -176,10 +129,6 @@ const PumpSequence = (props) => {
                 </div>
               </TabsComponent>
             </div>
-
-            {/* <div key={4} className="accordion_dropdown_item">
-              <p>in dev</p>
-            </div> */}
           </RecursiveAccordion>
         </ul>
       </SlidingPanel>
