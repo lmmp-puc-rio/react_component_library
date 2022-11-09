@@ -34,9 +34,8 @@ import {
   Tree,
   DynamicForm,
   Plotly,
- Rheometry,
- Centralization
   Rheometry,
+  Centralization,
   GridCentralization,
   GeometriaExterna,
 } from "./pages";
@@ -64,9 +63,17 @@ function App() {
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
-    { url: "/centralizationPlotly", title: "Centralization-Plotly", className: "navbar-item" },
+    {
+      url: "/centralizationPlotly",
+      title: "Centralization-Plotly",
+      className: "navbar-item",
+    },
     { url: "/centralization", title: "Central", className: "navbar-item" },
-    { url: "/GeometriaExterna", title: "GeometriaExterna", className: "navbar-item" },
+    {
+      url: "/GeometriaExterna",
+      title: "GeometriaExterna",
+      className: "navbar-item",
+    },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -106,7 +113,7 @@ function App() {
   };
 
   {
-    /*Accordion Data*/
+/*     /Accordion Data/ */
   }
   const dataStructure = [
     {
@@ -228,7 +235,7 @@ function App() {
             </SideMenu>
             <SlidingPanel>
               <ul>
-                {/*Component Accordion*/}
+                {/Component Accordion/}
                 <RecursiveAccordion
                   key={"accordion_0"}
                   accordionData={slidinPanelAccordionData}
@@ -340,6 +347,7 @@ function App() {
                   <div name="inputs" className="card-container">
                     <Centralization />
                   </div>
+                </Route>
 
                 {/* Centralization Grid Route */}
                 <Route exact path={navlinks[11].url}>
@@ -347,14 +355,15 @@ function App() {
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
                     </div>
-                 {/* Geometria Externa Route */}
-                 <Route exact path={navlinks[12].url}>
-                 <ActionFabGridProvider>
-                  <div name="inputs" className="card-container">
-                    <GeometriaExterna/>
-                  </div>
                   </ActionFabGridProvider>
-
+                </Route>
+                {/* Geometria Externa Route */}
+                <Route exact path={navlinks[12].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <GeometriaExterna />
+                    </div>
+                  </ActionFabGridProvider>
                 </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
