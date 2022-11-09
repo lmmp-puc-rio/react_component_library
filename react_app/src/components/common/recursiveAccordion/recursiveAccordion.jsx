@@ -53,6 +53,8 @@ function AccordionWrap(props) {
     let changeState=props.changeState
 
     return (
+        <>
+        {isOpen ?
         <div key={"OuterDiv_"+props.id} className={"accordion"}>
             <div    key={"acc_wrap_"+props.id} 
                     className={"accordion_wrap"}>
@@ -86,8 +88,42 @@ function AccordionWrap(props) {
                 <AccordionDropdown id={props.id} body={props.body}>
                     {props.children}
                 </AccordionDropdown>}
+        </div> : <div key={"OuterDiv_"+props.id} className={"accordionClose"}>
+            <div    key={"acc_wrap_"+props.id} 
+                    className={"accordion_wrap"}>
+                {/* Title */}
+                <h1>{props.title}</h1>
+                { (props.actions.length > 0)
+                    &&
+                // ((!isEditable && 
+                ((!state && 
+                    // <button onClick={() => setIsEditable(!isEditable)}>  
+                    <button onClick={(state) => changeState(!state)}>  
+                        {props.actions[0].title}
+                    </button>)
+                ||
+                // (isEditable && 
+                (state && 
+                    // <button onClick={() => setIsEditable(!isEditable)}>  
+                    <button onClick={() => changeState(!state)}>  
+                        {props.actions[1].title}
+                    </button>))
+                }
+                
+                {/* // All Accordion Tabs can be opened simultaneously */}
+                <div onClick={() => handleToggle(name)}> {isOpen ? <i class="fas fa-times"></i>: <i class="fas fa-plus"></i>}</div>
+
+                {/* // Only One can be opened at a time */}
+                {/* <div onClick={() => setIsOpen(!isOpen)}> {isOpen ? "-" : "+"}</div> */}
+
+            </div>
+            {isOpen && 
+                <AccordionDropdown id={props.id} body={props.body}>
+                    {props.children}
+                </AccordionDropdown>}
         </div>
-        
+        }
+        </>
     )
 }
 
