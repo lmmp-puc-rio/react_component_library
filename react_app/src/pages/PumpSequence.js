@@ -3,21 +3,17 @@ import React, { useState } from "react";
 
 // #  Local SubComponents & utils
 import {
+  ActionFabGrid,
   SlidingPanel,
   TabsComponent,
   RecursiveAccordion,
-  ActionFabGrid,
-  ExpandableGrid,
-  FAB,
-  GridForm,
 } from "../components/common";
 
-import {} from "../components/common";
 import Plot from "react-plotly.js";
 
 // # Import Component Style
 import "./pages.css";
-import { darkColors, lightColors } from "../components/common";
+import { darkColors } from "../components/common";
 
 const PumpSequence = (props) => {
   {
@@ -73,20 +69,20 @@ const PumpSequence = (props) => {
   {
     /*Tab Data*/
   }
-  const dataTab1 = [
+  const dataTabFluidos = [
     {
-      id: "",
-      description: "",
-      name: "",
+      id: "Teste Fluidos 1",
+      description: "Teste Fluidos 1",
+      name: "Teste Fluidos 1",
     },
     {
-      id: "",
-      description: "",
-      name: "",
+      id: "Teste Fluidos 2",
+      description: "Teste Fluidos 2",
+      name: "Teste Fluidos 2",
     },
   ];
 
-  const dataTab2 = [
+  const dataTabSequencia = [
     {
       id: "Fluidos no anular",
       description: "Fluidos no anular",
@@ -99,25 +95,14 @@ const PumpSequence = (props) => {
     },
   ];
 
-  const dataTab3 = [
-    {
-      id: "Centralizadores",
-      description: "Centralizadores",
-      name: "Centralizadores",
-    },
-    {
-      id: "Intervalos de Centralizadores",
-      description: "Intervalos de Centralizadores",
-      name: "Intervalos de Centralizadores",
-    },
-  ];
-
-  const metaDataCentral = {
+  const metaDataAnular = {
     header: [
       { key: "ID", label: "ID", expandable: false },
-      { key: "Centralizador", label: "Flexível", expandable: true },
-      { key: "OD", label: "OD (m)", expandable: true },
-      { key: "Tipo", label: "Tipo", expandable: true },
+      { key: "Fluido", label: "Fluido", expandable: true },
+      { key: "Volume", label: "Volume (bbl)", expandable: true },
+      { key: "Topo", label: "Topo", expandable: true },
+      { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
+      { key: "Entrada", label: "Entrada", expandable: true },
     ],
     actions: [
       {
@@ -128,14 +113,14 @@ const PumpSequence = (props) => {
     ],
   };
 
-  const metaDataInterval = {
+  const metaDataDeslocamento = {
     header: [
       { key: "ID", label: "ID", expandable: false },
-      { key: "Topo", label: "Topo(m)", expandable: true },
-      { key: "Base", label: "Base(m)", expandable: true },
-      { key: "NumCentr", label: "Núm. centr.", expandable: true },
-      { key: "CentrJunta", label: "Centr / Junta", expandable: true },
-      { key: "Centralizador", label: "Centralizador", expandable: true },
+      { key: "Fluido", label: "Fluido", expandable: true },
+      { key: "Volume", label: "Volume (bbl)", expandable: true },
+      { key: "Topo", label: "Topo", expandable: true },
+      { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
+      { key: "Entrada", label: "Entrada", expandable: true },
     ],
     actions: [
       {
@@ -145,12 +130,19 @@ const PumpSequence = (props) => {
       },
     ],
   };
+  // Route
+  const route = "/pumpsequence";
 
   return (
-    <>
+    <div className="page" style={{ color: "black" }}>
       <h2>Sequência de Bombeio</h2>
-      <div>gráfico renderizado</div>
-      <Plot data={graph} />
+      <div>
+        <h3>Sequência de Fluidos</h3>
+      </div>
+      <div>
+        <h3>Vazão de Bombeio</h3>
+        <Plot data={graph} />
+      </div>
 
       <SlidingPanel>
         <ul>
@@ -160,41 +152,38 @@ const PumpSequence = (props) => {
             accordionData={slidinPanelAccordionData}
           >
             {/* Multiple Children is needed! */}
-
             <div key={1} className="accordion_dropdown_item">
-              <TabsComponent data={dataTab1}>
-                <div key={"Revestimento Anterior"}>
-                  Teste Revestimento Anterior
-                </div>
-                <div key={"Poço Aberto"}> Teste Poço Aberto</div>
+              <TabsComponent data={dataTabFluidos}>
+                <div key={"Teste Fluidos 1"}>Teste Fluidos 1</div>
+                <div key={"Teste Fluidos 2"}>Teste Fluidos 2</div>
               </TabsComponent>
             </div>
+            {/* 
+            <div key={2} className="accordion_dropdown_item">
+              <TabsComponent data={dataTabFluidos}>
+                <div key={"Coluna de Trabalho"}>Teste Coluna</div>
+                <div key={"Revestimento"}>Teste Revestimento</div>
+              </TabsComponent>
+            </div> */}
 
             <div key={2} className="accordion_dropdown_item">
-              <TabsComponent data={dataTab2}>
-                <div key={"Coluna de Trabalho"}> Teste Coluna</div>
-                <div key={"Revestimento"}> Teste Revestimento</div>
-              </TabsComponent>
-            </div>
-
-            <div key={3} className="accordion_dropdown_item">
-              <TabsComponent data={dataTab3}>
-                <div key={"Centralizadores"}>
-                  <ActionFabGrid metaData={metaDataCentral} />
+              <TabsComponent data={dataTabSequencia}>
+                <div key={"Fluidos no anular"}>
+                  <ActionFabGrid metaData={metaDataAnular} />
                 </div>
-                <div key={"Intervalos de Centralização"}>
-                  <ActionFabGrid metaData={metaDataInterval} />
+                <div key={"Fluidos de deslocamento"}>
+                  <ActionFabGrid metaData={metaDataDeslocamento} />
                 </div>
               </TabsComponent>
             </div>
 
-            <div key={4} className="accordion_dropdown_item">
+            {/* <div key={4} className="accordion_dropdown_item">
               <p>in dev</p>
-            </div>
+            </div> */}
           </RecursiveAccordion>
         </ul>
       </SlidingPanel>
-    </>
+    </div>
   );
 };
 
