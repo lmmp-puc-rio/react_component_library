@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 
 // # Import data of Rows
-import { dataRows } from "../data/rows";
+import { dataRows, RevestimentoAnteriorData } from "../data/rows";
 
 // Create Context Object
 const ActionFabGridContext = createContext();
@@ -15,7 +15,7 @@ export default function useSelect() {
 
   // Function responsible for bringing all Rows
   function getRows() {
-    const rowsResponse = dataRows;
+    const rowsResponse = RevestimentoAnteriorData;
     setRows([...rowsResponse]);
   }
 
