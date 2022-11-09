@@ -6,7 +6,9 @@ import TabsComponents from "./TabsComponents";
 import Tree from "./Tree";
 import Plotly from "./Plotly";
 import DynamicForm from "./DynamicForm";
-
+import Rheometry from "./Rheometry";
+import GridCentralization from "./GridCentralization";
+import GeometriaExterna from "./GeometriaExterna"
 export {
   Grids,
   Projects,
@@ -16,4 +18,7 @@ export {
   Tree,
   Plotly,
   DynamicForm,
+  Rheometry,
+  GridCentralization,
+  GeometriaExterna
 };
