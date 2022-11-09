@@ -1,105 +1,99 @@
 @media screen and (min-width: 10px) {
+  .accordion {
+    width: 100%;
+    background-color: #fff;
+    padding: 0.625rem;
+    border-radius: 0.5rem;
+  }
 
-    .accordion {
-        min-width: 350px;
-        background-color: #fff;
+  .accordion_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    position: relative;
+    width: 100%;
+  }
+
+  .accordion_container {
+    align-self: center;
+    color: black;
+    align-items: center;
+    width: 100%;
+  }
+
+  .accordion_wrap {
+    border: 3px groove transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    width: 100%;
+    color: black;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 8px 0px;
+  }
+
+  .accordion_wrap div {
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    font-family: fantasy;
+    color: black;
+    animation-timing-function: ease-out;
+    padding: 0.625rem 1.125rem 0.3125rem;
+    font-size: 0.625rem;
+  }
+
+  .accordion_wrap h1 {
+    padding: 0.625rem;
+    font-size: 0.875rem;
+  }
+
+  .accordion_wrap span {
+    margin-right: 0.875rem;
+  }
+
+  .accordion_dropdown_item {
+    animation-timing-function: ease-out;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    padding: 0.625rem;
+  }
+
+  .accordion_dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(0);
+    animation: slide 0.5s forwards;
+    padding: 0.3125rem;
+    line-height: 1.2;
+  }
+
+  .accordion_wrap button {
+    float: right;
+    color: black;
+    background-color: yellow;
+    border-radius: 0.3125rem;
+    border: 1px solid #ccc;
+  }
+
+  .accordion_dropdown p {
+    font-size: 0.875rem;
+  }
+
+  @keyframes slide {
+    to {
+      transform: translateY(0);
+      opacity: 1;
     }
-    
-    .accordion_section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: top;
-        position: relative;
-        padding-bottom: 10px;
-        width: 100%;
-        
-    }
-    
-    .accordion_container {
-        align-self: center;
-        background-color: #f2f2f2;
-        align-items: center;
-        background: transparent;
-        width: 100%;
-        
-    }
-    
-    .accordion_wrap {
-        border: 3px groove transparent;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        cursor: pointer;
-        background-color: transparent;
-        width: 100%;
-        color: black;
-        flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 0;
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-        
-    }
-    
-    .accordion_wrap div {
-        background-color:transparent;  
-        height:auto;
-        width: auto;
-        font-family: fantasy;
-        color : black;
-        animation-timing-function: ease-out;
-        padding: 5px 18px 5px;
-        font-size: 15px;
-        
-    }
-    
-    .accordion_wrap h1 {
-        padding: 10px;
-        font-size: 1rem;
-     }
-    
-    .accordion_wrap span {
-        margin-right: 1rem;
-        }
-    
-    .accordion_dropdown_item {
-        
-        animation-timing-function: ease-out;
-        border-radius: 7.89262px;
-        
-    }
-    
-    .accordion_dropdown {
-        
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        opacity:0;
-        transform: translateY(0);  
-        animation: slide .5s forwards; 
-        padding: 5px 5px 5px;      
-    }
-    
-    .accordion_wrap button{
-        float: right;
-        color: black;
-        background-color: yellow;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    
-    .accordion_dropdown p {
-        font-size: 2rem;
-      }
-    
-      @keyframes slide{
-        
-        to{
-            transform: translateY(0);
-            opacity: 1;
-        }
-      }
-    }
+  }
+}

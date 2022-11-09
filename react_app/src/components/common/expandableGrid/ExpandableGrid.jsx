@@ -24,11 +24,11 @@ function ActionColumn(props) {
     <td className="expandable_grid_actions_column">
       {actions.map((action) => (
         <CheckboxActionIcon
-          data = {data}
+          data={data}
           callback={action.callback}
           rowID={id}
-          selectCallback= {selectCallback}
-          rowSelected = {rowSelected}
+          selectCallback={selectCallback}
+          rowSelected={rowSelected}
           routeURL={action.route}
           tooltip={action.tooltip}
           className={"action_icon_button"}
@@ -56,7 +56,13 @@ function ExpandableRow(props) {
       id={["case_" + rowdata.id]}
     >
       {/* Action Column */}
-      <ActionColumn actions={actions} id={rowdata.id} rowSelected={rowdata.selected} selectCallback={selectCallback} data={data} />
+      <ActionColumn
+        actions={actions}
+        id={rowdata.id}
+        rowSelected={rowdata.selected}
+        selectCallback={selectCallback}
+        data={data}
+      />
       {/* Regular Column $TODO: Separate Columns and Expandable Columns */}
       {rowOrder.map((key) => (
         <td key={"casegrid_row" + rowdata.id + "_column" + key}>
@@ -71,26 +77,24 @@ function ExpandableRow(props) {
 // # Expandable Grid React Component Construction
 function ExpandableGrid(props) {
   const metaData = props.metaData;
-  const selectCallback = props.selectCallback
+  const selectCallback = props.selectCallback;
   const data = props.data;
 
   /* State that controls the checkbox of the table header and selects all checkboxes */
-  const { isSelectAllChecked,setSelectAllChecked  } = useContext(ActionFabGridContext);
-
+  const { isSelectAllChecked, setSelectAllChecked } =
+    useContext(ActionFabGridContext);
 
   /*  Function that controls all checkboxes(Selected/ Unselected) and change the state*/
   function selectAllRows() {
-    let updatedList = data.map(item => 
-      {
-        if(isSelectAllChecked === true) {
-          return {...item, selected: false};
-        } return {...item, selected: true};
-      });
-    selectCallback(updatedList)
-    setSelectAllChecked (!isSelectAllChecked)
+    let updatedList = data.map((item) => {
+      if (isSelectAllChecked === true) {
+        return { ...item, selected: false };
+      }
+      return { ...item, selected: true };
+    });
+    selectCallback(updatedList);
+    setSelectAllChecked(!isSelectAllChecked);
   }
-  
-
 
   return (
     // Logo assembled by Icon and Name
@@ -114,7 +118,12 @@ function ExpandableGrid(props) {
         </thead>
         <tbody>
           {data.map((row) => (
-            <ExpandableRow actions={metaData.actions} rowData={row} data={data} selectCallback={selectCallback}/>
+            <ExpandableRow
+              actions={metaData.actions}
+              rowData={row}
+              data={data}
+              selectCallback={selectCallback}
+            />
           ))}
         </tbody>
       </table>
@@ -129,4 +138,3 @@ function ExpandableGrid(props) {
 }
 
 export default ExpandableGrid;
-
