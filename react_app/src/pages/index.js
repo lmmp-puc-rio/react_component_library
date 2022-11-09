@@ -7,6 +7,7 @@ import Tree from "./Tree";
 import Plotly from "./Plotly";
 import DynamicForm from "./DynamicForm";
 import Rheometry from "./Rheometry";
+import GridCentralization from "./GridCentralization";
 
 export {
   Grids,
@@ -17,5 +18,6 @@ export {
   Tree,
   Plotly,
   DynamicForm,
-  Rheometry
+  Rheometry,
+  GridCentralization,
 };
