@@ -68,8 +68,7 @@ function GridForm (props) {
         statesData[key] = data[key].defaultValue;
         statesData[key+"_unit"] = data[key].selectecUnit;
     }
-    console.log({statesData})
-    // console.log(statesData);
+ 
     const [state, setState] = useState(statesData)
                     
     //TODO: Store state variables always in SI units.

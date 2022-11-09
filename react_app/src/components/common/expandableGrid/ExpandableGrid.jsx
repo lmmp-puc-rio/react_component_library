@@ -45,7 +45,7 @@ function ExpandableRow(props) {
   const rowdata = props.rowData;
   const actions = props.actions;
   const selectCallback = props.selectCallback;
-  const rowOrder = ["id", "name", "desc", "created", "modified", "lastrun"];
+  const rowOrder = [ "MD", "CSegment", "OD", "ID"];
   const data = props.data;
 
   return (

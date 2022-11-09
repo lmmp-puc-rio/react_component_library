@@ -18,3 +18,23 @@ export const dataRows = [
       selected: false,
     },
   ];
+
+
+  export const RevestimentoAnteriorData =[
+    {
+      id:1,
+      MD:5321.09,
+      CSegment:3432.09,
+      OD:7,
+      ID:0,
+      selected:false,
+    },
+    {
+      id:2,
+      MD:1000,
+      CSegment:4000,
+      OD:8,
+      ID:1,
+      selected:false,
+    },
+  ]

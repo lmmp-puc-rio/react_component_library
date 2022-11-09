@@ -7,6 +7,8 @@ import Tree from "./Tree";
 import Plotly from "./Plotly";
 import DynamicForm from "./DynamicForm";
 import Rheometry from "./Rheometry";
+import GridCentralization from "./GridCentralization";
+import GeometriaExterna from "./GeometriaExterna";
 import PumpSequence from "./PumpSequence";
 
 export {
@@ -19,5 +21,7 @@ export {
   Plotly,
   DynamicForm,
   Rheometry,
+  GridCentralization,
+  GeometriaExterna,
   PumpSequence,
 };
