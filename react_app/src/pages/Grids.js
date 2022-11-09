@@ -1,7 +1,6 @@
 // #  Main Imports
 import React, { useEffect, useState, useContext } from "react";
 
-
 // #  Local SubComponents & utils
 import { ActionFabGrid, GridForm } from "../components/common";
 
@@ -10,9 +9,8 @@ import "./pages.css";
 import { darkColors } from "../components/common/MaterialColors";
 
 const Grids = (props) => {
-
   //TODO: Bring all dynamic data from the API
-const conversionFactors = {
+  const conversionFactors = {
     lenght: { km: 1000, cm: 1 / 100, mm: 1 / 1000, um: 1 / 1000000, m: 1 },
     pressure: { psi: 0.000145038, mmHg: 0.00750062, Pa: 1 },
   };
@@ -64,7 +62,7 @@ const conversionFactors = {
       {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
       <GridForm data={formData} conversionFactors={conversionFactors} />
       <legend className="pages-title"> ExpandableGrid and Fab </legend>
-        <ActionFabGrid metaData={metaData} />
+      <ActionFabGrid metaData={metaData} />
     </div>
   );
 };

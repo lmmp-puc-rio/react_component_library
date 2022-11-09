@@ -22,6 +22,7 @@ import ActionFabGrid from "./actionFabGrid";
 import ImportData from "./importData";
 import Modal from "./modal";
 import FormInput from "./dynamicForm";
+import RheometryPlotly from "./rheometryPlotly";
 
 
 export {
@@ -50,6 +51,7 @@ export {
     SlidingPanel,
     SideMenu,
     TreeComponent,
+    RheometryPlotly,
     darkColors, 
     lightColors,
 }

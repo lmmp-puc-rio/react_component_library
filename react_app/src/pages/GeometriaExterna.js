@@ -1,10 +1,31 @@
-import React from "react"
+import React,{useContext,useEffect} from "react"
 import { SlidingPanel,TabsComponent,RecursiveAccordion, ActionFabGrid } from "../components/common"
 import Plot from "react-plotly.js";
 import { darkColors } from "../components/common/MaterialColors";
+import { ActionFabGridContext } from "../contexts/ActionFabGridContext";
+
+
 
 
 function GeometriaExterna(props){
+ const {setRows,rows} = useContext(ActionFabGridContext)
+ const dataRowsGeometry = [
+    {
+      id: 1,
+      MD: "5321.09",
+      CSegment: "3432.09",
+      OD: "10 3/4",
+      ID: "9156",
+      selected: false,
+    },
+    
+  ];
+
+   useEffect(()=>{ 
+    setRows(dataRowsGeometry)
+   },[])
+
+   console.log(rows)
     {/*plot Data*/}
     const graph = [
         {x:[0,10],
@@ -104,10 +125,10 @@ function GeometriaExterna(props){
       
       const metaData = {
         header: [
-          { key: "MD(m)", label: "MD(m)", expandable: false },
-          { key: "Comp. do Segmento", label: "Comp. do Segmento", expandable: false },
-          { key: "OD(pol)", label: "OD(pol)", expandable: true },
-          { key: "ID(pol)", label: "ID(pol)", expandable: true },
+          { key: "MD", label: "MD(m)", expandable: false },
+          { key: "CSegment", label: "Comp. do Segmento (m)", expandable: false },
+          { key: "OD", label: "OD(pol)", expandable: true },
+          { key: "ID", label: "ID(pol)", expandable: true },
         ],
         actions: [
           {
@@ -121,7 +142,7 @@ function GeometriaExterna(props){
       const PocoAbertoData = {
         header: [
           { key: "MD(m)", label: "MD(m)", expandable: false },
-          { key: "Comp. do Segmento", label: "Comp. do Segmento", expandable: false },
+          { key: "Comp. do Segmento (m)", label: "Comp. do Segmento (m)", expandable: false },
           { key: "ID(pol)", label: "ID(pol)", expandable: true },
         ],
         actions: [
@@ -132,6 +153,39 @@ function GeometriaExterna(props){
           },
         ],
       };
+
+      const ColunaData = {
+        header: [
+          { key: "MD(m)", label: "MD(m)", expandable: false },
+          { key: "Comp. do Segmento (m)", label: "Comp. do Segmento (m)", expandable: false },
+          { key: "OD(pol)", label: "OD(pol)", expandable: true },
+          { key: "ID(pol)", label: "ID(pol)", expandable: true },
+        ],
+        actions: [
+          {
+            tooltip: "Select Button",
+            backgroundColor: darkColors.yellow,
+            color: darkColors.white,
+          },
+        ],
+      };
+
+      const RevestimentoData = {
+        header: [
+          { key: "MD(m)", label: "MD(m)", expandable: false },
+          { key: "Comp. do Segmento (m)", label: "Comp. do Segmento (m)", expandable: false },
+          { key: "OD(pol)", label: "OD(pol)", expandable: true },
+          { key: "ID(pol)", label: "ID(pol)", expandable: true },
+        ],
+        actions: [
+          {
+            tooltip: "Select Button",
+            backgroundColor: darkColors.yellow,
+            color: darkColors.white,
+          },
+        ],
+      };
+
     return(
         <>
             <h3>Geometria Externa</h3>
@@ -147,21 +201,24 @@ function GeometriaExterna(props){
 
                   <div key={1} className="accordion_dropdown_item">
                     <TabsComponent data={dataTab1}>
+                      
                       <div key={"Revestimento Anterior"}>
-                      <ActionFabGrid metaData={metaData} />
+                        <ActionFabGrid metaData={metaData}/>
                       </div>
                       <div key={"Poço Aberto"}> 
-                        <div key={"Revestimento Anterior"}>
                           <ActionFabGrid metaData={PocoAbertoData} />
-                        </div>
                       </div>
                     </TabsComponent>
                   </div>
 
                   <div key={2} className="accordion_dropdown_item">
                     <TabsComponent data={dataTab2}>
-                      <div key={"Coluna de Trabalho"}> Teste Coluna</div>
-                      <div key={"Revestimento"}> Teste Revestimento</div>
+                      <div key={"Coluna de Trabalho"}>
+                      <ActionFabGrid metaData={ColunaData} />
+                      </div>
+                      <div key={"Revestimento"}> 
+                        <ActionFabGrid metaData={RevestimentoData} />
+                      </div>
                     </TabsComponent>
                   </div>
                   <div key={3} className="accordion_dropdown_item">
