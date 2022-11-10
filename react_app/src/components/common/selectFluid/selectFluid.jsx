@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 
 // #  Local SubComponents & utils
-import FormInput from "../components/common/dynamicForm";
+import FormInput from "../dynamicForm";
 
 // # Import Component Style
-import "./pages.css";
+import "./selectFluid.css";
 
 const FluidSelect = (props) => {
   const [values, setValues] = useState({
@@ -70,7 +70,7 @@ const FluidSelect = (props) => {
           />
         ))}
         <button className="bttn-submit">
-          <i class="fas fa-plus fa-sm"></i>
+          <i class="fas fa-plus"></i>
         </button>
       </form>
     </div>
