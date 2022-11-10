@@ -106,7 +106,7 @@ const GridCentralization = (props) => {
   const metaDataCentral = {
     header: [
       { key: "ID", label: "ID", expandable: false },
-      { key: "Centralizador", label: "Flexível", expandable: true },
+      { key: "Centralizador", label: "Centralizador", expandable: true },
       { key: "OD", label: "OD (m)", expandable: true },
       { key: "Tipo", label: "Tipo", expandable: true },
     ],

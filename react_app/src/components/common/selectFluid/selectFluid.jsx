@@ -70,7 +70,7 @@ const FluidSelect = (props) => {
           />
         ))}
         <button className="bttn-submit">
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-plus fa-sm"></i>
         </button>
       </form>
     </div>

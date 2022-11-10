@@ -35,9 +35,9 @@ import {
   DynamicForm,
   Plotly,
   Rheometry,
+  Centralization,
   GridCentralization,
   GeometriaExterna,
-  FluidSelect,
 } from "./pages";
 
 // All Contexts Import
@@ -63,13 +63,17 @@ function App() {
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
+    {
+      url: "/centralizationPlotly",
+      title: "Centralization-Plotly",
+      className: "navbar-item",
+    },
     { url: "/centralization", title: "Central", className: "navbar-item" },
     {
       url: "/GeometriaExterna",
       title: "GeometriaExterna",
       className: "navbar-item",
     },
-    { url: "/fluid", title: "Fluid", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -109,7 +113,7 @@ function App() {
   };
 
   {
-    /*Accordion Data*/
+    /*     /Accordion Data/ */
   }
   const dataStructure = [
     {
@@ -219,7 +223,7 @@ function App() {
               >
                 {/* Multiple Children is needed! */}
                 <div key={1} className="accordion_dropdown_item">
-                  Teste1
+                  Sequência de Bombeio
                 </div>
                 <div key={2} className="accordion_dropdown_item">
                   Teste2
@@ -231,7 +235,7 @@ function App() {
             </SideMenu>
             <SlidingPanel>
               <ul>
-                {/*Component Accordion*/}
+                {/Component Accordion/}
                 <RecursiveAccordion
                   key={"accordion_0"}
                   accordionData={slidinPanelAccordionData}
@@ -332,14 +336,23 @@ function App() {
                     <DynamicForm />
                   </div>
                 </Route>
+
                 {/* Rheometry Route */}
                 <Route exact path={navlinks[9].url}>
                   <div name="inputs" className="card-container">
                     <Rheometry />
                   </div>
                 </Route>
-                {/* Centralization Grid Route */}
+
+                {/* Centralization Route */}
                 <Route exact path={navlinks[10].url}>
+                  <div name="inputs" className="card-container">
+                    <Centralization />
+                  </div>
+                </Route>
+
+                {/* Centralization Grid Route */}
+                <Route exact path={navlinks[11].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
@@ -347,19 +360,12 @@ function App() {
                   </ActionFabGridProvider>
                 </Route>
                 {/* Geometria Externa Route */}
-                <Route exact path={navlinks[11].url}>
+                <Route exact path={navlinks[12].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
                       <GeometriaExterna />
                     </div>
                   </ActionFabGridProvider>
-                </Route>
-
-                {/* Fluid Select for "Sequência de Bombeio" Route */}
-                <Route exact path={navlinks[12].url}>
-                  <div name="inputs" className="card-container">
-                    <FluidSelect />
-                  </div>
                 </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>

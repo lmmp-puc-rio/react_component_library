@@ -24,10 +24,10 @@
 }
 
 .generic-form {
-  background-color: #17365c;
-  width: 46.875rem;
+  background-color: white;
   padding: 50px 60px;
-  border-radius: 0.5rem;
+  border-radius: 10px;
+  border: solid 1px black;
 }
 
 .bttn-submit {
