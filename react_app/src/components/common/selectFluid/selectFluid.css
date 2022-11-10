@@ -1,32 +1,36 @@
+.container-outside-form {
+  display: flex;
+  justify-content: center;
+}
+
 .container-form {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   display: inline-block;
+  margin: 1.5625rem 0rem;
   width: 46.875rem;
   height: 5.75rem;
 }
 
 .generic-form {
-  /* padding: 50px 60px; */
+  padding: 0.9375rem 0rem 3.4375rem 1.875rem;
   background-color: #17365c;
   border: none;
   border-radius: 0.5rem;
 }
 
-.bttn-submit {
+.btn-add {
   float: right;
-  width: 27.5px;
-  height: 27.5px;
-  border: none;
+  margin: 0.3125rem 1.25rem;
+  width: 1.7188rem;
+  height: 1.7188rem;
   background-color: #fff;
-  border-radius: 50px;
+  border-radius: 3.125rem;
+  border: none;
   cursor: pointer;
 }
 
-.fas {
+.btn-add .fas {
   color: #17365c;
-  font-size: 20px;
+  font-size: 0.9375rem;
 }
 
 .formInput {
@@ -37,9 +41,6 @@
 }
 
 input {
-  /* padding: 0.9375rem;
-  margin: 0.625rem 0rem;
-  padding: 0 0.625rem; */
   border-radius: 0.3125rem;
   font-size: 0.75rem;
   font-family: "Inter";
@@ -47,19 +48,12 @@ input {
 }
 
 label {
-  /* line-height: 1.4375rem; */
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 0.9532rem;
+  line-height: 1.4375rem;
   color: #fff;
-}
-
-span {
-  /* padding: 0.1875rem; */
-  font-size: 0.75rem;
-  color: red;
-  display: none;
 }
 
 select {
