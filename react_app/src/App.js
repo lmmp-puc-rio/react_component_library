@@ -345,16 +345,17 @@ function App() {
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
+                 
                     </div>
-                  </ActionFabGridProvider>
+                </ActionFabGridProvider>
                 </Route>
+                 {/* Geometria Externa Route */}
+                 <Route exact path={navlinks[11].url}>
+                 <ActionFabGridProvider>
+                  <div name="inputs" className="card-container">
+                    <GeometriaExterna/>
+                  </div>
 
-                {/* Geometria Externa Route */}
-                <Route exact path={navlinks[11].url}>
-                  <ActionFabGridProvider>
-                    <div name="inputs" className="card-container">
-                      <GeometriaExterna />
-                    </div>
                   </ActionFabGridProvider>
                 </Route>
 
