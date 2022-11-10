@@ -37,6 +37,7 @@ import {
   Rheometry,
   GridCentralization,
   GeometriaExterna,
+  PumpSequence,
 } from "./pages";
 
 // All Contexts Import
@@ -63,7 +64,12 @@ function App() {
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
     { url: "/centralization", title: "Central", className: "navbar-item" },
-    { url: "/GeometriaExterna", title: "GeometriaExterna", className: "navbar-item" },
+    {
+      url: "/GeometriaExterna",
+      title: "GeometriaExterna",
+      className: "navbar-item",
+    },
+    { url: "/pumpsequence", title: "Pump", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -213,7 +219,7 @@ function App() {
               >
                 {/* Multiple Children is needed! */}
                 <div key={1} className="accordion_dropdown_item">
-                  Teste1
+                  Sequência de Bombeio
                 </div>
                 <div key={2} className="accordion_dropdown_item">
                   Teste2
@@ -326,12 +332,14 @@ function App() {
                     <DynamicForm />
                   </div>
                 </Route>
+
                 {/* Rheometry Route */}
                 <Route exact path={navlinks[9].url}>
                   <div name="inputs" className="card-container">
                     <Rheometry />
                   </div>
                 </Route>
+
                 {/* Centralization Grid Route */}
                 <Route exact path={navlinks[10].url}>
                   <ActionFabGridProvider>
@@ -339,16 +347,26 @@ function App() {
                       <GridCentralization />
                  
                     </div>
-                    </ActionFabGridProvider>
-                    </Route>
+                </ActionFabGridProvider>
+                </Route>
                  {/* Geometria Externa Route */}
                  <Route exact path={navlinks[11].url}>
                  <ActionFabGridProvider>
                   <div name="inputs" className="card-container">
                     <GeometriaExterna/>
                   </div>
+
                   </ActionFabGridProvider>
                 </Route>
+
+                {/* Pump Sequence Route */}
+                {/* <Route exact path={navlinks[12].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <PumpSequence />
+                    </div>
+                  </ActionFabGridProvider>
+                </Route> */}
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
                 <Modal cancelURL={"/cases"}>
