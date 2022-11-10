@@ -23,6 +23,7 @@ import ImportData from "./importData";
 import Modal from "./modal";
 import FormInput from "./dynamicForm";
 import RheometryPlotly from "./rheometryPlotly";
+import CentralizationPlotly from "./centralizationPlotly";
 
 
 export {
@@ -52,6 +53,7 @@ export {
     SideMenu,
     TreeComponent,
     RheometryPlotly,
+    CentralizationPlotly,
     darkColors, 
     lightColors,
 }
