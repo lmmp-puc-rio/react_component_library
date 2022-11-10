@@ -35,6 +35,7 @@ import {
   DynamicForm,
   Plotly,
   Rheometry,
+  Centralization,
   GridCentralization,
   GeometriaExterna,
   PumpSequence,
@@ -63,6 +64,11 @@ function App() {
     { url: "/Plotly", title: "Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
+    {
+      url: "/centralizationPlotly",
+      title: "Centralization-Plotly",
+      className: "navbar-item",
+    },
     { url: "/centralization", title: "Central", className: "navbar-item" },
     {
       url: "/GeometriaExterna",
@@ -109,7 +115,7 @@ function App() {
   };
 
   {
-    /*Accordion Data*/
+/*     /Accordion Data/ */
   }
   const dataStructure = [
     {
@@ -231,7 +237,7 @@ function App() {
             </SideMenu>
             <SlidingPanel>
               <ul>
-                {/*Component Accordion*/}
+                {/Component Accordion/}
                 <RecursiveAccordion
                   key={"accordion_0"}
                   accordionData={slidinPanelAccordionData}
@@ -340,21 +346,28 @@ function App() {
                   </div>
                 </Route>
 
-                {/* Centralization Grid Route */}
+                {/* Centralization Route */}
                 <Route exact path={navlinks[10].url}>
+                  <div name="inputs" className="card-container">
+                    <Centralization />
+                  </div>
+                </Route>
+
+                {/* Centralization Grid Route */}
+                <Route exact path={navlinks[11].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
                  
                     </div>
-                </ActionFabGridProvider>
+                  </ActionFabGridProvider>
                 </Route>
-                 {/* Geometria Externa Route */}
-                 <Route exact path={navlinks[11].url}>
-                 <ActionFabGridProvider>
-                  <div name="inputs" className="card-container">
-                    <GeometriaExterna/>
-                  </div>
+                {/* Geometria Externa Route */}
+                <Route exact path={navlinks[12].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <GeometriaExterna />
+                    </div>
 
                   </ActionFabGridProvider>
                 </Route>
