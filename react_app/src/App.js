@@ -337,7 +337,10 @@ function App() {
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
+                 
                     </div>
+                    </ActionFabGridProvider>
+                    </Route>
                  {/* Geometria Externa Route */}
                  <Route exact path={navlinks[11].url}>
                  <ActionFabGridProvider>
