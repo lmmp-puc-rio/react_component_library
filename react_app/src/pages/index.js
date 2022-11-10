@@ -10,6 +10,8 @@ import Rheometry from "./Rheometry";
 import Centralization from "./Centralization";
 import GeometriaExterna from "./GeometriaExterna";
 import GridCentralization from "./GridCentralization";
+import GeometriaExterna from "./GeometriaExterna";
+import PumpSequence from "./PumpSequence";
 
 export {
   Grids,
@@ -22,6 +24,7 @@ export {
   DynamicForm,
   Rheometry,
   Centralization,
-  GeometriaExterna,
   GridCentralization,
+  GeometriaExterna,
+  PumpSequence,
 };
