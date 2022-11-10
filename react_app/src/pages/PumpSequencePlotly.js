@@ -48,6 +48,7 @@ const PumpSequencePlotly = (props) => {
   const layout = {
     width: 800,
     height: 600,
+    plot_bgcolor:"#f2f0f3",
     title: "<b>Vazão de Bombeio</b>",
     font: {
       family: "Arial",
@@ -55,13 +56,14 @@ const PumpSequencePlotly = (props) => {
       color: "black",
     },
     xaxis: {
-      title: "Volume Bombeado (bbl)",
+      title: "<b>Volume Bombeado (bbl)</b>",
       range: [0, 2500],
       zeroline: false,
     },
     yaxis: {
-      title: "Vazão (bpm)",
+      title: "<b>Vazão (bpm)</b>",
       range: [4.5, 11],
+
       zeroline: false,
       
     },
