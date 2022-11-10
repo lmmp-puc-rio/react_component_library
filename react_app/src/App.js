@@ -38,6 +38,7 @@ import {
   Centralization,
   GridCentralization,
   GeometriaExterna,
+  PumpSequence,
 } from "./pages";
 
 // All Contexts Import
@@ -74,6 +75,7 @@ function App() {
       title: "GeometriaExterna",
       className: "navbar-item",
     },
+    { url: "/pumpsequence", title: "Pump", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -364,6 +366,15 @@ function App() {
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
                       <GeometriaExterna />
+                    </div>
+                  </ActionFabGridProvider>
+                </Route>
+
+                {/* Pump Sequence Route */}
+                <Route exact path={navlinks[13].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <PumpSequence />
                     </div>
                   </ActionFabGridProvider>
                 </Route>
