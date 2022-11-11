@@ -2,13 +2,32 @@
 import React from "react";
 
 // #  Local SubComponents & utils
-import { RheometryPlotly } from "../components/common";
+import { RheometryPlotly,ActionFabGrid } from "../components/common";
 
 // # Import Component Style
 import "./pages.css";
 
 // # Import Component Style
 const Rheometry = (props) => {
+
+  const metaDataDeslocamento = {
+    header: [
+      { key: "ID", label: "ID", expandable: false },
+      { key: "Fluido", label: "Fluido", expandable: true },
+      { key: "Volume", label: "Volume (bbl)", expandable: true },
+      { key: "Topo", label: "Topo", expandable: true },
+      { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
+      { key: "Entrada", label: "Entrada", expandable: true },
+    ],
+    actions: [
+      {
+        tooltip: "Select Button",
+
+      },
+    ],
+  };
+
+
   const data = [
     {
       x: [1, 1.6999999999999997, 2.4, 3.0999999999999996, 3.8, 4.5, 5.199999999999999, 5.8999999999999995],
@@ -63,6 +82,7 @@ const Rheometry = (props) => {
   return (
     <div className="reometry-plotly-container">
       <RheometryPlotly data={data} layout={layout} />
+      <ActionFabGrid metaData={metaDataDeslocamento} />
     </div>
   );
 };
