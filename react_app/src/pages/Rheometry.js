@@ -61,7 +61,7 @@ const Rheometry = (props) => {
   };
 
   return (
-    <div className="reometry-plotly-container">
+    <div className="plotly-container">
       <RheometryPlotly data={data} layout={layout} />
     </div>
   );
