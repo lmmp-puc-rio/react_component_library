@@ -58,21 +58,24 @@ const FluidSelect = (props) => {
   };
 
   return (
-    <div className="container-outside-form">
-      <div className="container-form">
-        <form onSubmit={handleSubmit} className="generic-form">
-          <label>Fluido no poço:</label>
-          {inputs.map((input) => (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-            />
-          ))}
-          <button className="btn-add" title="Add Fluid">
-            <i class="fas fa-plus"></i>
-          </button>
+    <div className="container-outside-form-pump">
+      <div className="container-form-pump">
+        <form onSubmit={handleSubmit} className="generic-form-pump">
+          <label className="label-input-pump">Fluido no poço:</label>
+          <div className="container-input-btn-pump">
+            {inputs.map((input) => (
+              <FormInput
+                className="input-pump"
+                key={input.id}
+                {...input}
+                value={values[input.name]}
+                onChange={onChange}
+              />
+            ))}
+            <button className="btn-add-fluid-pump" title="Add Fluid">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
         </form>
       </div>
     </div>
