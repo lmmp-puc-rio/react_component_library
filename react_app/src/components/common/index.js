@@ -24,6 +24,7 @@ import Modal from "./modal";
 import FormInput from "./dynamicForm";
 import RheometryPlotly from "./rheometryPlotly";
 import CentralizationPlotly from "./centralizationPlotly";
+import PumpSequenceChart from "./pumpSequencePlotly";
 
 
 export {
@@ -54,6 +55,7 @@ export {
     TreeComponent,
     RheometryPlotly,
     CentralizationPlotly,
+    PumpSequenceChart,
     darkColors, 
     lightColors,
 }
