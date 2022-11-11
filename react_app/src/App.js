@@ -33,7 +33,7 @@ import {
   TabsComponents,
   Tree,
   DynamicForm,
-  Plotly,
+  PumpSequencePlotly,
   Rheometry,
   Centralization,
   GridCentralization,
@@ -61,7 +61,7 @@ function App() {
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
     { url: "/Tree", title: "Tree", className: "navbar-item" },
-    { url: "/Plotly", title: "Plotly", className: "navbar-item" },
+    { url: "/pumpSequencePlotly", title: "PumpSequence-Plotly", className: "navbar-item" },
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
     {
@@ -328,7 +328,7 @@ function App() {
                 {/* Plotly Route */}
                 <Route exact path={navlinks[7].url}>
                   <div name="inputs" className="card-container">
-                    <Plotly />
+                    <PumpSequencePlotly/>
                   </div>
                 </Route>
 

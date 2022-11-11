@@ -9,13 +9,6 @@
   margin-bottom: 20px;
 }
 
-.Plotly {
-  margin-top: 2%;
-  margin-left: 25%;
-  width: 800px;
-  height: 600px;
-}
-
 .container-form {
   display: flex;
   align-items: center;
@@ -45,7 +38,7 @@
   margin-bottom: 30px;
 }
 
-.reometry-plotly-container {
+.plotly-container {
   display: flex;
   align-items: center;
   justify-content: center;
