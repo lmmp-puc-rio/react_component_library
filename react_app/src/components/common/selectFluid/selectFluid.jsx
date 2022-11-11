@@ -72,8 +72,14 @@ const FluidSelect = (props) => {
                 onChange={onChange}
               />
             ))}
-            <button className="btn-add-fluid-pump" title="Add Fluid">
-              <i class="fas fa-plus"></i>
+            <button className="btn-add-fluid-pump">
+              <p
+                className="hint-add-pump"
+                data-tooltip="Add Fluid"
+                data-position="bottom"
+              >
+                <i class="fas fa-plus"></i>
+              </p>
             </button>
           </div>
         </form>
