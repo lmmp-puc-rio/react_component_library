@@ -11,7 +11,7 @@ import Centralization from "./Centralization";
 import GeometriaExterna from "./GeometriaExterna";
 import GridCentralization from "./GridCentralization";
 import PumpSequence from "./PumpSequence";
-
+import Slides from "./slides";
 export {
   Grids,
   Projects,
@@ -26,4 +26,5 @@ export {
   GridCentralization,
   GeometriaExterna,
   PumpSequence,
+  Slides,
 };
