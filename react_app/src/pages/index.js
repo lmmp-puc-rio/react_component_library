@@ -4,7 +4,7 @@ import Cases from "./Cases";
 import Accordions from "./Accordions";
 import TabsComponents from "./TabsComponents";
 import Tree from "./Tree";
-import Plotly from "./Plotly";
+import PumpSequencePlotly from "./PumpSequencePlotly";
 import DynamicForm from "./DynamicForm";
 import Rheometry from "./Rheometry";
 import Centralization from "./Centralization";
@@ -19,7 +19,7 @@ export {
   Cases,
   TabsComponents,
   Tree,
-  Plotly,
+  PumpSequencePlotly,
   DynamicForm,
   Rheometry,
   Centralization,
