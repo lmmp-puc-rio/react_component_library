@@ -5,7 +5,7 @@ import React from "react";
 import { RheometryPlotly,ActionFabGrid } from "../components/common";
 
 // # Import Component Style
-import "./pages.css";
+import "./styles/Rheometry.css";
 
 // # Import Component Style
 const Rheometry = (props) => {
