@@ -115,7 +115,7 @@ function App() {
   };
 
   {
-/*     /Accordion Data/ */
+    /*     /Accordion Data/ */
   }
   const dataStructure = [
     {
@@ -358,7 +358,6 @@ function App() {
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
-                 
                     </div>
                   </ActionFabGridProvider>
                 </Route>
@@ -368,18 +367,17 @@ function App() {
                     <div name="inputs" className="card-container">
                       <GeometriaExterna />
                     </div>
-
                   </ActionFabGridProvider>
                 </Route>
 
                 {/* Pump Sequence Route */}
-                {/* <Route exact path={navlinks[12].url}>
+                <Route exact path={navlinks[13].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
                       <PumpSequence />
                     </div>
                   </ActionFabGridProvider>
-                </Route> */}
+                </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
                 <Modal cancelURL={"/cases"}>

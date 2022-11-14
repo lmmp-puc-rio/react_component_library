@@ -7,6 +7,7 @@ import {
   SlidingPanel,
   TabsComponent,
   RecursiveAccordion,
+  FluidSelect,
 } from "../components/common";
 
 // # Import Component Style
@@ -120,6 +121,7 @@ const PumpSequence = (props) => {
             </div>
 
             <div key={2} className="accordion_dropdown_item">
+              <FluidSelect />
               <TabsComponent data={dataTabSequencia}>
                 <div key={"Fluidos no anular"}>
                   <ActionFabGrid metaData={metaDataAnular} />

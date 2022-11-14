@@ -7,7 +7,7 @@ import Menu from "./menu";
 import Dropdown from "./dropdown";
 import GridForm from "./gridForm";
 import CheckboxActionIcon from "./checkboxActionIcon";
-import { FAB, Action, ActionButton} from "./fab";
+import { FAB, Action, ActionButton } from "./fab";
 import ExpandableGrid from "./expandableGrid";
 import RecursiveAccordion from "./recursiveAccordion";
 import RadioGroup from "./radioGroup";
@@ -25,37 +25,38 @@ import FormInput from "./dynamicForm";
 import RheometryPlotly from "./rheometryPlotly";
 import CentralizationPlotly from "./centralizationPlotly";
 import PumpSequenceChart from "./pumpSequencePlotly";
-
+import FluidSelect from "./selectFluid/selectFluid";
 
 export {
-    Header,
-    Navbar,
-    Logo,
-    Menu,
-    // Toast,
-    // ProtectedRoute,
-    ImportData,
-    Modal,
-    FormInput,
-    ActionFabGrid,
-    FAB,
-    Action, 
-    ActionButton, 
-    Dropdown,
-    GridForm,
-    CheckboxActionIcon,
-    ExpandableGrid,
-    RecursiveAccordion,
-    RadioGroup,
-    CardCases,
-    CardProjects,
-    TabsComponent,
-    SlidingPanel,
-    SideMenu,
-    TreeComponent,
-    RheometryPlotly,
-    CentralizationPlotly,
-    PumpSequenceChart,
-    darkColors, 
-    lightColors,
-}
+  Header,
+  Navbar,
+  Logo,
+  Menu,
+  // Toast,
+  // ProtectedRoute,
+  ImportData,
+  Modal,
+  FormInput,
+  ActionFabGrid,
+  FAB,
+  Action,
+  ActionButton,
+  Dropdown,
+  GridForm,
+  CheckboxActionIcon,
+  ExpandableGrid,
+  RecursiveAccordion,
+  RadioGroup,
+  CardCases,
+  CardProjects,
+  TabsComponent,
+  SlidingPanel,
+  SideMenu,
+  TreeComponent,
+  RheometryPlotly,
+  CentralizationPlotly,
+  PumpSequenceChart,
+  FluidSelect,
+  darkColors,
+  lightColors,
+};
