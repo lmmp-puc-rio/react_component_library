@@ -1,20 +1,74 @@
 // #  Main Imports
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 
 // #  Local SubComponents & utils
 import {
-  ActionFabGrid,
   SlidingPanel,
-  TabsComponent,
   RecursiveAccordion,
+  TabsComponent,
+  ActionFabGrid,
   FluidSelect,
 } from "../components/common";
+import { ActionFabGridContext } from "../contexts/ActionFabGridContext";
 
 // # Import Component Style
-import "./pages.css";
-import { darkColors } from "../components/common";
+//import "./pages.css";
+import { darkColors } from "../components/common/MaterialColors";
 
-const PumpSequence = (props) => {
+function PumpSequence(props) {
+  const { setRows } = useContext(ActionFabGridContext);
+
+  const rowsAnnular = [
+    {
+      id: 1,
+      Fluido: "FPBNA",
+      Volume: "100",
+      Topo: "636.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 2,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+  ];
+
+  const rowsDisplacementFluids = [
+    {
+      id: 1,
+      Fluido: "FPBNA",
+      Volume: "100",
+      Topo: "636.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 2,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "1136.8",
+      CompAnular: "384.4",
+      Entrada: "Topo",
+      selected: false,
+    },
+  ];
+
+  /* To set rows according tabs names */
+  useEffect(() => {
+    if (tabsFluidSequence[0] === "Fluidos no anular") {
+      setRows(rowsAnnular);
+    } else if (tabsFluidSequence[1] === "Fluidos de deslocamento") {
+      setRows(rowsDisplacementFluids);
+    }
+  }, []);
+
   {
     /*Accordion Data*/
   }
@@ -64,10 +118,16 @@ const PumpSequence = (props) => {
     },
   ];
 
-  const metaDataAnular = {
+  /* Filter bringing all tabs names */
+  const tabsFluids = dataTabFluidos.map((index) => index.name);
+  const tabsFluidSequence = dataTabSequencia.map((index) => index.name);
+
+  {
+    /*Grid Data*/
+  }
+  const headersAnnular = {
     header: [
-      { key: "ID", label: "ID", expandable: false },
-      { key: "Fluido", label: "Fluido", expandable: true },
+      { key: "Fluido", label: "Fluido", expandable: false },
       { key: "Volume", label: "Volume (bbl)", expandable: true },
       { key: "Topo", label: "Topo", expandable: true },
       { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
@@ -82,10 +142,9 @@ const PumpSequence = (props) => {
     ],
   };
 
-  const metaDataDeslocamento = {
+  const headersDisplacement = {
     header: [
-      { key: "ID", label: "ID", expandable: false },
-      { key: "Fluido", label: "Fluido", expandable: true },
+      { key: "Fluido", label: "Fluido", expandable: false },
       { key: "Volume", label: "Volume (bbl)", expandable: true },
       { key: "Topo", label: "Topo", expandable: true },
       { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
@@ -99,11 +158,9 @@ const PumpSequence = (props) => {
       },
     ],
   };
-  // Route
-  const route = "/pumpsequence";
 
   return (
-    <div className="page" style={{ color: "black" }}>
+    <>
       <h2>Sequência de Bombeio</h2>
       <SlidingPanel>
         <ul>
@@ -124,18 +181,18 @@ const PumpSequence = (props) => {
               <FluidSelect />
               <TabsComponent data={dataTabSequencia}>
                 <div key={"Fluidos no anular"}>
-                  <ActionFabGrid metaData={metaDataAnular} />
+                  <ActionFabGrid metaData={headersAnnular} />
                 </div>
                 <div key={"Fluidos de deslocamento"}>
-                  <ActionFabGrid metaData={metaDataDeslocamento} />
+                  <ActionFabGrid metaData={headersDisplacement} />
                 </div>
               </TabsComponent>
             </div>
           </RecursiveAccordion>
         </ul>
       </SlidingPanel>
-    </div>
+    </>
   );
-};
+}
 
 export default PumpSequence;
