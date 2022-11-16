@@ -117,7 +117,7 @@ function App() {
   };
 
   {
-/*     /Accordion Data/ */
+    /*     /Accordion Data/ */
   }
   const dataStructure = [
     {
@@ -258,7 +258,6 @@ function App() {
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <GridCentralization />
-                 
                     </div>
                   </ActionFabGridProvider>
                 </Route>
@@ -268,7 +267,6 @@ function App() {
                     <div name="inputs" className="card-container">
                       <GeometriaExterna />
                     </div>
-
                   </ActionFabGridProvider>
                 </Route>
                  
