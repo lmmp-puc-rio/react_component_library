@@ -10,7 +10,7 @@ import Rheometry from "./Rheometry";
 import Centralization from "./Centralization";
 import GeometriaExterna from "./GeometriaExterna";
 import PumpSequence from "./PumpSequence";
-
+import Slides from "./slides";
 export {
   Grids,
   Projects,
@@ -24,4 +24,6 @@ export {
   Centralization,
   GeometriaExterna,
   PumpSequence,
+  Slides,
 };
+
