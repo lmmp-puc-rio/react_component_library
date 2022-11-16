@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import FormInput from "../components/common/dynamicForm";
 
 // # Import Component Style
-import "./pages.css";
+import "./styles/DynamicForm.css";
 
 const DynamicForm = (props) => {
   const [values, setValues] = useState({
