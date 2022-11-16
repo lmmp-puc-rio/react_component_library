@@ -45,8 +45,10 @@ function ExpandableRow(props) {
   const rowdata = props.rowData;
   const actions = props.actions;
   const selectCallback = props.selectCallback;
-  const rowOrder = [ "MD", "CSegment", "OD", "ID"];
+  const metaData = props.metaData;
   const data = props.data;
+  /* Map just to find the keys of each header */
+  const rowOrder = metaData.header.map((index) => index.key);
 
   return (
     // Case Row assembled by Action Icons and Other Fields
@@ -66,8 +68,7 @@ function ExpandableRow(props) {
       {/* Regular Column $TODO: Separate Columns and Expandable Columns */}
       {rowOrder.map((key) => (
         <td key={"casegrid_row" + rowdata.id + "_column" + key}>
-          {" "}
-          {rowdata[key]}{" "}
+          {rowdata[key]}
         </td>
       ))}
     </tr>
@@ -120,6 +121,7 @@ function ExpandableGrid(props) {
           {data.map((row) => (
             <ExpandableRow
               actions={metaData.actions}
+              metaData={metaData}
               rowData={row}
               data={data}
               selectCallback={selectCallback}

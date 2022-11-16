@@ -36,7 +36,6 @@ import {
   PumpSequencePlotly,
   Rheometry,
   Centralization,
-  GridCentralization,
   GeometriaExterna,
   PumpSequence,
 } from "./pages";
@@ -61,7 +60,11 @@ function App() {
     { url: "/accordion", title: "Accordion", className: "navbar-item" },
     { url: "/tabs", title: "Tabs", className: "navbar-item" },
     { url: "/Tree", title: "Tree", className: "navbar-item" },
-    { url: "/pumpSequencePlotly", title: "PumpSequence-Plotly", className: "navbar-item" },
+    {
+      url: "/pumpSequencePlotly",
+      title: "PumpSequence-Plotly",
+      className: "navbar-item",
+    },
     { url: "/form", title: "Form", className: "navbar-item" },
     { url: "/rheometry", title: "Rheometry", className: "navbar-item" },
     {
@@ -69,7 +72,6 @@ function App() {
       title: "Centralization-Plotly",
       className: "navbar-item",
     },
-    { url: "/centralization", title: "Central", className: "navbar-item" },
     {
       url: "/GeometriaExterna",
       title: "GeometriaExterna",
@@ -328,7 +330,7 @@ function App() {
                 {/* Plotly Route */}
                 <Route exact path={navlinks[7].url}>
                   <div name="inputs" className="card-container">
-                    <PumpSequencePlotly/>
+                    <PumpSequencePlotly />
                   </div>
                 </Route>
 
@@ -353,16 +355,8 @@ function App() {
                   </div>
                 </Route>
 
-                {/* Centralization Grid Route */}
-                <Route exact path={navlinks[11].url}>
-                  <ActionFabGridProvider>
-                    <div name="inputs" className="grid-container">
-                      <GridCentralization />
-                    </div>
-                  </ActionFabGridProvider>
-                </Route>
                 {/* Geometria Externa Route */}
-                <Route exact path={navlinks[12].url}>
+                <Route exact path={navlinks[11].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
                       <GeometriaExterna />
@@ -371,7 +365,7 @@ function App() {
                 </Route>
 
                 {/* Pump Sequence Route */}
-                <Route exact path={navlinks[13].url}>
+                <Route exact path={navlinks[12].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
                       <PumpSequence />

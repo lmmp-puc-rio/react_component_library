@@ -5,13 +5,15 @@ import {
   RecursiveAccordion,
   ActionFabGrid,
 } from "../components/common";
-import Plot from "react-plotly.js";
-import { darkColors } from "../components/common/MaterialColors";
 import { ActionFabGridContext } from "../contexts/ActionFabGridContext";
 
+import Plot from "react-plotly.js";
+import { darkColors } from "../components/common/MaterialColors";
+
 function GeometriaExterna(props) {
-  const { setRows, rows } = useContext(ActionFabGridContext);
-  const dataRowsGeometry = [
+  const { rows, setRows } = useContext(ActionFabGridContext);
+
+  const rowsPrevCoating = [
     {
       id: 1,
       MD: "5321.09",
@@ -20,13 +22,120 @@ function GeometriaExterna(props) {
       ID: "9156",
       selected: false,
     },
+    {
+      id: 2,
+      MD: "5321.09",
+      CSegment: "3432.09",
+      OD: "10 3/4",
+      ID: "9156",
+      selected: false,
+    },
   ];
 
+  const rowsOpenWell = [
+    {
+      id: 1,
+      MD: "1 321",
+      CSegment: "1 321",
+      ID: "8 1/2",
+      selected: false,
+    },
+    {
+      id: 2,
+      MD: "1 321",
+      CSegment: "1 321",
+      ID: "8 1/2",
+      selected: false,
+    },
+  ];
+
+  const rowsWorkColumn = [
+    {
+      id: 1,
+      MD: "5 321.09",
+      CSegment: "3 432.09",
+      OD: "7",
+      ID: "0",
+      selected: false,
+    },
+    {
+      id: 2,
+      MD: "5 321.09",
+      CSegment: "3 432.09",
+      OD: "7",
+      ID: "0",
+      selected: false,
+    },
+  ];
+
+  const rowsCoating = [
+    {
+      id: 1,
+      MD: "5 321.09",
+      CSegment: "3 432.09",
+      OD: "7",
+      ID: "0",
+      selected: false,
+    },
+    {
+      id: 2,
+      MD: "5 321.09",
+      CSegment: "3 432.09",
+      OD: "7",
+      ID: "0",
+      selected: false,
+    },
+  ];
+
+  const rowsCentralization = [
+    {
+      id: 1,
+      /* ID: "1", */
+      Central: "1",
+      OD: "12 1/4",
+      Tipo: "Flexível",
+      selected: false,
+    },
+    {
+      id: 2,
+      /* ID: "2", */
+      Central: "2",
+      OD: "12 1/4",
+      Tipo: "Flexível",
+      selected: false,
+    },
+  ];
+
+  const rowsCenterIntervals = [
+    {
+      id: 1,
+      Topo: "5231.09",
+      Base: "3432.09",
+      NumCentr: "0",
+      CentrJunta: "LALALA",
+      Central: "Lalala",
+      selected: false,
+    },
+    {
+      id: 2,
+      Topo: "5231.09",
+      Base: "3432.09",
+      NumCentr: "0",
+      CentrJunta: "LALALA",
+      Central: "Lalala",
+      selected: false,
+    },
+  ];
+
+  /* To set rows according tabs names */
   useEffect(() => {
-    setRows(dataRowsGeometry);
+    if (tabsExternalGeometry[0] === "Revestimento Anterior") {
+      setRows(rowsPrevCoating);
+    } else if (tabsExternalGeometry[1] === "Poço Aberto") {
+      setRows(rowsOpenWell);
+    }
   }, []);
 
-  console.log(rows);
   {
     /*plot Data*/
   }
@@ -131,16 +240,82 @@ function GeometriaExterna(props) {
     },
   ];
 
+  /* Filter bringing all tabs names */
+  const tabsExternalGeometry = dataTab1.map((index) => index.name);
+  const tabsInternalGeometry = dataTab2.map((index) => index.name);
+  const tabsCentralization = dataTab3.map((index) => index.name);
+  console.log(tabsCentralization);
+  console.log(tabsInternalGeometry);
+  console.log(tabsExternalGeometry);
+
   {
     /*Grid Data*/
   }
+  const headersPrevCoating = {
+    header: [
+      { key: "MD", label: "MD (m)", expandable: false },
+      { key: "CSegment", label: "Comp. do Segmento (m)", expandable: false },
+      { key: "OD", label: "OD (pol)", expandable: true },
+      { key: "ID", label: "ID (pol)", expandable: true },
+    ],
+    actions: [
+      {
+        tooltip: "Select Button",
+        backgroundColor: darkColors.yellow,
+        color: darkColors.white,
+      },
+    ],
+  };
 
-  const metaData = {
+  const headersOpenWell = {
+    header: [
+      { key: "MD", label: "MD (m)", expandable: false },
+      {
+        key: "CSegment",
+        label: "Comp. do Segmento (m)",
+        expandable: false,
+      },
+      { key: "ID", label: "ID (pol)", expandable: true },
+    ],
+    actions: [
+      {
+        tooltip: "Select Button",
+        backgroundColor: darkColors.yellow,
+        color: darkColors.white,
+      },
+    ],
+  };
+
+  const headersColumn = {
+    header: [
+      { key: "MD", label: "MD (m)", expandable: false },
+      {
+        key: "CSegment",
+        label: "Comp. do Segmento (m)",
+        expandable: false,
+      },
+      { key: "OD", label: "OD (pol)", expandable: true },
+      { key: "ID", label: "ID (pol)", expandable: true },
+    ],
+    actions: [
+      {
+        tooltip: "Select Button",
+        backgroundColor: darkColors.yellow,
+        color: darkColors.white,
+      },
+    ],
+  };
+
+  const headersCoating = {
     header: [
       { key: "MD", label: "MD(m)", expandable: false },
-      { key: "CSegment", label: "Comp. do Segmento (m)", expandable: false },
-      { key: "OD", label: "OD(pol)", expandable: true },
-      { key: "ID", label: "ID(pol)", expandable: true },
+      {
+        key: "CSegment",
+        label: "Comp. do Segmento (m)",
+        expandable: false,
+      },
+      { key: "OD", label: "OD (pol)", expandable: true },
+      { key: "ID", label: "ID (pol)", expandable: true },
     ],
     actions: [
       {
@@ -151,15 +326,12 @@ function GeometriaExterna(props) {
     ],
   };
 
-  const PocoAbertoData = {
+  const headersCentralization = {
     header: [
-      { key: "MD(m)", label: "MD(m)", expandable: false },
-      {
-        key: "Comp. do Segmento (m)",
-        label: "Comp. do Segmento (m)",
-        expandable: false,
-      },
-      { key: "ID(pol)", label: "ID(pol)", expandable: true },
+      /* { key: "ID", label: "ID", expandable: false }, */
+      { key: "Central", label: "Centralizador", expandable: false },
+      { key: "OD", label: "OD (m)", expandable: true },
+      { key: "Tipo", label: "Tipo", expandable: true },
     ],
     actions: [
       {
@@ -170,36 +342,14 @@ function GeometriaExterna(props) {
     ],
   };
 
-  const ColunaData = {
+  const headersCenterInterval = {
     header: [
-      { key: "MD(m)", label: "MD(m)", expandable: false },
-      {
-        key: "Comp. do Segmento (m)",
-        label: "Comp. do Segmento (m)",
-        expandable: false,
-      },
-      { key: "OD(pol)", label: "OD(pol)", expandable: true },
-      { key: "ID(pol)", label: "ID(pol)", expandable: true },
-    ],
-    actions: [
-      {
-        tooltip: "Select Button",
-        backgroundColor: darkColors.yellow,
-        color: darkColors.white,
-      },
-    ],
-  };
-
-  const RevestimentoData = {
-    header: [
-      { key: "MD(m)", label: "MD(m)", expandable: false },
-      {
-        key: "Comp. do Segmento (m)",
-        label: "Comp. do Segmento (m)",
-        expandable: false,
-      },
-      { key: "OD(pol)", label: "OD(pol)", expandable: true },
-      { key: "ID(pol)", label: "ID(pol)", expandable: true },
+      /* { key: "ID", label: "ID", expandable: false }, */
+      { key: "Topo", label: "Topo (m)", expandable: false },
+      { key: "Base", label: "Base (m)", expandable: true },
+      { key: "NumCentr", label: "Núm. centr.", expandable: true },
+      { key: "CentrJunta", label: "Centr. / Junta", expandable: true },
+      { key: "Central", label: "Centralizador", expandable: true },
     ],
     actions: [
       {
@@ -222,14 +372,13 @@ function GeometriaExterna(props) {
             accordionData={slidinPanelAccordionData}
           >
             {/* Multiple Children is needed! */}
-
             <div key={1} className="accordion_dropdown_item">
               <TabsComponent data={dataTab1}>
                 <div key={"Revestimento Anterior"}>
-                  <ActionFabGrid metaData={metaData} />
+                  <ActionFabGrid metaData={headersPrevCoating} />
                 </div>
                 <div key={"Poço Aberto"}>
-                  <ActionFabGrid metaData={PocoAbertoData} />
+                  <ActionFabGrid metaData={headersOpenWell} />
                 </div>
               </TabsComponent>
             </div>
@@ -237,24 +386,27 @@ function GeometriaExterna(props) {
             <div key={2} className="accordion_dropdown_item">
               <TabsComponent data={dataTab2}>
                 <div key={"Coluna de Trabalho"}>
-                  <ActionFabGrid metaData={ColunaData} />
+                  <ActionFabGrid metaData={headersColumn} />
                 </div>
                 <div key={"Revestimento"}>
-                  <ActionFabGrid metaData={RevestimentoData} />
+                  <ActionFabGrid metaData={headersCoating} />
                 </div>
               </TabsComponent>
             </div>
+
             <div key={3} className="accordion_dropdown_item">
               <TabsComponent data={dataTab3}>
-                <div key={"Centralizadores"}> Teste Centralizadores </div>
+                <div key={"Centralizadores"}>
+                  <ActionFabGrid metaData={headersCentralization} />
+                </div>
                 <div key={"Intervalos de Centralizadores"}>
-                  {" "}
-                  Teste Intervalo Centralizador
+                  <ActionFabGrid metaData={headersCenterInterval} />
                 </div>
               </TabsComponent>
             </div>
+
             <div key={4} className="accordion_dropdown_item">
-              <p>in dev </p>
+              <p>in dev</p>
             </div>
           </RecursiveAccordion>
         </ul>
