@@ -2,6 +2,7 @@ import React, { useState }  from "react";
 import { SideMenu,SlidingPanel,RecursiveAccordion,TabsComponent,ActionFabGrid } from "../components/common";
 import { darkColors } from "../components/common";
 import { SearchProvider } from "../contexts/SearchContext";
+import "./styles/slides.css"
 function Slides(){
 
  
