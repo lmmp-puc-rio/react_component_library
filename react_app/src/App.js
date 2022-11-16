@@ -39,6 +39,7 @@ import {
   GridCentralization,
   GeometriaExterna,
   PumpSequence,
+  Slides,
 } from "./pages";
 
 // All Contexts Import
@@ -76,6 +77,7 @@ function App() {
       className: "navbar-item",
     },
     { url: "/pumpsequence", title: "Pump", className: "navbar-item" },
+    { url: "/Slides", title: "Slides", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -165,47 +167,6 @@ function App() {
     },
   ];
 
-  {
-    /*Tabs Data */
-  }
-  const dataTab1 = [
-    {
-      id: "Revestimento Anterior",
-      description: "Revestimento Anterior",
-      name: "Revestimento Anterior",
-    },
-    {
-      id: "Poço Aberto",
-      description: "Poço Aberto",
-      name: "Poço Aberto",
-    },
-  ];
-
-  const dataTab2 = [
-    {
-      id: "Coluna de Trabalho",
-      description: "Coluna de Trabalho",
-      name: "Coluna de Trabalho",
-    },
-    {
-      id: "Revestimento",
-      description: "Revestimento",
-      name: "Revestimento",
-    },
-  ];
-
-  const dataTab3 = [
-    {
-      id: "Centralizadores",
-      description: "Centralizadores",
-      name: "Centralizadores",
-    },
-    {
-      id: "Intervalos de Centralizadores",
-      description: "Intervalos de Centralizadores",
-      name: "Intervalos de Centralizadores",
-    },
-  ];
 
   return (
     // React Browser Router
@@ -214,67 +175,6 @@ function App() {
         <SearchProvider>
           <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
           <div name="app" className="App">
-            <SideMenu
-              onCollapse={(inactive) => {
-                setInactive(inactive);
-              }}
-            >
-              <RecursiveAccordion
-                key={"accordion_0"}
-                accordionData={dataStructure}
-              >
-                {/* Multiple Children is needed! */}
-                <div key={1} className="accordion_dropdown_item">
-                  Sequência de Bombeio
-                </div>
-                <div key={2} className="accordion_dropdown_item">
-                  Teste2
-                </div>
-                <div key={2} className="accordion_dropdown_item">
-                  Teste3
-                </div>
-              </RecursiveAccordion>
-            </SideMenu>
-            <SlidingPanel>
-              <ul>
-                {/Component Accordion/}
-                <RecursiveAccordion
-                  key={"accordion_0"}
-                  accordionData={slidinPanelAccordionData}
-                >
-                  {/* Multiple Children is needed! */}
-
-                  <div key={1} className="accordion_dropdown_item">
-                    <TabsComponent data={dataTab1}>
-                      <div key={"Revestimento Anterior"}>
-                        {" "}
-                        Revestimento Anterior{" "}
-                      </div>
-                      <div key={"Poço Aberto"}> Teste Poço Aberto</div>
-                    </TabsComponent>
-                  </div>
-
-                  <div key={2} className="accordion_dropdown_item">
-                    <TabsComponent data={dataTab2}>
-                      <div key={"Coluna de Trabalho"}> Teste Coluna</div>
-                      <div key={"Revestimento"}> Teste Revestimento</div>
-                    </TabsComponent>
-                  </div>
-                  <div key={3} className="accordion_dropdown_item">
-                    <TabsComponent data={dataTab3}>
-                      <div key={"Centralizadores"}> Teste Centralizadores </div>
-                      <div key={"Intervalos de Centralizadores"}>
-                        {" "}
-                        Teste Intervalo Centralizador
-                      </div>
-                    </TabsComponent>
-                  </div>
-                  <div key={4} className="accordion_dropdown_item">
-                    <p>in dev </p>
-                  </div>
-                </RecursiveAccordion>
-              </ul>
-            </SlidingPanel>
             <div name="main" className="main">
               <Switch>
                 {/* Main page Route */}
@@ -341,9 +241,11 @@ function App() {
 
                 {/* Rheometry Route */}
                 <Route exact path={navlinks[9].url}>
+                <ActionFabGridProvider>
                   <div name="inputs" className="card-container">
                     <Rheometry />
                   </div>
+                </ActionFabGridProvider>
                 </Route>
 
                 {/* Centralization Route */}
@@ -369,13 +271,22 @@ function App() {
                     </div>
                   </ActionFabGridProvider>
                 </Route>
-
+                 
                 {/* Pump Sequence Route */}
-                <Route exact path={navlinks[13].url}>
+                {/* <Route exact path={navlinks[13].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
                       <PumpSequence />
                     </div>
+                  </ActionFabGridProvider>
+                </Route> */}
+                   {/* Slides Route */}
+                   <Route exact path={navlinks[14].url}>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <Slides/>
+                    </div>
+
                   </ActionFabGridProvider>
                 </Route>
               </Switch>
