@@ -5,7 +5,7 @@ import React from "react";
 import { PumpSequenceChart } from "../components/common";
 
 // # Import Component Style
-import "./pages.css";
+import "./styles/PumpSequencePlotly.css";
 
 // # Import Component Style
 const PumpSequencePlotly = (props) => {
