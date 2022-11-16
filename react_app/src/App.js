@@ -241,9 +241,11 @@ function App() {
 
                 {/* Rheometry Route */}
                 <Route exact path={navlinks[9].url}>
+                <ActionFabGridProvider>
                   <div name="inputs" className="card-container">
                     <Rheometry />
                   </div>
+                </ActionFabGridProvider>
                 </Route>
 
                 {/* Centralization Route */}
