@@ -374,6 +374,5 @@ const internal_geometry = {
   export const drawAllGeometry = () => {
     let shapeAllGeometries = []
     shapeAllGeometries.push(...drawInternalGeometry(), ...drawExternalGeometry())
-    console.log(shapeAllGeometries)
     return shapeAllGeometries
   }
