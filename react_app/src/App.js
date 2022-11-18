@@ -39,7 +39,10 @@ import {
   GeometriaExterna,
   PumpSequence,
   Slides,
+  GraphicObjectsChart
+  
 } from "./pages";
+
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
@@ -80,6 +83,7 @@ function App() {
     },
     { url: "/pumpsequence", title: "Pump", className: "navbar-item" },
     { url: "/Slides", title: "Slides", className: "navbar-item" },
+    { url: "/GraphicObjects", title: "GraphicObjects", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -169,7 +173,6 @@ function App() {
     },
   ];
 
-
   return (
     // React Browser Router
     <Router>
@@ -243,11 +246,11 @@ function App() {
 
                 {/* Rheometry Route */}
                 <Route exact path={navlinks[9].url}>
-                <ActionFabGridProvider>
-                  <div name="inputs" className="card-container">
-                    <Rheometry />
-                  </div>
-                </ActionFabGridProvider>
+                  <ActionFabGridProvider>
+                    <div name="inputs" className="card-container">
+                      <Rheometry />
+                    </div>
+                  </ActionFabGridProvider>
                 </Route>
 
                 {/* Centralization Route */}
@@ -265,7 +268,7 @@ function App() {
                     </div>
                   </ActionFabGridProvider>
                 </Route>
-                 
+
                 {/* Pump Sequence Route */}
                 <Route exact path={navlinks[12].url}>
                   <ActionFabGridProvider>
@@ -274,14 +277,20 @@ function App() {
                     </div>
                   </ActionFabGridProvider>
                 </Route>
-                   {/* Slides Route */}
-                   <Route exact path={navlinks[13].url}>
+                {/* Slides Route */}
+                <Route exact path={navlinks[13].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
-                      <Slides/>
+                      <Slides />
                     </div>
-
                   </ActionFabGridProvider>
+                </Route>
+                {/* Slides Route */}
+                <Route exact path={navlinks[14].url}>
+                    <div name="inputs" className="card-container">
+                  <GraphicObjectsChart/>
+                    </div>
+              
                 </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>

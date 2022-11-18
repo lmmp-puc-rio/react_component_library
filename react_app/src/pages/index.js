@@ -11,6 +11,8 @@ import Centralization from "./Centralization";
 import GeometriaExterna from "./GeometriaExterna";
 import PumpSequence from "./PumpSequence";
 import Slides from "./slides";
+import GraphicObjectsChart from "./GraphicObjectsPlotly";
+
 export {
   Grids,
   Projects,
@@ -25,5 +27,6 @@ export {
   GeometriaExterna,
   PumpSequence,
   Slides,
+  GraphicObjectsChart
 };
 
