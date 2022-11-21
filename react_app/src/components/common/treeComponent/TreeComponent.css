@@ -1,21 +1,18 @@
 .TreeComponent {
-    padding: 5px 10px;
-    width: 100px;
+    padding: 0px 10px;
+    width: 180px;
     border-top-right-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
-    margin: 30%;
+    
 }
 
-.Sign {
-  font-weight: bold;
-  color: #fff;
+.itemTree{
+  padding: 0 0 0 18px;
   font-size: 16px;
-  text-shadow: 0 0 2px rgba(0,0,255,1);
+  font-weight: 600;
 }
 
-.tree-container{
- margin:20%;
-
-
+.TreeComponent button{
+  font-size: 16px;
+  font-weight: 900;
 }

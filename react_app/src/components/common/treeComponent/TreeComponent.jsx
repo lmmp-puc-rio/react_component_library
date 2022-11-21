@@ -16,10 +16,10 @@ function TreeComponent(props) {
     const treeWrap = data.map((item)=>{
                   if(item.info === null) {
                     return(
-                      <>
+                      <div className='itemTree'>
                       <i class="far fa-folder"></i>
                       {item.name}<br/>
-                      </>
+                      </div>
                     )  
                   } else {
                   return(<>
