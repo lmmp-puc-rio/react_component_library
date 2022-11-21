@@ -26,6 +26,7 @@ import RheometryPlotly from "./rheometryPlotly";
 import CentralizationPlotly from "./centralizationPlotly";
 import PumpSequenceChart from "./pumpSequencePlotly";
 import FluidSelect from "./selectFluid/selectFluid";
+import GraphicObjectsPlotly from "./graphicObjects";
 
 export {
   Header,
@@ -57,6 +58,7 @@ export {
   CentralizationPlotly,
   PumpSequenceChart,
   FluidSelect,
+  GraphicObjectsPlotly,
   darkColors,
   lightColors,
 };
