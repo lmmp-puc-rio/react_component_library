@@ -11,13 +11,13 @@ function TreeComponent(props) {
       }
     const name = props.name;
     const data = props.data;
-    console.log(data.name)
-    const sign = show ? <i class="fa fa-folder-open" /> :  <i class="fa fa-folder"/> 
+    const sign = show ? <i class="fas fa-folder-open"></i> :  <i class="fas fa-folder"></i> 
 
     const treeWrap = data.map((item)=>{
                   if(item.info === null) {
                     return(
                       <>
+                      <i class="far fa-folder"></i>
                       {item.name}<br/>
                       </>
                     )  
@@ -31,7 +31,7 @@ function TreeComponent(props) {
               
       <div className='TreeComponent'>
           <button onClick={toggleMenu}>
-            <span>{sign}</span>
+            {sign}
             {name}
           </button> 
           {show && treeWrap}

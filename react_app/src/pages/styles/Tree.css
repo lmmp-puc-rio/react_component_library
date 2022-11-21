@@ -1,0 +1,14 @@
+.TreeComponent{
+    background-color: white;
+}
+
+
+.TreeComponent button{
+    border: none;
+    background-color: transparent;
+    bottom: unset;
+    font-family: 'Inter';
+}
+.TreeComponent i{
+    padding: 3px;
+}
