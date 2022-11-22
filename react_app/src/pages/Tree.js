@@ -1,6 +1,7 @@
 import react from "react";
 import TreeComponent from "../components/common/treeComponent";
 import "./pages.css";
+import "./styles/Tree.css";
 const Tree = () => {
   const dados = {
     name: "Árvore",
@@ -32,7 +33,9 @@ const Tree = () => {
           },
         ],
       },
-      { name: "UO-Angra", icon: "", info: null },
+      { name: "UO-Angra", icon: "", info: [
+        {name:"Poço Teste",icon:"", info:null}
+      ] },
     ],
   };
 
