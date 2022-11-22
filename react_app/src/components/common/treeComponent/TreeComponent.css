@@ -1,18 +1,18 @@
 .TreeComponent {
-    padding: 0px 10px;
-    width: 180px;
-    border-top-right-radius: 10px;
+    padding: 0px 1rem;
+    width: 90rem;
+    border-top-right-radius: 1rem;
     cursor: pointer;
     
 }
 
 .itemTree{
   padding: 0 0 0 2rem;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .TreeComponent button{
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 900;
 }
