@@ -7,9 +7,9 @@
 }
 
 .itemTree{
-  padding: 0 0 0 18px;
+  padding: 0 0 0 2rem;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .TreeComponent button{
