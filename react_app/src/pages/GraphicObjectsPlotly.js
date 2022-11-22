@@ -82,7 +82,7 @@ const GraphicObjectsChart = (props) => {
   };
 
   const layout_pump_seuquence = {
-    title: "<b>Relação de Diâmetros (Geometria)<b>",
+    title: "<b>Relação de Diâmetros (Pump Sequence)<b>",
 
     xaxis: {
       range: [-15, 15],
