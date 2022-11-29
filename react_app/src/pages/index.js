@@ -12,6 +12,8 @@ import GeometriaExterna from "./GeometriaExterna";
 import PumpSequence from "./PumpSequence";
 import Slides from "./slides";
 import GraphicObjectsChart from "./GraphicObjectsPlotly";
+import BasicAndAdvancedForm from "./BasicAndAdvancedForm";
+
 
 export {
   Grids,
@@ -27,6 +29,8 @@ export {
   GeometriaExterna,
   PumpSequence,
   Slides,
-  GraphicObjectsChart
+  GraphicObjectsChart,
+  BasicAndAdvancedForm,
+
 };
 

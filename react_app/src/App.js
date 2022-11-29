@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { ThemeProvider } from 'styled-components';
 // import { theme } from './theme'
 import "./App.css";
-import { CaseDeletionConfirmation } from "./pages/popups";
+import { CaseDeletionConfirmation, CaseAdvancedForm } from "./pages/popups";
 
 // All Components import
 
@@ -39,10 +39,9 @@ import {
   GeometriaExterna,
   PumpSequence,
   Slides,
-  GraphicObjectsChart
-  
+  GraphicObjectsChart,
+  BasicAndAdvancedForm,
 } from "./pages";
-
 
 // All Contexts Import
 // import { AuthProvider } from './components/contexts/AuthContext';
@@ -83,7 +82,16 @@ function App() {
     },
     { url: "/pumpsequence", title: "Pump", className: "navbar-item" },
     { url: "/Slides", title: "Slides", className: "navbar-item" },
-    { url: "/GraphicObjects", title: "GraphicObjects", className: "navbar-item" },
+    {
+      url: "/GraphicObjects",
+      title: "GraphicObjects",
+      className: "navbar-item",
+    },
+    {
+      url: "/BasicAndAdvancedForm",
+      title: "BasicAndAdvancedForm",
+      className: "navbar-item",
+    },
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -277,7 +285,7 @@ function App() {
                     </div>
                   </ActionFabGridProvider>
                 </Route>
-                {/* Slides Route */}
+                {/* ActionFabGrid Route */}
                 <Route exact path={navlinks[13].url}>
                   <ActionFabGridProvider>
                     <div name="inputs" className="card-container">
@@ -285,17 +293,32 @@ function App() {
                     </div>
                   </ActionFabGridProvider>
                 </Route>
-                {/* Slides Route */}
+                {/* Graphic Objects Route */}
                 <Route exact path={navlinks[14].url}>
-                    <div name="inputs" className="card-container">
-                  <GraphicObjectsChart/>
-                    </div>
-              
+                  <div name="inputs" className="card-container">
+                    <GraphicObjectsChart />
+                  </div>
+                </Route>
+                {/* Basic Advanced Route */}
+                <Route exact path={navlinks[15].url}>
+                  <div name="inputs" className="card-container">
+                    <BasicAndAdvancedForm />
+                  </div>
+                </Route>
+                <Route exact path={navlinks[15].url}>
+                  <div name="inputs" className="card-container">
+                    <BasicAndAdvancedForm />
+                  </div>
                 </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
                 <Modal cancelURL={"/cases"}>
                   <CaseDeletionConfirmation />
+                </Modal>
+              </Route>
+              <Route exact path={"/BasicAndAdvancedForm/FormulárioAvançado"}>
+                <Modal cancelURL={navlinks[15].url}>
+                  <CaseAdvancedForm />
                 </Modal>
               </Route>
             </div>
