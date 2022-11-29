@@ -1,16 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./tabsComponent.css";
 
-import { ModalContext } from "../../../contexts/ModalContext";
-
 const TabsComponent = (props) => {
   const data = props.data;
-  console.log(props.children)
   const history = useHistory();
-  const { setIsModalOpen, isModalOpen } = useContext(ModalContext);
-  const [select, setSelect] = useState();
 
   return (
     <div className="tab">
@@ -18,7 +13,7 @@ const TabsComponent = (props) => {
         <Router>
           <div className="tab-header">
             {data.map((item) => (
-              <Link className="tabs__item" to={`${history.location.pathname}/${item.name}`} onClick={item.callback}>
+              <Link className="tabs__item" to={`${history.location.pathname}/${item.name}`} >
                 {" "}
                 {item.name}{" "}
               </Link>

@@ -1,0 +1,39 @@
+.Tabs {
+  width: 80%;
+  height: auto;
+  margin: 3.5rem auto 1.5rem;
+  padding: 2rem 1rem;
+  border-radius: 2rem;
+}
+
+ul.nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding-left: 0px;
+  background: #FFFF; 
+  font-weight:  bold;
+  font-size: 0.9375rem;
+  text-decoration : none;
+  color:black;
+}
+
+ul.nav li {
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+}
+
+ul.nav li.active {
+    background: #E2E7ED;
+    box-shadow: inset 0px -1.70254px 0px #7CABDC;
+
+  }
+
+
+
+
+

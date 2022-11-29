@@ -1,6 +1,6 @@
 // #  Main Imports
 import React, { useContext } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // # Import Component Style
 import "../../pages/pages.css";
@@ -18,7 +18,7 @@ function CaseAdvancedForm(props) {
 
   // Case Deletion function
   function redirectToAdvancedForm() {
-    const successURL = "/BasicAndAdvancedForm/FormulárioAvançado";
+    const successURL = "/BasicAndAdvancedForm";
     setIsModalOpen(false);
     history.push(successURL);
   }

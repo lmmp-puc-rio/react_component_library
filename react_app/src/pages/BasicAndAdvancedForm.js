@@ -1,9 +1,8 @@
 // #  Main Imports
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 
 // #  Local SubComponents & utils
-import { TabsComponent, FormInput } from "../components/common";
+import { Tabs, FormInput } from "../components/common";
 
 // # Context
 import { ModalContext } from "../contexts/ModalContext";
@@ -15,26 +14,24 @@ const BasicAndAdvancedForm = (props) => {
 
 const { setIsModalOpen } = useContext(ModalContext);
 
-const history = useHistory()
-console.log(history)
-console.log(window.location.pathname)
+const openModal = () => {
+  setIsModalOpen(true)
+}
+
 
   const dataTabForm = [
     {
-      id: "FormulárioBásico",
-      description: "FormulárioBásico",
-      name: "FormulárioBásico",
+      id: "tab1",
+      description: "Formulário Básico",
+      name: "Formulário Básico",
     },
     {
-      id: "FormulárioAvançado",
-      description: "FormulárioAvançado",
-      name: "FormulárioAvançado",
-      callback: setIsModalOpen, 
+      id: "tab2",
+      description: "Formulário Avançado",
+      name: "Formulário Avançado", 
     },
   ];
 
-  /* Filter bringing all tabs names */
-  const tabsForms = dataTabForm.map((index) => index.name);
 
 
   const [values, setValues] = useState({
@@ -121,8 +118,9 @@ console.log(window.location.pathname)
 
   return (
     <>
-      <TabsComponent data={dataTabForm} onClick={ setIsModalOpen}>
-        <div key={"FormulárioBásico"} >
+    <button onClick={openModal}>Abra</button>
+      <Tabs data={dataTabForm} >
+        <div key={"tab1"} >
         <h3>Formulário Básico</h3>
           <form onSubmit={handleSubmit} className="generic-form">
             {inputsBasic.map((input) => (
@@ -136,7 +134,7 @@ console.log(window.location.pathname)
             <button className="bttn-submit">Submit</button>
           </form>
         </div>
-        <div key={"FormulárioAvançado"}>
+        <div key={"tab2"}>
         <h3>Formulário Avançado</h3>
             <form onSubmit={handleSubmit} className="generic-form">
               {inputsAdvanced.map((input) => (
@@ -150,7 +148,7 @@ console.log(window.location.pathname)
               <button className="bttn-submit">Submit</button>
             </form>
         </div>
-      </TabsComponent>
+      </Tabs>
     </>
   );
 };

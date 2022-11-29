@@ -27,6 +27,7 @@ import CentralizationPlotly from "./centralizationPlotly";
 import PumpSequenceChart from "./pumpSequencePlotly";
 import FluidSelect from "./selectFluid/selectFluid";
 import GraphicObjectsPlotly from "./graphicObjects";
+import Tabs from "./tabsWithoutRouter";
 
 export {
   Header,
@@ -59,6 +60,7 @@ export {
   PumpSequenceChart,
   FluidSelect,
   GraphicObjectsPlotly,
+  Tabs,
   darkColors,
   lightColors,
 };

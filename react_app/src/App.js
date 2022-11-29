@@ -305,18 +305,13 @@ function App() {
                     <BasicAndAdvancedForm />
                   </div>
                 </Route>
-                <Route exact path={navlinks[15].url}>
-                  <div name="inputs" className="card-container">
-                    <BasicAndAdvancedForm />
-                  </div>
-                </Route>
               </Switch>
               <Route exact path={"/cases/delete/:id"}>
                 <Modal cancelURL={"/cases"}>
                   <CaseDeletionConfirmation />
                 </Modal>
               </Route>
-              <Route exact path={"/BasicAndAdvancedForm/FormulárioAvançado"}>
+              <Route exact path={"/BasicAndAdvancedForm"}>
                 <Modal cancelURL={navlinks[15].url}>
                   <CaseAdvancedForm />
                 </Modal>
