@@ -11,6 +11,7 @@ import {darkColors} from '../MaterialColors'
 
 // # Contexts
 import { ModalContext } from '../../../contexts/ModalContext';
+import { ActiveTabContext } from '../../../contexts/ActiveTabContext';
 
 // add this states to the main component where modal appears
 // const [isModalOpen,setIsModalOpen] = useState(true);
@@ -21,11 +22,14 @@ import { ModalContext } from '../../../contexts/ModalContext';
 function Modal(props) {
 
     const {isModalOpen, setIsModalOpen} = useContext(ModalContext)
+    const {setActiveTab } = useContext(ActiveTabContext)
+
     const cancelURL = props.cancelURL;
 
     const closeModal = () => {
         setIsModalOpen(!isModalOpen);
-        console.log(isModalOpen)
+        setActiveTab("tab1")
+
     }
 
     if (!isModalOpen) return null;

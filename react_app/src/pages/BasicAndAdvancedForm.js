@@ -13,7 +13,7 @@ import "./styles/DynamicForm.css";
 
 const BasicAndAdvancedForm = (props) => {
 
-const { setIsModalOpen } = useContext(ModalContext);
+const { isModalOpen, setIsModalOpen } = useContext(ModalContext);
 const {activeTab, setActiveTab} = useContext(ActiveTabContext);
 
   const dataTabForm = [
@@ -115,7 +115,7 @@ const {activeTab, setActiveTab} = useContext(ActiveTabContext);
 
   return (
     <>
-      <Tabs data={dataTabForm} activeTab={activeTab} setActiveTab={setActiveTab} setIsModalOpen={setIsModalOpen} >
+      <Tabs data={dataTabForm} activeTab={activeTab} setActiveTab={setActiveTab} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} >
         <div key={"tab1"} >
         <h3>Formulário Básico</h3>
           <form onSubmit={handleSubmit} className="generic-form">

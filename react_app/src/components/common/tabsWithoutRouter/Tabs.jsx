@@ -15,6 +15,7 @@ const Tabs = (props) => {
   const activeTab = props.activeTab
   const setActiveTab = props.setActiveTab
   const setIsModalOpen = props.setIsModalOpen
+  const isModalOpen = props.isModalOpen
 
   return (
     <div className="Tabs">
@@ -31,7 +32,7 @@ const Tabs = (props) => {
       </ul>
       <div className="outlet">
         {data.map((item) => (
-          <TabContent id={item.id} activeTab={activeTab}>
+          <TabContent id={item.id} activeTab={activeTab} isModalOpen={isModalOpen}>
           {props.children.map((child) => {
                     if (child.key === item.id) {
                       return child;
