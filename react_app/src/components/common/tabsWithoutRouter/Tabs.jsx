@@ -1,5 +1,5 @@
 // #  Main Imports
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 
 // #  Local SubComponents & utils
@@ -12,7 +12,9 @@ import "./Tabs.css";
 
 const Tabs = (props) => {
   const data = props.data;
-  const [activeTab, setActiveTab] = useState("tab1");
+  const activeTab = props.activeTab
+  const setActiveTab = props.setActiveTab
+  const setIsModalOpen = props.setIsModalOpen
 
   return (
     <div className="Tabs">
@@ -23,6 +25,7 @@ const Tabs = (props) => {
             id={item.id}
             activeTab={activeTab}
             setActiveTab={setActiveTab}
+            setIsModalOpen={setIsModalOpen}
           />
         ))}
       </ul>

@@ -1,6 +1,5 @@
 // #  Main Imports
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 
 // # Import Component Style
 import "../../pages/pages.css";
@@ -10,17 +9,17 @@ import { darkColors } from "../../components/common/MaterialColors";
 
 // # Contexts
 import { ModalContext } from "../../contexts/ModalContext";
+import { ActiveTabContext } from "../../contexts/ActiveTabContext";
 
 function CaseAdvancedForm(props) {
-  const history = useHistory();
 
   const { setIsModalOpen } = useContext(ModalContext);
+  const { setActiveTab } = useContext(ActiveTabContext);
 
   // Case Deletion function
   function redirectToAdvancedForm() {
-    const successURL = "/BasicAndAdvancedForm";
     setIsModalOpen(false);
-    history.push(successURL);
+    setActiveTab("tab2")
   }
 
   return (

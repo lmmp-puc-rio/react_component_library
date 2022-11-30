@@ -24,7 +24,7 @@ ul.nav li {
   list-style: none;
   text-align: center;
   cursor: pointer;
-  transition: all 0.7s;
+  transition: all 0.5s;
 }
 
 ul.nav li.active {

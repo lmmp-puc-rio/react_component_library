@@ -49,10 +49,10 @@ import {
 import { ModalProvider } from "./contexts/ModalContext";
 import { SearchProvider } from "./contexts/SearchContext";
 import { ActionFabGridProvider } from "./contexts/ActionFabGridContext";
+import { ActiveTabProvider } from "./contexts/ActiveTabContext";
 
 function App() {
   /* State responsible for controlling the opening/closing of the sidebar */
-  const [inactive, setInactive] = useState(false);
 
   // Set navlinks Object
   const navlinks = [
@@ -185,6 +185,7 @@ function App() {
     // React Browser Router
     <Router>
       <ModalProvider>
+        <ActiveTabProvider>
         <SearchProvider>
           <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
           <div name="app" className="App">
@@ -321,6 +322,7 @@ function App() {
             {/*   <FAB data={actionData} /> */}
           </div>
         </SearchProvider>
+        </ActiveTabProvider>
       </ModalProvider>
     </Router>
   );
