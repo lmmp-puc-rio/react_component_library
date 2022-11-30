@@ -103,6 +103,15 @@ const {activeTab, setActiveTab} = useContext(ActiveTabContext);
     },
   ];
 
+  /* Function to control Avanced Form rendering */
+  const handleClick = (id, title) => {
+    if(title === "Formulário Avançado") {
+      setIsModalOpen(true)
+    }
+    else {
+      setActiveTab(id);
+    }
+   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -115,7 +124,7 @@ const {activeTab, setActiveTab} = useContext(ActiveTabContext);
 
   return (
     <>
-      <Tabs data={dataTabForm} activeTab={activeTab} setActiveTab={setActiveTab} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} >
+      <Tabs data={dataTabForm} activeTab={activeTab} setActiveTab={setActiveTab} setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} callback={handleClick}>
         <div key={"tab1"} >
         <h3>Formulário Básico</h3>
           <form onSubmit={handleSubmit} className="generic-form">

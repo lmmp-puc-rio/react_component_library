@@ -1,7 +1,6 @@
 // # Main Import
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
 
 // # Import Component Style
 import './Modal.css'
@@ -11,7 +10,6 @@ import {darkColors} from '../MaterialColors'
 
 // # Contexts
 import { ModalContext } from '../../../contexts/ModalContext';
-import { ActiveTabContext } from '../../../contexts/ActiveTabContext';
 
 // add this states to the main component where modal appears
 // const [isModalOpen,setIsModalOpen] = useState(true);
@@ -22,13 +20,11 @@ import { ActiveTabContext } from '../../../contexts/ActiveTabContext';
 function Modal(props) {
 
     const {isModalOpen, setIsModalOpen} = useContext(ModalContext)
-    const {setActiveTab } = useContext(ActiveTabContext)
 
     const cancelURL = props.cancelURL;
 
     const closeModal = () => {
         setIsModalOpen(!isModalOpen);
-        setActiveTab("tab1")
 
     }
 
