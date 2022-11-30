@@ -1,7 +1,6 @@
 // # Main Import
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
 
 // # Import Component Style
 import './Modal.css'
@@ -21,11 +20,12 @@ import { ModalContext } from '../../../contexts/ModalContext';
 function Modal(props) {
 
     const {isModalOpen, setIsModalOpen} = useContext(ModalContext)
+
     const cancelURL = props.cancelURL;
 
     const closeModal = () => {
         setIsModalOpen(!isModalOpen);
-        console.log(isModalOpen)
+
     }
 
     if (!isModalOpen) return null;

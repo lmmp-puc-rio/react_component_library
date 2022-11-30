@@ -6,7 +6,7 @@ const ModalContext = createContext();
 // Hook
 export default function useModal() {
   // Toast states
-  const [isModalOpen,setIsModalOpen ] = useState([]);
+  const [isModalOpen,setIsModalOpen ] = useState(false);
     
   return { isModalOpen, setIsModalOpen };
 }
