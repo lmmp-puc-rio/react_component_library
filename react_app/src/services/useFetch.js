@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 // main hook definition
-function useFetch(setData, setErrorMessage, setLoading, onChange) {
+function useFetch(setData, setErrorMessage, setLoading, setController, controller) {
     // const [data, setData ] = useState([]);
     // const [errorMessage, setErrorMessage ] = useState('');
     // const [loading, setLoading ] = useState(false);
@@ -20,7 +20,7 @@ function useFetch(setData, setErrorMessage, setLoading, onChange) {
         try {
             setLoading(true);
             const ctrl = new AbortController();
-            // setController(ctrl);
+            setController(ctrl);
             //Define axios Intance and prepare controller to abort request
             const response = await axiosInstance[method.toLowerCase()](url,{
                 ...requestConfig,
@@ -39,9 +39,9 @@ function useFetch(setData, setErrorMessage, setLoading, onChange) {
 
     useEffect(() => {
         // console.log(controller);
-        //useEffect cleanup function
-        // return () => controller.abort();
-    }, [onChange])
+        //useEffect cleanup function //TODO: Work it out
+        // return () => onChange.abort();
+    }, [controller])
 
     return axiosFetch;
 }

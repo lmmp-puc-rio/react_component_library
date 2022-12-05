@@ -11,7 +11,7 @@ function Jokes() {
     const [loading, setLoading ] = useState(false);
     const [controller, setController ] = useState();
 
-    const axiosFetch = useFetch(setJoke, setError, setLoading, controller);
+    const axiosFetch = useFetch(setJoke, setError, setLoading, setController, controller);
 
     const getDadJokes = () => {
         axiosFetch({
