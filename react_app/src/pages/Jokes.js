@@ -1,12 +1,17 @@
 // # Main Import
 import useFetch from "../services/useFetch";
 import axios from "../apis/dadJokes";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 function Jokes() {
 
-    const [joke, error, loading, axiosFetch] = useFetch();
+    const [joke, setJoke ] = useState([]);
+    const [error, setError ] = useState('');
+    const [loading, setLoading ] = useState(false);
+    const [controller, setController ] = useState();
+
+    const axiosFetch = useFetch(setJoke, setError, setLoading, controller);
 
     const getDadJokes = () => {
         axiosFetch({
