@@ -47,7 +47,7 @@ function useFetch(setData, setErrorMessage, setLoading, setController, controlle
         //TODO: Figure out why Abort Controller doesn't work
         // console.log(controller);
         //useEffect cleanup function 
-        // return () => onChange.abort();
+        // return () => controller.abort();
     }, [controller])
 
     return axiosFetch;
