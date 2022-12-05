@@ -14,6 +14,7 @@ import Slides from "./slides";
 import GraphicObjectsChart from "./GraphicObjectsPlotly";
 import BasicAndAdvancedForm from "./BasicAndAdvancedForm";
 import Jokes from "./Jokes";
+import Graphic3DPlotly from "./Graphic3D";
 
 
 export {
@@ -32,6 +33,7 @@ export {
   Slides,
   GraphicObjectsChart,
   BasicAndAdvancedForm,
-  Jokes
+  Jokes,
+  Graphic3DPlotly
 };
 

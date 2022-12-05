@@ -42,6 +42,7 @@ import {
   GraphicObjectsChart,
   BasicAndAdvancedForm,
   Jokes,
+  Graphic3DPlotly,
 } from "./pages";
 
 // All Contexts Import
@@ -91,6 +92,11 @@ function App() {
     {
       url: "/BasicAndAdvancedForm",
       title: "BasicAndAdvancedForm",
+      className: "navbar-item",
+    },
+    {
+      url: "/Graphic3D",
+      title: "Graphic3D",
       className: "navbar-item",
     },
     { url: "/help", title: "Help", className: "navbar-item" },
@@ -187,143 +193,149 @@ function App() {
     <Router>
       <ModalProvider>
         <ActiveTabProvider>
-        <SearchProvider>
-          <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
-          <div name="app" className="App">
-            <div name="main" className="main">
-              <Switch>
-                {/* Main page Route */}
-                <Route exact path="/">
-                  <div className="scope" style={{ color: "white" }}>
-                    Main Page
-                  </div>
-                  <ImportData />
-                </Route>
-                {/* Grids Route */}
-                <Route exact path={navlinks[1].url}>
-                  <Jokes/>
-                  <ActionFabGridProvider>
+          <SearchProvider>
+            <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
+            <div name="app" className="App">
+              <div name="main" className="main">
+                <Switch>
+                  {/* Main page Route */}
+                  <Route exact path="/">
+                    <div className="scope" style={{ color: "white" }}>
+                      Main Page
+                    </div>
+                    <ImportData />
+                  </Route>
+                  {/* Grids Route */}
+                  <Route exact path={navlinks[1].url}>
+                    <Jokes />
+                    <ActionFabGridProvider>
+                      <div name="inputs" className="grid-container">
+                        <Grids />
+                      </div>
+                    </ActionFabGridProvider>
+                  </Route>
+                  {/* Projects Route */}
+                  <Route exact path={navlinks[2].url}>
+                    <div name="cards" className="card-container">
+                      <Projects />
+                    </div>
+                  </Route>
+                  {/* Cases Route */}
+                  <Route exact path={navlinks[3].url}>
+                    <div name="cards" className="card-container">
+                      <Cases />
+                    </div>
+                  </Route>
+                  {/* Accordion Route */}
+                  <Route exact path={navlinks[4].url}>
                     <div name="inputs" className="grid-container">
-                      <Grids />
+                      <Accordions />
                     </div>
-                  </ActionFabGridProvider>
-                </Route>
-                {/* Projects Route */}
-                <Route exact path={navlinks[2].url}>
-                  <div name="cards" className="card-container">
-                    <Projects />
-                  </div>
-                </Route>
-                {/* Cases Route */}
-                <Route exact path={navlinks[3].url}>
-                  <div name="cards" className="card-container">
-                    <Cases />
-                  </div>
-                </Route>
-                {/* Accordion Route */}
-                <Route exact path={navlinks[4].url}>
-                  <div name="inputs" className="grid-container">
-                    <Accordions />
-                  </div>
-                </Route>
+                  </Route>
 
-                {/* Tabs Route */}
-                <Route exact path={navlinks[5].url}>
-                  <div name="inputs" className="card-container">
-                    <TabsComponents name="page" />
-                  </div>
-                </Route>
-
-                {/* Tree Route */}
-                <Route exact path={navlinks[6].url}>
-                  <div name="inputs" className="card-container">
-                    <Tree />
-                  </div>
-                </Route>
-
-                {/* Plotly Route */}
-                <Route exact path={navlinks[7].url}>
-                  <div name="inputs" className="card-container">
-                    <PumpSequencePlotly />
-                  </div>
-                </Route>
-
-                {/* Form Route */}
-                <Route exact path={navlinks[8].url}>
-                  <div name="inputs" className="card-container">
-                    <DynamicForm />
-                  </div>
-                </Route>
-
-                {/* Rheometry Route */}
-                <Route exact path={navlinks[9].url}>
-                  <ActionFabGridProvider>
+                  {/* Tabs Route */}
+                  <Route exact path={navlinks[5].url}>
                     <div name="inputs" className="card-container">
-                      <Rheometry />
+                      <TabsComponents name="page" />
                     </div>
-                  </ActionFabGridProvider>
-                </Route>
+                  </Route>
 
-                {/* Centralization Route */}
-                <Route exact path={navlinks[10].url}>
-                  <div name="inputs" className="card-container">
-                    <Centralization />
-                  </div>
-                </Route>
+                  {/* Tree Route */}
+                  <Route exact path={navlinks[6].url}>
+                    <div name="inputs" className="card-container">
+                      <Tree />
+                    </div>
+                  </Route>
 
-                {/* Geometria Externa Route */}
-                <Route exact path={navlinks[11].url}>
-                  <ActionFabGridProvider>
+                  {/* Plotly Route */}
+                  <Route exact path={navlinks[7].url}>
                     <div name="inputs" className="card-container">
-                      <GeometriaExterna />
+                      <PumpSequencePlotly />
                     </div>
-                  </ActionFabGridProvider>
-                </Route>
+                  </Route>
 
-                {/* Pump Sequence Route */}
-                <Route exact path={navlinks[12].url}>
-                  <ActionFabGridProvider>
+                  {/* Form Route */}
+                  <Route exact path={navlinks[8].url}>
                     <div name="inputs" className="card-container">
-                      <PumpSequence />
+                      <DynamicForm />
                     </div>
-                  </ActionFabGridProvider>
-                </Route>
-                {/* ActionFabGrid Route */}
-                <Route exact path={navlinks[13].url}>
-                  <ActionFabGridProvider>
+                  </Route>
+
+                  {/* Rheometry Route */}
+                  <Route exact path={navlinks[9].url}>
+                    <ActionFabGridProvider>
+                      <div name="inputs" className="card-container">
+                        <Rheometry />
+                      </div>
+                    </ActionFabGridProvider>
+                  </Route>
+
+                  {/* Centralization Route */}
+                  <Route exact path={navlinks[10].url}>
                     <div name="inputs" className="card-container">
-                      <Slides />
+                      <Centralization />
                     </div>
-                  </ActionFabGridProvider>
+                  </Route>
+
+                  {/* Geometria Externa Route */}
+                  <Route exact path={navlinks[11].url}>
+                    <ActionFabGridProvider>
+                      <div name="inputs" className="card-container">
+                        <GeometriaExterna />
+                      </div>
+                    </ActionFabGridProvider>
+                  </Route>
+
+                  {/* Pump Sequence Route */}
+                  <Route exact path={navlinks[12].url}>
+                    <ActionFabGridProvider>
+                      <div name="inputs" className="card-container">
+                        <PumpSequence />
+                      </div>
+                    </ActionFabGridProvider>
+                  </Route>
+                  {/* ActionFabGrid Route */}
+                  <Route exact path={navlinks[13].url}>
+                    <ActionFabGridProvider>
+                      <div name="inputs" className="card-container">
+                        <Slides />
+                      </div>
+                    </ActionFabGridProvider>
+                  </Route>
+                  {/* Graphic Objects Route */}
+                  <Route exact path={navlinks[14].url}>
+                    <div name="inputs" className="card-container">
+                      <GraphicObjectsChart />
+                    </div>
+                  </Route>
+                  {/* Basic Advanced Route */}
+                  <Route exact path={navlinks[15].url}>
+                    <div name="inputs" className="card-container">
+                      <BasicAndAdvancedForm />
+                    </div>
+                  </Route>
+                  {/* Graphic3D Route */}
+                  <Route exact path={navlinks[16].url}>
+                    <div name="inputs" className="card-container">
+                      <Graphic3DPlotly />
+                    </div>
+                  </Route>
+                </Switch>
+                <Route exact path={"/cases/delete/:id"}>
+                  <Modal cancelURL={"/cases"}>
+                    <CaseDeletionConfirmation />
+                  </Modal>
                 </Route>
-                {/* Graphic Objects Route */}
-                <Route exact path={navlinks[14].url}>
-                  <div name="inputs" className="card-container">
-                    <GraphicObjectsChart />
-                  </div>
+                <Route exact path={"/BasicAndAdvancedForm"}>
+                  <Modal cancelURL={navlinks[15].url}>
+                    <CaseAdvancedForm />
+                  </Modal>
                 </Route>
-                {/* Basic Advanced Route */}
-                <Route exact path={navlinks[15].url}>
-                  <div name="inputs" className="card-container">
-                    <BasicAndAdvancedForm />
-                  </div>
-                </Route>
-              </Switch>
-              <Route exact path={"/cases/delete/:id"}>
-                <Modal cancelURL={"/cases"}>
-                  <CaseDeletionConfirmation />
-                </Modal>
-              </Route>
-              <Route exact path={"/BasicAndAdvancedForm"}>
-                <Modal cancelURL={navlinks[15].url}>
-                  <CaseAdvancedForm />
-                </Modal>
-              </Route>
+              </div>
+              {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
+              {/*   <FAB data={actionData} /> */}
             </div>
-            {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
-            {/*   <FAB data={actionData} /> */}
-          </div>
-        </SearchProvider>
+          </SearchProvider>
         </ActiveTabProvider>
       </ModalProvider>
     </Router>

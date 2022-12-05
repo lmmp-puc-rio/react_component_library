@@ -28,6 +28,7 @@ import PumpSequenceChart from "./pumpSequencePlotly";
 import FluidSelect from "./selectFluid/selectFluid";
 import GraphicObjectsPlotly from "./graphicObjects";
 import Tabs from "./tabsWithoutRouter";
+import Graphic3D from "./graphic3D";
 
 export {
   Header,
@@ -61,6 +62,7 @@ export {
   FluidSelect,
   GraphicObjectsPlotly,
   Tabs,
+  Graphic3D,
   darkColors,
   lightColors,
 };
