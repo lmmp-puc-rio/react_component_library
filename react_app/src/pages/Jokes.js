@@ -1,35 +1,33 @@
 // # Main Import
-import useFetch from "../services/useFetch";
-import axios from "../apis/dadJokes";
 import { useState, useEffect } from "react";
 
+//# Local Imports
+import useFetch from "../services/useFetch";
+import { getDadJokesRequest } from "../services/DadJokes";
 
 function Jokes() {
 
+
+    //Define States
     const [joke, setJoke ] = useState([]);
     const [error, setError ] = useState('');
     const [loading, setLoading ] = useState(false);
     const [controller, setController ] = useState();
 
+    // Get axios Fetch Object
     const axiosFetch = useFetch(setJoke, setError, setLoading, setController, controller);
 
+    // Define Get Dad Jokes Function
     const getDadJokes = () => {
-        axiosFetch({
-            axiosInstance: axios,
-            method: 'GET',
-            url: '/',
-            requesConfig: {
-                headers: {
-                    'Content-Language': 'en-US'
-                }
-            }
-        });
+        axiosFetch(getDadJokesRequest);
     };
 
+    // Only fetch when page is Mounted
     useEffect(() => {
         getDadJokes();
     },[]);
 
+    // Page Renderization
     return (
         <article>
             <h2>Ramdom Dad Jokes </h2>

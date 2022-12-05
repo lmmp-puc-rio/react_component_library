@@ -2,44 +2,51 @@ import { useEffect } from "react";
 
 // main hook definition
 function useFetch(setData, setErrorMessage, setLoading, setController, controller) {
-    // const [data, setData ] = useState([]);
-    // const [errorMessage, setErrorMessage ] = useState('');
-    // const [loading, setLoading ] = useState(false);
-    // const [controller, setController ] = useState();
-
-
-    const axiosFetch = async (configObj) => {
-        // Destruct configObj
+   
+    // Define async axios Fetch Function
+    const axiosFetch = async (requestObj) => {
+        // Destruct request object
         const {
             axiosInstance,
             method,
             url,
             requestConfig = {}
-        } = configObj;
+        } = requestObj;
     
         try {
+            // Sets Loading to true
             setLoading(true);
+
+            // Instanciate new Abort Controller
             const ctrl = new AbortController();
             setController(ctrl);
-            //Define axios Intance and prepare controller to abort request
+
+            //Get Response from axios Instance and inform controller signal
             const response = await axiosInstance[method.toLowerCase()](url,{
                 ...requestConfig,
                 signal: ctrl.signal
             });
-            //Sets Response State
-            console.log(response)
+
+            //Sets Data State
             setData(response.data);
         } catch (error) {
+
             //Sets error state
             setErrorMessage(error.message);
+
         } finally {
+
+            // Sets Loading to false
             setLoading(false)
+
         };
     };
 
+    // Refetch when controller changes
     useEffect(() => {
+        //TODO: Figure out why Abort Controller doesn't work
         // console.log(controller);
-        //useEffect cleanup function //TODO: Work it out
+        //useEffect cleanup function 
         // return () => onChange.abort();
     }, [controller])
 
