@@ -41,6 +41,7 @@ import {
   Slides,
   GraphicObjectsChart,
   BasicAndAdvancedForm,
+  Jokes,
 } from "./pages";
 
 // All Contexts Import
@@ -200,6 +201,7 @@ function App() {
                 </Route>
                 {/* Grids Route */}
                 <Route exact path={navlinks[1].url}>
+                  <Jokes/>
                   <ActionFabGridProvider>
                     <div name="inputs" className="grid-container">
                       <Grids />

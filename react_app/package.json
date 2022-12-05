@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^1.2.0",
     "plotly.js": "^2.16.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -20,7 +21,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "node ./node_modules/react-scripts/bin/react-scripts.js start",
+    "start": "node ./node_modules/react-scripts/bin/react-scripts.js --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
