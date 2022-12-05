@@ -13,6 +13,7 @@ import PumpSequence from "./PumpSequence";
 import Slides from "./slides";
 import GraphicObjectsChart from "./GraphicObjectsPlotly";
 import BasicAndAdvancedForm from "./BasicAndAdvancedForm";
+import Jokes from "./Jokes";
 
 
 export {
@@ -31,6 +32,6 @@ export {
   Slides,
   GraphicObjectsChart,
   BasicAndAdvancedForm,
-
+  Jokes
 };
 
