@@ -2,11 +2,10 @@
 import { useState, useEffect } from "react";
 
 //# Local Imports
-import useFetch from "../services/useFetch";
+import useFetch from "../hooks/useFetch";
 import { getDadJokesRequest } from "../services/DadJokes";
 
 function Jokes() {
-
 
     //Define States
     const [joke, setJoke ] = useState([]);

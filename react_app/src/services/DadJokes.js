@@ -1,5 +1,5 @@
 // Import axios from specific API definition
-import axios from "../apis/dadJokesAPI";
+import axios from "./apis/dadJokesAPI";
 
 
 // GET Method Request for DadJokes API
