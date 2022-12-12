@@ -11,9 +11,9 @@ import CarouselComponent from "../components/carousel";
 
 // # Context
 import { SearchContext } from "../contexts/SearchContext"
-
+import Login from '../services/SqlApi';
 const Projects = (props) => {
-
+  console.log(Login("teste1","1234"))
   const { projectsData } = useContext(SearchContext)
   // Set Card Object
 /*   const data = [
