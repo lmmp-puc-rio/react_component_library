@@ -24,7 +24,7 @@ import axios from "./apis/i3d_MongoAPI";
         return arrayScenery
 
       } catch (error) {
-        console.log('Não foi possivel obter o cenário!')
+        console.log(error,'Não foi possivel obter o cenário!')
       }
   }
 
@@ -36,7 +36,7 @@ import axios from "./apis/i3d_MongoAPI";
         return arrayGeneralInfo
 
       } catch (error) {
-        console.log('Não foi possivel obter as informações!')
+        console.log(error, 'Não foi possivel obter as informações!')
       }
   }
 
