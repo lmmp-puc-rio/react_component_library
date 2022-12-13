@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom";
 //# Local Imports
 /* import useFetch from "../hooks/useFetch"; */
 import {
-  getSceneryRequest,
-  getGeneralInformationRequest,
+  getScenery,
+  getGeneralInformation,
 } from "../services/TestReactQueryRequest";
 
 // Style import
@@ -43,8 +43,8 @@ function TestReactQuery() {
 
   /* Using React Query */
   const { id } = useParams();
-  const {data: scenery,isLoading: sceneryLoading, error: errorScenery } = useQuery("cenario", () => getSceneryRequest(id));
-  const { data: generalInfo, isLoading: generalInfoLoading, error: errorLoading } = useQuery("generalInfo", () => getGeneralInformationRequest(id));
+  const {data: scenery,isLoading: sceneryLoading, error: errorScenery } = useQuery("cenario", () => getScenery(id));
+  const { data: generalInfo, isLoading: generalInfoLoading, error: errorLoading } = useQuery("generalInfo", () => getGeneralInformation(id));
 
   console.log(scenery);
   console.log(generalInfo);

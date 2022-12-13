@@ -12,11 +12,15 @@ import axios from "./apis/i3d_MongoAPI";
   export { getSceneryRequest };
  */
 
-  export const getSceneryRequest = async (id) => {
+  export const getScenery = async (id) => {
     let arrayScenery = []
     try {
-        const resposta = await axios.get(`${id}/scenery/`)
-        arrayScenery.push(resposta.data.message[0].scenery)
+        const response = await axios.get(`${id}/scenery/`, {
+          headers: {
+            Authorization : sessionStorage.getItem("Token")
+            }
+        })
+        arrayScenery.push(response.data.message[0].scenery)
         return arrayScenery
 
       } catch (error) {
@@ -24,11 +28,11 @@ import axios from "./apis/i3d_MongoAPI";
       }
   }
 
-  export const getGeneralInformationRequest = async (id) => {
+  export const getGeneralInformation = async (id) => {
     let arrayGeneralInfo = []
     try {
-        const resposta = await axios.get(`${id}/general-information/`)
-        arrayGeneralInfo.push(resposta.data.message[0].general_information)
+        const response = await axios.get(`${id}/general-information/`)
+        arrayGeneralInfo.push(response.data.message[0].general_information)
         return arrayGeneralInfo
 
       } catch (error) {
