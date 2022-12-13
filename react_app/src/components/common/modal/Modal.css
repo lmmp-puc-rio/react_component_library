@@ -1,5 +1,5 @@
 .modal_overlay {
-    position: fixed;
+    position: absolute;
     display: flex;
     left: 0;
     top: 0;
@@ -8,64 +8,63 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(0,0,0,0.7);
-    z-index: 1000;
+    z-index: 3;
 }
 
 .modal_container {
-    width: 500px;
-    height: 200px;
     background: #fff;
-    justify-content: center;
+    width: 40%;
+    height: 25%;
+    justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
     color: #000;
     display: flex;
-    grid-template-columns: 1fr 1fr;
     position: relative;
-    z-index: 10;
     border-radius: 8px;
+    overflow: hidden;
 }
 
+
 .modal_close-button {
+ 
     border: none;
     cursor: pointer;
     position: absolute;
     background: transparent;
-    font-size: 16pt;
-    top: 5px;
-    right: 5px;
-    width: 32px;
-    height: 32px;
+    font-size: 1rem;
+    top: 0.3125rem;
+    right: 0.3125rem;
+    width: 2rem;
+    height: 2rem;
     /* padding: 0; */
-    z-index: 10;
     color: #000;
 }
 
 .modal_cancel-button {
     position: absolute;
-    left: 10px;
-    bottom: 10px;
-    height: 25px;
-    width: 100px;
-    /* background: red; */
+    left: 0.625rem;
+    bottom: 0.625rem;
+    padding: 0.625rem;
     color: #fff;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 10pt;
+    border-radius: 0.25rem;
+    font-size: 0.9375rem;
     text-align: center;
 }
 
 .modal_confirm-button {
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 0.625rem;
+    bottom: 0.625rem;
     background: green;
-    height: 25px;
-    width: 100px;
+    padding: 0.625rem;
     border: none;
     color: #fff;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 10pt;
+    border-radius: 0.25rem;
+    font-size: 0.9375rem;
     
 }
