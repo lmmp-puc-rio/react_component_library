@@ -11,19 +11,25 @@ import axios from "./apis/i3d_MongoAPI";
   
   export { getSceneryRequest };
  */
-
+  const controller = new AbortController();
   export const getScenery = async (id) => {
     let arrayScenery = []
     try {
         const response = await axios.get(`${id}/scenery/`, {
           headers: {
             Authorization : sessionStorage.getItem("Token")
-            }
+            },
+            signal: controller.signal
         })
+        console.log(response)
         arrayScenery.push(response.data.message[0].scenery)
         return arrayScenery
 
       } catch (error) {
+        if (error.name === "AbortError") {
+          return "Request Aborted ";
+         }
+
         console.log(error,'Não foi possivel obter o cenário!')
       }
   }
