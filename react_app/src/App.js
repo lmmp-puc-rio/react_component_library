@@ -1,7 +1,6 @@
 // Main import of React
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 // Theme importv #TODO
 // import { ThemeProvider } from 'styled-components';
 // import { theme } from './theme'
@@ -43,6 +42,7 @@ import {
   BasicAndAdvancedForm,
   Jokes,
   Graphic3DPlotly,
+  TestReactQuery,
 } from "./pages";
 
 // All Contexts Import
@@ -97,6 +97,11 @@ function App() {
     {
       url: "/Graphic3D",
       title: "Graphic3D",
+      className: "navbar-item",
+    },
+    {
+      url: "/case/:id/scenery/",
+      title: "ReactQuery",
       className: "navbar-item",
     },
     { url: "/help", title: "Help", className: "navbar-item" },
@@ -318,6 +323,12 @@ function App() {
                   <Route exact path={navlinks[16].url}>
                     <div name="inputs" className="card-container">
                       <Graphic3DPlotly />
+                    </div>
+                  </Route>
+                  {/* Scenery Route  - Test ReactQuery*/}
+                  <Route exact path={navlinks[17].url}>
+                    <div name="inputs" className="card-container">
+                      <TestReactQuery/>
                     </div>
                   </Route>
                 </Switch>

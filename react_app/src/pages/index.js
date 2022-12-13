@@ -15,6 +15,7 @@ import GraphicObjectsChart from "./GraphicObjectsPlotly";
 import BasicAndAdvancedForm from "./BasicAndAdvancedForm";
 import Jokes from "./Jokes";
 import Graphic3DPlotly from "./Graphic3D";
+import TestReactQuery from "./TestReactQuery";
 
 
 export {
@@ -34,6 +35,7 @@ export {
   GraphicObjectsChart,
   BasicAndAdvancedForm,
   Jokes,
-  Graphic3DPlotly
+  Graphic3DPlotly,
+  TestReactQuery,
 };
 
