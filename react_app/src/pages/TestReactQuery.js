@@ -10,6 +10,7 @@ import {
   getScenery,
   getGeneralInformation,
 } from "../services/TestReactQueryRequest";
+import { queryClient } from "../services/queryClient";
 
 // Style import
 
@@ -43,8 +44,8 @@ function TestReactQuery() {
 
   /* Using React Query */
   const { id } = useParams();
-  const {data: scenery,isLoading: sceneryLoading, error: errorScenery } = useQuery("cenario", () => getScenery(id));
-  const { data: generalInfo, isLoading: generalInfoLoading, error: errorLoading } = useQuery("generalInfo", () => getGeneralInformation(id));
+  const {data: scenery,isLoading: sceneryLoading, error: errorScenery } = useQuery("cenario", ({ signal }) => getScenery(id, signal) );
+  const { data: generalInfo, isLoading: generalInfoLoading, error: errorLoading } = useQuery("generalInfo", ({ signal }) => getGeneralInformation(id, signal));
 
   console.log(scenery);
   console.log(generalInfo);
@@ -55,7 +56,7 @@ function TestReactQuery() {
   }
 
   if (scenery === null || generalInfo === null) {
-    return <h1>Cenário não encontrado!</h1>;
+    return <h1>Informações não encontradas!</h1>;
   }
 
   if (sceneryLoading || generalInfoLoading) {
@@ -90,6 +91,7 @@ function TestReactQuery() {
           </div>
         );
       })}
+      <button onClick={queryClient.cancelQueries("generalInfo")}>Abort</button>
     </div>
   );
 }
