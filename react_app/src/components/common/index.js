@@ -29,6 +29,7 @@ import FluidSelect from "./selectFluid/selectFluid";
 import GraphicObjectsPlotly from "./graphicObjects";
 import Tabs from "./tabsWithoutRouter";
 import Graphic3D from "./graphic3D";
+import Accordion from "./accordionTest";
 
 export {
   Header,
@@ -63,6 +64,7 @@ export {
   GraphicObjectsPlotly,
   Tabs,
   Graphic3D,
+  Accordion,
   darkColors,
   lightColors,
 };
