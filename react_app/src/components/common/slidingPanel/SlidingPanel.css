@@ -1,20 +1,25 @@
-.sliding-pane-container {
+.sliding-panel__container {
   display: flex;
   justify-content: flex-end;
-  height: 100%;
+  z-index: 2;
+  height: 100vh;
 }
 
-.sliding-pane-bttn {
+.sliding-panel__bttn {
   height: 100vh;
   width: 2.5rem;
   background-color: #17365c;
+  cursor: pointer;
   border-style: hidden;
   border-radius: 0.5rem;
-  color: #fff;
+  color: #ffffff;
+
 }
 
-.fa {
-  font-size: large;
+.sliding-panel__children {
+  background-color: #e2e7ed;
+  width: auto;
+  display: flex;
+  padding: 1rem;
 }
-
 
