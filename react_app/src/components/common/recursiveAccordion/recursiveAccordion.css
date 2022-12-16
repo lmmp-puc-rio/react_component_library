@@ -1,34 +1,25 @@
 @media screen and (min-width: 10px) {
   .accordion {
-    min-width: 350px;
     background-color: #fff;
     height: 100%;
+    width: 100%;
   }
   .accordionClose {
-    min-width: 350px;
     background-color: #fff;
   }
 
   .accordion_section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: top;
-    position: relative;
-    padding-bottom: 10px;
-    width: 100%;
-    height: 100%;
   }
 
   .accordion_container {
-    align-self: center;
     color: black;
-    align-items: center;
-    width: 100%;
+    padding: 0.625rem;
   }
 
   .accordion_wrap {
-    border: 3px groove transparent;
+    border: 0.1875rem groove transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,18 +28,13 @@
     background-color: transparent;
     width: 100%;
     color: black;
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 8px 0px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0rem 0.0625rem 0.5rem 0rem;
   }
 
   .accordion_wrap div {
     background-color: transparent;
     height: auto;
     width: auto;
-    font-family: fantasy;
     color: black;
     animation-timing-function: ease-out;
     padding: 0.625rem 1.125rem 0.3125rem;
@@ -67,15 +53,25 @@
   .accordion_dropdown_item {
     animation-timing-function: ease-out;
     border-radius: 0.5rem;
+    width: 30rem;
+    height: auto;
     font-size: 0.875rem;
+    overflow: hidden;
     padding: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .accordion_dropdown_item:hover {
+    font-weight: 700;
+    cursor: pointer;
   }
 
   .accordion_dropdown {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     opacity: 0;
     transform: translateY(0);
     animation: slide 0.5s forwards;
@@ -83,17 +79,7 @@
     line-height: 1.2;
   }
 
-  .accordion_wrap button {
-    float: right;
-    color: black;
-    background-color: yellow;
-    border-radius: 0.3125rem;
-    border: 1px solid #ccc;
-  }
 
-  .accordion_dropdown p {
-    font-size: 0.875rem;
-  }
 
   @keyframes slide {
     to {

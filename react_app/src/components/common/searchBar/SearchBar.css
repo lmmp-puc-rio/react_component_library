@@ -1,9 +1,9 @@
-.search-controller {
+.search__container {
   color: #fff;
   position: relative;
 }
 
-.search-controller .search-btn {
+.search__container .search__btn {
   width: 2.1875rem;
   height: 1.875rem;
   cursor: pointer;
@@ -14,7 +14,7 @@
   color: #17365C;
 }
 
-.search-controller input[type="text"] {
+.search__container input[type="text"] {
   border: 0;
   outline: none;
   padding: 0;
@@ -27,8 +27,4 @@
   box-sizing: border-box;
   padding-left: 1.875rem;
   color: black;
-}
-
-#clearBtn {
-  cursor: pointer;
 }

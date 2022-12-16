@@ -8,6 +8,7 @@ import {
   TabsComponent,
   ActionFabGrid,
   FluidSelect,
+  Accordion,
 } from "../components/common";
 import { ActionFabGridContext } from "../contexts/ActionFabGridContext";
 
@@ -88,6 +89,16 @@ function PumpSequence(props) {
       subitems: [],
     },
   ];
+  const accordionData = [
+    {
+      title: "Fluidos",
+      id: "1",
+    },
+    {
+      title: "Sequência de Fluidos",
+      id: "2",
+    },
+  ];
 
   {
     /*Tab Data*/
@@ -163,33 +174,25 @@ function PumpSequence(props) {
     <>
       <h2>Sequência de Bombeio</h2>
       <SlidingPanel>
-        <ul>
-          {/*Component Accordion*/}
-          <RecursiveAccordion
-            key={"accordion_0"}
-            accordionData={slidinPanelAccordionData}
-          >
-            {/* Multiple Children is needed! */}
-            <div key={1} className="accordion_dropdown_item">
-              <TabsComponent data={dataTabFluidos}>
-                <div key={"Teste Fluidos 1"}>Teste Fluidos 1</div>
-                <div key={"Teste Fluidos 2"}>Teste Fluidos 2</div>
-              </TabsComponent>
-            </div>
-
-            <div key={2} className="accordion_dropdown_item">
-              <FluidSelect />
-              <TabsComponent data={dataTabSequencia}>
-                <div key={"Fluidos no anular"}>
-                  <ActionFabGrid metaData={headersAnnular} />
-                </div>
-                <div key={"Fluidos de deslocamento"}>
-                  <ActionFabGrid metaData={headersDisplacement} />
-                </div>
-              </TabsComponent>
-            </div>
-          </RecursiveAccordion>
-        </ul>
+        <Accordion accordionData={accordionData}>
+          <div key={1} className="accordion_dropdown_item">
+            <TabsComponent data={dataTabFluidos}>
+              <div key={"Teste Fluidos 1"}>Teste Fluidos 1</div>
+              <div key={"Teste Fluidos 2"}>Teste Fluidos 2</div>
+            </TabsComponent>
+          </div>
+          <div key={2} className="accordion_dropdown_item">
+            <FluidSelect />
+            <TabsComponent data={dataTabSequencia}>
+              <div key={"Fluidos no anular"}>
+                <ActionFabGrid metaData={headersAnnular} />
+              </div>
+              <div key={"Fluidos de deslocamento"}>
+                <ActionFabGrid metaData={headersDisplacement} />
+              </div>
+            </TabsComponent>
+          </div>
+        </Accordion>
       </SlidingPanel>
     </>
   );

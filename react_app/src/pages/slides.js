@@ -1,9 +1,15 @@
-import React, { useState }  from "react";
+import React, { useState, useContext }  from "react";
 import { SideMenu,SlidingPanel,RecursiveAccordion,TabsComponent,ActionFabGrid } from "../components/common";
 import { darkColors } from "../components/common";
 import { SearchProvider } from "../contexts/SearchContext";
 import "./styles/slides.css"
+
+import { SearchContext } from "../contexts/SearchContext";
+
 function Slides(){
+  const {casesData
+  } = useContext(SearchContext);
+  console.log(casesData)
 
  
     const slidinPanelAccordionData = [
@@ -104,12 +110,10 @@ function Slides(){
             ],
           };
              /* State responsible for controlling the opening/closing of the sidebar */
-    const [inactive, setInactive] = useState(false);
     return (
         <div>
-            <SideMenu onCollapse={(inactive) => {setInactive(inactive); }}>
-                <RecursiveAccordion  key={"accordion_0"} accordionData={dataStructure}>
-                    {/* Multiple Children is needed! */}
+            <SideMenu>
+{/*                 <RecursiveAccordion  key={"accordion_0"} accordionData={dataStructure}>
                     <div key={1} className="accordion_dropdown_item">
                          Sequência de Bombeio
                     </div>
@@ -119,14 +123,19 @@ function Slides(){
                     <div key={2} className="accordion_dropdown_item">
                         Teste3
                     </div>
-                </RecursiveAccordion>
+                </RecursiveAccordion> */}
             </SideMenu>
-
-            <SlidingPanel>
+            <div className="lista__container">
+              { casesData.map((item) => 
+              <ul>
+                <li>{item.title}</li>
+              </ul>
+              )}
+              </div>
+           
+{/*             <SlidingPanel>
                 <ul>
-                    {/*Component Accordion*/}
                     <RecursiveAccordion key={"accordion_0"}  accordionData={slidinPanelAccordionData}>
-                        {/* Multiple Children is needed! */}
                         <div key={1} className="accordion_dropdown_item">
                             <TabsComponent data={dataTabFluidos}>
                                 <div key={"Teste Fluidos 1"}>Teste Fluidos 1</div>
@@ -146,7 +155,7 @@ function Slides(){
                         </div>
                     </RecursiveAccordion>
                 </ul>
-            </SlidingPanel>
+            </SlidingPanel> */}
       </div>
     )
 }

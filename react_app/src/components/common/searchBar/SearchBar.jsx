@@ -37,15 +37,15 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="search-controller">
-      <button className="search-btn">
+    <div className="search__container">
+      <button className="search__btn">
         {wordValue.length === 0 ? (
           <i class="fas fa-search"></i>
         ) : (
           <i class="far fa-times-circle" onClick={clearInput}></i>
         )}
       </button>
-      <div className="searchInputs">
+      <div className="search__container--input">
         <input
           type="text"
           value={wordValue}
@@ -53,6 +53,7 @@ export default function SearchBar() {
             setWordValue(target.value);
             upgradeStates(target.value);
           }}
+          placeholder={"Busque um caso"} // TODO: PASS THE TEXT IN PLACEHOLDER USING PROPS
         />
       </div>
     </div>

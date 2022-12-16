@@ -1,7 +1,9 @@
+/* Accordion: must receive JS object as input with tabs labels and rescpective children inside.
+- tabs must animate smoothly
+- careful with double scrolling. */
+
 // # Main Import 
 import React, { useState } from 'react';
-
-// # Local Subcomponents & Utils
 
 // # Import Component Style
 import './recursiveAccordion.css';
@@ -9,7 +11,7 @@ import './recursiveAccordion.css';
 // Accordion External Section
 function AccordionSection(props) {
     return (
-        <div key={"acc_section_"+props.id} className={"accordion_section"}>
+        <div key={"acc_section_"+props.id} className="accordion_section">
             {props.children}
         </div>
     )
@@ -18,7 +20,7 @@ function AccordionSection(props) {
 // Container to multiple Accordion Items - mapped 
 function AccordionContainer(props) {
     return (
-        <div key={"acc_container_"+props.id} className={"accordion_container"}>
+        <div key={"acc_container_"+props.id} className="accordion_container">
             {props.children}
         </div>
     )
@@ -28,7 +30,7 @@ function AccordionContainer(props) {
 function AccordionDropdown(props) {
     
     return (
-        <div key={"acc_dropdown_"+props.id} className={"accordion_dropdown"}>
+        <div key={"acc_dropdown_"+props.id} className="accordion_dropdown">
             {/* <p>{props.body}</p> */}
             {props.children}
         </div>
@@ -41,7 +43,6 @@ function AccordionWrap(props) {
     // Only One can be opened at a time (comment below to change behavior)
     const isOpen = props.isOpen
     const handleToggle = props.handleToggle
-    console.log(handleToggle)
 
 
     // All Accordion Tabs can be opened simultaneously (comment below to change behavior)
@@ -49,8 +50,8 @@ function AccordionWrap(props) {
     
 
     // const [isEditable, setIsEditable] = useState(true)
-    let state=props.state
-    let changeState=props.changeState
+    let state = props.state
+    let changeState = props.changeState
 
     return (
         <>
@@ -146,8 +147,8 @@ function RecursiveAccordion (props) {
 
     
     return (
-        <AccordionSection id={0} className={"accordion_section"}>
-            <AccordionContainer id={0} className={"accordion_container"}>
+        <AccordionSection className="accordion_section">
+            <AccordionContainer  className="accordion_container">
                 {accordionData.map((item) => {
                         return (
                             <>
