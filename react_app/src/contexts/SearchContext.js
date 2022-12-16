@@ -33,6 +33,7 @@ function getProjects() {
   }
 
 // Functions responsible for bringing the Projects and Cases filtered from the Input Value
+// TODO: REVIEW THE LOGIC
   function updateStateProjects(value) {
     const searchWord = value;
     setWordValue(searchWord);

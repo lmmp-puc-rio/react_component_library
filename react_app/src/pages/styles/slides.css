@@ -3,7 +3,7 @@
     width: 50%;
     flex-direction: column;
     padding: 0.75rem;
-    background-color: #e2e7ed;
+
     height: 100%;
   }
   
@@ -13,4 +13,11 @@
   
   .sliding-pane-children ul .accordion {
     height: 80vh;
+  }
+
+  .lista__container {
+    color: black;
+    position: absolute;
+    justify-content: center;
+    margin-left: 20em;
   }
