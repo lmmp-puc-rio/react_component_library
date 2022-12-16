@@ -18,8 +18,8 @@
 
 .sliding-panel__children {
   background-color: #e2e7ed;
-  width: auto;
+  width: 30%;
   display: flex;
   padding: 1rem;
-}
 
+}
