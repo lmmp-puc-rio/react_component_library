@@ -1,5 +1,5 @@
 // #  Main Imports
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 
 // #  Local SubComponents & utils
 import { ActionFabGrid, GridForm } from "../components/common";
@@ -36,6 +36,8 @@ const Grids = (props) => {
     },
   };
 
+  
+ /* Header - ActionFabGrid */
   const metaData = {
     header: [
       { key: "id", label: "ID", expandable: false },
@@ -53,6 +55,12 @@ const Grids = (props) => {
       },
     ],
   };
+
+  /* States to control ActionFabGrid */
+  const [isSelectAllChecked, setSelectAllChecked] = useState(false);
+  const [countSelectRows, setCountSelectRows] = useState("");
+  const [rows, setRows] = useState([]);
+
   // Route
   const route = "/grids";
 
@@ -62,7 +70,15 @@ const Grids = (props) => {
       {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
       <GridForm data={formData} conversionFactors={conversionFactors} />
       <legend className="pages-title"> ExpandableGrid and Fab </legend>
-      <ActionFabGrid metaData={metaData} />
+      <ActionFabGrid
+        metaData={metaData}
+        isSelectAllChecked={isSelectAllChecked}
+        setSelectAllChecked={setSelectAllChecked}
+        countSelectRows={countSelectRows}
+        setCountSelectRows={setCountSelectRows}
+        rows={rows}
+        setRows={setRows}
+      />
     </div>
   );
 };

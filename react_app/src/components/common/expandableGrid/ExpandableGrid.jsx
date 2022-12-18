@@ -1,16 +1,11 @@
 // ExpandableGrid = Component to render header and body of tables
 
-// # Main Import
-import React, { useContext } from "react";
 
 // #  Local SubComponents & utils
 import { CheckboxActionIcon } from "../index";
 
 // # Import Component Style
 import "./ExpandableGrid.css";
-
-// # Contexts
-import { ActionFabGridContext } from "../../../contexts/ActionFabGridContext";
 
 // # Expandable Action Column React Component Construction
 function ActionColumn(props) {
@@ -21,7 +16,7 @@ function ActionColumn(props) {
   const data = props.data;
 
   return (
-    <td className="expandable_grid_actions_column">
+    <td className="expandable-grid__actions--column">
       {actions.map((action) => (
         <CheckboxActionIcon
           data={data}
@@ -53,8 +48,8 @@ function ExpandableRow(props) {
   return (
     // Case Row assembled by Action Icons and Other Fields
     <tr
-      key={"casegrid_row_" + rowdata.id}
-      className="caseRow"
+      key={"casegrid__row_" + rowdata.id}
+      className="case__row"
       id={["case_" + rowdata.id]}
     >
       {/* Action Column */}
@@ -67,7 +62,7 @@ function ExpandableRow(props) {
       />
       {/* Regular Column $TODO: Separate Columns and Expandable Columns */}
       {rowOrder.map((key) => (
-        <td key={"casegrid_row" + rowdata.id + "_column" + key}>
+        <td key={"casegrid__row" + rowdata.id + "_column" + key}>
           {rowdata[key]}
         </td>
       ))}
@@ -80,10 +75,8 @@ function ExpandableGrid(props) {
   const metaData = props.metaData;
   const selectCallback = props.selectCallback;
   const data = props.data;
-
-  /* State that controls the checkbox of the table header and selects all checkboxes */
-  const { isSelectAllChecked, setSelectAllChecked } =
-    useContext(ActionFabGridContext);
+  const isSelectAllChecked = props.isSelectAllChecked;
+  const setSelectAllChecked = props.setSelectAllChecked;
 
   /*  Function that controls all checkboxes(Selected/ Unselected) and change the state*/
   function selectAllRows() {
@@ -99,15 +92,15 @@ function ExpandableGrid(props) {
 
   return (
     // Logo assembled by Icon and Name
-    <div key="expandable_grid_container" className="expandable_grid_container">
-      <table key="expandable_grid" className="expandable_grid">
-        <thead key="expandable_grid_header" className="expandable_grid_header">
+    <div key="expandable-grid__container" className="expandable-grid__container">
+      <table key="expandable-grid__table" className="expandable-grid__table">
+        <thead key="expandable-grid__header" className="expandable-grid__header">
           <tr>
             {/*  Header Checkbox */}
             <th>
               <input
                 type="checkbox"
-                className="checkbox-header"
+                className="checkbox__header"
                 checked={isSelectAllChecked}
                 onClick={selectAllRows}
               />
@@ -118,25 +111,25 @@ function ExpandableGrid(props) {
           </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
-            <ExpandableRow
-              actions={metaData.actions}
-              metaData={metaData}
-              rowData={row}
-              data={data}
-              selectCallback={selectCallback}
-            />
-          ))}
+          {/* Show if grid is empty */}
+          {data.length === 0 ? (
+            <div className="expandable-grid__container--empty"></div>
+          ) : (
+            data.map((row) => (
+              <ExpandableRow
+                actions={metaData.actions}
+                metaData={metaData}
+                rowData={row}
+                data={data}
+                selectCallback={selectCallback}
+              />
+            ))
+          )}
         </tbody>
       </table>
-      {/* Show message if grid is empty */}
-      {data.length === 0 && (
-        <div className="expandable_grid_container_empty">
-          To add a new case click +
-        </div>
-      )}
     </div>
   );
 }
 
 export default ExpandableGrid;
+

@@ -39,37 +39,32 @@
 .fab-main-button {
   border-radius: 50%;
   border-color: transparent;
-  padding: 20px;
-  margin: 10px;
+  padding: 1rem;
+  margin: 0.625rem;
   place-items: center;
 }
 
 .fab-main-button:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.19),
+    0 0.375rem 0.375rem rgba(0, 0, 0, 0.23);
   transition: box-shadow 0.2s ease;
   outline: none;
   cursor: pointer;
   transform: scale(1.1) rotate(15deg);
 }
 
-.fab-main-button:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  transition: box-shadow 0.2s ease;
-  outline: none;
-}
 
 .fab-main-button .tooltip {
   visibility: hidden;
   background-color: #424242;
   color: #fafafa;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px;
+  border-radius: 0.375rem;
+  padding: 0.3125rem;
 
   /* Position the tooltip */
   position: absolute;
-  left: -100;
-  z-index: 1;
+
 }
 
 .fab-main-button:hover .tooltip {
@@ -81,13 +76,15 @@
 
 .fab-action-button {
   border-radius: 100%;
-  padding: 20px;
-  margin: 10px;
-  place-items: center;
+  padding: 1rem;
+  margin: 0.625rem;
+  display: flex;
+  align-items: center;
 }
 
 .fab-action-button:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.19),
+    0 0.375rem 0.375rem rgba(0, 0, 0, 0.23);
   transition: box-shadow 0.2s ease;
   outline: none;
 }
@@ -97,11 +94,12 @@
   background-color: #424242;
   color: #fafafa;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px;
+  border-radius: 0.375rem;
+  font-size: 0.7rem;
+  padding: 0.3125rem;
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
+  bottom: 15%;
 }
 
 .fab-action-button:hover .tooltip {
