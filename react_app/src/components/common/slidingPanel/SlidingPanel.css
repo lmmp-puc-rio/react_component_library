@@ -13,13 +13,12 @@
   border-style: hidden;
   border-radius: 0.5rem;
   color: #ffffff;
-
 }
 
 .sliding-panel__children {
   background-color: #e2e7ed;
   width: 30%;
+  height: 100vh;
   display: flex;
   padding: 1rem;
-
 }

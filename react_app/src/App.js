@@ -293,11 +293,9 @@ function App() {
 
                   {/* Pump Sequence Route */}
                   <Route exact path={navlinks[12].url}>
-                    <ActionFabGridProvider>
                       <div name="inputs" className="card-container">
                         <PumpSequence />
                       </div>
-                    </ActionFabGridProvider>
                   </Route>
                   {/* ActionFabGrid Route */}
                   <Route exact path={navlinks[13].url}>

@@ -1,86 +1,72 @@
-.expandable_row {
-  display: flex;
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+::-webkit-scrollbar {
+  width: 0.375rem;
+  height: 0.375rem;
+  background: #f4f4f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #9b9b9b;
 }
 
-.expand_button {
+.expandable-grid__container {
   display: flex;
-}
-
-.expandable_grid_container {
-  display: flex;
-  text-align: center;
-  color: black;
   border-radius: 0.3125rem;
-  background-color: #fff;
-  border: 0.0625rem solid #ccc;
-}
-
-.expandable_grid {
-  border-radius: 0.3125rem;
-  border-spacing: 0rem;
-  background-color: #fff;
-  filter: drop-shadow(0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25));
-}
-
-.expandable_grid_container_empty {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  font-size: 1.1875rem;
-  font-weight: bold;
-  color: #969696;
-  height: 3.75rem;
+  height: 40vh;
+  box-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  overflow: scroll;
+  overflow-y: scroll;
 }
 
-.expandable_grid_header {
-  width: 48.6875rem;
-  height: 3.25rem;
-  padding: 1rem;
+.expandable-grid__table {
+  border-radius: 0.3125rem;
+  width: 100%;
+  position: relative;
+  border-collapse: collapse;
+}
+
+.expandable-grid__header {
   color: #fff;
   background-color: #17365c;
+  align-items: center;
+  position: sticky;
+  top: 0;
 }
 
-.expandable_grid th {
-  padding: 0rem 0.625rem;
+.checkbox__header {
+  width: 100%;
+  margin-right: 1.2rem;
 }
 
-.expandable_grid table,
-td {
-  border: 0.625rem solid #fff;
-  height: fit-content;
-  padding: 0.75rem 1rem;
+.expandable-grid__container--empty {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  font-size: 1rem;
+  color: #969696;
 }
 
 td {
   border: none;
   font-style: normal;
-  font-weight: 300;
   font-size: 1rem;
-  line-height: 1.25rem;
-  text-align: center;
   color: #000;
 }
 
-.expandable_grid_actions_column {
-  background-color: #fff;
+th {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
+  padding: 0.8rem;
+  width: 100%;
 }
 
-.checkbox-header {
-  width: 1.125rem;
-  height: 1.125rem;
-}
-
-.hide-mobile {
-  @media (max-width: 30rem) {
-    display: none;
-  }
-}
-
-.hide-desktop {
-  @media not all and (max-width: 30rem) {
-    display: none;
-  }
+tr {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }

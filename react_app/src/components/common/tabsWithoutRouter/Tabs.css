@@ -1,26 +1,28 @@
 .Tabs {
-  width: 80%;
-  height: auto;
-  margin: 3.5rem auto 1.5rem;
-  padding: 2rem 1rem;
-  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-wrap: break-word;
 }
 
 ul.nav {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: center;
-  padding-left: 0px;
-  background: #FFFF; 
-  font-weight:  bold;
-  font-size: 0.9375rem;
-  text-decoration : none;
-  color:black;
+  justify-content: space-around;
+  padding: 0.625rem 0rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: black;
 }
 
 ul.nav li {
   padding: 1rem;
+  width: 100%;
   list-style: none;
   text-align: center;
   cursor: pointer;
@@ -28,12 +30,13 @@ ul.nav li {
 }
 
 ul.nav li.active {
-    background: #E2E7ED;
-    box-shadow: inset 0px -1.70254px 0px #7CABDC;
+  background: #e2e7ed;
+  box-shadow: inset 0px -1.70254px 0px #7cabdc;
+}
 
-  }
-
-
-
-
-
+.outlet {
+  height: auto;
+  padding: 1.6rem 0 0 0;
+  display: flex;
+  width: auto;
+}

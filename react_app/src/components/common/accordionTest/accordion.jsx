@@ -16,15 +16,15 @@ const AccordionItem = (props) => {
   const setOpenKey = props.setOpenKey;
 
   const handleToggle =(id)=> {
-    setOpenKey(id)
     setIsActive(!isActive)
+    setOpenKey(id)
   }
 
   return (
     <div className="accordion__container--item">
       <div className="accordion__title" onClick={() => handleToggle(id)}>
         <p>{title}</p>
-        <div className="accordion__icon">{isActive ? <i class="fas fa-times"></i>: <i class="fas fa-plus"></i>}</div>
+{/*         <div className="accordion__icon">{isActive && isOpen ? <i class="fas fa-times"></i>: <i class="fas fa-plus"></i>}</div> */}
       </div>
       {isActive && (
         <div className="accordion__container--child" style={{display: isOpen ? "block" : "none"}}>

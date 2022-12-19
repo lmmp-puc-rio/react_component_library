@@ -1,10 +1,7 @@
 // ActionFabGrid = Component responsible for controlling the ExpandableGrid and FAB
 
 // #  Main Imports
-import React, { useEffect, useContext } from "react";
-
-// # Contexts
-import { ActionFabGridContext } from "../../../contexts/ActionFabGridContext";
+import React, { useEffect } from "react";
 
 // #  Local SubComponents & utils
 import { ExpandableGrid, FAB } from "../index";
@@ -13,15 +10,14 @@ import { ExpandableGrid, FAB } from "../index";
 import { darkColors, lightColors } from "../MaterialColors";
 
 function ActionFabGrid(props) {
-  const {
-    isSelectAllChecked,
-    countSelectRows,
-    setCountSelectRows,
-    rows,
-    setRows,
-  } = useContext(ActionFabGridContext);
-
   const metaData = props.metaData;
+
+  const isSelectAllChecked = props.isSelectAllChecked
+  const setSelectAllChecked = props.setSelectAllChecked
+  const countSelectRows = props.countSelectRows
+  const setCountSelectRows = props.setCountSelectRows
+  const rows = props.rows
+  const setRows = props.setRows
 
   useEffect(() => {
     /*     Function responsible for counting the selected lines */
@@ -131,10 +127,12 @@ function ActionFabGrid(props) {
   }
 
   return (
-    <div className="page" style={{ color: "black" }}>
+    <div className="grid-fab__container">
       <ExpandableGrid
         metaData={metaData}
         data={rows}
+        isSelectAllChecked = {isSelectAllChecked}
+        setSelectAllChecked = {setSelectAllChecked}
         selectCallback={setRows}
       />
       <FAB data={controlsActionButton()} />
