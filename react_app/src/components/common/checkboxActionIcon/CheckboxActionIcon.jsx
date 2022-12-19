@@ -5,6 +5,10 @@ import "./CheckboxActionIcon.css";
 
 function CheckboxActionIcon(props) {
   /*  Function that controls the checkbox(id) (Selected/ Unselected) and change the state of the selected line */
+
+  const rowSelected = props.rowSelected
+
+  console.log(rowSelected)
   function handleClickChecked(id) {
     let updatedList = props.data.map((item) => {
       if (item.id === id) {
@@ -12,6 +16,7 @@ function CheckboxActionIcon(props) {
       }
       return item;
     });
+    console.log(updatedList)
     props.selectCallback(updatedList);
   }
 
@@ -19,7 +24,7 @@ function CheckboxActionIcon(props) {
     <input
       type="checkbox"
       className="input-radio"
-      checked={props.rowSelected}
+      checked={rowSelected.selected}
       onClick={() => handleClickChecked(props.rowID)}
     />
   );

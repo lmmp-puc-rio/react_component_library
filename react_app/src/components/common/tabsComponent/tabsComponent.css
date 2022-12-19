@@ -1,14 +1,14 @@
-.tab{
+.tab {
   justify-content: center;
   display: flex;
 }
 
-.tab-header{
+.tab-header {
   display: flex;
   justify-content: center;
   padding: 5px;
   text-align: center;
-  align-items:baseline;
+  align-items: baseline;
 }
 
 .tabs__list {
@@ -16,29 +16,24 @@
   justify-items: center;
   width: 80%;
   height: 80%;
-
-
 }
 
-.tabs__item{
-  
-  background: #FFFF; 
+.tabs__item {
+  background: #ffff;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
-  line-height: 20px;  
+  line-height: 20px;
   padding: 2px 5px 6px 5px;
-  text-decoration : none;
-  color:black;
+  text-decoration: none;
+  color: black;
   display: inline-block;
 }
 
 .tabs__list :focus {
-
-  background: #E2E7ED;
+  background: #e2e7ed;
   transition: 0.3s;
-  box-shadow: inset 0px -1.70254px 0px #7CABDC;
-  
+  box-shadow: inset 0px -1.70254px 0px #7cabdc;
 }
 
 .tabs__container {

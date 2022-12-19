@@ -1,5 +1,5 @@
 // #  Main Imports
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // #  Local SubComponents & utils
 import {
@@ -9,17 +9,56 @@ import {
   ActionFabGrid,
   FluidSelect,
   Accordion,
+  Tabs,
 } from "../components/common";
-import { ActionFabGridContext } from "../contexts/ActionFabGridContext";
+
+// # Context
+import { ActiveTabContext } from "../contexts/ActiveTabContext";
 
 // # Import Component Style
-//import "./pages.css";
 import { darkColors } from "../components/common/MaterialColors";
 
 function PumpSequence(props) {
-  const { setRows } = useContext(ActionFabGridContext);
 
-  const rowsAnnular = [
+  const { activeTab, setActiveTab } = useContext(ActiveTabContext);
+
+    /*Tabs Data*/
+    const dataTabSequencia = [
+      {
+        id: "Fluidos no anular",
+        description: "Fluidos no anular",
+        name: "Fluidos no anular",
+      },
+      {
+        id: "Fluidos de deslocamento",
+        description: "Fluidos de deslocamento",
+        name: "Fluidos de deslocamento",
+      },
+    ];
+  
+    const handleClick = (id) => {
+      setActiveTab(id);
+    };
+  
+
+  /* States to control Fluids Grid with FAB */
+  const [isSelectAllCheckedFluids, setSelectAllCheckedFluids] = useState(false);
+  const [countSelectRowsFluids, setCountSelectRowsFluids] = useState("");
+  const [rowsFluids, setRowsFluids] = useState([]);
+
+  /* States to control Anular Fluids Grid with FAB */
+  const [isSelectAllCheckedAnular, setSelectAllCheckedAnular] = useState(false);
+  const [countSelectRowsAnular, setCountSelectRowsAnular] = useState("");
+  const [rowsAnular, setRowsAnular] = useState([]);
+
+  /* States to control Displacement Fluids Grid with FAB */
+  const [isSelectAllCheckedDisplacement, setSelectAllCheckedDisplacement] =
+    useState(false);
+  const [countSelectRowsDisplacement, setCountSelectRowsDisplacement] =
+    useState("");
+  const [rowsDisplacement, setRowsDisplacement] = useState([]);
+
+  const rowsDataAnnular = [
     {
       id: 1,
       Fluido: "FPBNA",
@@ -38,9 +77,108 @@ function PumpSequence(props) {
       Entrada: "Volume",
       selected: false,
     },
+    {
+      id: 3,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 5,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 6,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 7,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 8,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 9,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 10,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 11,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 12,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 13,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
+    {
+      id: 14,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "836.8",
+      CompAnular: "384.4",
+      Entrada: "Volume",
+      selected: false,
+    },
   ];
 
-  const rowsDisplacementFluids = [
+  const rowsDataDisplacementFluids = [
     {
       id: 1,
       Fluido: "FPBNA",
@@ -59,83 +197,54 @@ function PumpSequence(props) {
       Entrada: "Topo",
       selected: false,
     },
-  ];
-
-  /* To set rows according tabs names */
-  useEffect(() => {
-    if (tabsFluidSequence[0] === "Fluidos no anular") {
-      setRows(rowsAnnular);
-    } else if (tabsFluidSequence[1] === "Fluidos de deslocamento") {
-      setRows(rowsDisplacementFluids);
-    }
-  }, []);
-
-  {
-    /*Accordion Data*/
-  }
-  const slidinPanelAccordionData = [
     {
-      main: "Fluidos",
-      id: "1",
-      hidden: "",
-      actions: [],
-      subitems: [],
+      id: 3,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "1136.8",
+      CompAnular: "384.4",
+      Entrada: "Topo",
+      selected: false,
     },
     {
-      main: "Sequência de Fluidos",
-      id: "2",
-      hidden: "",
-      actions: [],
-      subitems: [],
-    },
-  ];
-  const accordionData = [
-    {
-      title: "Fluidos",
-      id: "1",
+      id: 4,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "1136.8",
+      CompAnular: "384.4",
+      Entrada: "Topo",
+      selected: false,
     },
     {
-      title: "Sequência de Fluidos",
-      id: "2",
+      id: 5,
+      Fluido: "Colchão",
+      Volume: "100",
+      Topo: "1136.8",
+      CompAnular: "384.4",
+      Entrada: "Topo",
+      selected: false,
     },
   ];
 
   {
-    /*Tab Data*/
+    /* Header - Grid Data*/
   }
-  const dataTabFluidos = [
-    {
-      id: "Teste Fluidos 1",
-      description: "Teste Fluidos 1",
-      name: "Teste Fluidos 1",
-    },
-    {
-      id: "Teste Fluidos 2",
-      description: "Teste Fluidos 2",
-      name: "Teste Fluidos 2",
-    },
-  ];
 
-  const dataTabSequencia = [
-    {
-      id: "Fluidos no anular",
-      description: "Fluidos no anular",
-      name: "Fluidos no anular",
-    },
-    {
-      id: "Fluidos de deslocamento",
-      description: "Fluidos de deslocamento",
-      name: "Fluidos de deslocamento",
-    },
-  ];
+  const headersFluids = {
+    header: [
+      { key: "ID", label: "ID", expandable: true },
+      { key: "Fluido", label: "Fluido", expandable: true },
+      { key: "Cor", label: "Cor", expandable: true },
+    ],
+    actions: [
+      {
+        tooltip: "Select Button",
+        backgroundColor: darkColors.yellow,
+        color: darkColors.white,
+      },
+    ],
+  };
 
-  /* Filter bringing all tabs names */
-  const tabsFluids = dataTabFluidos.map((index) => index.name);
-  const tabsFluidSequence = dataTabSequencia.map((index) => index.name);
-
-  {
-    /*Grid Data*/
-  }
   const headersAnnular = {
     header: [
       { key: "Fluido", label: "Fluido", expandable: false },
@@ -170,27 +279,68 @@ function PumpSequence(props) {
     ],
   };
 
+  {
+    /*Accordion Data*/
+  }
+  const accordionData = [
+    {
+      title: "Fluidos",
+      id: "1",
+    },
+    {
+      title: "Sequência de Fluidos",
+      id: "2",
+    },
+  ];
+
+
   return (
     <>
       <h2>Sequência de Bombeio</h2>
       <SlidingPanel>
         <Accordion accordionData={accordionData}>
-          <div key={1} className="accordion_dropdown_item">
-            <TabsComponent data={dataTabFluidos}>
-              <div key={"Teste Fluidos 1"}>Teste Fluidos 1</div>
-              <div key={"Teste Fluidos 2"}>Teste Fluidos 2</div>
-            </TabsComponent>
+          <div key={1}>
+            <ActionFabGrid
+              metaData={headersFluids}
+              isSelectAllChecked={isSelectAllCheckedFluids}
+              setSelectAllChecked={setSelectAllCheckedFluids}
+              countSelectRows={countSelectRowsFluids}
+              setCountSelectRows={setCountSelectRowsFluids}
+              rows={rowsFluids}
+              setRows={setRowsFluids}
+            />
           </div>
-          <div key={2} className="accordion_dropdown_item">
+          <div key={2}>
             <FluidSelect />
-            <TabsComponent data={dataTabSequencia}>
+            <Tabs
+              data={dataTabSequencia}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              callback={handleClick}
+            >
               <div key={"Fluidos no anular"}>
-                <ActionFabGrid metaData={headersAnnular} />
+                <ActionFabGrid
+                  metaData={headersAnnular}
+                  isSelectAllChecked={isSelectAllCheckedAnular}
+                  setSelectAllChecked={setSelectAllCheckedAnular}
+                  countSelectRows={countSelectRowsAnular}
+                  setCountSelectRows={setCountSelectRowsAnular}
+                  rows={rowsDataAnnular}
+                  setRows={setRowsAnular}
+                />
               </div>
               <div key={"Fluidos de deslocamento"}>
-                <ActionFabGrid metaData={headersDisplacement} />
+                <ActionFabGrid
+                  metaData={headersDisplacement}
+                  isSelectAllChecked={isSelectAllCheckedDisplacement}
+                  setSelectAllChecked={setSelectAllCheckedDisplacement}
+                  countSelectRows={countSelectRowsDisplacement}
+                  setCountSelectRows={setCountSelectRowsDisplacement}
+                  rows={rowsDataDisplacementFluids}
+                  setRows={setRowsDisplacement}
+                />
               </div>
-            </TabsComponent>
+            </Tabs>
           </div>
         </Accordion>
       </SlidingPanel>

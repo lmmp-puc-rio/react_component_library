@@ -4,9 +4,7 @@
   box-sizing: border-box;
   text-decoration: none;
 }
-*::-webkit-scrollbar {
-  display: none;
-}
+
 
 .App {
 }
