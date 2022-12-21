@@ -42,6 +42,8 @@ function Modal(props) {
                     </a>
                     {/* Children that defines modal internal features */}
                     {props.children}
+
+
                     {/* Cancel button */}
                     <a href={cancelURL}>
                     {/* //TODO: Check how to do without reload */}

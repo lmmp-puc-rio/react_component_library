@@ -6,8 +6,6 @@
 }
 
 
-.App {
-}
 
 .main {
   /* background: linear-gradient(rgba(32, 29, 82, 0.5), rgba(100,100,100,0.5),rgba(255,255,255,0.5) ), 
@@ -41,4 +39,13 @@
   justify-self: center;
   margin: 0 auto;
   max-width: 30%;
+}
+
+.CaseTeste{
+  height: 60vh;
+  width: 60vh;
+}
+
+.CaseDelete{
+  height: 15vh;
 }

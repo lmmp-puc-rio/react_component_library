@@ -1,0 +1,21 @@
+
+
+.input-fluid{
+    height: 5vh;
+    width: 10vh
+}
+
+.back-modal{
+    background-color: darkgray;
+    border: 1px solid;
+}
+
+.label{
+    font-size: 2vh;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.input-fluid-nome{
+    width: 40vh;
+}

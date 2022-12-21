@@ -332,16 +332,22 @@ function App() {
                 </Switch>
                 <Route exact path={"/cases/delete/:id"}>
                   <Modal cancelURL={"/cases"}>
-                    <CaseDeletionConfirmation />
+                    <div className={"CaseDelete"}>
+                      <CaseDeletionConfirmation />
+                    </div>
                   </Modal>
                 </Route>
                 <Route exact path={"/cases/edit/:id"}>
                   <Modal cancelURL={"/cases"}>
+                     <div className={"CaseTeste"}>
                       <EditCase />
+                     </div>
+                      
                   </Modal>
                 </Route>
                 <Route exact path={"/BasicAndAdvancedForm"}>
                   <Modal cancelURL={navlinks[15].url}>
+
                     <CaseAdvancedForm />
                   </Modal>
                 </Route>
