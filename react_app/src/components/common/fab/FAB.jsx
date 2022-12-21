@@ -42,14 +42,18 @@ function ActionButton(props) {
 // # FAB Component Construction
 function FAB(props) {
   /* State responsible for expanding the main button after an action (onClik or onMouseOver) */
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState();
+  //const [open, setOpen] = useState(false);
   const data = props.data;
-  console.log(data)
+  console.log("PROPS.DATA dentro da função FAB:", data);
 
-
-  function handleClick() {
-    setOpen(!open);
+  function handleClick(value) {
+    setOpen(value);
+    console.log("VALUE dentro da função handleclick", value);
   }
+  /* function handleClick() {
+    setOpen(!open);
+  } */
 
   // Tag Rendering
   return (
