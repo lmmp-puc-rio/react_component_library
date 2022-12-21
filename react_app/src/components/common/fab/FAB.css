@@ -104,3 +104,7 @@
   visibility: visible;
   pointer-events: auto;
 }
+
+li {
+  list-style-type: none;
+}
