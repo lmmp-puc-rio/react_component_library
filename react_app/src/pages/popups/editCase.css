@@ -6,14 +6,16 @@
 }
 
 .back-modal{
-    background-color: darkgray;
+    background-color: #E2E7ED;
     border: 1px solid;
 }
 
 .label{
-    font-size: 2vh;
-    color:black;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14.1011px;
+    line-height: 120%;
 }
 
 .input-fluid-nome{

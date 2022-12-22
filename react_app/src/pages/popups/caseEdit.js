@@ -1,5 +1,5 @@
 // #  Main Imports
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 // # Import Component Style
@@ -14,11 +14,13 @@ import { SearchContext } from "../../contexts/SearchContext";
 
 function EditCase(props) {
   const history = useHistory();
-
+  
+  const [pageState, SetPageState] = useState(1)
   const { id } = useParams();
   const { setIsModalOpen } = useContext(ModalContext);
   const { casesData, setCasesData } = useContext(SearchContext);
 
+      
   // Case Edit function
   function editCase() {
     const successURL = "/cases";
@@ -28,53 +30,91 @@ function EditCase(props) {
     history.push(successURL);
   }
 
-  return (
-    <div>
-        <p>Criar um novo Fluido</p>
-       <div className="back-modal">
-            <label className="label"> identificação </label>
+    if (pageState == 1) {
+        return (
             <div>
-                <label className="label">nome:</label> 
-                <input className="input-fluid-nome" type="text" placeholder="nome"/>
-                <label>cor:</label>
-                <label className="label">Grupo:</label>
+                <p>Criar um novo Fluido</p>
+                <div className="back-modal">
+                    <label className="label"> identificação </label>
+                    <div>
+                        <label className="label">nome:</label> 
+                        <input className="input-fluid-nome" type="text" placeholder="nome"/>
+                        <label>cor:</label>
+                        <label className="label">Grupo:</label>
+                        <select>
+                            <option>Perfuração</option>
+                        </select>
+                    </div>   
+                </div>
+                <div className="back-modal">
+                    <label className="label">Densidade:</label> 
+                    <input type={"checkbox"}/> <label>Dependência(P/T)</label>
+                    
+                    <input type="text" className="input-fluid" placeholder = "Densidade" />
+                    <select>
+                        <option>lb/gal</option>
+                    </select>
+                </div>
+                <div className="back-modal">
+                    <label className="label">Modelo Reológico</label>
+                    <select>
+                        <option>Herschel-Bulkley</option>
+                    </select>
+                    <label className="label">Tensao Limite de Escoamento</label>
+                    <input type={"text"} className="input-fluid" />
+                    <select>
+                        <option>lbf/100ft²</option>
+                    </select>
+                    <label className="label">k</label>
+                    <input type={"text"}  className="input-fluid"/>
+                    <select>
+                        <option>lbf.s^n/100ft²</option>
+                    </select>
+
+                    <label className="label">n</label>
+                    <input type={"text"} className="input-fluid"/>
+                </div>
+                <button onClick={()=>SetPageState(2)}>click</button>
+            </div>
+
+        );
+    } else if (pageState == 2) {
+        return(
+        
+            <div>
                 <select>
-                    <option>Perfuração</option>
+                    <option>Herschel-Bulkley</option>
+                    <option>Binghan</option>
+                    <option>Power-law</option>
                 </select>
-            </div>   
-       </div>
-       <div className="back-modal">
-            <label className="label">Densidade:</label> 
-            <input type={"checkbox"}/> <label>Dependência(P/T)</label>
-           
-            <input type="text" className="input-fluid" placeholder = "Densidade" />
-            <select>
-                <option>lb/gal</option>
-            </select>
-       </div>
-       <div className="back-modal">
-            <label className="label">Modelo Reológico</label>
-            <select>
-                <option>Herschel-Bulkley</option>
-            </select>
-            <label className="label">Tensao Limite de Escoamento</label>
-            <input type={"text"} className="input-fluid" />
-            <select>
-                <option>lbf/100ft²</option>
-            </select>
-            <label className="label">k</label>
-            <input type={"text"}  className="input-fluid"/>
-            <select>
-                <option>lbf.s^n/100ft²</option>
-            </select>
+                <div>
+                    Plotly
+                </div>
+                <div>
+                    Grid
+                </div>
+            </div>
+        )
+    } else if (pageState == 3) {
+        return(
+            <div>
+                <select>
+                    <option>Herschel-Bulkley</option>
+                    <option>Binghan</option>
+                    <option>Power-law</option>
+                </select>
+                <div>
+                    Plotly
+                </div>
+                <div>
+                    Grid
+                </div>
+            </div>
+        )
+    }
 
-            <label className="label">n</label>
-            <input type={"text"} className="input-fluid"/>
-
-       </div>
-
-    </div>
-  );
 }
+
+
 
 export default EditCase;
