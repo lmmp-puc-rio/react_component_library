@@ -3,6 +3,7 @@
   justify-content: flex-end;
   z-index: 2;
   height: 100vh;
+
 }
 
 .sliding-panel__bttn {
@@ -17,8 +18,13 @@
 
 .sliding-panel__children {
   background-color: #e2e7ed;
-  width: 30%;
   height: 100vh;
   display: flex;
   padding: 1rem;
+  animation: width-transition 1s  forwards;
+  width: 0%;
+}
+
+@keyframes width-transition {
+  to {width: 30%;}
 }
