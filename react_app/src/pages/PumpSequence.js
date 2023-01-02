@@ -19,45 +19,78 @@ import { ActiveTabContext } from "../contexts/ActiveTabContext";
 import { darkColors } from "../components/common/MaterialColors";
 
 function PumpSequence(props) {
-
   const { activeTab, setActiveTab } = useContext(ActiveTabContext);
 
-    /*Tabs Data*/
-    const dataTabSequencia = [
+  /*Tabs Data*/
+  const dataTabSequencia = [
+    {
+      id: "Fluidos no anular",
+      description: "Fluidos no anular",
+      name: "Fluidos no anular",
+    },
+    {
+      id: "Fluidos de deslocamento",
+      description: "Fluidos de deslocamento",
+      name: "Fluidos de deslocamento",
+    },
+  ];
+
+  const handleClick = (id) => {
+    setActiveTab(id);
+  };
+
+  // Header - Grid Data
+
+  const headersFluids = {
+    header: [
+      { key: "ID", label: "ID", expandable: true },
+      { key: "Fluido", label: "Fluido", expandable: true },
+      { key: "Cor", label: "Cor", expandable: true },
+    ],
+    actions: [
       {
-        id: "Fluidos no anular",
-        description: "Fluidos no anular",
-        name: "Fluidos no anular",
+        tooltip: "Select Button",
+        backgroundColor: darkColors.yellow,
+        color: darkColors.white,
       },
+    ],
+  };
+
+  const headersAnnular = {
+    header: [
+      { key: "Fluido", label: "Fluido", expandable: false },
+      { key: "Volume", label: "Volume (bbl)", expandable: true },
+      { key: "Topo", label: "Topo", expandable: true },
+      { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
+      { key: "Entrada", label: "Entrada", expandable: true },
+    ],
+    actions: [
       {
-        id: "Fluidos de deslocamento",
-        description: "Fluidos de deslocamento",
-        name: "Fluidos de deslocamento",
+        tooltip: "Select Button",
+        backgroundColor: darkColors.yellow,
+        color: darkColors.white,
       },
-    ];
-  
-    const handleClick = (id) => {
-      setActiveTab(id);
-    };
-  
+    ],
+  };
 
-  /* States to control Fluids Grid with FAB */
-  const [isSelectAllCheckedFluids, setSelectAllCheckedFluids] = useState(false);
-  const [countSelectRowsFluids, setCountSelectRowsFluids] = useState("");
-  const [rowsFluids, setRowsFluids] = useState([]);
+  const headersDisplacement = {
+    header: [
+      { key: "Fluido", label: "Fluido", expandable: false },
+      { key: "Volume", label: "Volume (bbl)", expandable: true },
+      { key: "Topo", label: "Topo", expandable: true },
+      { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
+      { key: "Entrada", label: "Entrada", expandable: true },
+    ],
+    actions: [
+      {
+        tooltip: "Select Button",
+        backgroundColor: darkColors.yellow,
+        color: darkColors.white,
+      },
+    ],
+  };
 
-  /* States to control Anular Fluids Grid with FAB */
-  const [isSelectAllCheckedAnular, setSelectAllCheckedAnular] = useState(false);
-  const [countSelectRowsAnular, setCountSelectRowsAnular] = useState("");
-  const [rowsAnular, setRowsAnular] = useState([]);
-
-  /* States to control Displacement Fluids Grid with FAB */
-  const [isSelectAllCheckedDisplacement, setSelectAllCheckedDisplacement] =
-    useState(false);
-  const [countSelectRowsDisplacement, setCountSelectRowsDisplacement] =
-    useState("");
-  const [rowsDisplacement, setRowsDisplacement] = useState([]);
-
+  // Rows - Grid Data
   const rowsDataAnnular = [
     {
       id: 1,
@@ -226,62 +259,27 @@ function PumpSequence(props) {
     },
   ];
 
-  {
-    /* Header - Grid Data*/
-  }
+  /* States to control Fluids Grid with FAB */
+  const [isSelectAllCheckedFluids, setSelectAllCheckedFluids] = useState(false);
+  const [countSelectRowsFluids, setCountSelectRowsFluids] = useState("");
+  const [rowsFluids, setRowsFluids] = useState([]);
 
-  const headersFluids = {
-    header: [
-      { key: "ID", label: "ID", expandable: true },
-      { key: "Fluido", label: "Fluido", expandable: true },
-      { key: "Cor", label: "Cor", expandable: true },
-    ],
-    actions: [
-      {
-        tooltip: "Select Button",
-        backgroundColor: darkColors.yellow,
-        color: darkColors.white,
-      },
-    ],
-  };
+  /* States to control Anular Fluids Grid with FAB */
+  const [isSelectAllCheckedAnular, setSelectAllCheckedAnular] = useState(false);
+  const [countSelectRowsAnular, setCountSelectRowsAnular] = useState("");
+  const [rowsAnular, setRowsAnular] = useState(rowsDataAnnular);
 
-  const headersAnnular = {
-    header: [
-      { key: "Fluido", label: "Fluido", expandable: false },
-      { key: "Volume", label: "Volume (bbl)", expandable: true },
-      { key: "Topo", label: "Topo", expandable: true },
-      { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
-      { key: "Entrada", label: "Entrada", expandable: true },
-    ],
-    actions: [
-      {
-        tooltip: "Select Button",
-        backgroundColor: darkColors.yellow,
-        color: darkColors.white,
-      },
-    ],
-  };
+  /* States to control Displacement Fluids Grid with FAB */
+  const [isSelectAllCheckedDisplacement, setSelectAllCheckedDisplacement] =
+    useState(false);
+  const [countSelectRowsDisplacement, setCountSelectRowsDisplacement] =
+    useState("");
+  const [rowsDisplacement, setRowsDisplacement] = useState(
+    rowsDataDisplacementFluids
+  );
 
-  const headersDisplacement = {
-    header: [
-      { key: "Fluido", label: "Fluido", expandable: false },
-      { key: "Volume", label: "Volume (bbl)", expandable: true },
-      { key: "Topo", label: "Topo", expandable: true },
-      { key: "CompAnular", label: "Comp. do anular (m)", expandable: true },
-      { key: "Entrada", label: "Entrada", expandable: true },
-    ],
-    actions: [
-      {
-        tooltip: "Select Button",
-        backgroundColor: darkColors.yellow,
-        color: darkColors.white,
-      },
-    ],
-  };
+  //Accordion Data
 
-  {
-    /*Accordion Data*/
-  }
   const accordionData = [
     {
       title: "Fluidos",
@@ -292,7 +290,6 @@ function PumpSequence(props) {
       id: "2",
     },
   ];
-
 
   return (
     <>
@@ -325,7 +322,7 @@ function PumpSequence(props) {
                   setSelectAllChecked={setSelectAllCheckedAnular}
                   countSelectRows={countSelectRowsAnular}
                   setCountSelectRows={setCountSelectRowsAnular}
-                  rows={rowsDataAnnular}
+                  rows={rowsAnular}
                   setRows={setRowsAnular}
                 />
               </div>
@@ -336,7 +333,7 @@ function PumpSequence(props) {
                   setSelectAllChecked={setSelectAllCheckedDisplacement}
                   countSelectRows={countSelectRowsDisplacement}
                   setCountSelectRows={setCountSelectRowsDisplacement}
-                  rows={rowsDataDisplacementFluids}
+                  rows={rowsDisplacement}
                   setRows={setRowsDisplacement}
                 />
               </div>

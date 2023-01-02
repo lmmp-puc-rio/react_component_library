@@ -6,6 +6,25 @@ import React, { useState } from "react";
 import "./FAB.css";
 import { darkColors, lightColors } from "../../common/MaterialColors";
 
+// # ActionButtom SubComponent for FAB Construction
+function ActionButton(props) {
+  return (
+    <>
+      <span className="tooltip">{props.tooltip}</span>
+      <button
+        className="fab-main-button"
+        tooltip={props.tooltip}
+        style={props.styles || defaultItemStyles}
+        onClick={props.onClick}
+        onMouseEnter={props.onMouseEnter}
+      >
+        <i className={props.icon} style={props.iconStyles}></i>
+        {props.children}
+      </button>
+    </>
+  );
+}
+
 // # Link SubComponent for FAB Construction
 function Action(props) {
   return (
@@ -14,42 +33,26 @@ function Action(props) {
       className={"fab-action-button"}
       style={props.styles || defaultItemStyles}
     >
-      <spam className="tooltip">{props.tooltip}</spam>
+      <span className="tooltip">{props.tooltip}</span>
       <i className={props.icon} style={props.iconStyles}></i>
       {props.children}
     </a>
   );
 }
 
-// # ActionButtom SubComponent for FAB Construction
-function ActionButton(props) {
-  return (
-    <div>
-      <spam className="tooltip">{props.tooltip}</spam>
-      <button
-        className="fab-main-button"
-        tooltip={props.tooltip}
-        style={props.styles || defaultItemStyles}
-        onMouseOver={props.onClick}
-      >
-        <i className={props.icon} style={props.iconStyles}></i>
-        {props.children}
-      </button>
-    </div>
-  );
-}
-
 // # FAB Component Construction
 function FAB(props) {
-  /* State responsible for expanding the main button after an action (onClik or onMouseOver) */
+  /* State responsible for expanding the main button after an action (onClik or onMouseEnter) */
   const [open, setOpen] = useState(false);
   const data = props.data;
-  console.log(data)
-
 
   function handleClick() {
     setOpen(!open);
   }
+
+  const handleMouseEnter = (e) => {
+    setOpen(!open);
+  };
 
   // Tag Rendering
   return (
@@ -71,9 +74,10 @@ function FAB(props) {
           color: data.actionButtom.color,
         }}
         onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
       />
       {data.actions.map(
-        (action) =>
+        (action, index) =>
           // Minor Action Buttons
           open && (
             <Action

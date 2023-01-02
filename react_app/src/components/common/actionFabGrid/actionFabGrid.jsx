@@ -10,14 +10,20 @@ import { ExpandableGrid, FAB } from "../index";
 import { darkColors, lightColors } from "../MaterialColors";
 
 function ActionFabGrid(props) {
+  // Data to populate the Header of Grid
   const metaData = props.metaData;
 
-  const isSelectAllChecked = props.isSelectAllChecked
-  const setSelectAllChecked = props.setSelectAllChecked
-  const countSelectRows = props.countSelectRows
-  const setCountSelectRows = props.setCountSelectRows
-  const rows = props.rows
-  const setRows = props.setRows
+  // Data for count select rows
+  const countSelectRows = props.countSelectRows;
+  const setCountSelectRows = props.setCountSelectRows;
+
+  // Data to populate the Header of Grid
+  const isSelectAllChecked = props.isSelectAllChecked;
+  const setSelectAllChecked = props.setSelectAllChecked;
+
+  // Data to populate the Rows
+  const rows = props.rows;
+  const setRows = props.setRows;
 
   useEffect(() => {
     /*     Function responsible for counting the selected lines */
@@ -130,10 +136,10 @@ function ActionFabGrid(props) {
     <div className="grid-fab__container">
       <ExpandableGrid
         metaData={metaData}
-        data={rows}
-        isSelectAllChecked = {isSelectAllChecked}
-        setSelectAllChecked = {setSelectAllChecked}
-        selectCallback={setRows}
+        setRows={setRows}
+        rows={rows}
+        isSelectAllChecked={isSelectAllChecked}
+        setSelectAllChecked={setSelectAllChecked}
       />
       <FAB data={controlsActionButton()} />
     </div>
