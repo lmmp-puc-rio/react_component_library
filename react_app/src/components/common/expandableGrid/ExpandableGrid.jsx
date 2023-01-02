@@ -1,6 +1,5 @@
 // ExpandableGrid = Component to render header and body of tables
 
-
 // #  Local SubComponents & utils
 import { CheckboxActionIcon } from "../index";
 
@@ -10,19 +9,22 @@ import "./ExpandableGrid.css";
 // # Expandable Action Column React Component Construction
 function ActionColumn(props) {
   const actions = props.actions;
+
   const id = props.id;
+
   const rowSelected = props.rowSelected;
-  const selectCallback = props.selectCallback;
-  const data = props.data;
+  
+  const rows = props.rows;
+  const setRows = props.setRows;
 
   return (
     <td className="expandable-grid__actions--column">
       {actions.map((action) => (
         <CheckboxActionIcon
-          data={data}
+          rows={rows}
           callback={action.callback}
           rowID={id}
-          selectCallback={selectCallback}
+          setRows={setRows}
           rowSelected={rowSelected}
           routeURL={action.route}
           tooltip={action.tooltip}
@@ -37,11 +39,17 @@ function ActionColumn(props) {
 
 // # Expandable Row React Component Construction
 function ExpandableRow(props) {
-  const rowdata = props.rowData;
-  const actions = props.actions;
-  const selectCallback = props.selectCallback;
   const metaData = props.metaData;
-  const data = props.data;
+
+  const rows = props.rows;
+  const setRows = props.setRows;
+
+  const rowdata = props.rowData;
+
+  const actions = props.actions;
+
+
+
   /* Map just to find the keys of each header */
   const rowOrder = metaData.header.map((index) => index.key);
 
@@ -57,8 +65,8 @@ function ExpandableRow(props) {
         actions={actions}
         id={rowdata.id}
         rowSelected={rowdata.selected}
-        selectCallback={selectCallback}
-        data={data}
+        rows={rows}
+        setRows={setRows}
       />
       {/* Regular Column $TODO: Separate Columns and Expandable Columns */}
       {rowOrder.map((key) => (
@@ -73,28 +81,42 @@ function ExpandableRow(props) {
 // # Expandable Grid React Component Construction
 function ExpandableGrid(props) {
   const metaData = props.metaData;
-  const selectCallback = props.selectCallback;
-  const data = props.data;
-  const isSelectAllChecked = props.isSelectAllChecked;
-  const setSelectAllChecked = props.setSelectAllChecked;
 
-  /*  Function that controls all checkboxes(Selected/ Unselected) and change the state*/
-  function selectAllRows() {
-    let updatedList = data.map((item) => {
+  const setRows = props.setRows;
+  const rows = props.rows;
+
+  const isSelectAllChecked = props.isSelectAllChecked;
+  const setSelectAllChecked = props.setSelectAllChecked
+
+    /*  Function that controls all checkboxes(Selected/ Unselected) and change the state*/
+    function selectAllRows() {
+      setSelectAllChecked(!isSelectAllChecked);
       if (isSelectAllChecked === true) {
-        return { ...item, selected: false };
+        let updatedList = rows.map((item) => {
+          
+          return { ...item, selected: false};
+        });
+        setRows(updatedList);
+      } else {
+        let updatedList = rows.map((item) => {
+          return { ...item, selected: true };
+        });
+        setRows(updatedList);
+
       }
-      return { ...item, selected: true };
-    });
-    selectCallback(updatedList);
-    setSelectAllChecked(!isSelectAllChecked);
-  }
+    }
 
   return (
     // Logo assembled by Icon and Name
-    <div key="expandable-grid__container" className="expandable-grid__container">
+    <div
+      key="expandable-grid__container"
+      className="expandable-grid__container"
+    >
       <table key="expandable-grid__table" className="expandable-grid__table">
-        <thead key="expandable-grid__header" className="expandable-grid__header">
+        <thead
+          key="expandable-grid__header"
+          className="expandable-grid__header"
+        >
           <tr>
             {/*  Header Checkbox */}
             <th>
@@ -112,16 +134,16 @@ function ExpandableGrid(props) {
         </thead>
         <tbody>
           {/* Show if grid is empty */}
-          {data.length === 0 ? (
+          {rows.length === 0 ? (
             <div className="expandable-grid__container--empty"></div>
           ) : (
-            data.map((row) => (
+            rows.map((row) => (
               <ExpandableRow
                 actions={metaData.actions}
                 metaData={metaData}
                 rowData={row}
-                data={data}
-                selectCallback={selectCallback}
+                rows={rows}
+                setRows={setRows}
               />
             ))
           )}
@@ -132,4 +154,3 @@ function ExpandableGrid(props) {
 }
 
 export default ExpandableGrid;
-
