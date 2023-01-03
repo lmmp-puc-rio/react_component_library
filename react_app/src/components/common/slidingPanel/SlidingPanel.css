@@ -3,7 +3,6 @@
   justify-content: flex-end;
   z-index: 2;
   height: 100vh;
-
 }
 
 .sliding-panel__bttn {
@@ -16,15 +15,18 @@
   color: #ffffff;
 }
 
-.sliding-panel__children {
-  background-color: #e2e7ed;
+.sliding-panel__children-empty {
   height: 100vh;
-  display: flex;
-  padding: 1rem;
-  animation: width-transition 1s  forwards;
+  transition: all 0.8s ease-out;
   width: 0%;
 }
 
-@keyframes width-transition {
-  to {width: 30%;}
+.sliding-panel__children {
+  background-color: #e2e7ed;
+  height: 100vh;
+  padding: 1rem;
+  transition: all 0.8s ease-in;
+  width: 30%;
 }
+
+

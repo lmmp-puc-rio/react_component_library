@@ -20,7 +20,7 @@ export default function SlidingPanel(props) {
           <i class="fas fa-angle-double-left fa-lg"></i>
         )}
       </button>
-      {open && <div className="sliding-panel__children">{props.children}</div>}
+      {open ? <div className="sliding-panel__children">{props.children}</div> : <div className="sliding-panel__children-empty"></div> }
     </div>
   );
 }
