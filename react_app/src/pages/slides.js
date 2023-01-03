@@ -9,7 +9,6 @@ import { SearchContext } from "../contexts/SearchContext";
 function Slides(){
   const {casesData
   } = useContext(SearchContext);
-  console.log(casesData)
 
  
     const slidinPanelAccordionData = [
