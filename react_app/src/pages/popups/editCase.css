@@ -21,3 +21,34 @@
 .input-fluid-nome{
     width: 40vh;
 }
+
+.modal_cancel-button {
+    position: absolute;
+    left: 0.625rem;
+    bottom: 0.625rem;
+    padding: 0.625rem;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    font-size: 0.9375rem;
+    text-align: center;
+}
+
+.modal_confirm-button {
+    position: absolute;
+    right: 0.625rem;
+    bottom: 0.625rem;
+    background: green;
+    padding: 0.625rem;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    font-size: 0.9375rem;
+    
+}
+  
+.switch {
+    margin: 50px;
+  }
