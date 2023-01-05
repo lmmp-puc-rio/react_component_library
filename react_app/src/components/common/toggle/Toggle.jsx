@@ -10,9 +10,9 @@ export const Toggle = ({ label, toggled, onClick }) => {
 
     return (
         <label>
-            <strong>{label}</strong>
-            <span />
-            <input className="input" type="checkbox" defaultChecked={isToggled} onClick={callback}  />
+            <strong className='strong_Toggle'>{label}</strong>
+            <span className='span_Toggle' />
+            <input className="input_Toggle" type="checkbox" defaultChecked={isToggled} onClick={callback}  />
             
             
         </label>

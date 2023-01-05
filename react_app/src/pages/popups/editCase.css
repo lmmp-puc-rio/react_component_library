@@ -1,13 +1,12 @@
 
 
-.input-fluid{
-    height: 5vh;
-    width: 10vh
-}
 
 .back-modal{
-    background-color: #E2E7ED;
+    background-color: #D1CECE;
     border: 1px solid;
+    position: relative;
+    width: 60vh;
+    height: 18vh;
 }
 
 .label{
@@ -16,10 +15,6 @@
     font-weight: 600;
     font-size: 14.1011px;
     line-height: 120%;
-}
-
-.input-fluid-nome{
-    width: 40vh;
 }
 
 .modal_cancel-button {
@@ -49,6 +44,42 @@
     
 }
   
-.switch {
-    margin: 50px;
+
+
+  .title_Modal{
+    position: relative;
+    width: 98px;
+    height: 15px;
+    font-family: monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    display: inline;
+    text-align: center;
   }
+
+  .color{
+    color: black;
+    position: absolute;
+    width: 24px;
+    height: 15px;
+    left: 45vh;
+    top: 4vh;
+    bottom: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .input-fluid-nome{
+    width: 40vh;
+    position: absolute;
+    height: 2vh;
+    top: 4vh;
+}
+
+.label-grupo{
+    top:2vh
+}

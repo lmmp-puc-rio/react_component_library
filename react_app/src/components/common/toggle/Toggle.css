@@ -5,23 +5,23 @@ label {
     height: 30px;
 }
 
-.input {
+.input_Toggle {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-span {
-    position: absolute;
-    display: flex;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #2c3e50;
-    transition: 0.3s;
-    border-radius: 30px;
+.span_Toggle {
+  display: flex;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2c3e50;
+  transition: 0.3s;
+  border-radius: 30px;
 }
 
 span:before {
@@ -37,12 +37,12 @@ span:before {
     transition: 0.3s;
   }
   
-.input:checked + span {
+.span_Toggle {
     background-color: #00c853;
   }
 
  
-.input:checked + span:before {
+.span_Toggle ::before  {
     transform: translateX(29px);
   }
 
