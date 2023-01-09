@@ -1,0 +1,85 @@
+
+
+
+.back-modal{
+    background-color: #D1CECE;
+    border: 1px solid;
+    position: relative;
+    width: 60vh;
+    height: 18vh;
+}
+
+.label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14.1011px;
+    line-height: 120%;
+}
+
+.modal_cancel-button {
+    position: absolute;
+    left: 0.625rem;
+    bottom: 0.625rem;
+    padding: 0.625rem;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    font-size: 0.9375rem;
+    text-align: center;
+}
+
+.modal_confirm-button {
+    position: absolute;
+    right: 0.625rem;
+    bottom: 0.625rem;
+    background: green;
+    padding: 0.625rem;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    font-size: 0.9375rem;
+    
+}
+  
+
+
+  .title_Modal{
+    position: relative;
+    width: 98px;
+    height: 15px;
+    font-family: monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    display: inline;
+    text-align: center;
+  }
+
+  .color{
+    color: black;
+    position: absolute;
+    width: 24px;
+    height: 15px;
+    left: 45vh;
+    top: 4vh;
+    bottom: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .input-fluid-nome{
+    width: 40vh;
+    position: absolute;
+    height: 2vh;
+    top: 4vh;
+}
+
+.label-grupo{
+    top:2vh
+}

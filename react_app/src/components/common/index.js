@@ -30,7 +30,7 @@ import GraphicObjectsPlotly from "./graphicObjects";
 import Tabs from "./tabsWithoutRouter";
 import Graphic3D from "./graphic3D";
 import Accordion from "./accordionTest";
-
+import Toggle from "./toggle";
 export {
   Header,
   Navbar,
@@ -65,6 +65,7 @@ export {
   Tabs,
   Graphic3D,
   Accordion,
+  Toggle,
   darkColors,
   lightColors,
 };

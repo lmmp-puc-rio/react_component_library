@@ -42,16 +42,18 @@ function Modal(props) {
                     </a>
                     {/* Children that defines modal internal features */}
                     {props.children}
+
+
                     {/* Cancel button */}
-                    <a href={cancelURL}>
+                    {/* <a href={cancelURL}> */}
                     {/* //TODO: Check how to do without reload */}
-                        <button className='modal_cancel-button'
+                        {/* <button className='modal_cancel-button'
                                 onClick={closeModal}
                                 //specific styling
                                 style={{backgroundColor: darkColors.red}}>
                                 <i className='fas fa-times'/> Cancel
                         </button>
-                    </a>
+                    </a> */}
                     
                     
                 </div>

@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { ThemeProvider } from 'styled-components';
 // import { theme } from './theme'
 import "./App.css";
-import { CaseDeletionConfirmation, CaseAdvancedForm } from "./pages/popups";
+import { CaseDeletionConfirmation, CaseAdvancedForm,EditCase } from "./pages/popups";
 
 // All Components import
 
@@ -332,11 +332,22 @@ function App() {
                 </Switch>
                 <Route exact path={"/cases/delete/:id"}>
                   <Modal cancelURL={"/cases"}>
-                    <CaseDeletionConfirmation />
+                    <div className={"CaseDelete"}>
+                      <CaseDeletionConfirmation />
+                    </div>
+                  </Modal>
+                </Route>
+                <Route exact path={"/cases/edit/:id"}>
+                  <Modal cancelURL={"/cases"}>
+                     <div className={"CaseTeste"}>
+                      <EditCase />
+                     </div>
+                      
                   </Modal>
                 </Route>
                 <Route exact path={"/BasicAndAdvancedForm"}>
                   <Modal cancelURL={navlinks[15].url}>
+
                     <CaseAdvancedForm />
                   </Modal>
                 </Route>
