@@ -15,10 +15,18 @@
   color: #ffffff;
 }
 
+.sliding-panel__children-empty {
+  height: 100vh;
+  transition: all 0.8s ease-out;
+  width: 0%;
+}
+
 .sliding-panel__children {
   background-color: #e2e7ed;
-  width: 30%;
   height: 100vh;
-  display: flex;
   padding: 1rem;
+  transition: all 0.8s ease-in;
+  width: 30%;
 }
+
+
