@@ -31,6 +31,7 @@ import Tabs from "./tabsWithoutRouter";
 import Graphic3D from "./graphic3D";
 import Accordion from "./accordionTest";
 import Toggle from "./toggle";
+import CurrentLevel from "./currentLevel";
 export {
   Header,
   Navbar,
@@ -66,6 +67,7 @@ export {
   Graphic3D,
   Accordion,
   Toggle,
+  CurrentLevel,
   darkColors,
   lightColors,
 };
