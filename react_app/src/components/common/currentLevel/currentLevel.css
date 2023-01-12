@@ -1,0 +1,17 @@
+.current-level__container {
+    color: black;
+    display: flex;
+    align-items: center;
+    background-color: #b5daff;
+    padding-left: 0.6rem;
+    border-bottom: 1px solid black;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 5vh;
+  }
+
+  .current-level__bttn {
+    border: none;
+    margin-right: 0.5rem;
+    background-color: transparent;
+  }
