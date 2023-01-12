@@ -1,16 +1,14 @@
-.container {
-  display: flex;
-  align-items: center;
-  position: absolute;
-}
 
 .sidebar {
-  background: #e2e7ed;
+  background-color: #e2e7ed;
   color: #fff;
   height: 100vh;
-  width: 18.75rem;
+  width: 25vw;
   transition: all 0.3s;
   border-radius: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .top_section {
@@ -18,8 +16,10 @@
   align-items: center;
   justify-content: space-between;
   margin: 0.625rem 0.9375rem 0.9375rem 0.625rem;
+  height: 3vh;
 }
-.logo {
+
+.title-side-bar {
   font-size: 1rem;
   color: #17365c;
 }
@@ -30,28 +30,31 @@
 }
 
 .search-bar-container {
-  margin: 0.625rem 0.9375rem 0.9375rem 0.625rem;
-  padding: 0;
+  margin: 0.625rem 0.9375rem;
+  height: 3vh;
 }
 
 .main-menu {
   border-radius: 0.5rem;
   background-color: #fff;
-  height: 60%;
-  margin: 0.625rem 0.9375rem 0.9375rem 0.625rem;
+  margin: 1rem;
+  height: 70vh;
+  width: 90%;
+  display: flex;
+  position: relative;
 }
+
+
 
 .side-menu-footer-logo {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
-  overflow: hidden;
+  height: 3vh;
 }
 
 .side-footer-img {
-  width: 2.5rem;
-  margin: 0rem 0rem 0.9375rem 0rem;
+  width: 3rem;
 }
 
 .side-footer-bttn {
@@ -62,7 +65,7 @@
   background-color: #fff;
   margin: 0.625rem;
   border-radius: 0.5rem;
-  padding: 0.625rem;
+  padding: 0 0.625rem;
 }
 
 .avatar {
