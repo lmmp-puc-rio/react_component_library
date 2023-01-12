@@ -47,7 +47,7 @@ const FormsNewProject = (props) => {
     e.preventDefault();
 /*     console.log("ON SUBMIT", values); */
     /*     await createNewProject(id, values); */
-    history.push(`/well/${id}/projects`);
+/*     history.push(`/well/${id}/projects`); */
   };
 
   const onChange = (e) => {
@@ -55,7 +55,7 @@ const FormsNewProject = (props) => {
   };
 
   const redirectToProjects = () => {
-    history.push(`/projects`);
+/*     history.push(`/projects`); */
   };
 
   return (
