@@ -17,6 +17,7 @@ import Jokes from "./Jokes";
 import Graphic3DPlotly from "./Graphic3D";
 import TestReactQuery from "./TestReactQuery";
 import FormsNewProject from "./FormsNewProject";
+import FormsNewCase from "./FormsNewCase";
 
 
 export {
@@ -39,5 +40,6 @@ export {
   Graphic3DPlotly,
   TestReactQuery,
   FormsNewProject,
+  FormsNewCase,
 };
 

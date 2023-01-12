@@ -11,6 +11,7 @@ import { darkColors } from "../components/common";
 import { SearchProvider } from "../contexts/SearchContext";
 
 import FormsNewProject from "./FormsNewProject";
+import FormsNewCase from "./FormsNewCase";
 
 
 import "./styles/slides.css";
@@ -31,7 +32,7 @@ function Slides() {
 
 // Params to implements at "/project/idDoProjeto/cases"
   const paramsForCases = {
-    text: "Projeto: Nome do Projeto ",
+    text: "Projeto: Plug 2 ",
     route: "/well/nomedopoço/projects",
   };
 
@@ -47,8 +48,9 @@ function Slides() {
   return (
     <div>
       <SideMenu>
-        <CurrentLevel data={paramsForProjects} />
-        <FormsNewProject />
+        <CurrentLevel data={paramsForCases} />
+      {/*   <FormsNewProject /> */}
+        <FormsNewCase />
       </SideMenu>
 {/*       <div className="lista__container">
         {casesData.map((item) => (
