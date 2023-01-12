@@ -1,32 +1,58 @@
 .formInput {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  padding: 1rem;
 }
 
-input {
-  padding: 15px;
-  margin: 10px 0px;
-  border-radius: 5px;
-  border: 1px solid gray;
+.input-component {
+  padding: 0.9375rem;
+  margin: 1.25rem 0rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid gray;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
 }
 
-label {
-  font-size: 12px;
-  color: gray;
+.textarea {
+  resize: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-span {
-  font-size: 12px;
-  padding: 3px;
+.select-input-component {
+  padding: 0.9rem;
+  margin: 1.25rem 0rem;
+  width: 100%;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid gray;
+}
+
+.input-component:focus {
+  outline: 0;
+  border-color: #17365c;
+}
+
+.select-input-component:focus {
+  outline: 0;
+  border-color: #17365c;
+}
+
+.label-input-component {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #17365c;
+}
+
+.span-input-component {
+  font-size: 0.75rem;
+  padding: 0.1875rem;
   color: red;
   display: none;
 }
 
-input:invalid[focused="true"] {
-  border: 1px solid red;
+.input-component:invalid[focused="true"] {
+  border: 0.0625rem solid red;
 }
 
-input:invalid[focused="true"] ~ span {
+.input-component:invalid[focused="true"] ~ span {
   display: block;
 }
