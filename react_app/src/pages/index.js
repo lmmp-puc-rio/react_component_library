@@ -16,6 +16,7 @@ import BasicAndAdvancedForm from "./BasicAndAdvancedForm";
 import Jokes from "./Jokes";
 import Graphic3DPlotly from "./Graphic3D";
 import TestReactQuery from "./TestReactQuery";
+import FormsNewProject from "./FormsNewProject";
 
 
 export {
@@ -37,5 +38,6 @@ export {
   Jokes,
   Graphic3DPlotly,
   TestReactQuery,
+  FormsNewProject,
 };
 
