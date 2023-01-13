@@ -27,7 +27,7 @@ const fotterIcons = [
   },
 ];
 
-const SideMenu = (props) => {
+const SideBar= (props) => {
   /* State responsible for controlling the opening/closing of the sidebar */
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -35,11 +35,11 @@ const SideMenu = (props) => {
   return (
     <div className="container">
       <div
-        style={{ width: isOpen ? "18.75rem" : "65px", height: "100vh" }}
+        style={{ width: isOpen ? "18.75rem" : "65px" }}
         className="sidebar"
       >
         <div className="top_section">
-          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
+          <h1 style={{ display: isOpen ? "block" : "none" }} className="title-side-bar">
             INTERFACES 3D
           </h1>
           <div
@@ -58,17 +58,16 @@ const SideMenu = (props) => {
             )}
           </div>
         </div>
-        <div className="search-bar-container">
+        <div className="search-bar-container" style={{ display: isOpen ? "block" : "none" }}>
           <SearchBar />
         </div>
-        <div className="main-menu">
-          {isOpen ? <ul>{props.children}</ul> : <ul>""</ul>}
+        <div className="main-menu" style={{ display: isOpen ? "block" : "none" }}>
+          {isOpen ? <ul className="main-menu__item">{props.children}</ul> : <ul>""</ul>}
         </div>
         <div
           style={{
-            padding: isOpen
-              ? "0rem 0.9375rem 2rem 0.9375rem"
-              : "0rem 0.9375rem 0.2rem 0.9375rem",
+    
+            display: isOpen ? "flex" : "none"
           }}
           className="side-menu-footer-logo"
         >
@@ -95,4 +94,4 @@ const SideMenu = (props) => {
   );
 };
 
-export default SideMenu;
+export default SideBar;

@@ -9,7 +9,13 @@ import {
 } from "../components/common";
 import { darkColors } from "../components/common";
 import { SearchProvider } from "../contexts/SearchContext";
+
+import FormsNewProject from "./FormsNewProject";
+import FormsNewCase from "./FormsNewCase";
+
+
 import "./styles/slides.css";
+
 
 import { SearchContext } from "../contexts/SearchContext";
 
@@ -19,14 +25,14 @@ function Slides() {
 
   // Params to implements at "/well/nomedopoço/projects",
   const paramsForProjects = {
-    text: "Poço: Nome do Poço ",
+    text: "Poço: 2-ANP-1-RJS ",
     route: "/projects",
   };
 
 
 // Params to implements at "/project/idDoProjeto/cases"
   const paramsForCases = {
-    text: "Projeto: Nome do Projeto ",
+    text: "Projeto: Plug 2 ",
     route: "/well/nomedopoço/projects",
   };
 
@@ -42,15 +48,17 @@ function Slides() {
   return (
     <div>
       <SideMenu>
-        <CurrentLevel data={paramsForCaseProps} />
+        <CurrentLevel data={paramsForCases} />
+      {/*   <FormsNewProject /> */}
+        <FormsNewCase />
       </SideMenu>
-      <div className="lista__container">
+{/*       <div className="lista__container">
         {casesData.map((item) => (
           <ul>
             <li>{item.title}</li>
           </ul>
         ))}
-      </div>
+      </div> */}
 
       {/*             <SlidingPanel>
                 <ul>
