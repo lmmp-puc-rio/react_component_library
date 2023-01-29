@@ -32,6 +32,7 @@ import Graphic3D from "./graphic3D";
 import Accordion from "./accordionTest";
 import Toggle from "./toggle";
 import CurrentLevel from "./currentLevel";
+import BallonNotification from "./ballonNotification";
 export {
   Header,
   Navbar,
@@ -68,6 +69,7 @@ export {
   Accordion,
   Toggle,
   CurrentLevel,
+  BallonNotification,
   darkColors,
   lightColors,
 };
