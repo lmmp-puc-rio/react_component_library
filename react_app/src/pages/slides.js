@@ -24,9 +24,9 @@ function Slides() {
 
   const [activeName, setActiveName] = useState();
 
-  const [errorInfo, setErrorInfo] = useState();
+  const [errorInfo, setErrorInfo] = useState(0);
 
-  const [errorScenery, setErrorScenery] = useState();
+  const [errorScenery, setErrorScenery] = useState(0);
 
 
   const [valuesInfo, setValuesInfo] = useState({
@@ -35,8 +35,8 @@ function Slides() {
   });
 
   const [valuesScenery, setValuesScenery] = useState({
-    sonda: "",
     lamina: "",
+    od: "",
   });
 
   useEffect(() => {
@@ -73,7 +73,7 @@ function Slides() {
       name: "lamina",
       type: "text",
       placeholder: "Valor",
-      errorMessage: "Essa propriedade debve ser um número!",
+      errorMessage: "Essa propriedade deve ser um número!",
       label: "Lâmina",
       pattern: "^[0-9]*$",
       requeried: true,
@@ -81,10 +81,10 @@ function Slides() {
     {
       id: 4,
       name: "od",
-      type: "number",
+      type: "text",
       placeholder: "Valor",
       errorMessage: "Essa propriedade deve ser um número!",
-      pattern: "^[A-Za-z]+$",
+      pattern: "^[0-9]*$",
       requeried: true,
       label: "OD",
     },

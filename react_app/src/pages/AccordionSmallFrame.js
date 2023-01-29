@@ -24,7 +24,6 @@ function AccordionSmallFrame(props) {
 
   
   const handleToggle = (url, id, setError, values) => {
-    console.log(id)
     
     if(id=== "Informações gerais") {
       let emptyValues = Object.values(valuesScenery).filter(
