@@ -18,6 +18,7 @@ import Graphic3DPlotly from "./Graphic3D";
 import TestReactQuery from "./TestReactQuery";
 import FormsNewProject from "./FormsNewProject";
 import FormsNewCase from "./FormsNewCase";
+import AccordionSmallFrame from "./AccordionSmallFrame";
 
 
 export {
@@ -41,5 +42,6 @@ export {
   TestReactQuery,
   FormsNewProject,
   FormsNewCase,
+  AccordionSmallFrame,
 };
 

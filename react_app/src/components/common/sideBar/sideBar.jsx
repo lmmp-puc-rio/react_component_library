@@ -29,7 +29,7 @@ const fotterIcons = [
 
 const SideBar= (props) => {
   /* State responsible for controlling the opening/closing of the sidebar */
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
 
   return (

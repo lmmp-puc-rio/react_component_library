@@ -1,12 +1,9 @@
 .accordion__container {
   display: flex;
   width: 100%;
+  height: 100%;
   flex-direction: column;
   background-color: #ffffff;
-}
-
-.accordion__container--item {
-  margin-bottom: 0.3rem;
 }
 
 .accordion__title {
@@ -18,6 +15,11 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   font-weight: 700;
+  color: black;
+}
+
+.accordion__title:hover {
+  background-color: #b5daff;
 }
 
 .accordion__icon {
@@ -25,12 +27,14 @@
 }
 
 .accordion__container--child {
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  height: 85vh;
+  height: 100%;
   width: 100%;
-  overflow: hidden;
+  color: black;
+  overflow: scroll;
+  overflow-x: hidden;
 }
