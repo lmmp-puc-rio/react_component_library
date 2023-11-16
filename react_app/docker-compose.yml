@@ -1,0 +1,52 @@
+# Docker-compose for the react_componente_library application, built with ReactJS.
+
+version: "3"
+
+# app containers
+services:
+
+  ### ReactJS container
+  app-component-library:
+
+    # Build container using context to pass variables through arguments
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+        APP_PORT: $APP_PORT
+        REACT_APP_API_SQL: $REACT_APP_API_SQL
+        REACT_APP_API_MONGO: $REACT_APP_API_MONGO         
+    
+    # Container volumes and shared volumes
+    volumes:
+      - .:/usr/local/i3d/app_component_library/         # Persistent data and changes
+      - imp_file:/var/tmp/files/imp   # Shared volume between APP and API, import files
+      - exp_file:/var/tmp/files/exp   # Shared volume between APP and API, export files
+    
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    
+    networks:
+      - i3d_dockernet
+
+# Named network using bridge driver (may give containers external access)
+networks:
+  i3d_dockernet:
+    driver: bridge
+    name: i3d_dockernet
+
+# Shared volumes for the APP container. As of version 2.18.1 of docker-compose, if there's an already external
+# shared volume (usually built by the API container), then it will issue a warning stating that said volumes 
+# have already been created, but will not fail. In version earlier than 2.18.1 this seems to cause an error
+# and the container failes to build. In that case, the option 'external: true' must be placed below the shared
+# volume name.
+volumes:
+  imp_file:         # APP import files from API
+    name: imp_file
+    external: true
+  
+  exp_file:         # APP export files from API
+    name: exp_file
+    external: true
