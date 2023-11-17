@@ -1,43 +1,15 @@
 // #  Main Imports
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 
 // # Import Component Style
-import './pages.css'
-import { TabsComponent } from '../components/common';
-
-
-
-
-const TabsComponents = (props) => {
-
-    const data = [
-        
-        {name:"Centralizadores",
-         description:"Centralizadores",
-         id:"Accordions"
-       },
-       {name:"app",
-        description:"app",
-        id:"ProjectCards"
-       },
-  
-    ]
-
-    const pages = {props}
-    return (
-        
-        <> 
-            <TabsComponent  data = {data}>
-                <div key={"Accordions"}> Teste 1</div>
-                <div key={"ProjectCards"}> Teste 2</div>
-            </TabsComponent> 
-        </>
-        
-    );
+// # Context
+import { ActiveTabContext } from "../contexts/ActiveTabContext";
+  /* State to control Tabs Component */
+  const { activeTab, setActiveTab } = useContext(ActiveTabContext);
 };
 
 
