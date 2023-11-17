@@ -19,6 +19,8 @@ import { ChildrenTabs, ChildrenTabs2 } from "../components/common/childrenTabs";
 
 // # Context
 import { ActiveTabContext } from "../contexts/ActiveTabContext";
+
+const TabsComponents = () => {
   /* State to control Tabs Component */
   const { activeTab, setActiveTab } = useContext(ActiveTabContext);
 
@@ -26,6 +28,17 @@ import { ActiveTabContext } from "../contexts/ActiveTabContext";
   const handleClick = (id) => {
     setActiveTab(id);
   };
+
+  return (
+    <Tabs data={dataTabSequencia} activeTab={activeTab} callback={handleClick}>
+      <div key={"Parâmetros Básicos"}>
+        <ChildrenTabs />
+      </div>
+      <div key={"Parâmetros Avançados"}>
+        <ChildrenTabs2 />
+      </div>
+    </Tabs>
+  );
 };
 
 
