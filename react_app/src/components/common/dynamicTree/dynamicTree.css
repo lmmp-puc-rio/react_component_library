@@ -1,0 +1,44 @@
+.dynamic-tree-header__container {
+    padding: 0 0 0 0.28rem;
+    color: #17365c;
+  }
+  
+  .bttn-tree-header__container {
+    border: none;
+    cursor: pointer;
+    color: #17365c;
+    background-color: transparent;
+  }
+  
+  .tree-header-text {
+    padding-left: 0.5rem;
+    color: black;
+    display: inline;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .tree-child__container:hover, .tree-header__container-bttn-text:hover{
+    background-color: #b5daff;
+  }
+  
+  .tree-child__container {
+    padding: 0.2rem 1rem;
+    cursor: pointer;
+    height: 100%;
+  }
+  
+  .bttn-tree-child__container {
+    border: none;
+    cursor: pointer;
+    color: #17365c;
+    background-color: transparent;
+  }
+  
+  .tree-item-text {
+    padding-left: 0.4rem;
+    color: black;
+    display: inline;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
