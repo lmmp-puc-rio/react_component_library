@@ -6,6 +6,17 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 
 // # Import Component Style
+import "./pages.css";
+
+// #  Local SubComponents & utils
+import Tabs from "../components/common/tabsWithoutRouter/Tabs";
+
+/*Tabs Data*/
+import { dataTabSequencia } from "../data/tabData";
+
+// #  Local SubComponents & utils
+import { ChildrenTabs, ChildrenTabs2 } from "../components/common/childrenTabs";
+
 // # Context
 import { ActiveTabContext } from "../contexts/ActiveTabContext";
   /* State to control Tabs Component */
