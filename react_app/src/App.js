@@ -107,6 +107,8 @@ function App() {
       title: "ReactQuery",
       className: "navbar-item",
     },
+    { url: "/slidingPanel", title: "slidingPanel", className: "navbar-item" },
+
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
