@@ -43,6 +43,7 @@ import {
   Jokes,
   Graphic3DPlotly,
   TestReactQuery,
+  SlidingPanels
 } from "./pages";
 
 // All Contexts Import
@@ -106,6 +107,8 @@ function App() {
       title: "ReactQuery",
       className: "navbar-item",
     },
+    { url: "/slidingPanel", title: "slidingPanel", className: "navbar-item" },
+
     { url: "/help", title: "Help", className: "navbar-item" },
   ];
 
@@ -331,6 +334,12 @@ function App() {
                   <Route exact path={navlinks[17].url}>
                     <div name="inputs" className="card-container">
                       <TestReactQuery/>
+                    </div>
+                  </Route>
+                  {/* Sliding Panel Route */}
+                  <Route exact path={navlinks[18].url}>
+                    <div name="inputs" className="card-container">
+                      <SlidingPanels/>
                     </div>
                   </Route>
                 </Switch>
