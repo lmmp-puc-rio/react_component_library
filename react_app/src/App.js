@@ -336,6 +336,12 @@ function App() {
                       <TestReactQuery/>
                     </div>
                   </Route>
+                  {/* Sliding Panel Route */}
+                  <Route exact path={navlinks[18].url}>
+                    <div name="inputs" className="card-container">
+                      <SlidingPanels/>
+                    </div>
+                  </Route>
                 </Switch>
                 <Route exact path={"/cases/delete/:id"}>
                   <Modal cancelURL={"/cases"}>
