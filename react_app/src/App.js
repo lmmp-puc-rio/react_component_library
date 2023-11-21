@@ -52,6 +52,8 @@ import { ModalProvider } from "./contexts/ModalContext";
 import { SearchProvider } from "./contexts/SearchContext";
 import { ActionFabGridProvider } from "./contexts/ActionFabGridContext";
 import { ActiveTabProvider } from "./contexts/ActiveTabContext";
+import { HistoryProvider } from "./contexts/HistoryContext";
+import { AccordionSmallFrameProvider } from "./contexts/AccordionSmallFrameContext";
 
 function App() {
   /* State responsible for controlling the opening/closing of the sidebar */
@@ -199,6 +201,8 @@ function App() {
       <ModalProvider>
         <ActiveTabProvider>
           <SearchProvider>
+            <HistoryProvider>
+              <AccordionSmallFrameProvider>
             <Header navlinks={navlinks} mail={"info@difsolutions.com"} />
             <div name="app" className="App">
               <div name="main" className="main">
@@ -231,12 +235,12 @@ function App() {
                       <Cases />
                     </div>
                   </Route>
-                  {/* Accordion Route */}
-                  <Route exact path={navlinks[4].url}>
-                    <div name="inputs" className="grid-container">
-                      <Accordions />
-                    </div>
-                  </Route>
+                      {/* Accordion Route */}
+                      <Route exact path={navlinks[4].url}>
+                        <div name="inputs" className="grid-container">
+                          <Accordions />
+                        </div>
+                      </Route>
 
                   {/* Tabs Route */}
                   <Route exact path={navlinks[5].url}>
@@ -355,6 +359,8 @@ function App() {
               {/* AUTOMATIC CREATION FROM DATA: simply pass data prop */}
               {/*   <FAB data={actionData} /> */}
             </div>
+              </AccordionSmallFrameProvider>
+            </HistoryProvider>
           </SearchProvider>
         </ActiveTabProvider>
       </ModalProvider>

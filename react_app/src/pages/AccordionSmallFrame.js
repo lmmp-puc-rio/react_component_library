@@ -1,77 +1,110 @@
 // # Main Import
-import { useEffect, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import { Accordion, BallonNotification } from "../components/common";
+// #  Local SubComponents & utils
+import {
+  Accordion,
+  BallonNotification,
+} from "../components/common";
+
+import DynamicTree from "../components/common/dynamicTree/dynamicTree";
+
+// # Context
+import { AccordionSmallFrameContext } from "../contexts/AccordionSmallFrameContext";
+import { FormsContext } from "../contexts/FormsContext";
 
 // # Import Component Style
-import "./styles/AccordionSmallFrame.css";
+import "../pages/styles/AccordionSmallFrame.css";
+import { treeInfoResults } from "../data/treeInfo";
 
 function AccordionSmallFrame(props) {
-
-  const activeName = props.activeName
-  const setActiveName = props.setActiveName
-
   const data = props.accordionData;
   const maxHeight = props.maxHeight;
+  const handleToggle = props.handleToggle;
 
-  const valuesInfo = props.valuesInfo;
-  const setErrorInfo = props.setErrorInfo
+  const dataSimulation = props.dataSimulation;
+  const setDataSimulation = props.setDataSimulation;
 
-  const valuesScenery = props.valuesScenery;
-  const setErrorScenery = props.setErrorScenery;
+  // ActiveName at AccordionSmallFrame
+  const { activeName, setActiveName } = useContext(AccordionSmallFrameContext);
+
+  /* State to set form values for GeneralInfo Page and Scenery Page*/
+  const { valuesInfo, valuesScenery, setErrorInfo, setErrorScenery } =
+    useContext(FormsContext);
+
+  const history = useHistory();
+  const case_id = history.location.pathname.split("/")[2];
+
+  // State to control simulation button
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
+  // State to control error message
+  const [showError, setShowError] = useState(false);
+
+  // State to control progress bar percentage
+  const [completed, setCompleted] =
+    useState(0); /* dataSimulation.execution_percentage */
 
 
-  
-  const handleToggle = (url, id, setError, values) => {
-    
-    if(id=== "Informações gerais") {
-      let emptyValues = Object.values(valuesScenery).filter(
-        (v) => v === null || v === "")
-        if(emptyValues.length > 0) {
-          setErrorScenery(emptyValues.length)
-          setErrorInfo(0)
-      
-    }
-  }
-    else if(id=== "Cenário") {
-      let emptyValues = Object.values(valuesInfo).filter(
-        (v) => v === null || v === "")
-        if(emptyValues.length > 0) {
-          setErrorInfo(emptyValues.length)
-          setErrorScenery(0)
-      
-    }
-    }  
-    setActiveName(id);
-    /*    window.location.href = url */
+  // Data for Dynamic Tree Component
+  const dynamicTreeData = {
+    name: "Gráficos",
+    icon: "",
+    info: treeInfoResults,
   };
+
+
+  useEffect(() => {
+    if (history.location.pathname.endsWith("/general_info")) {
+      setActiveName("Informações gerais");
+    } else if (history.location.pathname.endsWith("/scenery")) {
+      setActiveName("Cenário");
+    } else if (history.location.pathname.includes("/geometry")) {
+      setActiveName("Geometria");
+    } else if (history.location.pathname.includes("/pumpsequence")) {
+      setActiveName("Sequência de Bombeio");
+    } else if (history.location.pathname.includes("/thermal_profile")) {
+      setActiveName("Perfil Térmico");
+    } else if (history.location.pathname.endsWith("/simulation")) {
+      setActiveName("Simulação");
+    }
+  }, [activeName, history.location.pathname, setActiveName]);
+
 
 
   return (
     <div className="accordion__side-bar">
-      <Accordion accordionData={data} maxHeight={maxHeight}>
+      <Accordion accordionData={data} maxHeight={maxHeight} accordionKey="1">
         <div key={1}>
           {data[0].inputData.map((item) => (
-            <>
-              {item.error > 0 ? <BallonNotification error={item.error} link={item.route} /> : " "}
+            <div
+              onClick={() => handleToggle(item.route, item.name)}
+              className="ballon-notification-container"
+            >
+              {item.error > 0 ? (
+                <BallonNotification error={item.error} link={item.route} />
+              ) : (
+                " "
+              )}
+
               <p
                 className={
                   activeName === item.name
                     ? "accordion__item-text-active"
                     : "accordion__item-text"
                 }
-                onClick={() => handleToggle(item.route, item.name, item.callBackError, item.values)}
               >
                 {item.name}
               </p>
-            </>
+            </div>
           ))}
         </div>
-        <div key={2}>
-          {data[1].inputDataResults.map((item) => (
-            <p className="accordion__item-text">{item.name}</p>
-          ))}
+        <div key={2} className="accordion-result__container">
+          <DynamicTree
+            name={dynamicTreeData.name}
+            data={dynamicTreeData.info}
+          />
         </div>
       </Accordion>
     </div>

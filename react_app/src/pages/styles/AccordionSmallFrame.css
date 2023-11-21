@@ -1,25 +1,23 @@
-
 .accordion__side-bar {
-    height: 60vh;
-  }
-  
-  .accordion__item-text {
-    padding: 1rem 0 0.5rem 2rem;
-    font-weight: 400;
-    cursor: pointer;
-    color: black;
-  }
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .accordion__item-text-active{
-    padding: 1rem 0 0.5rem 2rem;
-    background-color: #b5daff;;
-    font-weight: 700;
-    color: black;
-  }
+.accordion__item-text {
+  padding: 1rem 0 0.5rem 2rem;
+  font-weight: 400;
+  cursor: pointer;
+}
 
-  
-  .accordion__item-text:hover {
-    font-weight: 700;
-    background-color: #b5daff;
-  }
-  
+.accordion__item-text-active {
+  padding: 1rem 0 0.5rem 2rem;
+  background-color: #b5daff;
+  font-weight: 700;
+}
+
+.accordion__item-text:hover {
+  font-weight: 700;
+  background-color: #b5daff;
+}

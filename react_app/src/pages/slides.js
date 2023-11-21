@@ -13,7 +13,6 @@ import { SearchProvider } from "../contexts/SearchContext";
 
 import FormsNewProject from "./FormsNewProject";
 import FormsNewCase from "./FormsNewCase";
-import AccordionSmallFrame from "./AccordionSmallFrame";
 
 import "./styles/slides.css";
 
@@ -183,16 +182,6 @@ function Slides() {
       <SideMenu placeholderSearchBox={placeholderSearchBox.caseProps}>
         {/*         Small Frame for Case Props */}
         <CurrentLevel data={paramsForCaseProps} />;
-        <AccordionSmallFrame
-          accordionData={dataStructure}
-          maxHeight={maxHeight}
-          activeName={activeName}
-          setActiveName={setActiveName}
-          valuesInfo={valuesInfo}
-          setErrorInfo = {setErrorInfo}
-          valuesScenery={valuesScenery}
-          setErrorScenery = {setErrorScenery}
-        />
       </SideMenu>
       { activeName === "Informações gerais" ?     
       
