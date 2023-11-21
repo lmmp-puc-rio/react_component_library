@@ -1,15 +1,11 @@
 // #  Main Imports
-import React, { useState, useContext } from 'react';
-
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-
+import React, { useContext } from 'react';
 
 // # Import Component Style
 import "./pages.css";
 
 // #  Local SubComponents & utils
-import Tabs from "../components/common/tabsWithoutRouter/Tabs";
+import { Tabs } from '../components/common';
 
 /*Tabs Data*/
 import { dataTabSequencia } from "../data/tabData";
@@ -19,6 +15,7 @@ import { ChildrenTabs, ChildrenTabs2 } from "../components/common/childrenTabs";
 
 // # Context
 import { ActiveTabContext } from "../contexts/ActiveTabContext";
+
 
 const TabsComponents = () => {
   /* State to control Tabs Component */
