@@ -39,17 +39,18 @@ function Tabs(props) {
         ))}
       </ul>
       <div className="outlet">
-        {data.map((item) => (
-          <TabContent id={item.id} activeTab={activeTab}>
-          {props.children.map((child) => {
-                    if (child.key === item.id) {
-                      return child;
-                    }})}
+        {data.map((item, index) => (
+          <TabContent id={item.id} activeTab={activeTab} key={index}>
+            {props.children.map((child) => {
+              if (child.key === item.id) {
+                return child;
+              }
+            })}
           </TabContent>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default Tabs;

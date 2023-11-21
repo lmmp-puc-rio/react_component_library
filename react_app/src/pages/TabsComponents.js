@@ -1,43 +1,41 @@
 // #  Main Imports
-import React, { useState } from 'react';
-
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-
+import React, { useContext } from 'react';
 
 // # Import Component Style
-import './pages.css'
-import { TabsComponent } from '../components/common';
+import "./pages.css";
+
+// #  Local SubComponents & utils
+import { Tabs } from '../components/common';
+
+/*Tabs Data*/
+import { dataTabSequencia } from "../data/tabData";
+
+// #  Local SubComponents & utils
+import { ChildrenTabs, ChildrenTabs2 } from "../components/common/childrenTabs";
+
+// # Context
+import { ActiveTabContext } from "../contexts/ActiveTabContext";
 
 
+const TabsComponents = () => {
+  /* State to control Tabs Component */
+  const { activeTab, setActiveTab } = useContext(ActiveTabContext);
 
+  /*Function to change id Tab*/
+  const handleClick = (id) => {
+    setActiveTab(id);
+  };
 
-const TabsComponents = (props) => {
-
-    const data = [
-        
-        {name:"Centralizadores",
-         description:"Centralizadores",
-         id:"Accordions"
-       },
-       {name:"app",
-        description:"app",
-        id:"ProjectCards"
-       },
-  
-    ]
-
-    const pages = {props}
-    return (
-        
-        <> 
-            <TabsComponent  data = {data}>
-                <div key={"Accordions"}> Teste 1</div>
-                <div key={"ProjectCards"}> Teste 2</div>
-            </TabsComponent> 
-        </>
-        
-    );
+  return (
+    <Tabs data={dataTabSequencia} activeTab={activeTab} callback={handleClick}>
+      <div key={"Parâmetros Básicos"}>
+        <ChildrenTabs />
+      </div>
+      <div key={"Parâmetros Avançados"}>
+        <ChildrenTabs2 />
+      </div>
+    </Tabs>
+  );
 };
 
 
