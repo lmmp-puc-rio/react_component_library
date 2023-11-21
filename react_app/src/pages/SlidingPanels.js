@@ -1,6 +1,7 @@
 import React from "react";
-import { SlidingPanel } from "../components/common";
-import TreeComponent from "../components/common/treeComponent";
+
+// #  Local SubComponents & utils
+import { SlidingPanel, TreeComponent } from "../components/common";
 
 /* Data */
 import {  dynamicTreeData } from "../data/treeInfo";
