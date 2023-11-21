@@ -19,6 +19,7 @@ import TestReactQuery from "./TestReactQuery";
 import FormsNewProject from "./FormsNewProject";
 import FormsNewCase from "./FormsNewCase";
 import AccordionSmallFrame from "./AccordionSmallFrame";
+import SlidingPanels from "./SlidingPanels";
 
 
 export {
@@ -43,5 +44,6 @@ export {
   FormsNewProject,
   FormsNewCase,
   AccordionSmallFrame,
+  SlidingPanels
 };
 

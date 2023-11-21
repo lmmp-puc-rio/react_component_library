@@ -43,6 +43,7 @@ import {
   Jokes,
   Graphic3DPlotly,
   TestReactQuery,
+  SlidingPanels
 } from "./pages";
 
 // All Contexts Import
