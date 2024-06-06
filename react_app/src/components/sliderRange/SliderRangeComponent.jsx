@@ -9,6 +9,7 @@ function SliderRangeComponent({
     color = "blue",
     showCurrentTime = true,
     unitOfTime = "s",
+    label="Time"
 }) {
     // Sort the array values in ascending order
     const sortedTimes = [...times].sort((a, b) => a - b);
@@ -42,7 +43,7 @@ function SliderRangeComponent({
             />
             {showCurrentTime && (
                 <div className="current-value">
-                    Time: {sliderValue} {unitOfTime}
+                    {label}: {sliderValue} {unitOfTime}
                 </div>
             )}
         </div>
