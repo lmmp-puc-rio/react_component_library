@@ -1,0 +1,17 @@
+.slider-container {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slider {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.current-value {
+    margin-top: 20px;
+    font-size: 16px;
+}
