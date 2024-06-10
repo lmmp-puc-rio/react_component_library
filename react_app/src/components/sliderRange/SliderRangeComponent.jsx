@@ -4,12 +4,24 @@ import React, { useState } from "react";
 // # Import Component Style
 import "./SliderRange.css";
 
-function SliderRangeComponent({
-    times = [],
-    color = "blue",
-    showCurrentTime = true,
-    unitOfTime = "s",
-    label="Time"
+function SliderRange ({
+  times = [],
+  colorSlider = "blue",
+  showRangeValue = true,
+  showLabels = true,
+  label = "Time",
+  unit = "s",
+  disabled = false,
+  rangeValueFontSize = "12px",
+  rangeValueColor = "#000",
+  labelMarginTopHorizontal = "10px",
+  labelMarginTopVertical = "10px",
+  currentValueFontSize = "16px",
+  width = "50%",
+  orient = "slider-horizontal", // To vertical use slider-vertical
+  heightSliderVertical = "200px",
+  spaceBetweenRangeAndSliderVertical = "8px",
+  spaceBetweenRangeAndSliderHorizontal = "100%"
 }) {
     // Sort the array values in ascending order
     const sortedTimes = [...times].sort((a, b) => a - b);
