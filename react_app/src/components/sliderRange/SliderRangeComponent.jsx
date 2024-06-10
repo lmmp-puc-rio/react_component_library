@@ -29,19 +29,54 @@ function SliderRange ({
 
     const [sliderValue, setSliderValue] = useState(sortedTimes[0]);
 
-    // Function to change the step value
-    const handleStep = (value) => {
-        return sortedTimes.reduce((prev, curr) =>
-            Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev
-        );
-    };
 
-    const handleChange = (event) => {
-        const value = parseInt(event.target.value);
-        const step = handleStep(value);
-        setSliderValue(step);
-    };
-
+  return (
+    <div
+      className={`slider-range-container ${orient}`}
+      style={{ width: width,
+        height: orient === "slider-vertical" ? heightSliderVertical : "100%",
+    }}
+    >
+      {showRangeValue && (
+        <div className={`range-value ${orient}`} 
+        style={{width: orient === "slider-vertical" ? spaceBetweenRangeAndSliderVertical : spaceBetweenRangeAndSliderHorizontal}}>
+          {sortedValues.map((value, index) => (
+            <p
+              key={index}
+              style={{
+                fontSize: rangeValueFontSize,
+                color: rangeValueColor,
+                left:
+                orient === "slider-horizontal"
+                    ? `${(index / (sortedValues.length - 1)) * 100}%`
+                    : "auto",
+                bottom:
+                orient === "slider-vertical"
+                    ? `${(index / (sortedValues.length - 1)) * 100}%`
+                    : "auto",
+                transform:
+                orient === "slider-horizontal"
+                    ? "translate(-50%, 0)"
+                    : "translateY(50%)",
+              }}
+            >
+              {value}
+            </p>
+          ))}
+        </div>
+      )}
+      <input
+        type="range"
+        min={0}
+        max={sortedValues.length - 1}
+        value={currentIndex}
+        onChange={handleChange}
+        step={1}
+        className="input-range"
+        style={{ accentColor: colorSlider }}
+        disabled={disabled}
+        orient={orient === "slider-vertical" ? "vertical" : "horizontal"}
+      />
       {showLabels && (
         <div
           style={{
