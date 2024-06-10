@@ -24,11 +24,15 @@ function SliderRange ({
   spaceBetweenRangeAndSliderVertical = "8px",
   spaceBetweenRangeAndSliderHorizontal = "100%"
 }) {
-    // Sort the array values in ascending order
-    const sortedTimes = [...times].sort((a, b) => a - b);
 
-    const [sliderValue, setSliderValue] = useState(sortedTimes[0]);
+  // Sort the array values in ascending order
+  const sortedValues = [...times].sort((a, b) => a - b);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Function to get the current index of sorted values
+  const handleChange = (event) => {
+    setCurrentIndex(event.target.value);
+  };
 
   return (
     <div
