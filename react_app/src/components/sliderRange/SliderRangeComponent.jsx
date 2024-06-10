@@ -42,25 +42,22 @@ function SliderRange ({
         setSliderValue(step);
     };
 
-    return (
-        <div className="slider-container">
-            <input
-                type="range"
-                min={sortedTimes[0]}
-                max={sortedTimes[sortedTimes.length - 1]}
-                value={sliderValue}
-                onChange={handleChange}
-                step={1}
-                className="slider"
-                style={{ accentColor: color }}
-            />
-            {showCurrentTime && (
-                <div className="current-value">
-                    {label}: {sliderValue} {unitOfTime}
-                </div>
-            )}
+      {showLabels && (
+        <div
+          style={{
+            marginTop:
+            orient === "slider-horizontal" ? labelMarginTopHorizontal : "0",
+            marginLeft: orient === "slider-vertical" ? labelMarginTopVertical : "0",
+            fontSize: currentValueFontSize,
+          }}
+        >
+          {label && unit !== ""
+            ? `${label}: ${sortedValues[currentIndex]} ${unit}`
+            : null}
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default SliderRange;
