@@ -1,5 +1,6 @@
 // # Main Import
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 // # Import Component Style
 import "./SliderRange.css";
@@ -62,4 +63,8 @@ function SliderRange ({
     );
 };
 
-export default SliderRangeComponent;
+export default SliderRange;
+
+SliderRange.propTypes = {
+  times: PropTypes.array.isRequired,
+};
