@@ -1,0 +1,48 @@
+.slider-range-container {
+  position: relative;
+  text-align: center;
+}
+
+.slider-range-container.slider-vertical {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: "100%";
+}
+
+.input-range {
+  width: 100%;
+}
+
+.input-range[orient="vertical"] {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  writing-mode: bt-lr;
+
+  /* old version browser */
+  appearance: slider-vertical;
+  width: 8px;
+  height: 100%;
+}
+
+.range-value p {
+  white-space: "nowrap";
+}
+
+.range-value.slider-horizontal {
+  position: relative;
+  height: 20px;
+}
+
+.range-value.slider-horizontal p {
+  position: absolute;
+}
+
+.range-value.slider-vertical p {
+  position: absolute;
+  right: 100%;
+}
+
+.labels {
+  font-size: 16px;
+}
