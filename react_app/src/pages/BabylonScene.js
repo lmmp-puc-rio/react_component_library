@@ -20,7 +20,8 @@ const ConcentrationGraphic = (props) => {
   };
 
   return (
-    <div className="plotly-container">
+    <div>
+      <h1>Babylon Model Viewer</h1>
       <BabylonScene layout={layout}/>
     </div>
   );
