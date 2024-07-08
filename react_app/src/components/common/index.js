@@ -29,6 +29,7 @@ import FluidSelect from "./selectFluid/selectFluid";
 import GraphicObjectsPlotly from "./graphicObjects";
 import Tabs from "./tabsWithoutRouter";
 import Graphic3D from "./graphic3D";
+import BabylonScene from "./babylonScene";
 import Accordion from "./accordionTest";
 import Toggle from "./toggle";
 import CurrentLevel from "./currentLevel";
@@ -70,6 +71,7 @@ export {
   Toggle,
   CurrentLevel,
   BallonNotification,
+  BabylonScene,
   darkColors,
   lightColors,
 };

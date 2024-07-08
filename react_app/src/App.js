@@ -42,6 +42,7 @@ import {
   BasicAndAdvancedForm,
   Jokes,
   Graphic3DPlotly,
+  ConcentrationGraphic,
   TestReactQuery,
 } from "./pages";
 
@@ -105,6 +106,8 @@ function App() {
       className: "navbar-item",
     },
     { url: "/help", title: "Help", className: "navbar-item" },
+    //TODO: Colocar antes de help
+    { url: "/BabylonScene", title: "Concentration", className: "navbar-item" },
   ];
 
   const actionData = {
@@ -329,6 +332,12 @@ function App() {
                       <TestReactQuery/>
                     </div>
                   </Route>
+                  {/* BabylonScene Route */}
+                  <Route exact path={navlinks[19].url}>
+                    <div name="inputs" className="card-container">
+                      <ConcentrationGraphic />
+                    </div>
+                  </Route>  
                 </Switch>
                 <Route exact path={"/cases/delete/:id"}>
                   <Modal cancelURL={"/cases"}>

@@ -15,6 +15,7 @@ import GraphicObjectsChart from "./GraphicObjectsPlotly";
 import BasicAndAdvancedForm from "./BasicAndAdvancedForm";
 import Jokes from "./Jokes";
 import Graphic3DPlotly from "./Graphic3D";
+import ConcentrationGraphic from "./BabylonScene";
 import TestReactQuery from "./TestReactQuery";
 import FormsNewProject from "./FormsNewProject";
 import FormsNewCase from "./FormsNewCase";
@@ -43,5 +44,6 @@ export {
   FormsNewProject,
   FormsNewCase,
   AccordionSmallFrame,
+  ConcentrationGraphic,
 };
 
