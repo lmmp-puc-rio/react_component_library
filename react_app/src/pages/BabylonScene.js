@@ -12,12 +12,18 @@ import { BabylonScene } from "../components/common";
 // Import Component Style
 function ConcentrationGraphic(props){
 
+  // Scene parameters
+  const arcRotateCamera =  true;
+  const replaceCameraLight = false;
+  const cameraControls = true;
+
   const canvasRef = useRef(null);
+  
   
   useEffect(() => {
     const canvas = canvasRef.current;
     const engine = createBabylonEngine(canvas);
-    const scene = createBabylonScene(engine);
+    const scene = createBabylonScene(engine, arcRotateCamera, replaceCameraLight, cameraControls);
     
     (async () => {
       try {
