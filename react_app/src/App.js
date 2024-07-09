@@ -105,9 +105,9 @@ function App() {
       title: "ReactQuery",
       className: "navbar-item",
     },
-    { url: "/help", title: "Help", className: "navbar-item" },
-    //TODO: Colocar antes de help
     { url: "/BabylonScene", title: "Concentration", className: "navbar-item" },
+    { url: "/help", title: "Help", className: "navbar-item" },
+    
   ];
 
   const actionData = {
@@ -333,7 +333,7 @@ function App() {
                     </div>
                   </Route>
                   {/* BabylonScene Route */}
-                  <Route exact path={navlinks[19].url}>
+                  <Route exact path={navlinks[18].url}>
                     <div name="inputs" className="card-container">
                       <ConcentrationGraphic />
                     </div>
