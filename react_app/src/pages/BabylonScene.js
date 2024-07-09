@@ -70,7 +70,7 @@ function ConcentrationGraphic(props) {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "80vh",
+    height: "70vh",
   };
 
   const innerContainerStyle = {
@@ -82,9 +82,10 @@ function ConcentrationGraphic(props) {
   return (
     <div style={containerStyle}>
       <div style={innerContainerStyle}>
-        <h1 style={{ textAlign: "center" }}>{wellName}</h1>
-        <BabylonScene canvasRef={canvasRef} style={style} />
         <ComboBox onSelectChange={handleSelectChange} />
+        <BabylonScene canvasRef={canvasRef} style={style} />
+        <h1 style={{ textAlign: "center" }}>{wellName}</h1>
+        
       </div>
     </div>
   );

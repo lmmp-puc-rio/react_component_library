@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './comboBox.css'; // Importe o CSS
 
 function ComboBox({ onSelectChange }) {
   const [selectedOption, setSelectedOption] = useState('');
