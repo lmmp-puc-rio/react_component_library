@@ -8,6 +8,7 @@ const createBabylonEngine = (canvas) => {
 const createBabylonScene = (engine, arcRotateCamera, replaceCameraLight, cameraControls) => {
   const scene = new BABYLON.Scene(engine);
   scene.createDefaultCameraOrLight(arcRotateCamera, replaceCameraLight, cameraControls);
+  BABYLON.SceneLoader.ShowLoadingScreen = false; // set babylon loading to false
 
   // Create ambient light
   const ambientLight = new BABYLON.HemisphericLight("ambientLight", new BABYLON.Vector3(1, 0, 0), scene);
