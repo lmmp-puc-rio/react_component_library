@@ -2,6 +2,10 @@
 import React, { useEffect, useRef } from 'react';
 import { createBabylonEngine, createBabylonScene, loadGLBModel } from '../components/common/babylonScene/babylonConfig';
 
+// Import GLB files
+import fluid1GLB from '../data/files/fluid1.glb';
+import fluid2GLB from '../data/files/fluid2.glb';
+
 // Local SubComponents & utils
 import { BabylonScene } from "../components/common";
 
@@ -17,10 +21,10 @@ function ConcentrationGraphic(props){
     
     (async () => {
       try {
-        const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, "/fluid1.glb", true);
+        const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid1GLB, true);
         console.log("First GLB file loaded successfully");
 
-        await loadGLBModel(scene, "/fluid2.glb", false, centerOne);
+        await loadGLBModel(scene, fluid2GLB, false, centerOne);
         console.log("Second GLB file loaded successfully");
       } catch (error) {
         console.error(error.message);
