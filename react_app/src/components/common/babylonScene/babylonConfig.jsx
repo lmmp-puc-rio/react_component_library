@@ -23,13 +23,24 @@ const loadGLBModel = (scene, url, alpha, center) => {
     return new Promise((resolve, reject) => {
       BABYLON.SceneLoader.Append(url, "", scene, function () {
         const mesh = scene.meshes[scene.meshes.length - 1]; // Assume the last mesh loaded is the target
-  
-        // Center the mesh at the origin or at the specified center
+        
+        // Calculate center of mass
         const boundingInfo = mesh.getBoundingInfo();
         const meshCenter = boundingInfo.boundingBox.center;
-        const centerToUse = center || meshCenter; // Use the specified center or the mesh's center
-        mesh.position.subtractInPlace(centerToUse);
-  
+        const centerToUse = center || meshCenter;
+
+        // Calculate offset to move mesh to origin
+        const offset = new BABYLON.Vector3(0, centerToUse.z, 0);
+
+        // First rotation arround X axis
+        const rotationQuaternionX = mesh.rotationQuaternion = BABYLON.Quaternion.RotationAxis(BABYLON.Axis.X, 3/2 * Math.PI);
+
+        // Second rotation arround Y axis
+        const rotationQuaternionY = BABYLON.Quaternion.RotationAxis(BABYLON.Axis.Y, Math.PI);
+        mesh.rotationQuaternion = rotationQuaternionY.multiply(rotationQuaternionX || BABYLON.Quaternion.Identity());
+
+        mesh.position.subtractInPlace(offset);
+
         // Apply transparency
         if (mesh.material) {
           mesh.material.transparencyMode = alpha ? BABYLON.Material.MATERIAL_ALPHABLEND : BABYLON.Material.MATERIAL_OPAQUE;
