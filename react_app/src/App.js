@@ -335,7 +335,7 @@ function App() {
                   {/* BabylonScene Route */}
                   <Route exact path={navlinks[18].url}>
                     <div name="inputs" className="card-container">
-                      <ConcentrationGraphic />
+                      <ConcentrationGraphic wellName ={'8PRM7D_RetroSimAnularA'}/>
                     </div>
                   </Route>  
                 </Switch>

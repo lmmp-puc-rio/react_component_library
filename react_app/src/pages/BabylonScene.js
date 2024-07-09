@@ -1,5 +1,4 @@
-// Main Imports
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createBabylonEngine, createBabylonScene, loadGLBModel } from '../components/common/babylonScene/babylonConfig';
 
 // Import GLB files
@@ -7,36 +6,50 @@ import fluid1GLB from '../data/files/fluid1.glb';
 import fluid2GLB from '../data/files/fluid2.glb';
 
 // Local SubComponents & utils
-import { BabylonScene } from "../components/common";
+import { BabylonScene, ComboBox } from "../components/common";
 
-// Import Component Style
-function ConcentrationGraphic(props){
+//===================================================================================================
+//===================================================================================================
+function ConcentrationGraphic(props) {
 
-  // Scene parameters
-  const arcRotateCamera =  true;
-  const replaceCameraLight = false;
-  const cameraControls = true;
+  const wellName = props.wellName;
+  const [selectedOption, setSelectedOption] = useState(''); // for ComboBox
+  const canvasRef = useRef(null); // for Babylon Scene
+  const handleSelectChange = (value) => {
+    setSelectedOption(value); // for ComboBox
+  };
 
-  const canvasRef = useRef(null);
-  
-  
   useEffect(() => {
+    if (!selectedOption) return;
+
     const canvas = canvasRef.current;
     const engine = createBabylonEngine(canvas);
-    const scene = createBabylonScene(engine, arcRotateCamera, replaceCameraLight, cameraControls);
-    
-    (async () => {
-      try {
-        const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid1GLB, true);
-        console.log("First GLB file loaded successfully");
+    const scene = createBabylonScene(engine, true, false, true);
 
-        await loadGLBModel(scene, fluid2GLB, false, centerOne);
-        console.log("Second GLB file loaded successfully");
+    //---------------------------------------------------------------------------------------------------
+    const loadModels = async () => {
+
+      // TODO: TROCAR POR SWITCH CASE E CRIAR UMA FUNÇÃO QUE CONSTROI O COMBO BASEADO NO NUMERO DE FLUIDOS
+      try {
+        if (selectedOption === '1') {
+          const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid2GLB, true);
+          console.log("First GLB file loaded successfully");
+          await loadGLBModel(scene, fluid1GLB, false, centerOne);
+          console.log("Second GLB file loaded successfully");
+        } else if (selectedOption === '2') {
+          const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid1GLB, true);
+          console.log("First GLB file loaded successfully");
+          await loadGLBModel(scene, fluid2GLB, false, centerOne);
+        }
       } catch (error) {
         console.error(error.message);
       }
-    })();
 
+    };
+
+    loadModels();
+
+    //---------------------------------------------------------------------------------------------------
     engine.runRenderLoop(() => {
       scene.render();
     });
@@ -45,8 +58,7 @@ function ConcentrationGraphic(props){
       scene.dispose();
       engine.dispose();
     };
-  }, []);
-
+  }, [selectedOption]);
 
   const style = {
     width: "100%",
@@ -58,19 +70,21 @@ function ConcentrationGraphic(props){
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "80vh", // Full viewport height
+    height: "80vh",
   };
 
   const innerContainerStyle = {
-    width: "60%", // Adjust the width as needed
-    height: "80%", // Adjust the height as needed
+    width: "60%",
+    height: "80%",
   };
 
+  //---------------------------------------------------------------------------------------------------
   return (
     <div style={containerStyle}>
       <div style={innerContainerStyle}>
-        <h1 style={{ textAlign: "center" }}>8PRM7D_RetroSimAnularA</h1> 
+        <h1 style={{ textAlign: "center" }}>{wellName}</h1>
         <BabylonScene canvasRef={canvasRef} style={style} />
+        <ComboBox onSelectChange={handleSelectChange} />
       </div>
     </div>
   );
