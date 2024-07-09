@@ -49,17 +49,29 @@ function ConcentrationGraphic(props){
 
 
   const style = {
-    width: "70%",
-    height: "100%",
+    width: "100%",
+    height: "70%",
     border: "1px solid",
   };
 
+  const containerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh", // Full viewport height
+  };
+
+  const innerContainerStyle = {
+    width: "80%", // Adjust the width as needed
+    height: "100%", // Adjust the height as needed
+  };
 
   return (
-    <div>
-       <h1>Babylon Model Viewer</h1> 
-      <BabylonScene canvasRef={canvasRef} style={style} />
-  
+    <div style={containerStyle}>
+      <div style={innerContainerStyle}>
+        <h1 style={{ textAlign: "center" }}>8PRM7D_RetroSimAnularA</h1> 
+        <BabylonScene canvasRef={canvasRef} style={style} />
+      </div>
     </div>
   );
 };
