@@ -50,7 +50,7 @@ function ConcentrationGraphic(props){
 
   const style = {
     width: "100%",
-    height: "70%",
+    height: "100%",
     border: "1px solid",
   };
 
@@ -58,12 +58,12 @@ function ConcentrationGraphic(props){
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh", // Full viewport height
+    height: "80vh", // Full viewport height
   };
 
   const innerContainerStyle = {
-    width: "80%", // Adjust the width as needed
-    height: "100%", // Adjust the height as needed
+    width: "60%", // Adjust the width as needed
+    height: "80%", // Adjust the height as needed
   };
 
   return (
