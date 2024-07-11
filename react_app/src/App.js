@@ -42,6 +42,7 @@ import {
   BasicAndAdvancedForm,
   Jokes,
   Graphic3DPlotly,
+  ConcentrationGraphic,
   TestReactQuery,
 } from "./pages";
 
@@ -104,7 +105,9 @@ function App() {
       title: "ReactQuery",
       className: "navbar-item",
     },
+    { url: "/BabylonScene", title: "Concentration", className: "navbar-item" },
     { url: "/help", title: "Help", className: "navbar-item" },
+    
   ];
 
   const actionData = {
@@ -329,6 +332,12 @@ function App() {
                       <TestReactQuery/>
                     </div>
                   </Route>
+                  {/* BabylonScene Route */}
+                  <Route exact path={navlinks[18].url}>
+                    <div name="inputs" className="card-container">
+                      <ConcentrationGraphic wellName ={'8PRM7D_RetroSimAnularA'}/>
+                    </div>
+                  </Route>  
                 </Switch>
                 <Route exact path={"/cases/delete/:id"}>
                   <Modal cancelURL={"/cases"}>
