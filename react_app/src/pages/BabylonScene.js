@@ -5,7 +5,7 @@ import { createBabylonEngine, createBabylonScene, loadGLBModel } from '../compon
 import fluid1GLB from '../data/files/fluid1.glb';
 import fluid2GLB from '../data/files/fluid2.glb';
 import fluid3GLB from '../data/files/fluid3.glb';
-import fluid4GLB from '../data/files/Fluid 1_9000.glb';
+import fluid4GLB from '../data/files/fluid4.glb';
 
 
 // Local SubComponents & utils
