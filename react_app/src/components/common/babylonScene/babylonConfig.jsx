@@ -18,12 +18,44 @@ const createBabylonScene = (engine, arcRotateCamera, replaceCameraLight, cameraC
   // Set the background color to white
   scene.clearColor = new BABYLON.Color4(0.9, 0.9, 0.9, 1);
 
-  // Get the camera and lock its translation
   const camera = scene.activeCamera;
   if (camera instanceof BABYLON.ArcRotateCamera) {
     camera.panningSensibility = 0; // Disable panning (translation)
     camera.useBouncingBehavior = false; // Disable bouncing behavior
     camera.useAutoRotationBehavior = false; // Disable auto-rotation behavior
+
+    // Set the camera to orthographic mode
+    camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
+
+    // Define the orthographic parameters
+    const aspectRatio = engine.getAspectRatio(camera);
+    let zoomLevel = 1.1; // Initial zoom level
+    camera.orthoLeft = -zoomLevel * aspectRatio;
+    camera.orthoRight = zoomLevel * aspectRatio;
+    camera.orthoTop = zoomLevel;
+    camera.orthoBottom = -zoomLevel;
+
+    // Add a scroll event listener to adjust the zoom level
+    window.addEventListener("wheel", (event) => {
+      // Adjust the zoom level based on the scroll direction
+      zoomLevel *= event.deltaY > 0 ? 1.1 : 0.9;
+
+      // Update the orthographic parameters
+      camera.orthoLeft = -zoomLevel * aspectRatio;
+      camera.orthoRight = zoomLevel * aspectRatio;
+      camera.orthoTop = zoomLevel;
+      camera.orthoBottom = -zoomLevel;
+      
+    });
+
+    // Adjust camera limits to allow free rotation
+    camera.lowerAlphaLimit = null; // Remove lower limit
+    camera.upperAlphaLimit = null; // Remove upper limit
+    camera.lowerBetaLimit = 0.0; // Adjust as needed
+    camera.upperBetaLimit = Math.PI; // Adjust as needed
+
+    // Adjust the camera position to avoid clipping
+    camera.radius = 20; // Adjust this value to ensure the object is not clipped
   }
 
   return scene;
