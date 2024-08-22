@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babylonjs/core": "^5.0.0",
+    "@babylonjs/gui": "^5.57.1",
     "@babylonjs/loaders": "^5.0.0",
     "@hookform/resolvers": "^2.9.10",
     "@testing-library/jest-dom": "^5.14.1",
