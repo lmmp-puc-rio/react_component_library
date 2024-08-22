@@ -4,6 +4,9 @@ import { createBabylonEngine, createBabylonScene, loadGLBModel } from '../compon
 // Import GLB files
 import fluid1GLB from '../data/files/fluid1.glb';
 import fluid2GLB from '../data/files/fluid2.glb';
+import fluid3GLB from '../data/files/fluid3.glb';
+import fluid4GLB from '../data/files/Fluid 1_9000.glb';
+
 
 // Local SubComponents & utils
 import { BabylonScene, ComboBox } from "../components/common";
@@ -32,14 +35,10 @@ function ConcentrationGraphic(props) {
       // TODO: TROCAR POR SWITCH CASE E CRIAR UMA FUNÇÃO QUE CONSTROI O COMBO BASEADO NO NUMERO DE FLUIDOS
       try {
         if (selectedOption === '1') {
-          const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid2GLB, true);
+          const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid4GLB, true);
           console.log("First GLB file loaded successfully");
-          await loadGLBModel(scene, fluid1GLB, false, centerOne);
-          console.log("Second GLB file loaded successfully");
         } else if (selectedOption === '2') {
-          const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid1GLB, true);
-          console.log("First GLB file loaded successfully");
-          await loadGLBModel(scene, fluid2GLB, false, centerOne);
+          const { mesh: meshOne, center: centerOne } = await loadGLBModel(scene, fluid4GLB, true);
         }
       } catch (error) {
         console.error(error.message);
